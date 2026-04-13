@@ -33,7 +33,7 @@ function loadPreferences() {
 function initLanguage() {
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
-        langToggle.addEventListener('click',toggleLanguage);
+        langToggle.addEventListener('click', toggleLanguage);
     }
     setLanguage(AppState.currentLang);
 }
@@ -41,7 +41,7 @@ function initLanguage() {
 function toggleLanguage() {
     const newLang = AppState.currentLang === 'en' ? 'zh' : 'en';
     setLanguage(newLang);
-    localStorage.setItem('portfolio-lang',newLang);
+    localStorage.setItem('portfolio-lang', newLang);
 }
 
 function setLanguage(lang) {
@@ -49,11 +49,11 @@ function setLanguage(lang) {
     const html = document.documentElement;
     const body = document.body;
     if (lang === 'zh') {
-        html.setAttribute('lang','zh');
-        body.setAttribute('data-lang','zh');
+        html.setAttribute('lang', 'zh');
+        body.setAttribute('data-lang', 'zh');
     } else {
-        html.setAttribute('lang','en');
-        body.setAttribute('data-lang','en');
+        html.setAttribute('lang', 'en');
+        body.setAttribute('data-lang', 'en');
     }
     updateLanguageUI();
 }
@@ -63,10 +63,14 @@ function updateLanguageUI() {
     textElements.forEach(element => {
         const enText = element.getAttribute('data-text-en');
         const zhText = element.getAttribute('data-text-zh');
+        // 支持复杂格式的翻译
+        // 包含HTML标记（例如物种名称的<em>）的元素使用innerHTML
+        const useHTML = element.hasAttribute('data-html');
+        const setter = useHTML ? 'innerHTML' : 'textContent';
         if (AppState.currentLang === 'zh' && zhText) {
-            element.textContent = zhText;
+            element[setter] = zhText;
         } else if (AppState.currentLang === 'en' && enText) {
-            element.textContent = enText;
+            element[setter] = enText;
         }
     });
     const langToggle = document.getElementById('langToggle');

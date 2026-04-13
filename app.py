@@ -25,6 +25,10 @@ app = Flask(__name__, template_folder=template_folder)
 def home():
     return render_template('index.html')
 
+@app.route('/wetlab/salicylic-acid')
+def wetlab_salicylic_acid():
+    return render_template(str(Path('pages')) + '/wetlab-salicylic-acid.html')
+
 # @app.route('/<page>')
 # def pages(page):
 #     return render_template(str(Path('pages')) + '/' + page.lower() + '.html')
