@@ -353,19 +353,21 @@ function initSubpageTransitions() {
     if (!window.__IS_SUBPAGE) return;
 
     const currentPath = window.location.pathname;
+    const homeUrl = window.__HOME_URL || '/';
 
     // Logo 点击 → 淡出过渡回首页
-    const logoLinks = document.querySelectorAll('a[href="/"]');
-    logoLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+    // 使用 nav-brand 内的链接，而不是硬编码 href="/"
+    const logoLink = document.querySelector('.nav-brand a');
+    if (logoLink) {
+        logoLink.addEventListener('click', (e) => {
             e.preventDefault();
             sessionStorage.setItem('skipLoader', 'true');
             document.body.classList.add('page-fade-out');
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = homeUrl;
             }, 300);
         });
-    });
+    }
 
     // 当前子页面内的链接（如 /wetlab/salicylic-acid）不需要跳转
     const currentPageLinks = document.querySelectorAll(`a[href="${currentPath}"]`);
