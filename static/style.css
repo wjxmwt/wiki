@@ -341,6 +341,15 @@ img {
   background-color: var(--bg-hover);
 }
 
+/* 下拉链接当前页面高亮 */
+.dropdown-link.active {
+  color: var(--primary);
+  font-weight: 700;
+  background-color: rgba(52, 199, 89, 0.1);
+  border-left: 3px solid var(--accent);
+  padding-left: calc(var(--spacing-sm) - 3px);
+}
+
 
 .nav-link {
     display: flex;

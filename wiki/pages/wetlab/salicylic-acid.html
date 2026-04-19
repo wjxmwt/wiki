@@ -1,0 +1,525 @@
+{# ============================================================
+   水杨酸传感途径的构建 — 文章内容
+   继承 layouts/article.html → templates/base.html
+   ============================================================ #}
+{% extends 'templates/layouts/article.html' %}
+
+{% block title %}Wet Lab · 水杨酸传感途径的构建{% endblock %}
+
+{% block meta_description %}
+<meta name="description"
+  content="Construction of salicylic acid sensing pathway – iGEM Wet Lab experiments including NahR/Psal system, plasmid construction, biosensor validation, and optimal host screening.">
+{% endblock %}
+
+{# ==================== 侧边栏目录 ==================== #}
+{% block toc %}
+<li><a href="#sec-overview" data-text-en="Overview" data-text-zh="概述">Overview</a></li>
+<li class="toc-parent">
+  <div class="toc-parent-row">
+    <a href="#sec-methods" data-text-en="Materials &amp; Methods" data-text-zh="材料与方法">Materials &amp; Methods</a>
+    <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <ul class="toc-children">
+    <li><a href="#sec-pcr" data-text-en="PCR Protocol" data-text-zh="PCR 体系与程序">PCR Protocol</a></li>
+    <li><a href="#sec-gel" data-text-en="Gel Recovery" data-text-zh="胶回收步骤">Gel Recovery</a></li>
+    <li><a href="#sec-transform" data-text-en="Transformation" data-text-zh="感受态转化">Transformation</a></li>
+    <li><a href="#sec-plasmid" data-text-en="Plasmid Extraction" data-text-zh="质粒抽提">Plasmid Extraction</a></li>
+  </ul>
+</li>
+<li><a href="#sec-nahr" data-text-en="NahR/Psal System" data-text-zh="NahR/Psal 系统">NahR/Psal System</a></li>
+<li><a href="#sec-construct" data-text-en="Plasmid Construction" data-text-zh="构建质粒">Plasmid Construction</a></li>
+<li><a href="#sec-validation" data-text-en="Sensor Validation" data-text-zh="传感器验证">Sensor Validation</a></li>
+<li class="toc-parent">
+  <div class="toc-parent-row">
+    <a href="#sec-optimization" data-text-en="Host &amp; Time Optimization" data-text-zh="最优宿主与时间">Host &amp;
+      Time Optimization</a>
+    <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <ul class="toc-children">
+    <li><a href="#sec-host" data-text-en="Optimal Host" data-text-zh="最优宿主">Optimal Host</a></li>
+    <li><a href="#sec-time" data-text-en="Optimal Time" data-text-zh="最优检测时间">Optimal Time</a></li>
+  </ul>
+</li>
+{% endblock %}
+
+{# ==================== Hero 横幅 ==================== #}
+{% block hero %}
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <div class="wetlab-hero-subtitle">Wet Lab · Experiments</div>
+  <h1 data-text-en="Construction of Salicylic Acid Sensing Pathway" data-text-zh="水杨酸传感途径的构建">Construction of
+    Salicylic Acid Sensing Pathway</h1>
+  <p class="wetlab-hero-desc"
+    data-text-en="We engineered a whole-cell biosensor by reconstructing the NahR/Psal regulatory system to detect salicylic acid — the core intermediate in bacterial PAH degradation pathways."
+    data-text-zh="我们通过重构 NahR/Psal 调控系统，构建了全细胞生物传感器，检测水杨酸——细菌 PAH 降解途径的核心中间代谢物。">We engineered a whole-cell
+    biosensor by reconstructing the NahR/Psal regulatory system to detect salicylic acid — the core intermediate
+    in bacterial PAH degradation pathways.</p>
+</section>
+{% endblock %}
+
+{# ==================== 文章主体 ==================== #}
+{% block article %}
+
+<!-- ==================== 概述 ==================== -->
+<section id="sec-overview" class="wetlab-animate">
+  <h2 data-text-en="Overview" data-text-zh="概述">Overview</h2>
+  <p data-text-en="Research has shown that the degradation of most PAHs in bacteria proceeds through the salicylic acid pathway (Salicylic acid, SaA), ultimately entering the tricarboxylic acid cycle. Therefore, we chose salicylic acid as the inducer for our whole-cell biosensor to construct the salicylic acid sensing pathway."
+    data-text-zh="研究发现细菌中大多数 PAHs 降解是通过水杨酸途径进行 (Salicylic acid, SaA) 降解，最终进入三羧酸循环。因此我们以水杨酸作为我们全细胞传感器的诱导物构建水杨酸传感途径。">
+    Research has shown that the degradation of most PAHs in bacteria proceeds through the salicylic acid
+    pathway (Salicylic acid, SaA), ultimately entering the tricarboxylic acid cycle. Therefore, we chose
+    salicylic acid as the inducer for our whole-cell biosensor to construct the salicylic acid sensing
+    pathway.</p>
+</section>
+
+<hr class="section-divider">
+
+<!-- ==================== 材料与方法 ==================== -->
+<section id="sec-methods" class="wetlab-animate">
+  <h2 data-text-en="Materials &amp; Methods" data-text-zh="材料与方法">Materials &amp; Methods</h2>
+
+  <!-- PCR -->
+  <div id="sec-pcr">
+    <h3 data-text-en="PCR System &amp; Program" data-text-zh="PCR 体系与反应程序">PCR System &amp; Program</h3>
+
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-vial"></i>
+        <span data-text-en="PCR System (50 μL)" data-text-zh="PCR 体系（50 μL）">PCR System (50 μL)</span>
+      </div>
+      <div class="wetlab-table-wrapper">
+        <table class="wetlab-table" id="table-pcr-system">
+          <thead>
+            <tr>
+              <th data-text-en="Reagent" data-text-zh="试剂">Reagent</th>
+              <th data-text-en="Volume" data-text-zh="用量">Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2× Phanta Max Master Mix</td>
+              <td>25 μL</td>
+            </tr>
+            <tr>
+              <td data-text-en="Forward Primer (10 μM)" data-text-zh="上游引物 (10 μM)">Forward Primer (10 μM)</td>
+              <td>2 μL</td>
+            </tr>
+            <tr>
+              <td data-text-en="Reverse Primer (10 μM)" data-text-zh="下游引物 (10 μM)">Reverse Primer (10 μM)</td>
+              <td>2 μL</td>
+            </tr>
+            <tr>
+              <td data-text-en="Template DNA" data-text-zh="模板 DNA">Template DNA</td>
+              <td>1 μL</td>
+            </tr>
+            <tr>
+              <td>ddH₂O</td>
+              <td data-text-en="up to 50 μL" data-text-zh="补至 50 μL">up to 50 μL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-temperature-high"></i>
+        <span data-text-en="PCR Program" data-text-zh="PCR 反应程序设置">PCR Program</span>
+      </div>
+      <ol class="step-list">
+        <li
+          data-text-en="Pre-denaturation: 98 °C, 10 min — complete denaturation of template DNA and activation of hot-start DNA polymerase."
+          data-text-zh="预变性：98 °C，10 min，使模板 DNA 完全解旋，激活热启动 DNA 聚合酶。">Pre-denaturation: 98 °C, 10 min —
+          complete denaturation of template DNA and activation of hot-start DNA polymerase.</li>
+        <li
+          data-text-en="Cycling (28 cycles): Denaturation: 98 °C, 30 s; Annealing: 60 °C, 30 s; Extension: 72 °C, 30 s."
+          data-text-zh="循环反应（28 个循环）：变性 98 °C, 30 s → 退火 60 °C, 30 s → 延伸 72 °C, 30 s。">Cycling (28 cycles):
+          Denaturation: 98 °C, 30 s → Annealing: 60 °C, 30 s → Extension: 72 °C, 30 s.</li>
+        <li data-text-en="Final extension: 72 °C, 5 min — complete all truncated products."
+          data-text-zh="终延伸：72 °C，5 min，使所有扩增产物完成完整延伸。">Final extension: 72 °C, 5 min — complete all truncated
+          products.</li>
+        <li data-text-en="Hold at 12 °C to prevent product degradation."
+          data-text-zh="保温 12 °C，防止产物降解，便于后续操作。">Hold at 12 °C to prevent product degradation.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 胶回收 -->
+  <div id="sec-gel">
+    <h3 data-text-en="Gel Recovery Protocol" data-text-zh="胶回收步骤">Gel Recovery Protocol</h3>
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-cut"></i>
+        <span data-text-en="DNA Gel Extraction" data-text-zh="DNA 凝胶回收">DNA Gel Extraction</span>
+      </div>
+      <ol class="step-list">
+        <li
+          data-text-en="After electrophoresis, excise the target DNA band on a UV transilluminator with a clean scalpel. Blot dry and trim excess gel, then dice into small pieces and transfer to an EP tube."
+          data-text-zh="跑胶结束后，在照胶仪下用小刀快速切割含目的 DNA 片段的凝胶，吸干凝胶表面液体后切开，去除边缘多余凝胶，切成小块放入 EP 管。">After
+          electrophoresis, excise the target DNA band on a UV transilluminator with a clean scalpel. Blot dry
+          and trim excess gel, then dice into small pieces and transfer to an EP tube.</li>
+        <li
+          data-text-en="Add 300 μL Buffer GDP; incubate at 55–60 °C in a water bath for ~10 min, inverting several times until gel is completely dissolved."
+          data-text-zh="加入 300 μL Buffer GDP，55–60 ℃ 水浴 10 min 左右，颠倒混匀多次，确保凝胶完全溶解。">Add 300 μL Buffer GDP;
+          incubate at 55–60 °C in a water bath for ~10 min, inverting several times until gel is completely
+          dissolved.</li>
+        <li
+          data-text-en="Transfer dissolved gel to the column; centrifuge at 12 000 rpm, 30 s. Discard filtrate; repeat if liquid remains."
+          data-text-zh="溶解后液体转入柱中，12 000 rpm 离心 30 s，弃滤液；若有残余液体需重复此步。">Transfer dissolved gel to the column;
+          centrifuge at 12 000 rpm, 30 s. Discard filtrate; repeat if liquid remains.</li>
+        <li data-text-en="Add 300 μL Buffer GDP to column; 12 000 rpm, 30 s."
+          data-text-zh="加入 300 μL Buffer GDP 至吸附柱，12 000 rpm 离心 30 s。">Add 300 μL Buffer GDP to column; 12 000
+          rpm, 30 s.</li>
+        <li data-text-en="Add 650 μL Wash Buffer; 12 000 rpm, 1 min. Discard filtrate."
+          data-text-zh="加入 650 μL Wash Buffer，12 000 rpm 离心 1 min，弃离心液。">Add 650 μL Wash Buffer; 12 000 rpm, 1
+          min. Discard filtrate.</li>
+        <li data-text-en="Add 700 μL Buffer GW (with ethanol); 12 000 rpm, 30 s. Discard filtrate."
+          data-text-zh="加入已加无水乙醇的 700 μL Buffer GW，12 000 rpm 离心 30 s，弃滤液。">Add 700 μL Buffer GW (with
+          ethanol); 12 000 rpm, 30 s. Discard filtrate.</li>
+        <li data-text-en="Repeat previous step; then spin empty at 12 000 rpm, 2 min."
+          data-text-zh="重复上一步骤后 12 000 rpm 空离 2 min。">Repeat previous step; then spin empty at 12 000 rpm, 2
+          min.</li>
+        <li
+          data-text-en="Transfer column to a sterile 1.5 mL EP tube. Add 30 μL pre-warmed (65 °C) ddH₂O to the center. Let stand 2–5 min; 12 000 rpm, 1 min. Discard column, keep eluate."
+          data-text-zh="将吸附柱放入已灭菌 1.5 mL EP 管，柱中心加入 30 μL 65 ℃ 纯水，静置 2–5 min，12 000 rpm 离心 1 min，弃柱保留洗脱液。">
+          Transfer column to a sterile 1.5 mL EP tube. Add 30 μL pre-warmed (65 °C) ddH₂O to the center. Let
+          stand 2–5 min; 12 000 rpm, 1 min. Discard column, keep eluate.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 感受态转化 -->
+  <div id="sec-transform">
+    <h3 data-text-en="Competent Cell Transformation" data-text-zh="感受态转化">Competent Cell Transformation</h3>
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-bacterium"></i>
+        <span data-text-en="Heat-Shock Transformation" data-text-zh="热激法转化">Heat-Shock Transformation</span>
+      </div>
+      <ol class="step-list">
+        <li
+          data-text-en="Ice bath: Add 5 μL recombinant product to 100 μL thawed competent cells, gently mix, incubate on ice for 30 min."
+          data-text-zh="冰浴：取 5 μL 重组产物，加入 100 μL 冰上融化的感受态细胞，轻轻混匀，冰上静置 30 分钟。">Ice bath: Add 5 μL recombinant
+          product to 100 μL thawed competent cells, gently mix, incubate on ice for 30 min.</li>
+        <li data-text-en="Heat shock: Place tube in 42 °C water bath for exactly 45 seconds."
+          data-text-zh="热激：将离心管置于 42 ℃ 水浴中，热激精确 45 秒。">Heat shock: Place tube in 42 °C water bath for exactly
+          45 seconds.</li>
+        <li
+          data-text-en="Recovery: Immediately transfer to ice, cool for 2 min. Add 200 μL pre-warmed antibiotic-free LB medium."
+          data-text-zh="复苏：立即转移至冰上，冷却 2 分钟。加入 200 μL 预热的无抗生素 LB 液体培养基。">Recovery: Immediately transfer to ice,
+          cool for 2 min. Add 200 μL pre-warmed antibiotic-free LB medium.</li>
+        <li data-text-en="Incubate at 37 °C, 180 rpm shaking for 45 min."
+          data-text-zh="将离心管置于 37 ℃ 摇床，180 rpm 振荡培养 45 分钟。">Incubate at 37 °C, 180 rpm shaking for 45 min.
+        </li>
+        <li
+          data-text-en="Centrifuge at 5 000 rpm, 3 min. Remove supernatant (~200 μL). Resuspend pellet in ~100 μL medium; spread evenly onto LB + Kana plates."
+          data-text-zh="5 000 rpm 离心 3 分钟，弃去大部分上清（约 200 μL），用剩余约 100 μL 重悬细胞沉淀，均匀涂布于含 Kana 抗性的 LB 固体平板上。">
+          Centrifuge at 5 000 rpm, 3 min. Remove supernatant (~200 μL). Resuspend pellet in ~100 μL medium;
+          spread evenly onto LB + Kana plates.</li>
+        <li data-text-en="Once absorbed, invert plates and incubate at 37 °C overnight (12–16 h)."
+          data-text-zh="待平板吸收后，倒置于 37 ℃ 培养箱过夜培养（12–16 小时）。">Once absorbed, invert plates and incubate at 37 °C
+          overnight (12–16 h).</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 质粒抽提 -->
+  <div id="sec-plasmid">
+    <h3 data-text-en="Plasmid Extraction" data-text-zh="质粒抽提">Plasmid Extraction</h3>
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-dna"></i>
+        <span data-text-en="Mini-Prep Protocol" data-text-zh="质粒抽提步骤">Mini-Prep Protocol</span>
+      </div>
+      <ol class="step-list">
+        <li data-text-en="Collect 2–5 mL culture into an EP tube; 12 000 rpm, 1 min; collect pellet."
+          data-text-zh="收集 2–5 mL 菌液于 EP 管中，12 000 rpm 离心 1 min，收集菌体。">Collect 2–5 mL culture into an EP tube;
+          12 000 rpm, 1 min; collect pellet.</li>
+        <li data-text-en="Add 250 μL Solution P1; vortex to resuspend." data-text-zh="加入 250 μL 溶液 P1，震荡混匀。">
+          Add 250 μL Solution P1; vortex to resuspend.</li>
+        <li data-text-en="Add 250 μL Solution P2; gently invert to mix."
+          data-text-zh="再加入 250 μL 溶液 P2，轻柔颠倒混匀。">Add 250 μL Solution P2; gently invert to mix.</li>
+        <li
+          data-text-en="Add 350 μL Solution P3 until white flocculent forms; gently invert; 12 000 rpm, 10 min."
+          data-text-zh="加入 350 μL 溶液 P3，直至出现白色絮状物，轻柔颠倒混匀，12 000 rpm 离心 10 min。">Add 350 μL Solution P3 until
+          white flocculent forms; gently invert; 12 000 rpm, 10 min.</li>
+        <li data-text-en="Carefully transfer supernatant to column (avoid pellet); 12 000 rpm, 1 min."
+          data-text-zh="将上清小心转移至吸附柱中（不要吸到沉淀），12 000 rpm 离心 1 min。">Carefully transfer supernatant to column
+          (avoid pellet); 12 000 rpm, 1 min.</li>
+        <li data-text-en="Add 500 μL Solution PW1; 12 000 rpm, 30 s."
+          data-text-zh="加入 500 μL 溶液 PW1，12 000 rpm 离心 30 s。">Add 500 μL Solution PW1; 12 000 rpm, 30 s.</li>
+        <li data-text-en="Add 600 μL Solution PW2; 12 000 rpm, 30 s. Repeat once."
+          data-text-zh="加入 600 μL 溶液 PW2，12 000 rpm 离心 30 s，重复一次。">Add 600 μL Solution PW2; 12 000 rpm, 30 s.
+          Repeat once.</li>
+        <li data-text-en="Discard filtrate; spin empty 12 000 rpm, 3 min to remove residual liquid."
+          data-text-zh="弃滤液，空离 12 000 rpm 3 min，去除残留液。">Discard filtrate; spin empty 12 000 rpm, 3 min to
+          remove residual liquid.</li>
+        <li
+          data-text-en="Place column in new sterile 1.5 mL EP tube. Add 30–100 μL pre-warmed Elution Buffer; stand 2 min; 12 000 rpm, 2 min."
+          data-text-zh="将吸附柱放入新灭菌 1.5 mL EP 管，加入 30–100 μL 预热的 Elution Buffer，静置 2 min，12 000 rpm 离心 2 min。">
+          Place column in new sterile 1.5 mL EP tube. Add 30–100 μL pre-warmed Elution Buffer; stand 2 min; 12
+          000 rpm, 2 min.</li>
+        <li data-text-en="Store DNA at −20 °C." data-text-zh="将得到的 DNA 在 −20 ℃ 保存。">Store DNA at −20 °C.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ==================== NahR/Psal 系统 ==================== -->
+<section id="sec-nahr" class="wetlab-animate">
+  <h2 data-text-en="1. NahR/Psal System" data-text-zh="1. NahR/Psal 系统">1. NahR/Psal System</h2>
+
+  <p data-html
+    data-text-en="Literature review reveals that the Psal promoter on plasmid NAH7 of &lt;em&gt;Pseudomonas putida&lt;/em&gt; G7, together with its homologous regulatory gene &lt;em&gt;nahR&lt;/em&gt;, controls the expression of two operons (&lt;em&gt;nahAaAbAcAdBFCED&lt;/em&gt; and &lt;em&gt;nahGTHINLOMKL&lt;/em&gt;) associated with naphthalene metabolism. The upper operon encodes enzymes converting naphthalene to salicylic acid, initiated by the Pnah promoter; the lower operon converts salicylic acid to TCA cycle intermediates, initiated by Psal. NahR responds to salicylic acid to activate transcription."
+    data-text-zh="查阅文献发现 &lt;em&gt;Pseudomonas putida&lt;/em&gt; G7 质粒 NAH7 上的 Psal 启动子以及同源调控基因 &lt;em&gt;nahR&lt;/em&gt; 调控与萘代谢相关的上下游两个操纵子 &lt;em&gt;nahAaAbAcAdBFCED&lt;/em&gt; 和 &lt;em&gt;nahGTHINLOMKL&lt;/em&gt; 的表达。上游操纵子编码将萘转变为水杨酸所需的酶，由 Pnah 启动子起始转录；下游操纵子将水杨酸进一步转化为 TCA 循环中间代谢物，由 Psal 启动子起始转录，从而由转录调控因子 NahR 响应水杨酸。">
+    Literature review reveals that the Psal promoter on plasmid NAH7 of <em>Pseudomonas putida</em> G7,
+    together with its homologous regulatory gene <em>nahR</em>, controls the expression of two operons
+    (<em>nahAaAbAcAdBFCED</em> and <em>nahGTHINLOMKL</em>) associated with naphthalene metabolism. The upper
+    operon encodes enzymes converting naphthalene to salicylic acid, initiated by the Pnah promoter; the lower
+    operon converts salicylic acid to TCA cycle intermediates, initiated by Psal. NahR responds to salicylic
+    acid to activate transcription.</p>
+
+  <figure class="wetlab-figure wetlab-animate">
+    <img src="{{ url_for('static', filename='image/wetlab/salicylic_acid_3.png') }}"
+      alt="NahR/Psal system schematic">
+    <figcaption
+      data-text-en="Fig. 1 &nbsp; Schematic of the NahR/Psal naphthalene degradation regulatory system. Upper operon (Pnah → nahABFCED) converts naphthalene to salicylic acid; lower operon (Psal → nahGHILNJK) feeds into TCA cycle."
+      data-text-zh="图 1 &nbsp; NahR/Psal 萘降解调控系统示意图。上游操纵子（Pnah → nahABFCED）将萘转化为水杨酸；下游操纵子（Psal → nahGHILNJK）进入 TCA 循环。">
+      Fig. 1 &nbsp; Schematic of the NahR/Psal naphthalene degradation regulatory system.</figcaption>
+  </figure>
+
+  <div class="key-finding">
+    <strong data-text-en="Key Reference:" data-text-zh="关键参考：">Key Reference:</strong>
+    <span data-html
+      data-text-en=" Previous studies used the NahR/Psal system from &lt;em&gt;Pseudomonas putida&lt;/em&gt; G7 NAH7 with Luc as reporter in &lt;em&gt;E. coli&lt;/em&gt; DH5α. Site-directed mutagenesis of NahR (N169E/R248C) yielded lower basal activity and higher induction at 1 mM salicylic acid — providing the basis for our reconstructed biosensor."
+      data-text-zh=" 前人采用恶臭假单胞菌 &lt;em&gt;P. putida&lt;/em&gt; G7 NAH7 来源的 NahR/Psal 系统，以 Luc 为报告基因在 &lt;em&gt;E. coli&lt;/em&gt; DH5α 中构建了水杨酸生物传感器。NahR 蛋白定点突变体 N169E/R248C 在 1 mM 水杨酸诱导下表现出低基础活性和高诱导活性，为我们的重构提供了重要参考。">
+      Previous studies used the NahR/Psal system from <em>Pseudomonas putida</em> G7 NAH7 with Luc as reporter
+      in <em>E. coli</em> DH5α. Site-directed mutagenesis of NahR (N169E/R248C) yielded lower basal activity
+      and higher induction at 1 mM salicylic acid — providing the basis for our reconstructed
+      biosensor.</span>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ==================== 构建质粒 ==================== -->
+<section id="sec-construct" class="wetlab-animate">
+  <h2 data-text-en="2. Plasmid Construction: pUC57-Psal-eGFP" data-text-zh="2. 构建质粒 pUC57-Psal-eGFP">2.
+    Plasmid Construction: pUC57-Psal-eGFP</h2>
+
+  <h4 data-text-en="Primer Design &amp; Gene Synthesis" data-text-zh="引物设计与基因合成">Primer Design &amp; Gene
+    Synthesis</h4>
+  <p data-text-en="CDS sequences of Pr-nahR (E169/C248)-Psal and eGFP were retrieved from NCBI and sent for primer synthesis. Homology arms matching the vector were appended to primer termini for subsequent recombination."
+    data-text-zh="从 NCBI 中找到 Pr-nahR（E169C248）-Psal 以及 eGFP 基因片段的 CDS 区，送生物公司合成引物。注意引物末端带上同样的同源臂用于后续同源重组。">CDS
+    sequences of Pr-nahR (E169/C248)-Psal and eGFP were retrieved from NCBI and sent for primer synthesis.
+    Homology arms matching the vector were appended to primer termini for subsequent recombination.</p>
+
+  <h4 data-text-en="PCR &amp; Linearization" data-text-zh="PCR 扩增与线性化">PCR &amp; Linearization</h4>
+  <p data-text-en="PCR-amplified Pr-nahR (E169/C248)-Psal and eGFP fragments (with homology arms); restriction-enzyme-linearized pUC57 vector (exposing matching homology arms at both ends)."
+    data-text-zh="用 PCR 扩增 Pr-nahR (E169/C248)-Psal 和 eGFP 片段（带同源臂）；用对应的酶切线性化 pUC57 载体（两端暴露与融合片段匹配的同源臂）。">
+    PCR-amplified Pr-nahR (E169/C248)-Psal and eGFP fragments (with homology arms);
+    restriction-enzyme-linearized pUC57 vector (exposing matching homology arms at both ends).</p>
+
+  <h4 data-text-en="Product Verification" data-text-zh="产物验证">Product Verification</h4>
+  <p data-text-en="5 μL PCR product was run on agarose gel to confirm a single band of correct size. Remaining PCR product was run and the target band excised for DNA purification."
+    data-text-zh="取 5 μL PCR 产物进行琼脂糖凝胶电泳，确认获得单一、大小正确的线性化片段。将剩余 PCR 产物电泳后切割条带，纯化提取 DNA 片段。">5 μL PCR product
+    was run on agarose gel to confirm a single band of correct size. Remaining PCR product was run and the
+    target band excised for DNA purification.</p>
+
+  <h4 data-text-en="Homologous Recombination" data-text-zh="同源重组">Homologous Recombination</h4>
+  <div class="protocol-card wetlab-animate">
+    <div class="card-title">
+      <i class="fa-solid fa-link"></i>
+      <span data-text-en="ClonExpress II Assembly (5 μL system)"
+        data-text-zh="ClonExpress II 组装（5 μL 体系）">ClonExpress II Assembly (5 μL system)</span>
+    </div>
+    <div class="wetlab-table-wrapper">
+      <table class="wetlab-table" id="table-homologous-recomb">
+        <thead>
+          <tr>
+            <th data-text-en="Component" data-text-zh="成分">Component</th>
+            <th data-text-en="Volume" data-text-zh="用量">Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5× CE II Buffer</td>
+            <td>1 μL</td>
+          </tr>
+          <tr>
+            <td>Exnase II</td>
+            <td>1 μL</td>
+          </tr>
+          <tr>
+            <td data-text-en="Linearized fragment : Vector (molar ratio)" data-text-zh="线性化片段 : 载体（摩尔比）">
+              Linearized fragment : Vector</td>
+            <td>2 : 1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:0.8rem;" data-text-en="Mix evenly, then incubate at 37 °C for 30 min."
+      data-text-zh="混合均匀后在 37 ℃ 连接 30 min。">Mix evenly, then incubate at 37 °C for 30 min.</p>
+  </div>
+
+  <p data-text-en="After transformation, pick single colonies into 5 mL LB + antibiotics; shake at 37 °C, 220 rpm for 12 h, then send for sequencing."
+    data-text-zh="感受态转化后, 挑取单菌落至 5 mL 含抗生素的 LB 培养基中，37 ℃，220 rpm 摇床培养 12 h 送测。">After transformation, pick
+    single colonies into 5 mL LB + antibiotics; shake at 37 °C, 220 rpm for 12 h, then send for sequencing.
+  </p>
+</section>
+
+<hr class="section-divider">
+
+<!-- ==================== 验证传感器检测下限 ==================== -->
+<section id="sec-validation" class="wetlab-animate">
+  <h2 data-text-en="3. Sensor Validation — Detection Limit" data-text-zh="3. 验证传感器检测下限">3. Sensor Validation —
+    Detection Limit</h2>
+
+  <h4 data-text-en="Experimental Controls" data-text-zh="实验对照设置">Experimental Controls</h4>
+  <div class="wetlab-card wetlab-animate">
+    <p data-html
+      data-text-en="&lt;strong&gt;Positive control:&lt;/strong&gt; &lt;em&gt;E. coli&lt;/em&gt; DH5α successfully transformed with pUC57-Psal-eGFP (sequence-verified).&lt;br&gt;&lt;strong&gt;Negative control:&lt;/strong&gt; &lt;em&gt;E. coli&lt;/em&gt; DH5α without any plasmid."
+      data-text-zh="&lt;strong&gt;阳性对照：&lt;/strong&gt;测序正确、成功转入 &lt;em&gt;E. coli&lt;/em&gt; DH5α 的质粒 pUC57-Psal-eGFP。&lt;br&gt;&lt;strong&gt;空白对照：&lt;/strong&gt;未转化任何质粒的 &lt;em&gt;E. coli&lt;/em&gt; DH5α。">
+      <strong>Positive control:</strong> <em>E. coli</em> DH5α successfully transformed with pUC57-Psal-eGFP
+      (sequence-verified).<br><strong>Negative control:</strong> <em>E. coli</em> DH5α without any plasmid.
+    </p>
+  </div>
+
+  <h4 data-text-en="Induction Protocol" data-text-zh="诱导培养方案">Induction Protocol</h4>
+  <ol class="step-list">
+    <li
+      data-text-en="Prepare LB media with salicylic acid at 0, 50, 100, 500, 1 000 μM; 3 replicates per group."
+      data-text-zh="分别配置水杨酸浓度为 0、50、100、500、1 000 μM 的 LB 培养基，每组设置三个重复。">Prepare LB media with salicylic acid
+      at 0, 50, 100, 500, 1 000 μM; 3 replicates per group.</li>
+    <li data-text-en="Inoculate overnight cultures at 1:100 into each concentration."
+      data-text-zh="将过夜培养的菌株按 1:100 比例接种到各浓度培养基中。">Inoculate overnight cultures at 1:100 into each
+      concentration.</li>
+    <li
+      data-text-en="Shake at 37 °C, 200 rpm until OD₆₀₀ reaches 0.4–0.6 (~2–3 h), then continue induction for 2–4 h."
+      data-text-zh="37 ℃、200 rpm 振荡培养，待 OD₆₀₀ 达 0.4–0.6 时（约 2–3 h），继续诱导 2–4 h。">Shake at 37 °C, 200 rpm until
+      OD₆₀₀ reaches 0.4–0.6 (~2–3 h), then continue induction for 2–4 h.</li>
+    <li data-text-en="Transfer 200 μL from each group into a 96-well black plate."
+      data-text-zh="取各组菌液 200 μL 加入 96 孔黑色酶标板。">Transfer 200 μL from each group into a 96-well black plate.
+    </li>
+    <li
+      data-text-en="Measure fluorescence (Ex 488 nm / Em 511 nm) and OD₆₀₀ using a microplate reader; 3 technical replicates per well."
+      data-text-zh="酶标仪测定荧光强度（Ex 488 nm / Em 511 nm）和 OD₆₀₀；每组重复测定 3 次取平均。">Measure fluorescence (Ex 488 nm /
+      Em 511 nm) and OD₆₀₀ using a microplate reader; 3 technical replicates per well.</li>
+  </ol>
+
+  <figure class="wetlab-figure wetlab-animate">
+    <img src="{{ url_for('static', filename='image/wetlab/salicylic_acid_2.png') }}"
+      alt="Biosensor schematic and initial detection results">
+    <figcaption
+      data-text-en="Fig. 2 &nbsp; (A) Whole-cell salicylic acid biosensor design (pUC57-nahR-eGFP). (B) Initial fluorescence response at different salicylic acid concentrations; DH5α alone and DH5α/pUC57-Psal-eGFP (without NahR) showed no response."
+      data-text-zh="图 2 &nbsp; (A) 水杨酸全细胞生物传感器设计示意图；(B) 传感器初期水杨酸检测下限验证——DH5α 和 DH5α/pUC57-Psal-eGFP（不含 NahR）均无响应。">
+      Fig. 2 &nbsp; (A) Whole-cell biosensor design. (B) Initial fluorescence response showing salicylic acid
+      detection limit.</figcaption>
+  </figure>
+
+  <div class="key-finding">
+    <strong data-text-en="Result:" data-text-zh="结果：">Result:</strong>
+    <span data-html
+      data-text-en=" Fluorescence analysis showed that both &lt;em&gt;E. coli&lt;/em&gt; DH5α and DH5α/pUC57-Psal-eGFP (without NahR) had no response to salicylic acid, confirming that NahR binding to salicylic acid is essential for Psal activation. The reconstructed biosensor achieved a detection limit of &lt;strong&gt;100 μM&lt;/strong&gt;."
+      data-text-zh=" 荧光分析表明，&lt;em&gt;E. coli&lt;/em&gt; DH5α 和 DH5α/pUC57-Psal-eGFP 在水杨酸存在时均无响应，证实水杨酸与 NahR 结合后才能激活 Psal 启动子起始转录，表达出绿色荧光蛋白 (eGFP)。该重构的传感器检测下限可达 &lt;strong&gt;100 μM&lt;/strong&gt;。">
+      Fluorescence analysis confirmed NahR is essential for Psal activation. The reconstructed biosensor
+      achieved a detection limit of <strong>100 μM</strong>.</span>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ==================== 最优宿主与检测时间探究 ==================== -->
+<section id="sec-optimization" class="wetlab-animate">
+  <h2 data-text-en="4. Optimal Host &amp; Detection Time" data-text-zh="4. 最优宿主与最优检测时间探究">4. Optimal Host
+    &amp; Detection Time</h2>
+
+  <!-- 宿主 -->
+  <div id="sec-host">
+    <h3 data-text-en="I. Optimal Host Screening" data-text-zh="一、最优宿主菌株的筛选">I. Optimal Host Screening</h3>
+
+    <h4 data-text-en="Strain &amp; Plasmid Preparation" data-text-zh="菌株与质粒准备">Strain &amp; Plasmid
+      Preparation</h4>
+    <p data-html
+      data-text-en="Four &lt;em&gt;E. coli&lt;/em&gt; competent cell strains were used: XL10-gold, DH10B, Top10, and DH5α. The recombinant plasmid pUC57-Pr-NahR(E169/C248)-Psal-eGFP was extracted for transformation."
+      data-text-zh="取本实验保藏的 4 株大肠杆菌感受态细胞：&lt;em&gt;E. coli&lt;/em&gt; XL10-gold、DH10B、Top10、DH5α。提取重组质粒 pUC57-Pr-NahR(E169/C248)-Psal-eGFP 用于后续转化。">
+      Four <em>E. coli</em> competent cell strains were used: XL10-gold, DH10B, Top10, and DH5α. The
+      recombinant plasmid pUC57-Pr-NahR(E169/C248)-Psal-eGFP was extracted for transformation.</p>
+
+    <h4 data-text-en="Transformation &amp; Screening" data-text-zh="质粒转化与阳性筛选">Transformation &amp; Screening
+    </h4>
+    <ol class="step-list">
+      <li data-text-en="Transform plasmid into all four strains via heat-shock protocol."
+        data-text-zh="通过感受态转化将质粒分别转入 4 株大肠杆菌。">Transform plasmid into all four strains via heat-shock
+        protocol.</li>
+      <li data-text-en="Plate on LA + Kana (50 μg/mL); incubate 37 °C, 12–16 h upside down."
+        data-text-zh="涂布于含 Kana（50 μg/mL）的 LA 固体平板，37 ℃ 倒置培养 12–16 h。">Plate on LA + Kana (50 μg/mL); incubate
+        37 °C, 12–16 h upside down.</li>
+      <li
+        data-text-en="Pick 3 colonies per plate into LB + Kana; shake 37 °C, 200 rpm overnight to obtain 4 engineered strains."
+        data-text-zh="每板挑取 3 个单菌落至含 Kana 的 LB 培养基，37 ℃、200 rpm 过夜培养，得到 4 株工程菌。">Pick 3 colonies per plate into
+        LB + Kana; shake 37 °C, 200 rpm overnight to obtain 4 engineered strains.</li>
+    </ol>
+
+    <h4 data-text-en="Salicylic Acid Gradient Induction" data-text-zh="水杨酸梯度诱导培养">Salicylic Acid Gradient
+      Induction</h4>
+    <p data-text-en="LB media were prepared with salicylic acid at 0, 100, 500, 1 000 μM (3 biological replicates each). All four strains diluted 1:100, incubated at 37 °C, 200 rpm for the same duration."
+      data-text-zh="配制含不同水杨酸终浓度的 LB 培养基：0、100、500、1 000 μM，每组浓度设 3 个生物学重复。4 株工程菌按 1:100 接种，37 ℃、200 rpm 培养相同时间。">
+      LB media were prepared with salicylic acid at 0, 100, 500, 1 000 μM (3 biological replicates each). All
+      four strains diluted 1:100, incubated at 37 °C, 200 rpm for the same duration.</p>
+
+    <h4 data-text-en="Fluorescence Detection" data-text-zh="荧光响应检测">Fluorescence Detection</h4>
+    <p data-text-en="200 μL from each group loaded into 96-well black plates. Fluorescence (Ex 488 / Em 511 nm) and OD₆₀₀ measured. Relative fluorescence = FL / OD₆₀₀."
+      data-text-zh="取各诱导组菌液 200 μL 加入 96 孔黑色酶标板。酶标仪测定荧光强度（FL，Ex 488 / Em 511 nm）和 OD₆₀₀。计算相对荧光值 = FL / OD₆₀₀。">
+      200 μL from each group loaded into 96-well black plates. Fluorescence (Ex 488 / Em 511 nm) and OD₆₀₀
+      measured. Relative fluorescence = FL / OD₆₀₀.</p>
+
+    <div class="key-finding">
+      <strong data-text-en="Conclusion:" data-text-zh="结论：">Conclusion:</strong>
+      <span data-html
+        data-text-en=" By comparing relative fluorescence across all four strains at different salicylic acid concentrations, &lt;strong&gt;&lt;em&gt;E. coli&lt;/em&gt; DH5α&lt;/strong&gt; was selected as the optimal host with the best response profile."
+        data-text-zh=" 比较 4 株工程菌在不同水杨酸浓度下的相对荧光值，选择响应效果最佳的 &lt;strong&gt;&lt;em&gt;E. coli&lt;/em&gt; DH5α&lt;/strong&gt; 作为后续实验的最优宿主。">
+        By comparing relative fluorescence across all four strains at different salicylic acid concentrations,
+        <strong><em>E. coli</em> DH5α</strong> was selected as the optimal host.</span>
+    </div>
+  </div>
+
+  <!-- 最优检测时间 -->
+  <div id="sec-time">
+    <h3 data-text-en="II. Optimal Detection Time" data-text-zh="二、最优检测时间的探究">II. Optimal Detection Time</h3>
+
+    <h4 data-text-en="Strain Activation" data-text-zh="菌株活化">Strain Activation</h4>
+    <p data-html
+      data-text-en="Optimal host &lt;em&gt;E. coli&lt;/em&gt; DH5α/pUC57-Pr-NahR(E169/C248)-Psal-eGFP was cultured overnight in LB + Kana at 37 °C, 200 rpm."
+      data-text-zh="取最优宿主 &lt;em&gt;E. coli&lt;/em&gt; DH5α/pUC57-Pr-NahR(E169/C248)-Psal-eGFP，接种至含 Kana 的 LB 培养基，37 ℃、200 rpm 过夜培养。">
+      Optimal host <em>E. coli</em> DH5α/pUC57-Pr-NahR(E169/C248)-Psal-eGFP was cultured overnight in LB +
+      Kana at 37 °C, 200 rpm.</p>
+
+    <h4 data-text-en="Time-Course Induction" data-text-zh="诱导培养与时间梯度取样">Time-Course Induction</h4>
+    <p data-text-en="LB media with 0, 50, 100, 500, 1 000 μM salicylic acid (3 replicates each). Inoculated 1:100, cultured at 37 °C, 200 rpm. Samples (200 μL) taken at 0, 4, 6, 8, and 10 h post-induction."
+      data-text-zh="配制含 0、50、100、500、1 000 μM 水杨酸的 LB 培养基（每组 3 个重复）。按 1:100 接种，37 ℃、200 rpm 培养，分别在诱导后 0、4、6、8、10 h 取样 200 μL。">
+      LB media with 0, 50, 100, 500, 1 000 μM salicylic acid (3 replicates each). Inoculated 1:100, cultured
+      at 37 °C, 200 rpm. Samples (200 μL) taken at 0, 4, 6, 8, and 10 h post-induction.</p>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="{{ url_for('static', filename='image/wetlab/salicylic_acid_1.png') }}"
+        alt="Host screening and time course data">
+      <figcaption data-html
+        data-text-en="Fig. 3 &nbsp; (A) Relative fluorescence of the biosensor in four &lt;em&gt;E. coli&lt;/em&gt; strains at varying salicylic acid concentrations. (B) Time-dependent fluorescence response curves."
+        data-text-zh="图 3 &nbsp; (A) 水杨酸生物传感器在不同大肠杆菌中的响应值；(B) 水杨酸全细胞生物传感器在不同时间下的响应值。">Fig. 3 &nbsp; (A)
+        Biosensor response in four hosts. (B) Time-dependent fluorescence response.</figcaption>
+    </figure>
+
+    <div class="key-finding">
+      <strong data-text-en="Result:" data-text-zh="结果：">Result:</strong>
+      <span data-html
+        data-text-en=" At 100 μM salicylic acid, fluorescence response increased over time, with the most significant increase observed at &lt;strong&gt;10 h&lt;/strong&gt;. Therefore, 10 h was determined as the optimal detection time for subsequent experiments."
+        data-text-zh=" 分析曲线趋势：在 100 μM 水杨酸下，荧光响应随时间增加而增强，且在 &lt;strong&gt;10 h&lt;/strong&gt; 时荧光增长最为明显，因此确定 10 h 为最佳检测时间。">
+        At 100 μM salicylic acid, fluorescence response increased over time, with the most significant
+        increase observed at <strong>10 h</strong>. Therefore, 10 h was determined as the optimal detection
+        time.</span>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

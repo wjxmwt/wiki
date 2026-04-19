@@ -1,0 +1,22 @@
+# Python/Flask
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+instance/
+
+# Flask-Frozen
+build/
+public/
+freezer_cache/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Other
+*.log

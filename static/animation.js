@@ -44,6 +44,13 @@ function initLoaderAnimation() {
     const loaderPercent = document.getElementById('loaderPercent');
     if (!loader || !loaderPercent) return;
 
+    // 从子页面返回时跳过加载动画
+    if (sessionStorage.getItem('skipLoader') === 'true') {
+        sessionStorage.removeItem('skipLoader');
+        loader.classList.add('hidden');
+        return;
+    }
+
     let progress = 0;
     const progressInterval = setInterval(() => {
         progress += Math.random() * 15;

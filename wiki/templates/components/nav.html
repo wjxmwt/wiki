@@ -1,0 +1,95 @@
+{# ============================================================
+   共享导航栏组件
+   变量：
+     - is_subpage (bool)    : 是否为子页面
+     - active_nav (string)  : 当前激活的顶级导航项 (如 'Project', 'Wet-Lab')
+     - current_path (string): 当前页面路径 (如 '/wetlab/salicylic-acid')
+   ============================================================ #}
+
+{# 所有回首页的链接统一使用 url_for 生成相对路径，确保 GitHub Pages 兼容 #}
+{% set home = url_for('home') %}
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="{{ home }}"><img src="{{ url_for('static', filename='image/logo.png') }}" alt="logo" class="logo"></a>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <!-- Project 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="{{ home }}#Project" class="nav-link {% if active_nav == 'Project' %}active{% endif %}" data-section="Project">
+          <i class="fas fa-home"></i>
+          <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ home }}#Description" class="dropdown-link"><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+          <li><a href="{{ home }}#Engineering" class="dropdown-link"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程实现">Engineering</span></a></li>
+          <li><a href="{{ home }}#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Wet Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="{{ home }}#Wet Lab" class="nav-link {% if active_nav == 'Wet-Lab' %}active{% endif %}" data-section="Wet-Lab">
+          <i class="fa-solid fa-flask"></i>
+          <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ home }}#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+          <li><a href="{{ home }}#Design" class="dropdown-link"><span class="nav-text" data-text-en="Design" data-text-zh="实验设计">Design</span></a></li>
+          <li><a href="{{ home }}#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+          <li><a href="{{ url_for('wetlab_salicylic_acid') }}" class="dropdown-link {% if current_path == '/wetlab/salicylic-acid' %}active{% endif %}"><span class="nav-text" data-text-en="Experiments" data-text-zh="实验内容">Experiments</span></a></li>
+          <li><a href="{{ home }}#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+          <li><a href="{{ home }}#Safety" class="dropdown-link"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Dry Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="{{ home }}#Dry Lab" class="nav-link {% if active_nav == 'Dry-Lab' %}active{% endif %}" data-section="Dry-Lab">
+          <i class="fa-solid fa-flask-vial"></i>
+          <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ home }}#Modeling" class="dropdown-link"><span class="nav-text" data-text-en="Modeling" data-text-zh="建模分析">Modeling</span></a></li>
+          <li><a href="{{ home }}#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+          <li><a href="{{ home }}#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+        </ul>
+      </li>
+
+      <!-- 无下拉的导航项 -->
+      <li class="nav-item">
+        <a href="{{ home }}#Human Practice" class="nav-link {% if active_nav == 'Human-Practice' %}active{% endif %}" data-section="Human-Practice">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ home }}#Team" class="nav-link {% if active_nav == 'Team' %}active{% endif %}" data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ home }}#Video" class="nav-link {% if active_nav == 'Video' %}active{% endif %}" data-section="Video">
+          <i class="fa-solid fa-video"></i>
+          <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Toggle Language">
+        <i class="fas fa-language"></i><span class="lang-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-sun"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
