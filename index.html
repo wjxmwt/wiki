@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>WIKI | iGEM Wiki</title>
+  
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="static/style.css">
+
+  
+</head>
+
+<body class="body-main" data-theme="light" data-lang="en" >
+
+  
+  <script>
+    window.__HOME_URL = "index.html";
+    
+  </script>
+
+  
+  
+  <div class="loader-screen" id="loader">
+    <div class="loader-content">
+      <div class="loader-code-text">
+        <div class="code-line">
+          <img src="static/image/logo.png" style="width: 150px;" alt="logo">
+          <p>PAHs</p>
+        </div>
+      </div>
+      <div class="loader-progress-wrapper">
+        <div class="loader-progress-bar"></div>
+      </div>
+      <div class="loader-dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div class="loader-percentage" id="loaderPercent">0%</div>
+    </div>
+  </div>
+  
+
+  
+  
+
+
+
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="index.html"><img src="static/image/logo.png" alt="logo" class="logo"></a>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <!-- Project 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="index.html#Project" class="nav-link active" data-section="Project">
+          <i class="fas fa-home"></i>
+          <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html#Description" class="dropdown-link"><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+          <li><a href="index.html#Engineering" class="dropdown-link"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程实现">Engineering</span></a></li>
+          <li><a href="index.html#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Wet Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="index.html#Wet Lab" class="nav-link " data-section="Wet-Lab">
+          <i class="fa-solid fa-flask"></i>
+          <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+          <li><a href="index.html#Design" class="dropdown-link"><span class="nav-text" data-text-en="Design" data-text-zh="实验设计">Design</span></a></li>
+          <li><a href="index.html#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+          <li><a href="wetlab/salicylic-acid/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Experiments" data-text-zh="实验内容">Experiments</span></a></li>
+          <li><a href="index.html#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+          <li><a href="index.html#Safety" class="dropdown-link"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Dry Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="index.html#Dry Lab" class="nav-link " data-section="Dry-Lab">
+          <i class="fa-solid fa-flask-vial"></i>
+          <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html#Modeling" class="dropdown-link"><span class="nav-text" data-text-en="Modeling" data-text-zh="建模分析">Modeling</span></a></li>
+          <li><a href="index.html#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+          <li><a href="index.html#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+        </ul>
+      </li>
+
+      <!-- 无下拉的导航项 -->
+      <li class="nav-item">
+        <a href="index.html#Human Practice" class="nav-link " data-section="Human-Practice">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="index.html#Team" class="nav-link " data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="index.html#Video" class="nav-link " data-section="Video">
+          <i class="fa-solid fa-video"></i>
+          <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Toggle Language">
+        <i class="fas fa-language"></i><span class="lang-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-sun"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+  
+
+
+  
+  <script src="static/anime.min.js"></script>
+  <script src="static/main.js"></script>
+  
+  <script src="static/animation.js"></script>
+  
+
+  
+</body>
+
+</html>

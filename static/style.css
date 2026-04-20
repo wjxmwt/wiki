@@ -1,0 +1,513 @@
+:root {
+    /* 一、核心配色（贴合视觉方案+湖北大学校徽色调） */
+    --primary: #0A6E3F;
+    /* 主色调：对应标题“统一视觉方案”+校徽核心深绿色，用于标题、导航、重点按钮 */
+    --secondary: #5FA778;
+    /* 次要色调：对应视觉方案顶部条的青绿色，用于次要按钮、边框装饰、模块分区 */
+    --accent: #34C759;
+    /* 强调色：亮绿色，用于重点提示、核心数据高亮，贴合iGEM科技感 */
+    --bg-light: #d7f3d7;
+    /* 页面主背景：对应视觉方案的浅绿白格子背景，作为全站底层背景 */
+    --bg-card: #bdf2bd;
+    /* 卡片/模块背景：比主背景深一级的浅绿，用于内容卡片、数据面板 */
+    --bg-hover: #D1EAD1;
+    /* 悬浮背景：卡片/按钮hover时的背景，提升交互感知 */
+    --border: #B3D9B3;
+    /* 全局边框色：对应背景的浅绿系，用于卡片边框、模块分隔线 */
+    --text-primary: #0A6E3F;
+    /* 主文本色：深绿色，对应标题文字，保证浅色背景下的可读性 */
+    --text-secondary: #3A7D44;
+    /* 次要文本色：深灰绿，用于副标题、说明文字 */
+    --text-muted: #6B9F72;
+    /* 弱化文本色：浅灰绿，用于备注、时间戳等补充信息 */
+
+    /* 二、渐变效果（绿色系专属，贴合视觉方案风格） */
+    --gradient-1: linear-gradient(135deg, #00ff87 0%, #28a152 50%, #00ff40 100%);
+    /* 主渐变：校徽绿→顶部条绿→强调亮绿，用于标题装饰、banner */
+    --gradient-2: linear-gradient(135deg, #5FA778 0%, #E6F3E6 100%);
+    /* 辅助渐变：用于次要模块装饰 */
+
+    /* 三、阴影效果（适配浅背景，弱化但保留层次感） */
+    --shadow-sm: 0 2px 4px rgba(10, 110, 63, 0.1);
+    /* 小阴影：浅绿透明，贴合主色 */
+    --shadow-md: 0 4px 6px rgba(10, 110, 63, 0.2);
+    /* 中等阴影：用于常规卡片 */
+    --shadow-glow: 0 0 20px rgba(52, 199, 89, 0.2);
+    /* 发光阴影：强调色发光，提升科技感 */
+
+    /* 四、间距/过渡/字体（延续你之前的规范，保证开发一致性） */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --font-primary: 'Tajawal', sans-serif;
+    /* 主字体：延续之前的无衬线字体，保证可读性 */
+    --font-code: 'Fira Code', monospace;
+}
+
+[data-theme="dark"] {
+    /* 核心配色：深绿系暗背景，文字/强调色适配暗背景可读性 */
+    --primary: #14B866; /* 暗主题主色：亮一点的绿，替代原深绿，保证暗背景下醒目 */
+    --secondary: #4CAF50; /* 暗主题次要色：比主色浅的绿，保持层级 */
+    --accent: #54E346; /* 暗主题强调色：更亮的绿，科技感发光效果更突出 */
+    --bg-light: #0A1F14; /* 暗主题页面主背景：深墨绿，护眼且贴合校徽绿系 */
+    --bg-card: #112E1D; /* 暗主题卡片背景：比主背景浅一点的深绿，有层次 */
+    --bg-hover: #1B402B; /* 暗主题悬浮背景：卡片/按钮hover时的深绿，提升交互感知 */
+    --border: #275F3E; /* 暗主题边框色：深绿系边框，不突兀且分隔清晰 */
+    --text-primary: #E8F5E9; /* 暗主题主文本：浅绿白，保证暗背景下可读性 */
+    --text-secondary: #C8E6C9; /* 暗主题次要文本：浅灰绿，副标题/说明文字 */
+    --text-muted: #9CCC9C; /* 暗主题弱化文本：浅绿灰，备注/时间戳等补充信息 */
+
+    /* 渐变效果：适配暗背景，调整色值为深绿系渐变 */
+    --gradient-1: linear-gradient(135deg, #14B866 0%, #0A6E3F 50%, #54E346 100%);
+    --gradient-2: linear-gradient(135deg, #112E1D 0%, #275F3E 100%);
+
+    /* 阴影效果：适配暗背景，降低透明度，避免太亮刺眼 */
+    --shadow-sm: 0 2px 4px rgba(20, 184, 102, 0.15);
+    --shadow-md: 0 4px 6px rgba(20, 184, 102, 0.25);
+    --shadow-glow: 0 0 20px rgba(84, 227, 70, 0.3); /* 发光阴影更柔和，暗背景不刺眼 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+.hero-name,
+.section-title,
+.timeline-title,
+.project-title,
+.category-title {
+    font-weight: 800;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-code-text {
+    font-family: var(--font-code);
+    font-size: 4rem;
+    font-weight: bolder;
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+
+.code-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    /* 轻微上移，强化悬浮感 */
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* .code-line[data-line="1"] { animation-delay: 0.1s; }
+.code-line[data-line="2"] { animation-delay: 0.3s; } */
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+.loader-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.loader-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--text-primary);
+    /* 可替换为--primary主色调更醒目 */
+    opacity: 0;
+    animation: dotBounce 1.2s infinite linear;
+}
+
+.loader-dots .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader-dots .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-dots .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotBounce {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateY(2px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+.loader-progress-wrapper {
+    width: 200px;
+    height: 10px;
+    background: var(--border);
+    border-radius: 10px;
+    margin: 1rem auto;
+    overflow: hidden;
+}
+
+.loader-progress-bar {
+    height: 100%;
+    background: var(--gradient-1);
+    width: 0%;
+    animation: progress 3s ease forwards;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+@keyframes progress {
+    to {
+        width: 100%;
+    }
+}
+
+.loader-percentage {
+    font-family: var(--font-code);
+    color: var(--primary);
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(48, 235, 31, 0.3);
+    backdrop-filter: blur(8px); /* 模糊半径，数值越大越朦胧（推荐6-12px） */
+    -webkit-backdrop-filter: blur(8px); /* 兼容Safari/移动端 */
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    transition: all var(--transition);
+}
+
+/*scrolled*/
+.main-header.scrolled {
+    background: rgba(48, 235, 31, 0.4);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 40px;
+}
+
+.logo {
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: start;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: var(--shadow-md);
+    list-style: none;
+    padding: var(--spacing-xs) 0;
+    min-width: 160px;
+    display: none;
+    z-index: 999;
+    transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(4px);
+}
+
+.dropdown-menu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 下拉菜单链接样式 */
+.dropdown-link {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color var(--transition);
+}
+
+/* 下拉链接hover效果 */
+.dropdown-link:hover {
+  background-color: var(--bg-hover);
+}
+
+/* 下拉链接当前页面高亮 */
+.dropdown-link.active {
+  color: var(--primary);
+  font-weight: 700;
+  background-color: rgba(52, 199, 89, 0.1);
+  border-left: 3px solid var(--accent);
+  padding-left: calc(var(--spacing-sm) - 3px);
+}
+
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    transition: width var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link.active::before{
+    width: 80%;
+}
+
+.nav-link i {
+    font-size: 1rem;
+}
+
+/* 下拉菜单图标旋转 */
+.has-dropdown .nav-link .fa-chevron-down {
+    transition: transform var(--transition);
+}
+
+.has-dropdown .nav-link.expanded .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.nav-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.lang-toggle,
+.theme-toggle,
+.menu-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0.6rem;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px,5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px,-6px);
+}
+
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+    .nav-brand {
+        flex: 1;
+    }
+    .logo {
+        width: 70px;
+    }
+    .nav-controls {
+        gap: 0.5rem;
+    } 
+    .nav-menu {
+        position: fixed;
+        top: 90px;
+        left: -100%;
+        width: 100%;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border);
+        transition: left var(--transition);
+        z-index: 999;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    .nav-container {
+        padding: 0.7rem 0.8rem;
+    }
+    .logo {
+        width: 50px;
+    }
+}
