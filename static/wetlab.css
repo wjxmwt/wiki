@@ -1,0 +1,724 @@
+/* wetlab页面专属css样式 */
+
+/* ---------- 谷歌中英文学术字体 ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+/* ---------- 页面总体布局 ---------- */
+.wetlab-page {
+    padding-top: 120px;
+    min-height: 100vh;
+    background: var(--bg-light);
+    font-family: 'Inter', 'Noto Serif SC', var(--font-primary);
+}
+
+/* 双重留白 wrapper：左右各 15 vw */
+.wetlab-outer {
+    display: flex;
+    justify-content: center;
+    padding: 0 10vw;
+    gap: 0;
+}
+
+/* ---------- 页面侧边栏 ---------- */
+.wetlab-toc {
+    position: sticky;
+    top: 130px;
+    align-self: flex-start;
+    width: 22%;
+    min-width: 180px;
+    max-width: 240px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    margin-right: 40px;
+    padding: 1.5rem 0;
+    flex-shrink: 0;
+}
+
+.toc-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 0.25rem;
+}
+
+.toc-list a {
+    display: block;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-radius: 0 6px 6px 0;
+    transition: all var(--transition);
+    line-height: 1.5;
+}
+
+.toc-list a:hover {
+    color: var(--primary);
+    background: var(--bg-hover);
+    border-left-color: var(--secondary);
+}
+
+.toc-list a.active {
+    color: var(--primary);
+    font-weight: 700;
+    border-left-color: var(--accent);
+    background: rgba(52, 199, 89, 0.08);
+}
+
+/* ---------- 可折叠树形目录 ---------- */
+.toc-parent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
+}
+
+.toc-parent-row > a {
+    flex: 1;
+}
+
+.toc-expand-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0.3rem;
+    border-radius: 4px;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.toc-expand-btn:hover {
+    color: var(--primary);
+    background: var(--bg-hover);
+}
+
+.toc-expand-btn i {
+    font-size: 0.65rem;
+    transition: transform 0.3s ease;
+}
+
+.toc-parent.expanded .toc-expand-btn i {
+    transform: rotate(90deg);
+}
+
+.toc-children {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    border-left: 2px solid var(--border);
+    margin-left: 0.75rem;
+}
+
+.toc-parent.expanded .toc-children {
+    max-height: 300px;
+}
+
+.toc-children li {
+    margin-bottom: 0;
+}
+
+.toc-children a {
+    padding: 0.35rem 0.75rem 0.35rem 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.toc-children a:hover {
+    color: var(--primary);
+    background: var(--bg-hover);
+    border-left-color: transparent;
+}
+
+.toc-children a.active {
+    color: var(--primary);
+    font-weight: 600;
+    background: rgba(52, 199, 89, 0.06);
+    border-left-color: transparent;
+}
+
+/* 滚动条美化 */
+.wetlab-toc::-webkit-scrollbar {
+    width: 3px;
+}
+
+.wetlab-toc::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+/* ---------- 主体内容容器 ---------- */
+.wetlab-main {
+    flex: 1;
+    max-width: 1080px;
+    min-width: 0;
+}
+
+/* ---------- 页面横幅 ---------- */
+.wetlab-hero {
+    position: relative;
+    background: var(--gradient-2);
+    border-radius: 18px;
+    padding: 3.5rem 3rem 3rem;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.wetlab-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(52, 199, 89, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.wetlab-hero-subtitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.wetlab-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.wetlab-hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    max-width: 680px;
+}
+
+/* ---------- 文章字体 ---------- */
+.wetlab-content {
+    color: #2E4A3A;
+    /* 正文字体在这里：深灰绿 */
+    line-height: 1.85;
+    font-size: 1rem;
+}
+
+[data-theme="dark"] .wetlab-content {
+    color: var(--text-secondary);
+}
+
+.wetlab-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* H2 章节标题 */
+.wetlab-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 4px solid var(--accent);
+    scroll-margin-top: 120px;
+}
+
+/* H3 小节标题 */
+.wetlab-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    position: relative;
+    scroll-margin-top: 120px;
+}
+
+.wetlab-content h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 5px;
+    height: 1.1em;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+/* H4 小小节标题 */
+.wetlab-content h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    scroll-margin-top: 120px;
+}
+
+/* ---------- 内容卡片 ---------- */
+.wetlab-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 2rem;
+    transition: box-shadow var(--transition);
+}
+
+.wetlab-card:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+/* 实验步骤卡片 */
+.protocol-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.8rem;
+    transition: box-shadow var(--transition);
+}
+
+.protocol-card:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.protocol-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.protocol-card .card-title i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+/* ---------- 实验步骤列表 ---------- */
+.step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step-counter;
+}
+
+.step-list li {
+    position: relative;
+    padding: 0.65rem 0 0.65rem 2.5rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.85;
+    color: #2E4A3A;
+    border-radius: 8px;
+    transition: background var(--transition);
+}
+
+[data-theme="dark"] .step-list li {
+    color: var(--text-secondary);
+}
+
+.step-list li:hover {
+    background: var(--bg-hover);
+}
+
+.step-list li::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 1.65rem;
+    height: 1.65rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* ---------- 表格样式 ---------- */
+.wetlab-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.8rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.wetlab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.wetlab-table thead {
+    background: var(--primary);
+    color: #fff;
+}
+
+.wetlab-table th {
+    padding: 0.85rem 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.wetlab-table td {
+    padding: 0.75rem 1.2rem;
+    border-top: 1px solid var(--border);
+    color: #2E4A3A;
+}
+
+[data-theme="dark"] .wetlab-table td {
+    color: var(--text-secondary);
+}
+
+.wetlab-table tbody tr:nth-child(even) {
+    background: var(--bg-hover);
+}
+
+.wetlab-table tbody tr:hover {
+    background: rgba(52, 199, 89, 0.06);
+}
+
+/* ---------- 图表 ---------- */
+.wetlab-figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.wetlab-figure img {
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 0.5rem;
+    transition: box-shadow var(--transition), transform 0.2s ease;
+    cursor: zoom-in;
+}
+
+.wetlab-figure img:hover {
+    box-shadow: var(--shadow-sm);
+    transform: scale(1.01);
+}
+
+.wetlab-figure figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    line-height: 1.6;
+}
+
+/* ---------- 重点发现 ---------- */
+.key-finding {
+    background: linear-gradient(135deg, rgba(52, 199, 89, 0.08), rgba(10, 110, 63, 0.06));
+    border-left: 4px solid var(--accent);
+    border-radius: 0 14px 14px 0;
+    padding: 1.3rem 1.6rem;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.98rem;
+    line-height: 1.85;
+    color: #2E4A3A;
+}
+
+[data-theme="dark"] .key-finding {
+    color: var(--text-secondary);
+    background: linear-gradient(135deg, rgba(52, 199, 89, 0.12), rgba(20, 184, 102, 0.08));
+}
+
+.key-finding strong {
+    color: var(--primary);
+}
+
+/* ---------- 分割线 ---------- */
+.section-divider {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: 3rem 0;
+}
+
+/* ---------- 返回顶部按钮 ---------- */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition);
+    z-index: 500;
+    pointer-events: none;
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.back-to-top-btn:hover {
+    background: var(--accent);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ---------- 滚动动画（淡入上移） ---------- */
+.wetlab-animate {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.wetlab-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 1400px) {
+    .wetlab-outer {
+        padding: 0 5vw;
+    }
+}
+
+@media (max-width: 1100px) {
+    .wetlab-outer {
+        padding: 0 2vw;
+    }
+
+    .wetlab-toc {
+        margin-right: 24px;
+    }
+}
+
+@media (max-width: 960px) {
+    .wetlab-outer {
+        flex-direction: column;
+        padding: 0 1.2rem;
+    }
+
+    /* 移动端侧边栏：固定左侧，默认隐藏 */
+    .wetlab-toc {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        max-height: 100vh;
+        margin-right: 0;
+        padding: 5rem 1.2rem 2rem;
+        background: var(--bg-card);
+        border: none;
+        border-right: 1px solid var(--border);
+        border-radius: 0;
+        z-index: 900;
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: none;
+        overflow-y: auto;
+    }
+
+    .wetlab-toc.open {
+        left: 0;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* TOC 遮罩层 */
+    .toc-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 899;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .toc-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    /* TOC 切换按钮 */
+    .toc-toggle-btn {
+        display: flex;
+    }
+
+    .wetlab-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .wetlab-content h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* TOC移动端切换按钮（默认隐藏，移动端显示） */
+.toc-toggle-btn {
+    display: none;
+    position: fixed;
+    bottom: 5rem;
+    left: 1.2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 500;
+    font-size: 1.1rem;
+    transition: all var(--transition);
+}
+
+.toc-toggle-btn:hover {
+    background: var(--accent);
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.08);
+}
+
+.toc-toggle-btn.active {
+    background: var(--accent);
+}
+
+/* ---------- 图片 Lightbox ---------- */
+.image-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    cursor: zoom-out;
+}
+
+.image-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.92);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.image-lightbox.active img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.8rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* ---------- 页面过渡淡出 ---------- */
+.page-fade-out {
+    animation: pageFadeOut 0.3s ease forwards;
+}
+
+@keyframes pageFadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .wetlab-hero {
+        padding: 2rem 1.2rem;
+        border-radius: 12px;
+    }
+
+    .wetlab-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .wetlab-card,
+    .protocol-card {
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+}

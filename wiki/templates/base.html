@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title %}WIKI{% endblock %} | iGEM Wiki</title>
+  {% block meta_description %}{% endblock %}
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body class="body-main" data-theme="light" data-lang="en" {% block body_attrs %}{% endblock %}>
+
+  {# 子页面标记 & 首页路径（传递给 JS，避免硬编码绝对路径） #}
+  <script>
+    window.__HOME_URL = "{{ url_for('home') }}";
+    {% if is_subpage %}window.__IS_SUBPAGE = true;{% endif %}
+  </script>
+
+  {# 首页加载动画（仅非子页面） #}
+  {% if not is_subpage %}
+  <div class="loader-screen" id="loader">
+    <div class="loader-content">
+      <div class="loader-code-text">
+        <div class="code-line">
+          <img src="{{ url_for('static', filename='image/logo.png') }}" style="width: 150px;" alt="logo">
+          <p>PAHs</p>
+        </div>
+      </div>
+      <div class="loader-progress-wrapper">
+        <div class="loader-progress-bar"></div>
+      </div>
+      <div class="loader-dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <div class="loader-percentage" id="loaderPercent">0%</div>
+    </div>
+  </div>
+  {% endif %}
+
+  {# 导航栏 #}
+  {% include 'templates/components/nav.html' %}
+
+  {# 主体内容 #}
+  {% block content %}{% endblock %}
+
+  {# 全局脚本 #}
+  <script src="{{ url_for('static', filename='anime.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  {% if not is_subpage %}
+  <script src="{{ url_for('static', filename='animation.js') }}"></script>
+  {% endif %}
+
+  {% block extra_js %}{% endblock %}
+</body>
+
+</html>
