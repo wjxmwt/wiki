@@ -42,7 +42,8 @@ window.addEventListener('load',()=> {
 function initLoaderAnimation() {
     const loader = document.getElementById('loader');
     const loaderPercent = document.getElementById('loaderPercent');
-    if (!loader || !loaderPercent) return;
+    const loaderBar = document.querySelector('.loader-progress-bar');
+    if (!loader || !loaderPercent || !loaderBar) return;
 
     // 从子页面返回时跳过加载动画
     if (sessionStorage.getItem('skipLoader') === 'true') {
@@ -52,8 +53,11 @@ function initLoaderAnimation() {
     }
 
     let progress = 0;
+    loaderBar.style.width = '0%';
+    loaderPercent.textContent = '0%';
+
     const progressInterval = setInterval(() => {
-        progress += Math.random() * 15;
+        progress += (Math.random() * 15) + 5;
         if (progress >= 100) {
             progress = 100;
             clearInterval(progressInterval);
@@ -61,7 +65,7 @@ function initLoaderAnimation() {
                 if (typeof anime !== 'undefined') {
                     anime({
                         targets: loader,
-                        opacity: [1,0],
+                        opacity: [1, 0],
                         duration: 500,
                         easing: 'easeInOutQuad',
                         complete: () => {
@@ -71,10 +75,11 @@ function initLoaderAnimation() {
                 } else {
                     loader.classList.add('hidden');
                 }
-            },300);
+            }, 300);
         }
-        if (loaderPercent) {
-            loaderPercent.textContent = Math.floor(progress) + '%';
-        }
-    },100);
+
+        const progressValue = Math.floor(progress);
+        loaderPercent.textContent = progressValue + '%';
+        loaderBar.style.width = progressValue + '%';
+    }, 100);
 }
