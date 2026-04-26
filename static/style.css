@@ -231,14 +231,8 @@ img {
     height: 100%;
     background: var(--gradient-1);
     width: 0%;
-    animation: progress 3s ease forwards;
     box-shadow: 0 0 10px var(--primary);
-}
-
-@keyframes progress {
-    to {
-        width: 100%;
-    }
+    transition: width 0.1s linear;
 }
 
 .loader-percentage {
