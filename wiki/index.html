@@ -5,5 +5,54 @@
 {# 首页无需额外 CSS/JS，base.html 已包含全局资源 #}
 
 {% block content %}
-  {# 首页主体内容占位 — 后续可在此添加 section 区块 #}
+  <div id="model-container" style="width: 100%; height: 100%; background: transparent;"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <script>
+    // 初始化 Three.js 场景
+    const scene = new THREE.Scene();
+    // 设置相机角度和视野
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // 创建 WebGL 渲染器
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    // 设置渲染背景透明
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('model-container').appendChild(renderer.domElement);
+    // 环境光和方向光照明设置
+    const light = new THREE.AmbientLight(0x404040);
+    scene.add(light);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(1, 1, 1).normalize();
+    scene.add(directionalLight);
+    // 轨道控制器设置，允许用户旋转、缩放和移动模型
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    // 加载 GLTF 模型
+    const loader = new THREE.GLTFLoader();
+    loader.load(
+      '{{ url_for("static", filename="blender/taitan.gltf") }}',  // 请将 taitan.blend 导出为 taitan.gltf
+      function (gltf) {
+        scene.add(gltf.scene);
+        camera.position.z = 5;
+      },
+      function (xhr) {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+      },
+      function (error) {
+        console.error('An error happened', error);
+      }
+    );
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
 {% endblock %}
