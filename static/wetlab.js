@@ -119,11 +119,25 @@ function initWetlabAnimations() {
             }
         });
     }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -60px 0px'
+        threshold: 0,
+        rootMargin: '0px 0px 100px 0px'
     });
 
-    elements.forEach(el => observer.observe(el));
+    // Defer observe() to next frame so initial layout is finalized
+    // (avoids missed intersections on mobile when loader/header height shifts)
+    requestAnimationFrame(() => {
+        elements.forEach(el => observer.observe(el));
+    });
+
+    // Safety fallback: if any element never gets observed (e.g. due to layout
+    // race on mobile), reveal it after 2s so content is never permanently hidden.
+    setTimeout(() => {
+        elements.forEach(el => {
+            if (!el.classList.contains('in-view')) {
+                el.classList.add('in-view');
+            }
+        });
+    }, 2000);
 }
 
 /* ========================================

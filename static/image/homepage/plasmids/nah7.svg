@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1807.6 1867.74">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #009245;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #000;
+        stroke-width: 20px;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-9 {
+        font-size: 48px;
+      }
+
+      .cls-9, .cls-10 {
+        font-family: SimHei, SimHei;
+      }
+
+      .cls-4 {
+        stroke: #00a99d;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        stroke-width: 60px;
+      }
+
+      .cls-11 {
+        fill: #d9e021;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: none;
+      }
+
+      .cls-5, .cls-7 {
+        stroke: #009245;
+      }
+
+      .cls-6, .cls-7 {
+        stroke-linecap: round;
+      }
+
+      .cls-6, .cls-8 {
+        stroke: #d9e021;
+      }
+
+      .cls-10 {
+        font-size: 100px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-3" cx="879.94" cy="1107.74" r="750"/>
+  <g>
+    <path class="cls-2" d="m251.32,698.61c133.78-205.45,365.5-341.28,628.95-341.28s487.13,131.17,621.91,330.67"/>
+    <g>
+      <path class="cls-5" d="m291.32,642.91c137.35-173.94,350.11-285.58,588.95-285.58s443.43,107.4,580.97,275.65"/>
+      <polygon class="cls-1" points="443.94 605.75 301.88 628.65 279.06 486.58 228.46 556.58 251.32 698.61 393.35 675.75 443.94 605.75"/>
+      <polygon class="cls-1" points="1308.01 598.44 1450.44 618.92 1470.83 476.48 1522.61 545.6 1502.18 688 1359.79 667.57 1308.01 598.44"/>
+    </g>
+  </g>
+  <text class="cls-10" transform="translate(1231.31 367.85) rotate(36.56)"><tspan x="0" y="0">P</tspan></text>
+  <text class="cls-10" transform="translate(1270.6 396.95) rotate(40.28)"><tspan x="0" y="0">s</tspan></text>
+  <text class="cls-10" transform="translate(1307.93 428.54) rotate(43.99)"><tspan x="0" y="0">a</tspan></text>
+  <text class="cls-10" transform="translate(1343.14 462.49) rotate(47.7)"><tspan x="0" y="0">l</tspan></text>
+  <path class="cls-4" d="m573.25,422.85c93.71-42.1,197.63-65.52,307.02-65.52,88.99,0,174.36,15.5,253.56,43.95"/>
+  <text class="cls-9" transform="translate(407.23 476.01) rotate(-39.9)"><tspan x="0" y="0">m</tspan></text>
+  <text class="cls-9" transform="translate(425.45 460.77) rotate(-38.09)"><tspan x="0" y="0">u</tspan></text>
+  <text class="cls-9" transform="translate(444.14 446.11) rotate(-36.28)"><tspan x="0" y="0">t</tspan></text>
+  <text class="cls-10" transform="translate(343.02 536.3) rotate(-46.53)"><tspan x="0" y="0">Pr</tspan></text>
+  <text/>
+  <text class="cls-9" transform="translate(1375.37 487.68) rotate(47.78)"><tspan x="0" y="0">m</tspan></text>
+  <text class="cls-9" transform="translate(1391.33 505.26) rotate(49.59)"><tspan x="0" y="0">u</tspan></text>
+  <text class="cls-9" transform="translate(1406.73 523.34) rotate(51.4)"><tspan x="0" y="0">t</tspan></text>
+  <g>
+    <path class="cls-7" d="m232.42,1491.81c-67.11-112.34-105.67-243.7-105.67-384.07"/>
+    <polygon class="cls-1" points="252.28 1335.94 222.95 1476.81 82.1 1447.4 129.42 1519.65 270.24 1549.02 299.6 1408.19 252.28 1335.94"/>
+  </g>
+  <g>
+    <path class="cls-8" d="m1569.51,1395.62c-28.46,68.41-66.75,131.69-113.12,188.09"/>
+    <polygon class="cls-11" points="1460.34 1426.72 1468.11 1570.4 1611.79 1562.55 1554.12 1626.85 1410.48 1634.65 1402.68 1491.01 1460.34 1426.72"/>
+  </g>
+  <path class="cls-6" d="m1626.75,1107.74c0,102-20.36,199.24-57.24,287.88"/>
+  <text class="cls-10" transform="translate(126.82 1422.73) rotate(-102.38)"><tspan x="0" y="0">Nahr</tspan></text>
+  <text class="cls-9" transform="translate(95.1 1226.08) rotate(-93.85)"><tspan x="0" y="0">mut</tspan></text>
+  <text class="cls-10" transform="translate(1676.82 1481.98) rotate(-72.46)"><tspan x="0" y="0">eGFP</tspan></text>
+  <text/>
+  <text/>
+  <text class="cls-10" transform="translate(484.24 1128.36)"><tspan x="0" y="0">pUC57-NahR-eGFP</tspan></text>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cute bacteria mascot placeholder -->
+  <defs>
+    <radialGradient id="bodyGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Body -->
+  <ellipse cx="30" cy="32" rx="22" ry="18" fill="url(#bodyGradient)" stroke="#047857" stroke-width="2"/>
+
+  <!-- Eyes -->
+  <circle cx="22" cy="28" r="4" fill="white"/>
+  <circle cx="38" cy="28" r="4" fill="white"/>
+  <circle cx="23" cy="28" r="2" fill="#1F2937"/>
+  <circle cx="39" cy="28" r="2" fill="#1F2937"/>
+
+  <!-- Smile -->
+  <path d="M 20 36 Q 30 42 40 36" stroke="#047857" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Flagella (tail) -->
+  <path d="M 8 32 Q 5 28 8 24 Q 11 20 8 16" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Shine effect -->
+  <ellipse cx="24" cy="24" rx="6" ry="4" fill="white" opacity="0.4"/>
+</svg>
