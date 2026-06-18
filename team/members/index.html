@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Team Members | iGEM Wiki</title>
+  
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.2">
+
+  
+<link rel="stylesheet" href="../../static/css/members.css">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <!-- Project 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Project" class="nav-link " data-section="Project">
+          <i class="fas fa-home"></i>
+          <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Description" class="dropdown-link"><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+          <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程实现">Engineering</span></a></li>
+          <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Wet Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Wet Lab" class="nav-link " data-section="Wet-Lab">
+          <i class="fa-solid fa-flask"></i>
+          <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+          <li><a href="../../#Design" class="dropdown-link"><span class="nav-text" data-text-en="Design" data-text-zh="实验设计">Design</span></a></li>
+          <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+          <li><a href="../../wetlab/salicylic-acid/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Experiments" data-text-zh="实验内容">Experiments</span></a></li>
+          <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+          <li><a href="../../#Safety" class="dropdown-link"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Dry Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
+          <i class="fa-solid fa-flask-vial"></i>
+          <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Modeling" class="dropdown-link"><span class="nav-text" data-text-en="Modeling" data-text-zh="建模分析">Modeling</span></a></li>
+          <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+          <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+        </ul>
+      </li>
+      <!-- Team 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Team" class="nav-link active" data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html" class="dropdown-link active"><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+          <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- 无下拉的导航项 -->
+      <li class="nav-item">
+        <a href="../../#Human Practice" class="nav-link " data-section="Human-Practice">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="../../#Video" class="nav-link " data-section="Video">
+          <i class="fa-solid fa-video"></i>
+          <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Toggle Language">
+        <i class="fas fa-language"></i><span class="lang-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-sun"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<div class="members_page">
+    <!-- 团队成员合照 -->
+    <section id="groupPhoto" class="group_photo">
+        <img class="group_photo_img" src="../../static/image/team/GroupPhoto.jpg"
+            alt="Team Group Photo">
+        <h2>
+            <span class="letter" style="--i: 0">m</span>
+            <span class="letter" style="--i: 1">e</span>
+            <span class="letter" style="--i: 2">e</span>
+            <span class="letter" style="--i: 3">t</span>
+            <span class="letter" style="--i: 4">&nbsp;</span>
+            <span class="letter" style="--i: 5">o</span>
+            <span class="letter" style="--i: 6">u</span>
+            <span class="letter" style="--i: 7">r</span>
+            <span class="letter" style="--i: 8">&nbsp;</span>
+            <span class="letter" style="--i: 9">t</span>
+            <span class="letter" style="--i: 10">e</span>
+            <span class="letter" style="--i: 11">a</span>
+            <span class="letter" style="--i: 12">m</span>
+        </h2>
+    </section>
+    <!-- 团队成员展示 -->
+    <section id="membersDisplay" class="members_display">
+        <div class="group_wrapper">
+            <div class="group_slides" id="groupSlidesContainer">
+                <div class="carousel_item">
+                    <div class="carousel_card">
+                        <div class="group_book_3d">
+                            <div class="group_book_3d_item" style="--i: 0">
+                                <img class="book_cover" src="../../static/image/team/Experiment.png" 
+                                    alt="Front 1" />
+                                <div class="back">
+                                    <img src="../../static/image/team/ExperimentGroupOne.png"
+                                        alt="Back 1" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 1">
+                                <div class="front introduction">
+                                    <div class="page-header">EXPERIMENT·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">翁佳华</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 队长
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            生命之奇妙无法参透。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 01 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/ExperimentGroupTwo.png"
+                                        alt="Back 2" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 2">
+                                <div class="front introduction">
+                                    <div class="page-header">EXPERIMENT·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">李欣颖</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 副队长
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            托住所有人天马行空的生物幻想。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 02 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/ExperimentGroupThree.png"
+                                        alt="Back 2" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 3">
+                                <div class="front introduction">
+                                    <div class="page-header">EXPERIMENT·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">刘蝉滋</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            知足，上进，不负野心。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE last —</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_title artist-name-en">Experiment Group</div>
+                </div>
+                <div class="carousel_item">
+                    <div class="carousel_card">
+                        <div class="group_book_3d">
+                            <div class="group_book_3d_item" style="--i: 0">
+                                <img class="book_cover" src="../../static/image/team/HP.png"
+                                    alt="Front 1" />
+                                <div class="back">
+                                    <img src="../../static/image/team/HPGroupOne.png"
+                                        alt="Back 1" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 1">
+                                <div class="front introduction">
+                                    <div class="page-header">HP·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">郑婉悦</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            以画笔为桥梁，把晦涩的生物项目转化成直观好看的视觉作品。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 01 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/HPGroupTwo.png"
+                                        alt="Back 2" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 2">
+                                <div class="front introduction">
+                                    <div class="page-header">HP·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">胡颖</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            不会做PPT的调研员不是好Wiki小编。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 02 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/HPGroupThree.png"
+                                        alt="Back 3" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 3">
+                                <div class="front introduction">
+                                    <div class="page-header">HP·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">李云源</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            把实验室的门打开，让阳光、争议和真实需求都飘进来。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 03 —</div>
+
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/HPGroupFour.png"
+                                        alt="Back 4" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 4">
+                                <div class="front introduction">
+                                    <div class="page-header">HP·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">朱恩彤</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            致力于帮助每一个好点子走出实验室。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 04 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/HPGroupFive.png"
+                                        alt="Back 5" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 5">
+                                <div class="front introduction">
+                                    <div class="page-header">HP·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">易菲尔</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组长
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            平静的海面上培养不出优秀的水手，我希望向外拓展的多元人类实践活动能成为团队的底气。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 05 —</div>
+
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/HPGroupSix.png"
+                                        alt="Back 6" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 6">
+                                <div class="front introduction">
+                                    <div class="page-header">HP·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">许译文</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            兼顾HP科普传播与数理建模，用人文与计算双向驱动合成生物研究。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE last —</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_title artist-name-en">HP Group</div>
+                </div>
+                <div class="carousel_item">
+                    <div class="carousel_card">
+                        <div class="group_book_3d">
+                            <div class="group_book_3d_item" style="--i: 0">
+                                <img class="book_cover" src="../../static/image/team/Art.png"
+                                    alt="Front 1" />
+                                <div class="back">
+                                    <img src="../../static/image/team/ArtGroupOne.png"
+                                        alt="Back 1" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 1">
+                                <div class="front introduction">
+                                    <div class="page-header">ART·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">余心悦</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            以画笔为桥梁，把晦涩的生物项目转化成直观好看的视觉作品。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 01 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/ArtGroupTwo.png"
+                                        alt="Back 2" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 2">
+                                <div class="front introduction">
+                                    <div class="page-header">ART·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">朱思仪</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组长
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            借视觉为载体，邂逅合成生物浪漫。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE last —</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_title artist-name-en">Art Group</div>
+                </div>
+                <div class="carousel_item">
+                    <div class="carousel_card">
+                        <div class="group_book_3d">
+                            <div class="group_book_3d_item" style="--i: 0">
+                                <img class="book_cover" src="../../static/image/team/Wiki.png"
+                                    alt="Front 1" />
+                                <div class="back">
+                                    <img src="../../static/image/team/WikiGroupOne.png"
+                                        alt="Back 1" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 1">
+                                <div class="front introduction">
+                                    <div class="page-header">WIKI·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">邱敏熙</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组长
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            条理清晰、层次分明的Wiki，是展现合成生物项目成果最好的载体。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 01 —</div>
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/WikiGroupTwo.png"
+                                        alt="Back 2" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 2">
+                                <div class="front introduction">
+                                    <div class="page-header">WIKI·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">王基祥</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            努力。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE last —</div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_title artist-name-en">Wiki Group</div>
+                </div>
+                <div class="carousel_item">
+                    <div class="carousel_card">
+                        <div class="group_book_3d">
+                            <div class="group_book_3d_item" style="--i: 0">
+                                <img class="book_cover" src="../../static/image/team/Model.png"
+                                    alt="Front 1" />
+                                <div class="back">
+                                    <img src="../../static/image/team/ModelGroupOne.png"
+                                        alt="Back 1" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 1">
+                                <div class="front introduction">
+                                    <div class="page-header">MODEL·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">金雨霖</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            数据模型才是最有利的证明。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE 01 —</div>
+                                    
+                                </div>
+                                <div class="back">
+                                    <img src="../../static/image/team/ModelGroupTwo.png"
+                                        alt="Back 2" />
+                                </div>
+                            </div>
+                            <div class="group_book_3d_item" style="--i: 2">
+                                <div class="front introduction">
+                                    <div class="page-header">MODEL·GROUP</div>
+                                    <div class="page-content">
+                                        <h3 class="name artist-name-zh">刘梦斐</h3>
+                                        <div class="title artist-name-zh">
+                                            ◆ 组员
+                                        </div>
+                                        <p class="description artist-name-zh">
+                                            以计算模拟为桥，探寻蛋白质与合成生物的奥秘。
+                                        </p>
+                                    </div>
+                                    <div class="page-footer">— PAGE last —</div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_title artist-name-en">Modeling Group</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.2"></script>
+  
+  
+<script src="../../static/js/members.js?v=1.0.2"></script>
+
+</body>
+
+</html>

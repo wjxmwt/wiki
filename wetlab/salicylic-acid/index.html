@@ -22,10 +22,10 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
 
   <!-- 全局样式 -->
-  <link rel="stylesheet" href="../../static/style.css?v=1.0.2">
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.2">
 
   
-<link rel="stylesheet" href="../../static/wetlab.css?v=1.0.2">
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
 
 </head>
 
@@ -64,6 +64,7 @@
   
   
 
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
 
 <header class="main-header" id="header">
   <nav class="nav-container">
@@ -118,6 +119,18 @@
           <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
         </ul>
       </li>
+      <!-- Team 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Team" class="nav-link " data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+          <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+        </ul>
+      </li>
 
       <!-- 无下拉的导航项 -->
       <li class="nav-item">
@@ -126,12 +139,7 @@
           <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="../../#Team" class="nav-link " data-section="Team">
-          <i class="fa-solid fa-people-group"></i>
-          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
-        </a>
-      </li>
+      
       <li class="nav-item">
         <a href="../../#Video" class="nav-link " data-section="Video">
           <i class="fa-solid fa-video"></i>
@@ -721,11 +729,10 @@
 
   
   <script src="../../static/anime.min.js"></script>
-  <script src="../../static/main.js?v=1.0.2"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.2"></script>
   
-
   
-<script src="../../static/wetlab.js?v=1.0.2"></script>
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
 
 </body>
 

@@ -17,9 +17,11 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
 
   <!-- 全局样式 -->
-  <link rel="stylesheet" href="static/style.css?v=1.0.2">
+  <link rel="stylesheet" href="static/css/base.css?v=1.0.2">
 
   
+<link rel="stylesheet" href="static/css/index.css?v=1.0.2">
+
 </head>
 
 <body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="0" >
@@ -56,13 +58,17 @@
           <p>PAHs</p>
         </div>
       </div>
+
       <div class="loader-progress-wrapper">
         <div class="loader-progress-bar"></div>
       </div>
+
       <div class="loader-dots">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
       </div>
-      <div class="loader-percentage" id="loaderPercent">0%</div>
+      <div class="loader-percentage" id="loaderPercent">
+        0%
+      </div>
     </div>
   </div>
   
@@ -75,6 +81,7 @@
   
   
 
+<link rel="stylesheet" href="static/css/nav.css?v=1.0.2">
 
 <header class="main-header" id="header">
   <nav class="nav-container">
@@ -129,6 +136,18 @@
           <li><a href="#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
         </ul>
       </li>
+      <!-- Team 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="#Team" class="nav-link " data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+          <li><a href="#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+        </ul>
+      </li>
 
       <!-- 无下拉的导航项 -->
       <li class="nav-item">
@@ -137,12 +156,7 @@
           <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="#Team" class="nav-link " data-section="Team">
-          <i class="fa-solid fa-people-group"></i>
-          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
-        </a>
-      </li>
+      
       <li class="nav-item">
         <a href="#Video" class="nav-link " data-section="Video">
           <i class="fa-solid fa-video"></i>
@@ -169,10 +183,13 @@
 <!-- Hero Section -->
 <section id="hero" class="homepage-hero">
   <div class="hero-content">
-    <h1 class="hero-title" data-text-en="Engineered E. coli for PAH Detection & Degradation" data-text-zh="工程化大肠杆菌用于多环芳烃检测与降解">Engineered E. coli for PAH Detection & Degradation</h1>
-    <p class="hero-subtitle" data-text-en="A Synthetic Biology Solution for Environmental Monitoring" data-text-zh="环境监测的合成生物学解决方案">A Synthetic Biology Solution for Environmental Monitoring</p>
+    <h1 class="hero-title" data-text-en="Engineered E. coli for PAH Detection & Degradation"
+      data-text-zh="工程化大肠杆菌用于多环芳烃检测与降解">Engineered E. coli for PAH Detection & Degradation</h1>
+    <p class="hero-subtitle" data-text-en="A Synthetic Biology Solution for Environmental Monitoring"
+      data-text-zh="环境监测的合成生物学解决方案">A Synthetic Biology Solution for Environmental Monitoring</p>
     <div class="hero-cta">
-      <a href="#sources" class="btn-primary" data-text-en="Explore Our Project" data-text-zh="探索我们的项目">Explore Our Project</a>
+      <a href="#sources" class="btn-primary" data-text-en="Explore Our Project" data-text-zh="探索我们的项目">Explore Our
+        Project</a>
     </div>
   </div>
 
@@ -201,36 +218,69 @@
       <span class="section-number">01</span>
       <div class="title-with-mascot">
         <h2 data-text-en="Sources of PAHs" data-text-zh="多环芳烃的来源">Sources of PAHs</h2>
-        <img class="header-mascot" src="static/image/homepage/mascot/q_green_1.png" alt="Mascot decoration">
+        <img class="header-mascot" src="static/image/homepage/mascot/q_green_1.png"
+          alt="Mascot decoration">
       </div>
     </div>
 
     <div class="content-grid">
       <div class="text-content glass-card">
-        <h3 data-text-en="What are Polycyclic Aromatic Hydrocarbons?" data-text-zh="什么是多环芳烃？">What are Polycyclic Aromatic Hydrocarbons?</h3>
-        <p data-text-en="Polycyclic aromatic hydrocarbons (PAHs) are a class of persistent organic pollutants composed of two or more fused aromatic rings. Naphthalene, the simplest PAH with two benzene rings, serves as our model compound due to its high prevalence and environmental mobility." data-text-zh="多环芳烃（PAHs）是由两个或多个稠合芳香环组成的一类持久性有机污染物。萘是最简单的多环芳烃，具有两个苯环，由于其高流行性和环境迁移性，我们将其作为模型化合物。">Polycyclic aromatic hydrocarbons (PAHs) are a class of persistent organic pollutants composed of two or more fused aromatic rings. Naphthalene, the simplest PAH with two benzene rings, serves as our model compound due to its high prevalence and environmental mobility.</p>
+        <h3 data-text-en="What are Polycyclic Aromatic Hydrocarbons?" data-text-zh="什么是多环芳烃？">What are Polycyclic
+          Aromatic Hydrocarbons?</h3>
+        <p data-text-en="Polycyclic aromatic hydrocarbons (PAHs) are a class of persistent organic pollutants composed of two or more fused aromatic rings. Naphthalene, the simplest PAH with two benzene rings, serves as our model compound due to its high prevalence and environmental mobility."
+          data-text-zh="多环芳烃（PAHs）是由两个或多个稠合芳香环组成的一类持久性有机污染物。萘是最简单的多环芳烃，具有两个苯环，由于其高流行性和环境迁移性，我们将其作为模型化合物。">Polycyclic
+          aromatic hydrocarbons (PAHs) are a class of persistent organic pollutants composed of two or more fused
+          aromatic rings. Naphthalene, the simplest PAH with two benzene rings, serves as our model compound due to its
+          high prevalence and environmental mobility.</p>
 
         <h3 data-text-en="Anthropogenic Sources" data-text-zh="人为来源">Anthropogenic Sources</h3>
-        <p data-text-en="PAHs are primarily produced through incomplete combustion of fossil fuels and biomass. Major sources include:" data-text-zh="多环芳烃主要通过化石燃料和生物质的不完全燃烧产生。主要来源包括：">PAHs are primarily produced through incomplete combustion of fossil fuels and biomass. Major sources include:</p>
+        <p data-text-en="PAHs are primarily produced through incomplete combustion of fossil fuels and biomass. Major sources include:"
+          data-text-zh="多环芳烃主要通过化石燃料和生物质的不完全燃烧产生。主要来源包括：">PAHs are primarily produced through incomplete combustion of
+          fossil fuels and biomass. Major sources include:</p>
         <ul>
-          <li data-html data-text-en="<strong>Vehicle Exhaust:</strong> Traffic emissions contribute significantly to urban PAH pollution, with concentrations reaching 100-1000 ng/m³ in busy areas." data-text-zh="<strong>车辆尾气：</strong>交通排放对城市多环芳烃污染贡献显著，繁忙地区浓度可达100-1000 ng/m³。"><strong>Vehicle Exhaust:</strong> Traffic emissions contribute significantly to urban PAH pollution, with concentrations reaching 100-1000 ng/m³ in busy areas.</li>
-          <li data-html data-text-en="<strong>Coal Combustion:</strong> Residential heating and industrial processes release large quantities of PAHs, particularly in winter months." data-text-zh="<strong>煤炭燃烧：</strong>住宅供暖和工业过程释放大量多环芳烃，尤其是在冬季。"><strong>Coal Combustion:</strong> Residential heating and industrial processes release large quantities of PAHs, particularly in winter months.</li>
-          <li data-html data-text-en="<strong>Industrial Discharge:</strong> Petroleum refining, coking, and chemical manufacturing are major point sources." data-text-zh="<strong>工业排放：</strong>石油精炼、炼焦和化学制造是主要的点源。"><strong>Industrial Discharge:</strong> Petroleum refining, coking, and chemical manufacturing are major point sources.</li>
-          <li data-html data-text-en="<strong>Petroleum Leakage:</strong> Oil spills and underground storage tank leaks contaminate soil and groundwater." data-text-zh="<strong>石油泄漏：</strong>石油泄漏和地下储罐泄漏污染土壤和地下水。"><strong>Petroleum Leakage:</strong> Oil spills and underground storage tank leaks contaminate soil and groundwater.</li>
+          <li data-html
+            data-text-en="<strong>Vehicle Exhaust:</strong> Traffic emissions contribute significantly to urban PAH pollution, with concentrations reaching 100-1000 ng/m³ in busy areas."
+            data-text-zh="<strong>车辆尾气：</strong>交通排放对城市多环芳烃污染贡献显著，繁忙地区浓度可达100-1000 ng/m³。"><strong>Vehicle
+              Exhaust:</strong> Traffic emissions contribute significantly to urban PAH pollution, with concentrations
+            reaching 100-1000 ng/m³ in busy areas.</li>
+          <li data-html
+            data-text-en="<strong>Coal Combustion:</strong> Residential heating and industrial processes release large quantities of PAHs, particularly in winter months."
+            data-text-zh="<strong>煤炭燃烧：</strong>住宅供暖和工业过程释放大量多环芳烃，尤其是在冬季。"><strong>Coal Combustion:</strong> Residential
+            heating and industrial processes release large quantities of PAHs, particularly in winter months.</li>
+          <li data-html
+            data-text-en="<strong>Industrial Discharge:</strong> Petroleum refining, coking, and chemical manufacturing are major point sources."
+            data-text-zh="<strong>工业排放：</strong>石油精炼、炼焦和化学制造是主要的点源。"><strong>Industrial Discharge:</strong> Petroleum
+            refining, coking, and chemical manufacturing are major point sources.</li>
+          <li data-html
+            data-text-en="<strong>Petroleum Leakage:</strong> Oil spills and underground storage tank leaks contaminate soil and groundwater."
+            data-text-zh="<strong>石油泄漏：</strong>石油泄漏和地下储罐泄漏污染土壤和地下水。"><strong>Petroleum Leakage:</strong> Oil spills and
+            underground storage tank leaks contaminate soil and groundwater.</li>
         </ul>
 
         <h3 data-text-en="Environmental Distribution" data-text-zh="环境分布">Environmental Distribution</h3>
-        <p data-text-en="PAHs are widely distributed across environmental matrices with global patterns dominated by traffic and coal combustion sources. They persist in soil (half-life: months to years), water bodies, and atmospheric particulates, showing bioaccumulation potential in food chains." data-text-zh="多环芳烃广泛分布于各种环境介质中，全球模式以交通和煤炭燃烧源为主。它们在土壤（半衰期：数月至数年）、水体和大气颗粒物中持续存在，显示出在食物链中的生物累积潜力。">PAHs are widely distributed across environmental matrices with global patterns dominated by traffic and coal combustion sources. They persist in soil (half-life: months to years), water bodies, and atmospheric particulates, showing bioaccumulation potential in food chains.</p>
+        <p data-text-en="PAHs are widely distributed across environmental matrices with global patterns dominated by traffic and coal combustion sources. They persist in soil (half-life: months to years), water bodies, and atmospheric particulates, showing bioaccumulation potential in food chains."
+          data-text-zh="多环芳烃广泛分布于各种环境介质中，全球模式以交通和煤炭燃烧源为主。它们在土壤（半衰期：数月至数年）、水体和大气颗粒物中持续存在，显示出在食物链中的生物累积潜力。">PAHs are
+          widely distributed across environmental matrices with global patterns dominated by traffic and coal combustion
+          sources. They persist in soil (half-life: months to years), water bodies, and atmospheric particulates,
+          showing bioaccumulation potential in food chains.</p>
 
         <!-- Academic Highlight Section 1: Molecular Docking -->
         <div class="academic-highlight">
           <div class="academic-content">
             <div class="academic-img-container">
-              <img class="academic-img" src="static/image/homepage/analysis/molecular_docking.svg" alt="Molecular Docking">
+              <img class="academic-img"
+                src="static/image/homepage/analysis/molecular_docking.svg"
+                alt="Molecular Docking">
             </div>
             <div class="academic-text">
-              <h4 data-text-en="NahAc-Naphthalene Molecular Docking" data-text-zh="NahAc 与 萘 分子对接">NahAc-Naphthalene Molecular Docking</h4>
-              <p data-html data-text-en="Using YASARA software, molecular docking simulations between the NahAc subunit and naphthalene substrate revealed a binding energy of <strong>-6.84 kcal/mol</strong>. The primary binding site is stabilized by hydrophobic interactions, validating our metabolic pathway design." data-text-zh="使用 YASARA 软件对 NahAc 亚基与底物萘进行分子对接，计算出结合能为 <strong>-6.84 kcal/mol</strong>。主要结合位点通过疏水作用稳定，验证了降解代谢通路设计的合理性。">Using YASARA software, molecular docking simulations between the NahAc subunit and naphthalene substrate revealed a binding energy of <strong>-6.84 kcal/mol</strong>. The primary binding site is stabilized by hydrophobic interactions, validating our metabolic pathway design.</p>
+              <h4 data-text-en="NahAc-Naphthalene Molecular Docking" data-text-zh="NahAc 与 萘 分子对接">NahAc-Naphthalene
+                Molecular Docking</h4>
+              <p data-html
+                data-text-en="Using YASARA software, molecular docking simulations between the NahAc subunit and naphthalene substrate revealed a binding energy of <strong>-6.84 kcal/mol</strong>. The primary binding site is stabilized by hydrophobic interactions, validating our metabolic pathway design."
+                data-text-zh="使用 YASARA 软件对 NahAc 亚基与底物萘进行分子对接，计算出结合能为 <strong>-6.84 kcal/mol</strong>。主要结合位点通过疏水作用稳定，验证了降解代谢通路设计的合理性。">
+                Using YASARA software, molecular docking simulations between the NahAc subunit and naphthalene substrate
+                revealed a binding energy of <strong>-6.84 kcal/mol</strong>. The primary binding site is stabilized by
+                hydrophobic interactions, validating our metabolic pathway design.</p>
             </div>
           </div>
         </div>
@@ -238,18 +288,22 @@
 
       <div class="visual-content">
         <div class="illustration-container sources-ill">
-          <img class="illustration-img" src="static/image/homepage/pah_sources_card.png" alt="PAH Sources" style="width: 100%; max-width: 380px;">
+          <img class="illustration-img" src="static/image/homepage/pah_sources_card.png"
+            alt="PAH Sources" style="width: 100%; max-width: 380px;">
         </div>
       </div>
     </div>
   </div>
 
   <!-- Animated background SVGs -->
-  <div class="svg-decoration sources-bg-1" data-parallax="0.15" style="width: 150px; position: absolute; left: 5%; top: 20%;">
+  <div class="svg-decoration sources-bg-1" data-parallax="0.15"
+    style="width: 150px; position: absolute; left: 5%; top: 20%;">
     <img src="static/image/homepage/pathways/wild-type-strain.svg" alt="Wild Type Strain">
   </div>
-  <div class="svg-decoration sources-bg-2" data-parallax="0.25" style="width: 180px; position: absolute; right: 8%; bottom: 15%;">
-    <img src="static/image/homepage/pathways/aerobic-degradation.svg" alt="Aerobic Degradation">
+  <div class="svg-decoration sources-bg-2" data-parallax="0.25"
+    style="width: 180px; position: absolute; right: 8%; bottom: 15%;">
+    <img src="static/image/homepage/pathways/aerobic-degradation.svg"
+      alt="Aerobic Degradation">
   </div>
   <!-- Mascot decoration -->
   <div class="mascot-decor mascot-spring-decor" data-parallax="0.1" style="width: 170px;">
@@ -264,38 +318,70 @@
       <span class="section-number">02</span>
       <div class="title-with-mascot">
         <h2 data-text-en="Hazards of PAHs" data-text-zh="多环芳烃的危害">Hazards of PAHs</h2>
-        <img class="header-mascot" src="static/image/homepage/mascot/q_green_2.png" alt="Mascot decoration">
+        <img class="header-mascot" src="static/image/homepage/mascot/q_green_2.png"
+          alt="Mascot decoration">
       </div>
     </div>
 
     <div class="content-grid">
       <div class="text-content glass-card">
-        <h3 data-text-en="Ecotoxicity & Environmental Impact" data-text-zh="生态毒性与环境影响">Ecotoxicity & Environmental Impact</h3>
-        <p data-text-en="PAHs exhibit strong bioaccumulation and ecotoxicity, causing severe damage to soil microbial communities and disrupting ecosystem functions. Studies show that PAH contamination can reduce soil microbial diversity by up to 40% and inhibit key enzymatic activities essential for nutrient cycling." data-text-zh="多环芳烃表现出强烈的生物累积性和生态毒性，对土壤微生物群落造成严重破坏并破坏生态系统功能。研究表明，多环芳烃污染可使土壤微生物多样性降低高达40%，并抑制营养循环所必需的关键酶活性。">PAHs exhibit strong bioaccumulation and ecotoxicity, causing severe damage to soil microbial communities and disrupting ecosystem functions. Studies show that PAH contamination can reduce soil microbial diversity by up to 40% and inhibit key enzymatic activities essential for nutrient cycling.</p>
+        <h3 data-text-en="Ecotoxicity & Environmental Impact" data-text-zh="生态毒性与环境影响">Ecotoxicity & Environmental
+          Impact</h3>
+        <p data-text-en="PAHs exhibit strong bioaccumulation and ecotoxicity, causing severe damage to soil microbial communities and disrupting ecosystem functions. Studies show that PAH contamination can reduce soil microbial diversity by up to 40% and inhibit key enzymatic activities essential for nutrient cycling."
+          data-text-zh="多环芳烃表现出强烈的生物累积性和生态毒性，对土壤微生物群落造成严重破坏并破坏生态系统功能。研究表明，多环芳烃污染可使土壤微生物多样性降低高达40%，并抑制营养循环所必需的关键酶活性。">
+          PAHs exhibit strong bioaccumulation and ecotoxicity, causing severe damage to soil microbial communities and
+          disrupting ecosystem functions. Studies show that PAH contamination can reduce soil microbial diversity by up
+          to 40% and inhibit key enzymatic activities essential for nutrient cycling.</p>
 
         <h3 data-text-en="Human Health Risks" data-text-zh="人类健康风险">Human Health Risks</h3>
-        <p data-text-en="The International Agency for Research on Cancer (IARC) classifies several PAHs, including benzo[a]pyrene, as Group 1 carcinogens. These compounds exhibit:" data-text-zh="国际癌症研究机构（IARC）将包括苯并[a]芘在内的几种多环芳烃归类为1类致癌物。这些化合物表现出：">The International Agency for Research on Cancer (IARC) classifies several PAHs, including benzo[a]pyrene, as Group 1 carcinogens. These compounds exhibit:</p>
+        <p data-text-en="The International Agency for Research on Cancer (IARC) classifies several PAHs, including benzo[a]pyrene, as Group 1 carcinogens. These compounds exhibit:"
+          data-text-zh="国际癌症研究机构（IARC）将包括苯并[a]芘在内的几种多环芳烃归类为1类致癌物。这些化合物表现出：">The International Agency for Research on
+          Cancer (IARC) classifies several PAHs, including benzo[a]pyrene, as Group 1 carcinogens. These compounds
+          exhibit:</p>
         <ul>
-          <li data-html data-text-en="<strong>Carcinogenic Effects:</strong> DNA adduct formation leading to mutations and cancer development." data-text-zh="<strong>致癌作用：</strong>DNA加合物形成导致突变和癌症发展。"><strong>Carcinogenic Effects:</strong> DNA adduct formation leading to mutations and cancer development.</li>
-          <li data-html data-text-en="<strong>Teratogenic Effects:</strong> Developmental abnormalities in exposed organisms." data-text-zh="<strong>致畸作用：</strong>暴露生物体的发育异常。"><strong>Teratogenic Effects:</strong> Developmental abnormalities in exposed organisms.</li>
-          <li data-html data-text-en="<strong>Mutagenic Effects:</strong> Genetic damage across multiple generations." data-text-zh="<strong>致突变作用：</strong>跨多代的遗传损伤。"><strong>Mutagenic Effects:</strong> Genetic damage across multiple generations.</li>
+          <li data-html
+            data-text-en="<strong>Carcinogenic Effects:</strong> DNA adduct formation leading to mutations and cancer development."
+            data-text-zh="<strong>致癌作用：</strong>DNA加合物形成导致突变和癌症发展。"><strong>Carcinogenic Effects:</strong> DNA adduct
+            formation leading to mutations and cancer development.</li>
+          <li data-html
+            data-text-en="<strong>Teratogenic Effects:</strong> Developmental abnormalities in exposed organisms."
+            data-text-zh="<strong>致畸作用：</strong>暴露生物体的发育异常。"><strong>Teratogenic Effects:</strong> Developmental
+            abnormalities in exposed organisms.</li>
+          <li data-html data-text-en="<strong>Mutagenic Effects:</strong> Genetic damage across multiple generations."
+            data-text-zh="<strong>致突变作用：</strong>跨多代的遗传损伤。"><strong>Mutagenic Effects:</strong> Genetic damage across
+            multiple generations.</li>
         </ul>
 
         <h3 data-text-en="Bioaccumulation & Persistence" data-text-zh="生物累积与持久性">Bioaccumulation & Persistence</h3>
-        <p data-text-en="Naphthalene, as a typical low-molecular-weight PAH, is highly mobile and easily exposed through inhalation, ingestion, and dermal contact. Its bioconcentration factor (BCF) ranges from 10-100, indicating moderate bioaccumulation potential. The compound's persistence in the environment poses long-term hidden risks to environmental safety and human health." data-text-zh="萘作为典型的低分子量多环芳烃，具有高度迁移性，易通过吸入、摄入和皮肤接触暴露。其生物浓缩因子（BCF）范围为10-100，表明中等生物累积潜力。该化合物在环境中的持久性对环境安全和人类健康构成长期隐患。">Naphthalene, as a typical low-molecular-weight PAH, is highly mobile and easily exposed through inhalation, ingestion, and dermal contact. Its bioconcentration factor (BCF) ranges from 10-100, indicating moderate bioaccumulation potential. The compound's persistence in the environment poses long-term hidden risks to environmental safety and human health.</p>
+        <p data-text-en="Naphthalene, as a typical low-molecular-weight PAH, is highly mobile and easily exposed through inhalation, ingestion, and dermal contact. Its bioconcentration factor (BCF) ranges from 10-100, indicating moderate bioaccumulation potential. The compound's persistence in the environment poses long-term hidden risks to environmental safety and human health."
+          data-text-zh="萘作为典型的低分子量多环芳烃，具有高度迁移性，易通过吸入、摄入和皮肤接触暴露。其生物浓缩因子（BCF）范围为10-100，表明中等生物累积潜力。该化合物在环境中的持久性对环境安全和人类健康构成长期隐患。">
+          Naphthalene, as a typical low-molecular-weight PAH, is highly mobile and easily exposed through inhalation,
+          ingestion, and dermal contact. Its bioconcentration factor (BCF) ranges from 10-100, indicating moderate
+          bioaccumulation potential. The compound's persistence in the environment poses long-term hidden risks to
+          environmental safety and human health.</p>
 
         <h3 data-text-en="Regulatory Context" data-text-zh="监管背景">Regulatory Context</h3>
-        <p data-text-en="The WHO and EPA have established strict guidelines for PAH exposure. The EPA lists 16 priority PAHs for environmental monitoring, with naphthalene having a reference dose (RfD) of 0.02 mg/kg/day for oral exposure." data-text-zh="世界卫生组织和美国环保署已制定严格的多环芳烃暴露指南。美国环保署列出了16种优先监测的多环芳烃，萘的口服暴露参考剂量（RfD）为0.02 mg/kg/天。">The WHO and EPA have established strict guidelines for PAH exposure. The EPA lists 16 priority PAHs for environmental monitoring, with naphthalene having a reference dose (RfD) of 0.02 mg/kg/day for oral exposure.</p>
+        <p data-text-en="The WHO and EPA have established strict guidelines for PAH exposure. The EPA lists 16 priority PAHs for environmental monitoring, with naphthalene having a reference dose (RfD) of 0.02 mg/kg/day for oral exposure."
+          data-text-zh="世界卫生组织和美国环保署已制定严格的多环芳烃暴露指南。美国环保署列出了16种优先监测的多环芳烃，萘的口服暴露参考剂量（RfD）为0.02 mg/kg/天。">The WHO and EPA
+          have established strict guidelines for PAH exposure. The EPA lists 16 priority PAHs for environmental
+          monitoring, with naphthalene having a reference dose (RfD) of 0.02 mg/kg/day for oral exposure.</p>
 
         <!-- Academic Highlight Section 2: LB Plate Growth Inhibition -->
         <div class="academic-highlight">
           <div class="academic-content">
             <div class="academic-img-container">
-              <img class="academic-img" src="static/image/homepage/strains/lb-plate.svg" alt="LB Culture Plate">
+              <img class="academic-img" src="static/image/homepage/strains/lb-plate.svg"
+                alt="LB Culture Plate">
             </div>
             <div class="academic-text">
-              <h4 data-text-en="Wild-Type Growth Inhibition Test" data-text-zh="野生型生长抑制实验">Wild-Type Growth Inhibition Test</h4>
-              <p data-html data-text-en="Growth inhibition assays on LB agar plates containing <strong>5.0 mM</strong> naphthalene showed significant wild-type microbial growth inhibition. This underscores the necessity of expressing exogenous degradation pathways to enable survival and remediation." data-text-zh="在含有 <strong>5.0 mM</strong> 萘的 LB 固体培养基上进行生长抑制实验，结果显示野生型微生物生长受到显著抑制。这强调了引入外源降解途径对于其生存和环境修复的必要性。">Growth inhibition assays on LB agar plates containing <strong>5.0 mM</strong> naphthalene showed significant wild-type microbial growth inhibition. This underscores the necessity of expressing exogenous degradation pathways to enable survival and remediation.</p>
+              <h4 data-text-en="Wild-Type Growth Inhibition Test" data-text-zh="野生型生长抑制实验">Wild-Type Growth Inhibition
+                Test</h4>
+              <p data-html
+                data-text-en="Growth inhibition assays on LB agar plates containing <strong>5.0 mM</strong> naphthalene showed significant wild-type microbial growth inhibition. This underscores the necessity of expressing exogenous degradation pathways to enable survival and remediation."
+                data-text-zh="在含有 <strong>5.0 mM</strong> 萘的 LB 固体培养基上进行生长抑制实验，结果显示野生型微生物生长受到显著抑制。这强调了引入外源降解途径对于其生存和环境修复的必要性。">
+                Growth inhibition assays on LB agar plates containing <strong>5.0 mM</strong> naphthalene showed
+                significant wild-type microbial growth inhibition. This underscores the necessity of expressing
+                exogenous degradation pathways to enable survival and remediation.</p>
             </div>
           </div>
         </div>
@@ -303,17 +389,21 @@
 
       <div class="visual-content">
         <div class="illustration-container hazards-ill">
-          <img class="illustration-img affected-bacteria" src="static/image/homepage/pah_hazards_card.png" alt="PAH Hazards" style="width: 100%; max-width: 380px;">
+          <img class="illustration-img affected-bacteria"
+            src="static/image/homepage/pah_hazards_card.png" alt="PAH Hazards"
+            style="width: 100%; max-width: 380px;">
         </div>
       </div>
     </div>
   </div>
 
   <!-- Background SVGs -->
-  <div class="svg-decoration hazards-bg-1" data-parallax="0.2" style="width: 140px; position: absolute; left: 8%; top: 25%;">
+  <div class="svg-decoration hazards-bg-1" data-parallax="0.2"
+    style="width: 140px; position: absolute; left: 8%; top: 25%;">
     <img src="static/image/homepage/strains/bacillus.svg" alt="Bacillus">
   </div>
-  <div class="svg-decoration hazards-bg-2" data-parallax="0.18" style="width: 160px; position: absolute; right: 10%; bottom: 20%;">
+  <div class="svg-decoration hazards-bg-2" data-parallax="0.18"
+    style="width: 160px; position: absolute; right: 10%; bottom: 20%;">
     <img src="static/image/homepage/analysis/hplc.svg" alt="HPLC Analysis">
   </div>
   <!-- Mascot decoration -->
@@ -329,48 +419,97 @@
       <span class="section-number">03</span>
       <div class="title-with-mascot">
         <h2 data-text-en="Our Solution" data-text-zh="我们的解决方案">Our Solution</h2>
-        <img class="header-mascot" src="static/image/homepage/mascot/q_color_3.png" alt="Mascot decoration">
+        <img class="header-mascot" src="static/image/homepage/mascot/q_color_3.png"
+          alt="Mascot decoration">
       </div>
     </div>
 
     <div class="content-grid">
       <div class="text-content glass-card">
         <h3 data-text-en="Limitations of Current Methods" data-text-zh="现有方法的局限性">Limitations of Current Methods</h3>
-        <p data-text-en="Traditional PAH detection relies on large analytical instruments:" data-text-zh="传统的多环芳烃检测依赖于大型分析仪器：">Traditional PAH detection relies on large analytical instruments:</p>
+        <p data-text-en="Traditional PAH detection relies on large analytical instruments:"
+          data-text-zh="传统的多环芳烃检测依赖于大型分析仪器：">Traditional PAH detection relies on large analytical instruments:</p>
         <ul>
-          <li data-html data-text-en="<strong>GC-MS & HPLC:</strong> Expensive equipment ($50,000-$200,000), time-consuming analysis (2-4 hours per sample), requires specialized facilities and trained personnel." data-text-zh="<strong>GC-MS和HPLC：</strong>昂贵的设备（5万-20万美元），耗时的分析（每个样品2-4小时），需要专业设施和训练有素的人员。"><strong>GC-MS & HPLC:</strong> Expensive equipment ($50,000-$200,000), time-consuming analysis (2-4 hours per sample), requires specialized facilities and trained personnel.</li>
-          <li data-html data-text-en="<strong>Conventional Remediation:</strong> Physical and chemical methods suffer from high costs ($100-$500 per ton of contaminated soil), low efficiency, and difficulty achieving in-situ treatment." data-text-zh="<strong>传统修复：</strong>物理和化学方法成本高（每吨污染土壤100-500美元），效率低，难以实现原位处理。"><strong>Conventional Remediation:</strong> Physical and chemical methods suffer from high costs ($100-$500 per ton of contaminated soil), low efficiency, and difficulty achieving in-situ treatment.</li>
+          <li data-html
+            data-text-en="<strong>GC-MS & HPLC:</strong> Expensive equipment ($50,000-$200,000), time-consuming analysis (2-4 hours per sample), requires specialized facilities and trained personnel."
+            data-text-zh="<strong>GC-MS和HPLC：</strong>昂贵的设备（5万-20万美元），耗时的分析（每个样品2-4小时），需要专业设施和训练有素的人员。"><strong>GC-MS &
+              HPLC:</strong> Expensive equipment ($50,000-$200,000), time-consuming analysis (2-4 hours per sample),
+            requires specialized facilities and trained personnel.</li>
+          <li data-html
+            data-text-en="<strong>Conventional Remediation:</strong> Physical and chemical methods suffer from high costs ($100-$500 per ton of contaminated soil), low efficiency, and difficulty achieving in-situ treatment."
+            data-text-zh="<strong>传统修复：</strong>物理和化学方法成本高（每吨污染土壤100-500美元），效率低，难以实现原位处理。"><strong>Conventional
+              Remediation:</strong> Physical and chemical methods suffer from high costs ($100-$500 per ton of
+            contaminated soil), low efficiency, and difficulty achieving in-situ treatment.</li>
         </ul>
 
         <h3 data-text-en="Our Engineered System" data-text-zh="我们的工程系统">Our Engineered System</h3>
-        <p data-html data-text-en="We designed an integrated <em>Escherichia coli</em> system combining detection and degradation capabilities:" data-text-zh="我们设计了一个集成的<em>大肠杆菌</em>系统，结合了检测和降解能力：">We designed an integrated <em>Escherichia coli</em> system combining detection and degradation capabilities:</p>
+        <p data-html
+          data-text-en="We designed an integrated <em>Escherichia coli</em> system combining detection and degradation capabilities:"
+          data-text-zh="我们设计了一个集成的<em>大肠杆菌</em>系统，结合了检测和降解能力：">We designed an integrated <em>Escherichia coli</em>
+          system combining detection and degradation capabilities:</p>
 
         <h4 data-text-en="Detection Module" data-text-zh="检测模块">Detection Module</h4>
-        <p data-html data-text-en="<strong>Salicylic Acid Biosensor:</strong> Naphthalene is enzymatically converted to salicylic acid, which activates the NahR transcriptional regulator. This triggers expression of enhanced green fluorescent protein (eGFP), providing a visual readout with detection limits as low as 0.1 μM." data-text-zh="<strong>水杨酸生物传感器：</strong>萘被酶促转化为水杨酸，激活NahR转录调节因子。这触发增强型绿色荧光蛋白（eGFP）的表达，提供可视化读数，检测限低至0.1 μM。"><strong>Salicylic Acid Biosensor:</strong> Naphthalene is enzymatically converted to salicylic acid, which activates the NahR transcriptional regulator. This triggers expression of enhanced green fluorescent protein (eGFP), providing a visual readout with detection limits as low as 0.1 μM.</p>
+        <p data-html
+          data-text-en="<strong>Salicylic Acid Biosensor:</strong> Naphthalene is enzymatically converted to salicylic acid, which activates the NahR transcriptional regulator. This triggers expression of enhanced green fluorescent protein (eGFP), providing a visual readout with detection limits as low as 0.1 μM."
+          data-text-zh="<strong>水杨酸生物传感器：</strong>萘被酶促转化为水杨酸，激活NahR转录调节因子。这触发增强型绿色荧光蛋白（eGFP）的表达，提供可视化读数，检测限低至0.1 μM。">
+          <strong>Salicylic Acid Biosensor:</strong> Naphthalene is enzymatically converted to salicylic acid, which
+          activates the NahR transcriptional regulator. This triggers expression of enhanced green fluorescent protein
+          (eGFP), providing a visual readout with detection limits as low as 0.1 μM.
+        </p>
 
         <h4 data-text-en="Degradation Module" data-text-zh="降解模块">Degradation Module</h4>
-        <p data-html data-text-en="<strong>NAH7 Plasmid-Based Pathway:</strong> The aerobic degradation pathway from <em>Pseudomonas putida</em> NAH7 plasmid enables complete mineralization of naphthalene through salicylic acid intermediates. Our engineered strain achieves 85-95% degradation efficiency within 48 hours under optimal conditions." data-text-zh="<strong>基于NAH7质粒的途径：</strong>来自<em>假单胞菌</em> NAH7质粒的好氧降解途径能够通过水杨酸中间体完全矿化萘。我们的工程菌株在最佳条件下48小时内实现85-95%的降解效率。"><strong>NAH7 Plasmid-Based Pathway:</strong> The aerobic degradation pathway from <em>Pseudomonas putida</em> NAH7 plasmid enables complete mineralization of naphthalene through salicylic acid intermediates. Our engineered strain achieves 85-95% degradation efficiency within 48 hours under optimal conditions.</p>
+        <p data-html
+          data-text-en="<strong>NAH7 Plasmid-Based Pathway:</strong> The aerobic degradation pathway from <em>Pseudomonas putida</em> NAH7 plasmid enables complete mineralization of naphthalene through salicylic acid intermediates. Our engineered strain achieves 85-95% degradation efficiency within 48 hours under optimal conditions."
+          data-text-zh="<strong>基于NAH7质粒的途径：</strong>来自<em>假单胞菌</em> NAH7质粒的好氧降解途径能够通过水杨酸中间体完全矿化萘。我们的工程菌株在最佳条件下48小时内实现85-95%的降解效率。">
+          <strong>NAH7 Plasmid-Based Pathway:</strong> The aerobic degradation pathway from <em>Pseudomonas putida</em>
+          NAH7 plasmid enables complete mineralization of naphthalene through salicylic acid intermediates. Our
+          engineered strain achieves 85-95% degradation efficiency within 48 hours under optimal conditions.
+        </p>
 
         <h3 data-text-en="Key Advantages" data-text-zh="关键优势">Key Advantages</h3>
         <ul>
-          <li data-html data-text-en="<strong>High Sensitivity:</strong> Detection limits comparable to traditional methods but with real-time monitoring capability." data-text-zh="<strong>高灵敏度：</strong>检测限与传统方法相当，但具有实时监测能力。"><strong>High Sensitivity:</strong> Detection limits comparable to traditional methods but with real-time monitoring capability.</li>
-          <li data-html data-text-en="<strong>Low Cost:</strong> Estimated $5-$10 per sample, 10-20× cheaper than GC-MS analysis." data-text-zh="<strong>低成本：</strong>估计每个样品5-10美元，比GC-MS递送便宜10-20倍。"><strong>Low Cost:</strong> Estimated $5-$10 per sample, 10-20× cheaper than GC-MS analysis.</li>
-          <li data-html data-text-en="<strong>Field Deployment:</strong> Portable biosensor format suitable for on-site screening and in-situ bioremediation." data-text-zh="<strong>现场部署：</strong>便携式生物传感器格式适用于现场筛查和原位生物修复。"><strong>Field Deployment:</strong> Portable biosensor format suitable for on-site screening and in-situ bioremediation.</li>
-          <li data-html data-text-en="<strong>Environmental Adaptability:</strong> Engineered for robust performance across varying pH, temperature, and soil conditions." data-text-zh="<strong>环境适应性：</strong>工程化以在不同pH、温度和土壤条件下实现稳健性能。"><strong>Environmental Adaptability:</strong> Engineered for robust performance across varying pH, temperature, and soil conditions.</li>
-          <li data-html data-text-en="<strong>Modular Design:</strong> Detection and degradation modules can be deployed independently or together based on application needs." data-text-zh="<strong>模块化设计：</strong>检测和降解模块可根据应用需求独立或联合部署。"><strong>Modular Design:</strong> Detection and degradation modules can be deployed independently or together based on application needs.</li>
+          <li data-html
+            data-text-en="<strong>High Sensitivity:</strong> Detection limits comparable to traditional methods but with real-time monitoring capability."
+            data-text-zh="<strong>高灵敏度：</strong>检测限与传统方法相当，但具有实时监测能力。"><strong>High Sensitivity:</strong> Detection
+            limits comparable to traditional methods but with real-time monitoring capability.</li>
+          <li data-html
+            data-text-en="<strong>Low Cost:</strong> Estimated $5-$10 per sample, 10-20× cheaper than GC-MS analysis."
+            data-text-zh="<strong>低成本：</strong>估计每个样品5-10美元，比GC-MS递送便宜10-20倍。"><strong>Low Cost:</strong> Estimated
+            $5-$10 per sample, 10-20× cheaper than GC-MS analysis.</li>
+          <li data-html
+            data-text-en="<strong>Field Deployment:</strong> Portable biosensor format suitable for on-site screening and in-situ bioremediation."
+            data-text-zh="<strong>现场部署：</strong>便携式生物传感器格式适用于现场筛查和原位生物修复。"><strong>Field Deployment:</strong> Portable
+            biosensor format suitable for on-site screening and in-situ bioremediation.</li>
+          <li data-html
+            data-text-en="<strong>Environmental Adaptability:</strong> Engineered for robust performance across varying pH, temperature, and soil conditions."
+            data-text-zh="<strong>环境适应性：</strong>工程化以在不同pH、温度和土壤条件下实现稳健性能。"><strong>Environmental Adaptability:</strong>
+            Engineered for robust performance across varying pH, temperature, and soil conditions.</li>
+          <li data-html
+            data-text-en="<strong>Modular Design:</strong> Detection and degradation modules can be deployed independently or together based on application needs."
+            data-text-zh="<strong>模块化设计：</strong>检测和降解模块可根据应用需求独立或联合部署。"><strong>Modular Design:</strong> Detection and
+            degradation modules can be deployed independently or together based on application needs.</li>
         </ul>
 
-        <p data-text-en="Our synthetic biology approach provides a safe, efficient, and scalable solution for environmental monitoring and governance of PAH pollution." data-text-zh="我们的合成生物学方法为多环芳烃污染的环境监测和治理提供了安全、高效和可扩展的解决方案。">Our synthetic biology approach provides a safe, efficient, and scalable solution for environmental monitoring and governance of PAH pollution.</p>
+        <p data-text-en="Our synthetic biology approach provides a safe, efficient, and scalable solution for environmental monitoring and governance of PAH pollution."
+          data-text-zh="我们的合成生物学方法为多环芳烃污染的环境监测和治理提供了安全、高效和可扩展的解决方案。">Our synthetic biology approach provides a safe,
+          efficient, and scalable solution for environmental monitoring and governance of PAH pollution.</p>
 
         <!-- Academic Highlight Section 3: Promoter Strength Tuning -->
         <div class="academic-highlight">
           <div class="academic-content">
             <div class="academic-img-container">
-              <img class="academic-img" src="static/image/homepage/plasmids/promoters.svg" alt="Promoter Strength Test">
+              <img class="academic-img" src="static/image/homepage/plasmids/promoters.svg"
+                alt="Promoter Strength Test">
             </div>
             <div class="academic-text">
-              <h4 data-text-en="Promoter Expression Strength Tuning" data-text-zh="启动子表达强度微调">Promoter Expression Strength Tuning</h4>
-              <p data-html data-text-en="Five promoters of varying strengths (J23100, J23104, J23106, J23114, J23119) were evaluated. Characterizing NahR-activated expression helped identify optimal transcription levels that minimize metabolic burden and cell toxicity." data-text-zh="对五种不同强度的启动子（J23100、J23104、J23106、J23114、J23119）进行了评估。表征 NahR 激活的表达特征，有助于确定最佳转录水平，以最大程度地降低代谢负担和细胞毒性。">Five promoters of varying strengths (J23100, J23104, J23106, J23114, J23119) were evaluated. Characterizing NahR-activated expression helped identify optimal transcription levels that minimize metabolic burden and cell toxicity.</p>
+              <h4 data-text-en="Promoter Expression Strength Tuning" data-text-zh="启动子表达强度微调">Promoter Expression
+                Strength Tuning</h4>
+              <p data-html
+                data-text-en="Five promoters of varying strengths (J23100, J23104, J23106, J23114, J23119) were evaluated. Characterizing NahR-activated expression helped identify optimal transcription levels that minimize metabolic burden and cell toxicity."
+                data-text-zh="对五种不同强度的启动子（J23100、J23104、J23106、J23114、J23119）进行了评估。表征 NahR 激活的表达特征，有助于确定最佳转录水平，以最大程度地降低代谢负担和细胞毒性。">
+                Five promoters of varying strengths (J23100, J23104, J23106, J23114, J23119) were evaluated.
+                Characterizing NahR-activated expression helped identify optimal transcription levels that minimize
+                metabolic burden and cell toxicity.</p>
             </div>
           </div>
         </div>
@@ -378,23 +517,30 @@
 
       <div class="visual-content">
         <div class="illustration-container solution-ill">
-          <img class="illustration-img solution-card-main" src="static/image/homepage/pah_solution_card.png" alt="Engineering Solution" style="width: 100%; max-width: 380px;">
+          <img class="illustration-img solution-card-main"
+            src="static/image/homepage/pah_solution_card.png" alt="Engineering Solution"
+            style="width: 100%; max-width: 380px;">
         </div>
       </div>
     </div>
   </div>
 
   <!-- Animated background SVGs -->
-  <div class="svg-decoration solution-svg-plasmid solution-plasmid" style="width: 100px; position: absolute; left: 15%; top: 20%;">
+  <div class="svg-decoration solution-svg-plasmid solution-plasmid"
+    style="width: 100px; position: absolute; left: 15%; top: 20%;">
     <img src="static/image/homepage/plasmids/nah7.svg" alt="NAH7 Plasmid">
   </div>
-  <div class="svg-decoration solution-bg-1" data-parallax="0.22" style="width: 120px; position: absolute; right: 12%; top: 15%;">
+  <div class="svg-decoration solution-bg-1" data-parallax="0.22"
+    style="width: 120px; position: absolute; right: 12%; top: 15%;">
     <img src="static/image/homepage/plasmids/recombinant.svg" alt="Recombinant Plasmid">
   </div>
-  <div class="svg-decoration solution-bg-2" data-parallax="0.28" style="width: 200px; position: absolute; left: 10%; bottom: 10%;">
-    <img src="static/image/homepage/pathways/aerobic-degradation.svg" alt="Degradation Pathway">
+  <div class="svg-decoration solution-bg-2" data-parallax="0.28"
+    style="width: 200px; position: absolute; left: 10%; bottom: 10%;">
+    <img src="static/image/homepage/pathways/aerobic-degradation.svg"
+      alt="Degradation Pathway">
   </div>
-  <div class="svg-decoration solution-bg-3" data-parallax="0.15" style="width: 90px; position: absolute; right: 8%; bottom: 25%;">
+  <div class="svg-decoration solution-bg-3" data-parallax="0.15"
+    style="width: 90px; position: absolute; right: 8%; bottom: 25%;">
     <img src="static/image/homepage/molecules/egfp.svg" alt="eGFP">
   </div>
   <!-- Mascot decoration -->
@@ -411,12 +557,11 @@
 
   
   <script src="static/anime.min.js"></script>
-  <script src="static/main.js?v=1.0.2"></script>
+  <script type="module" src="static/js/base.js?v=1.0.2"></script>
   
-  <script src="static/animation.js"></script>
   
+<script src="static/js/index.js?v=1.0.2"></script>
 
-  
 </body>
 
 </html>
