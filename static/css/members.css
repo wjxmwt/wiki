@@ -19,6 +19,14 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'D-en';
+    src: url('../fonts/D-en.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .artist-name-zh {
     font-family: 'Z-zh', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -27,11 +35,18 @@
     font-family: 'Z-en', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+.introduction-en {
+    font-family: 'D-en', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+
 
 .members_page {
     display: flex;
     flex-direction: column;
 }
+
+
 
 section {
     min-height: 100vh;
@@ -40,7 +55,22 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
 }
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* section.locked {
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 50;
+} */
 
 .group_photo_img {
     position: absolute;
@@ -205,6 +235,7 @@ h2 {
     transition: --page-rotate 0.5s ease-in-out, z-index 0.5s ease-in-out;
     transition-delay: calc((4 - var(--i)) * 0.1s),
         calc((4 - var(--i)) * 0.1s + 0.25s);
+    
     cursor: pointer;
     z-index: calc(10 - var(--i));
 }
@@ -303,7 +334,7 @@ h2 {
 
 .name {
     text-align: center;
-    font-size: 50px;
+    font-size: 35px;
     color: #2c3e50;
     margin: 0 0 12px 0;
     font-weight: 400;
@@ -330,8 +361,6 @@ h2 {
     font-size: 20px;
     line-height: 1.8;
     color: #555;
-    text-align: justify;
-    letter-spacing: 1px;
 }
 
 .description::first-letter {
