@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>PAH Detection & Degradation System | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="static/image/logo-icon.png">
   
 
   <!-- 字体图标 -->
@@ -17,7 +18,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
 
   <!-- 全局样式 -->
-  <link rel="stylesheet" href="static/css/base.css?v=1.0.2">
+  <link rel="stylesheet" href="static/css/base.css?v=1.0.12">
 
   
 <link rel="stylesheet" href="static/css/index.css?v=1.0.2">
@@ -50,27 +51,158 @@
 
   
   
-  <div class="loader-screen" id="loader">
-    <div class="loader-content">
-      <div class="loader-code-text">
-        <div class="code-line">
-          <img src="static/image/logo.png" style="width: 150px;" alt="logo">
-          <p>PAHs</p>
+  <div class="loader-screen" id="loader" role="progressbar" aria-label="Loading homepage"
+    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="loader-shell">
+      <div class="loader-stage" aria-hidden="true">
+        <div class="loader-molecule-field" data-loader-molecules>
+          
+          <span class="loader-mask loader-molecule loader-molecule--1"
+            data-loader-particle="0"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--2"
+            data-loader-particle="1"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--3"
+            data-loader-particle="2"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--1"
+            data-loader-particle="3"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--2"
+            data-loader-particle="4"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--3"
+            data-loader-particle="5"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--1"
+            data-loader-particle="6"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--2"
+            data-loader-particle="7"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--3"
+            data-loader-particle="8"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--1"
+            data-loader-particle="9"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--2"
+            data-loader-particle="10"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--3"
+            data-loader-particle="11"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--1"
+            data-loader-particle="12"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--2"
+            data-loader-particle="13"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--3"
+            data-loader-particle="14"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--1"
+            data-loader-particle="15"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--2"
+            data-loader-particle="16"></span>
+          
+          <span class="loader-mask loader-molecule loader-molecule--3"
+            data-loader-particle="17"></span>
+          
+        </div>
+
+        <div class="loader-sensor" data-loader-sensor>
+          <img class="loader-pahs-layer loader-pahs-layer--perspective"
+            src="static/image/loader/pahs-perspective.png?v=1.0.12"
+            alt="" draggable="false">
+          <span class="loader-pahs-fill loader-pahs-fill--word" aria-hidden="true">
+            <span class="loader-pahs-fill-reveal"></span>
+          </span>
+          <span class="loader-pahs-fill loader-pahs-fill--bar" aria-hidden="true">
+            <span class="loader-pahs-fill-reveal">
+              <img src="static/image/loader/pahs-progress-fill.png?v=1.0.12"
+                alt="" draggable="false">
+            </span>
+          </span>
+          <img class="loader-pahs-layer loader-pahs-layer--structure"
+            src="static/image/loader/pahs-structure.png?v=1.0.12"
+            alt="" draggable="false">
+          <span class="loader-pahs-word-outline" aria-hidden="true"></span>
+          <span class="loader-receptor-core" data-loader-target></span>
+
+          <div class="loader-dots" data-loader-dots>
+            <span class="loader-dot" data-loader-pin="0"></span>
+            <span class="loader-dot" data-loader-pin="1"></span>
+            <span class="loader-dot" data-loader-pin="2"></span>
+          </div>
+
+          <div class="loader-percentage" id="loaderPercent" aria-hidden="true">0%</div>
+        </div>
+
+        <div class="loader-fluorescence-field" data-loader-fluorescence>
+          
+          
+          <span class="loader-fluorescence-signal loader-fluorescence-signal--1"
+            data-loader-signal="0" data-loader-lane="0">
+            <span class="loader-mask loader-fluorescence-edge loader-fluorescence-edge--1"></span>
+            <img class="loader-fluorescence-art"
+              src="static/image/loader/fluorescence-1.png"
+              alt="" draggable="false">
+          </span>
+          
+          
+          <span class="loader-fluorescence-signal loader-fluorescence-signal--2"
+            data-loader-signal="1" data-loader-lane="0">
+            <span class="loader-mask loader-fluorescence-edge loader-fluorescence-edge--2"></span>
+            <img class="loader-fluorescence-art"
+              src="static/image/loader/fluorescence-2.png"
+              alt="" draggable="false">
+          </span>
+          
+          
+          <span class="loader-fluorescence-signal loader-fluorescence-signal--3"
+            data-loader-signal="2" data-loader-lane="1">
+            <span class="loader-mask loader-fluorescence-edge loader-fluorescence-edge--3"></span>
+            <img class="loader-fluorescence-art"
+              src="static/image/loader/fluorescence-3.png"
+              alt="" draggable="false">
+          </span>
+          
+          
+          <span class="loader-fluorescence-signal loader-fluorescence-signal--1"
+            data-loader-signal="3" data-loader-lane="1">
+            <span class="loader-mask loader-fluorescence-edge loader-fluorescence-edge--1"></span>
+            <img class="loader-fluorescence-art"
+              src="static/image/loader/fluorescence-1.png"
+              alt="" draggable="false">
+          </span>
+          
+          
+          <span class="loader-fluorescence-signal loader-fluorescence-signal--2"
+            data-loader-signal="4" data-loader-lane="2">
+            <span class="loader-mask loader-fluorescence-edge loader-fluorescence-edge--2"></span>
+            <img class="loader-fluorescence-art"
+              src="static/image/loader/fluorescence-2.png"
+              alt="" draggable="false">
+          </span>
+          
+          
+          <span class="loader-fluorescence-signal loader-fluorescence-signal--3"
+            data-loader-signal="5" data-loader-lane="2">
+            <span class="loader-mask loader-fluorescence-edge loader-fluorescence-edge--3"></span>
+            <img class="loader-fluorescence-art"
+              src="static/image/loader/fluorescence-3.png"
+              alt="" draggable="false">
+          </span>
+          
         </div>
       </div>
-
-      <div class="loader-progress-wrapper">
-        <div class="loader-progress-bar"></div>
-      </div>
-
-      <div class="loader-dots">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      </div>
-      <div class="loader-percentage" id="loaderPercent">
-        0%
-      </div>
+      <span class="sr-only" id="loaderStatus" aria-live="polite">Loading homepage: 0%</span>
     </div>
   </div>
+  <noscript><style>#loader { display: none; }</style></noscript>
   
 
   
@@ -557,7 +689,7 @@
 
   
   <script src="static/anime.min.js"></script>
-  <script type="module" src="static/js/base.js?v=1.0.2"></script>
+  <script type="module" src="static/js/base.js?v=1.0.8"></script>
   
   
 <script src="static/js/index.js?v=1.0.2"></script>
