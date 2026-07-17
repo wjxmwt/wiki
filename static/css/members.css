@@ -141,8 +141,10 @@ h2 {
 
 
 .carousel_item {
+    --closed-book-depth: clamp(26px, 2.2vw, 36px);
     width: 350px;
     height: 450px;
+    position: relative;
     transform-style: preserve-3d;
     perspective: 600px;
     will-change: transform, opacity, margin-left, margin-right;
@@ -202,22 +204,143 @@ h2 {
     transition: --spine-shift 0.5s ease;
 }
 
-.group_book_3d::before {
+.group_book_3d::before,
+.group_book_3d::after {
     content: '';
     position: absolute;
-    right: 3px;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    background: #e4e0d5;
-    box-shadow:
-        3px 3px 0 #e2e0ca, 6px 6px 0 #cbc5ba, 10px 10px 20px rgb(46 43 43 / 50%);
+    inset: 0;
+    border-radius: 0 4px 4px 0;
+    pointer-events: none;
+}
+
+.group_book_3d::before {
     /* 最底层的柔和投影 */
+    box-shadow: 10px 10px 20px rgb(46 43 43 / 50%);
+    z-index: 0;
+}
+
+.group_book_3d::after {
+    /* 仅在封面右侧和下方露出的双层页边 */
+    box-shadow:
+        3px 3px 0 #e2e0ca,
+        6px 6px 0 #cbc5ba;
+    opacity: 0;
     z-index: 1;
+    transition: opacity 0.26s ease-out;
+}
+
+.carousel_card.is_active .group_book_3d::after {
+    opacity: 1;
+    transition-duration: 0.72s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .group_book_3d.book_open {
     --spine-shift: 200px;
+}
+
+/* Closed-book shell: visible only while a book is presented in the carousel. */
+.closed_book_case {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transform-style: preserve-3d;
+    pointer-events: none;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.closed_book_case_back,
+.closed_book_case_spine,
+.closed_book_case_fore_edge,
+.closed_book_case_top,
+.closed_book_case_bottom {
+    position: absolute;
+    display: block;
+    backface-visibility: hidden;
+}
+
+.closed_book_case_back {
+    inset: 0;
+    border-radius: 1px 9px 9px 1px;
+    background:
+        linear-gradient(90deg, rgba(236, 226, 178, 0.16), transparent 8%, transparent 88%, rgba(0, 0, 0, 0.3)),
+        linear-gradient(145deg, #214f40, #0c2c24 72%);
+    box-shadow:
+        inset 0 0 0 2px rgba(219, 207, 150, 0.28),
+        0 0 8px rgba(0, 0, 0, 0.28);
+    transform: translateZ(calc(-1 * var(--closed-book-depth))) rotateY(180deg);
+}
+
+.closed_book_case_fore_edge {
+    top: 4px;
+    left: 100%;
+    width: var(--closed-book-depth);
+    height: calc(100% - 8px);
+    transform: rotateY(90deg);
+    transform-origin: left center;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.65), transparent 24%, transparent 74%, rgba(76, 57, 28, 0.28)),
+        repeating-linear-gradient(0deg, #eee7cd 0 1px, #c9bd9d 1px 2px, #ddd3b7 2px 4px);
+    box-shadow:
+        inset 3px 0 #234f3f,
+        inset -3px 0 #102f27,
+        inset 0 4px rgba(25, 65, 52, 0.42),
+        inset 0 -4px rgba(12, 44, 36, 0.5);
+}
+
+.closed_book_case_spine {
+    top: 0;
+    left: 0;
+    width: var(--closed-book-depth);
+    height: 100%;
+    transform: translateZ(calc(-1 * var(--closed-book-depth))) rotateY(-90deg);
+    transform-origin: left center;
+    overflow: hidden;
+    border-radius: 45% / 2.5%;
+    background:
+        linear-gradient(to bottom, rgba(218, 207, 151, 0.24), rgba(43, 91, 72, 0.48) 48%, rgba(5, 26, 21, 0.34)) 0 14% / 100% 3px no-repeat,
+        linear-gradient(to bottom, rgba(218, 207, 151, 0.24), rgba(43, 91, 72, 0.48) 48%, rgba(5, 26, 21, 0.34)) 0 38% / 100% 3px no-repeat,
+        linear-gradient(to bottom, rgba(218, 207, 151, 0.24), rgba(43, 91, 72, 0.48) 48%, rgba(5, 26, 21, 0.34)) 0 62% / 100% 3px no-repeat,
+        linear-gradient(to bottom, rgba(218, 207, 151, 0.24), rgba(43, 91, 72, 0.48) 48%, rgba(5, 26, 21, 0.34)) 0 86% / 100% 3px no-repeat,
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 7px),
+        radial-gradient(ellipse 88% 135% at 50% 50%, rgba(117, 166, 136, 0.12), transparent 68%),
+        linear-gradient(90deg, #08241e 0%, #12352b 15%, #245542 42%, #2b604b 52%, #204e3d 68%, #12332a 86%, #07221c 100%);
+    box-shadow:
+        inset 0 0 0 1px rgba(221, 210, 153, 0.14),
+        inset 6px 0 9px -7px rgba(0, 0, 0, 0.68),
+        inset -6px 0 9px -7px rgba(0, 0, 0, 0.64),
+        inset 0 9px 10px -9px rgba(225, 214, 158, 0.24),
+        inset 0 -10px 11px -9px rgba(2, 18, 15, 0.62),
+        -1px 0 2px rgba(0, 0, 0, 0.24);
+}
+
+.closed_book_case_top,
+.closed_book_case_bottom {
+    left: 3px;
+    width: calc(100% - 6px);
+    height: var(--closed-book-depth);
+    background:
+        linear-gradient(0deg, rgba(28, 71, 57, 0.52), transparent 12%, transparent 86%, rgba(14, 45, 37, 0.58)),
+        repeating-linear-gradient(90deg, #e9e1c8 0 2px, #d0c4a4 2px 3px, #e2d8bc 3px 6px);
+    box-shadow:
+        inset 0 3px #1f4b3c,
+        inset 0 -3px #102f27;
+}
+
+.closed_book_case_top {
+    top: 0;
+    transform: translateZ(calc(-1 * var(--closed-book-depth))) rotateX(90deg);
+    transform-origin: top center;
+}
+
+.closed_book_case_bottom {
+    top: 100%;
+    transform: rotateX(-90deg);
+    transform-origin: top center;
+}
+
+.carousel_item.book_open > .closed_book_case {
+    display: none;
 }
 
 .group_book_3d_item {
@@ -235,7 +358,7 @@ h2 {
     transition: --page-rotate 0.5s ease-in-out, z-index 0.5s ease-in-out;
     transition-delay: calc((4 - var(--i)) * 0.1s),
         calc((4 - var(--i)) * 0.1s + 0.25s);
-    
+
     cursor: pointer;
     z-index: calc(10 - var(--i));
 }

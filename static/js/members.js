@@ -51,12 +51,18 @@
         function updateCarousel() {
             groupSlides.style.transform = `translateX(calc(60vw - ${activeIndex * cardWidth + cardWidth / 2}px))`;
             const cards = document.querySelectorAll('.carousel_card');
+            const closedBookCases = document.querySelectorAll('.closed_book_case');
             const titles = document.querySelectorAll('.carousel_title');
             cards.forEach((card, index) => {
                 const isActive = activeIndex === index;
+                card.classList.toggle('is_active', isActive);
                 const rotateY = (activeIndex - index) * 60;
                 const scale = isActive ? 1 : 0.8;
-                card.style.transform = `rotateY(${rotateY}deg) scale(${scale})`;
+                const carouselTransform = `rotateY(${rotateY}deg) scale(${scale})`;
+                card.style.transform = carouselTransform;
+                if (closedBookCases[index]) {
+                    closedBookCases[index].style.transform = carouselTransform;
+                }
             });
             titles.forEach((title, index) => {
                 const isActive = activeIndex === index;
