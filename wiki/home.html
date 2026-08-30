@@ -1,0 +1,92 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}PAH Detection & Degradation System{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css', v='1.0.2') }}">
+{% endblock %}
+
+{% block content %}
+<!-- section ONE -->
+<section id="hero" class="homepage-hero">
+    <div class="hero-content">
+        <h1 class="hero-title" data-text-en="Engineered E. coli for PAH Detection & Degradation"
+            data-text-zh="工程化大肠杆菌用于多环芳烃检测与降解">Engineered E. coli for PAH Detection & Degradation</h1>
+        <hr class="hr-top">
+        <p class="hero-text" data-text-en="A Synthetic Biology Solution for Environmental Monitoring"
+        data-text-zh="环境监测的合成生物学解决方案">A Synthetic Biology Solution for Environmental Monitoring</p>
+        <hr class="hr-bottom">
+    </div>
+    
+    <div class="chip-wrap">
+        <img class="piece chip" style="width:600px;height: 600px;"
+            src="{{ url_for('static', filename='image/index/ex.png') }}" alt="Chip">
+
+        <!-- 2.向上延伸线条：图片的底边必须刚好对接芯片的顶边！ -->
+        <img class="piece line-top" style="width:367px;height:310px;
+                " src="{{ url_for('static', filename='image/index/top.png') }}" alt="向上线条">
+
+        <!-- 3.向下延伸线条：图片的顶边对接芯片的底边 -->
+        <img class="piece line-bottom" style="width:474px;height:255px;
+                " src="{{ url_for('static', filename='image/index/bottom.png') }}" alt="向下线条">
+
+        <!-- 4.向左延伸线条：图片的右边对接芯片的左边 -->
+        <img class="piece line-left" style="width:396px;height:239px;
+                " src="{{ url_for('static', filename='image/index/left.png') }}" alt="向左线条">
+
+        <!-- 5.向右延伸线条：图片的左边对接芯片的右边 -->
+        <img class="piece line-right" style="width:283px;height:401px;
+                " src="{{ url_for('static', filename='image/index/right.png') }}" alt="向右线条">
+    </div>
+</section>
+
+<!-- section TWO -->
+<section id="sources" class="homepage-section homepage-sources">
+    <!-- 分子图片 -->
+    <div class="pahs-image">
+        <img src="{{ url_for('static', filename='image/index/pahs.png' ) }}" alt="pahs" style="width: 700px;">
+    </div>
+    <!-- ? -->
+    <div class="ask">
+        <h2>What are PAHs?</h2>
+    </div>
+    <!-- 解释 -->
+    <div class="sources-content">
+        <p>PAHs are aromatic compounds formed by two or more fused benzene rings. Featuring stable chemical properties,
+            they can persist in the environment for a long time. </p>
+    </div>
+    <!-- 污染源：烟雾 -->
+    <div class="chimney-wrap">
+        <img class="chimney" src="{{ url_for('static', filename='image/home/chimney.png' ) }}" alt="chimney">
+        <img class="smoke1" src="{{ url_for('static', filename='image/home/smoke1.png' ) }}" alt="smoke1">
+        <img class="smoke2" src="{{ url_for('static', filename='image/home/smoke2.png' ) }}" alt="smoke2">
+        <img class="smoke3" src="{{ url_for('static', filename='image/home/smoke3.png' ) }}" alt="smoke3">
+        <p class="chimney-text">PAHs are closely linked to our daily lives. They are continuously released from vehicle
+            exhaust, barbecue and cooking fumes, straw and coal combustion, aged road asphalt, industrial wastewater
+            discharge and oil spills.</p>
+    </div>
+    <!-- 污染源：水 -->
+    <div class="water-scene">
+        <div class="rain-layer"></div>
+        <div class="river-layer">
+            <img src="{{ url_for('static', filename='image/index/rivers.png') }}" alt="river">
+        </div>
+        <!-- <div class="fish-layer">
+            <img src="{{ url_for('static', filename='image/index/fish.png') }}" alt="fish">
+        </div> -->
+        <p class="water-text">PAHs accumulate stepwise along the food chain. Residues in fish, shrimp and vegetables
+            continuously enter human bodies. Although ambient concentrations rarely cause acute poisoning, long-term
+            low-dose exposure gradually damages the respiratory system and liver and increases cancer risks. Since PAH
+            pollution is invisible to the naked eye, people can hardly perceive local contamination levels, and such
+            hidden environmental risks have long been overlooked.</p>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='gsap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='ScrollTrigger.min.js') }}"></script>
+<script src="{{ url_for('static', filename='SplitText.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/home.js', v='1.0.0') }}"></script>
+{% endblock %}

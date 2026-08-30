@@ -1,4 +1,5 @@
 (function () {
+    gsap.registerPlugin(ScrollTrigger, SplitText);
     const membersPage = document.querySelector('.members_page');
     if (!membersPage) return;
 
@@ -10,6 +11,144 @@
     let isScrolling = false;
     const scrollThreshold = 0.1;
 
+    // 初始化老师展示界面
+    function initTeacherWindow() {
+        const hexItems = gsap.utils.toArray(".hex-circle-wrap .hex");
+        const receipt = document.querySelector('.receipt');
+        const title = document.querySelector('.receipt .title');
+        const name = document.querySelector('.receipt .name');
+        const description = document.querySelector('.receipt .description');
+
+        const personData = [
+            {
+                title: 'Alumnus',
+                name: 'Jiaqi Wang',
+                desc: 'He has rich experience in synthetic biology competitions and research. He supports our project on experimental design and iGEM preparation based on his previous competition experience.'
+            },
+            {
+                title: 'Associate professor',
+                name: 'Nisha He',
+                desc: 'Her research focuses on molecular enzymology, biosensing and enzyme engineering. She guides the design and experimental scheme of the whole-cell biosensor in our project.'
+            },
+            {
+                title: 'Professor',
+                name: 'Haimou Zhang',
+                desc: 'He has long supervised the HUBU-China iGEM team and guided our pollutant detection project.'
+            },
+            {
+                title: 'Professor',
+                name: 'Zhifan Yang',
+                desc: 'He has long served as the supervisor of the HUBU-China iGEM team and supported innovative synthetic biology projects.'
+            },
+            {
+                title: 'Foreign expert',
+                name: 'Jonathan Nimal',
+                desc: 'He supports our team on English materials, international presentation and iGEM defense.'
+            },
+            {
+                title: 'Associate professor',
+                name: 'Pan Wu',
+                desc: 'Her guides the construction of PAH-degrading strains and whole-cell biosensors in our project.'
+            }
+        ]
+        // ===== 每个六边形【最终停留的坐标】=====
+        // 半径180px，6个点标准正六边形圆环坐标
+        const posList = [
+            { x: 0, y: -315 },   // 0号 上
+            { x: 140, y: -145 },    // 1号 右上
+            { x: 0, y: 80 }, // 2号 右下
+            { x: -230, y: 80 },   // 3号 下
+            { x: -335, y: -115 },    // 4号 左下
+            { x: -230, y: -315 }     // 5号 左上
+        ];
+
+        // 初始状态：全部叠在中心点，内部图片旋转0度
+        gsap.set(hexItems, {
+            x: 0,
+            y: 0,
+            opacity: 0,
+            scale: 0.7
+        });
+        gsap.set(hexItems.map(h => h.querySelector(".hex-shape")), {
+            rotate: 0
+        });
+        // 更新整个圆环位置的公共函数
+        function updateRing(targetClickOriginalIndex) {
+            // 目标：把点击的这个originalIndex，移动到 posList[0]（最上方点位）
+            // 计算需要偏移多少
+            ringOffset = (1 - targetClickOriginalIndex + 6) % 6;
+
+            hexItems.forEach((hex) => {
+                // 每个六边形固定不变的原始下标 data-person-index
+                const originalIdx = Number(hex.dataset.personIndex);
+                const shapeDom = hex.querySelector(".hex-shape");
+                // 计算这个hex现在应该落到圆环的第几个点位
+                const posIndex = (originalIdx + ringOffset) % 6;
+                const pos = posList[posIndex];
+
+                gsap.to(hex, {
+                    x: pos.x,
+                    y: pos.y,
+                    duration: 0.6,
+                    ease: "power2.out"
+                });
+                // ✅获取当前已经旋转的角度，再叠加360，每次点击多转一圈
+                const curRot = gsap.getProperty(shapeDom, "rotate");
+                // 内部的hex‑shape单独转一整圈360°
+                gsap.to(shapeDom, {
+                    rotate: curRot + 360,
+                    duration: 0.8,
+                    ease: "power2.out"
+                })
+            });
+        }
+        // 每个hex依次执行动画：从圆心，旋转一圈，飞到对应posList位置
+        hexItems.forEach((hex, idx) => {
+            const shapeDom = hex.querySelector(".hex-shape");
+            const targetPos = posList[idx];
+
+            gsap.to(hex, {
+                x: targetPos.x,
+                y: targetPos.y,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: "back.out(1.2)",
+                stagger: {
+                    each: 0.12,
+                    from: "center"
+                }
+            });
+
+            // 内部的hex‑shape单独转一整圈360°
+            gsap.to(shapeDom, {
+                rotate: 360,
+                duration: 0.8,
+                ease: "power2.out"
+            })
+        })
+        let activeIndex = 1; // 默认第一个老师
+        title.textContent = personData[activeIndex].title;
+        name.textContent = personData[activeIndex].name;
+        description.textContent = personData[activeIndex].desc;
+        hexItems[activeIndex].classList.add('active');
+
+        hexItems.forEach(hex => {
+            hex.onclick = () => {
+                const idx = Number(hex.dataset.personIndex);
+                if (activeIndex == idx) return;
+                updateRing(idx);
+                hexItems[activeIndex].classList.remove('active');
+                hexItems[idx].classList.add('active');
+                activeIndex = idx;
+                title.textContent = personData[idx].title;
+                name.textContent = personData[idx].name;
+                description.textContent = personData[idx].desc;
+                gsap.fromTo(receipt, { opacity: 0, x: 20 },
+                    { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" })
+            }
+        })
+    }
     // 初始化成员旋转图
     function initMembersCarousel() {
         if (carouselInitialized) return;
@@ -19,7 +158,7 @@
         if (!groupSlides) return;
 
         let cardWidth = 400;
-        let activeIndex = 3;
+        let activeIndex = 2;
         // 添加卡片点击事件
         function cardAddClick() {
             const cards = document.querySelectorAll('.carousel_card');
@@ -35,9 +174,16 @@
         function handleCardClick(index) {
             if (activeIndex !== index) {
                 const previousIndex = activeIndex;
-                closeActiveCardBook(previousIndex);
-                activeIndex = index;  
-                updateCarousel();
+                const isOpenBefore = closeActiveCardBook(previousIndex);
+                if (isOpenBefore) {
+                    setTimeout(() => {
+                        activeIndex = index;
+                        updateCarousel();
+                    }, 800);
+                } else {
+                    activeIndex = index;
+                    updateCarousel();
+                }
             } else {
                 toggleActiveCardBook();
             }
@@ -49,7 +195,7 @@
         }
         // 更新旋转图状态
         function updateCarousel() {
-            groupSlides.style.transform = `translateX(calc(60vw - ${activeIndex * cardWidth + cardWidth / 2}px))`;
+            groupSlides.style.transform = `translateX(calc(59vw - ${activeIndex * cardWidth + cardWidth / 2}px))`;
             const cards = document.querySelectorAll('.carousel_card');
             const closedBookCases = document.querySelectorAll('.closed_book_case');
             const titles = document.querySelectorAll('.carousel_title');
@@ -107,8 +253,10 @@
 
         function closeActiveCardBook(index = activeIndex) {
             const items = getCardItems(index);
+            let isOpen = items[0].classList.contains('is_open');
             Array.from(items).slice(0, -1).forEach((item) => item.classList.remove('is_open'));
             updateContainerState(index);
+            return isOpen;
         }
 
         function openNextPage(index = activeIndex) {
@@ -139,6 +287,7 @@
         cardAddClick();
         updateCarousel();
     }
+
     // 激活指定节部分
     function activateSection(section) {
         if (section.dataset.lazyLoaded === 'true') return;
@@ -149,6 +298,9 @@
 
         if (section.id === 'membersDisplay') {
             initMembersCarousel();
+        }
+        if (section.id === 'teacherDisplay') {
+            initTeacherWindow();
         }
     }
 
@@ -161,8 +313,7 @@
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.4,
     });
 
     // 初始化所有section
@@ -188,31 +339,31 @@
     function handleScroll() {
         // 如果正在滚动动画中，忽略
         if (isScrolling) return;
-        
+
         const windowHeight = window.innerHeight;
         const scrollTop = window.scrollY;
-        
+
         // 向下滚动检测
         if (currentSectionIndex < sections.length - 1) {
             const nextSection = sections[currentSectionIndex + 1];
             const nextSectionTop = nextSection.offsetTop;
             // 计算下一个section已经进入视口的高度
             const visibleHeight = scrollTop + windowHeight - nextSectionTop;
-            
+
             // 关键：只在可见高度在10%-90%之间时触发，避免边界问题
             if (visibleHeight > windowHeight * scrollThreshold && visibleHeight < windowHeight * 0.9) {
                 scrollToSection(currentSectionIndex + 1);
                 return;
             }
         }
-        
+
         // 向上滚动检测
         if (currentSectionIndex > 0) {
             const currentSection = sections[currentSectionIndex];
             const currentSectionTop = currentSection.offsetTop;
             // 当前section顶部超出视口的距离
             const topGap = currentSectionTop - scrollTop;
-            
+
             // 关键：只在顶部露出在10%-90%之间时触发
             if (topGap > windowHeight * scrollThreshold && topGap < windowHeight * 0.9) {
                 scrollToSection(currentSectionIndex - 1);
@@ -225,25 +376,25 @@
     function scrollToSection(index) {
         // 参数校验
         if (index < 0 || index >= sections.length || isScrolling) return;
-        
+
         isScrolling = true;
         currentSectionIndex = index;
-        
+
         const section = sections[index];
         const targetPosition = section.offsetTop;
-        
+
         // 平滑滚动
         window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
         });
-        
+
         // 使用定时器检测滚动完成（比requestAnimationFrame更稳定）
         let checkCount = 0;
         const checkInterval = setInterval(() => {
             checkCount++;
             const currentScroll = window.scrollY;
-            
+
             // 到达目标位置（允许5px误差）或超时(1秒)
             if (Math.abs(currentScroll - targetPosition) < 5 || checkCount >= 20) {
                 clearInterval(checkInterval);

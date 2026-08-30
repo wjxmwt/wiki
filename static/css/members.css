@@ -1,5 +1,11 @@
 :root {
     --ease-back-out-1-6: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --hex-width: 210px;
+    --hex-gap: 10px;
+    --sqrt3: 1.73205;
+    --hex-height: calc(var(--hex-width) * 2 / var(--sqrt3));
+    --hex-margin-x: calc(var(--hex-gap) / 2);
+    --hex-margin-y: calc((var(--sqrt3) / 4 * var(--hex-gap)) - (0.125 * var(--hex-height)));
 }
 
 /* Local font declaration */
@@ -120,6 +126,358 @@ h2 {
     }
 }
 
+.teacher_display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    padding: 80px 0;
+    gap: 100px;
+    perspective: 1000px;
+}
+
+/* ========== 六边形圆圈环形布局 6个元素 ========== */
+.hex-circle-wrap {
+  position: relative;
+  /* 环形大圆半径，调整这个数值控制圆圈大小 */
+  width: 420px;
+  height: 420px;
+  margin: 0 200px;
+}
+.hex-circle-wrap .hex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--hex-width);
+  height: var(--hex-height);
+  /* 取消旧蜂窝布局margin */
+  margin: 0;
+  cursor: pointer;
+}
+
+/* 6个，完全手动写translate，你可以直接改数字挪位置 */
+
+.hex-shape {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: #1e2025;
+}
+
+.hex-shape::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.8) 120%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* =========================================
+   4. Images & Immersive Interactions
+   ========================================= */
+
+.hex:focus-visible {
+  outline: none;
+}
+
+.hex::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: -1;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hex:focus-visible::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.hex:hover,
+.hex:focus-within {
+  z-index: 10;
+  transform: translateY(-6px);
+  filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.7));
+}
+
+.hex:hover .hex-shape::after,
+.hex:focus-within .hex-shape::after {
+  opacity: 0;
+}
+
+.hex img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(10%) brightness(0.7) contrast(1.1);
+  transform: scale(1.02);
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+}
+
+.hex:hover img,
+.hex:focus-visible img {
+  transform: scale(1.15);
+  filter: grayscale(0%) brightness(1.05) contrast(1.05);
+}
+
+/* 激活状态，整个六边形整体放大上浮 */
+.hex.active {
+  width: 300px;
+  height: 300px;
+  filter: drop-shadow(0 22px 30px rgba(0,0,0,0.75)); /* 放大加深阴影，突出浮起效果 */
+}
+/* active状态下图片不要单独放大，跟随父scale一起放大 */
+.hex.active .hex-shape img {
+  transform: scale(1); 
+  filter: grayscale(0%) brightness(1.05) contrast(1.05);
+}
+
+/* =========================================
+   5. Caption Overlay & Editorial Typography
+   ========================================= */
+.hex-caption {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 47px 13px 25px 18px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.hex-caption h3 {
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.5px;
+
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hex-caption p {
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+  margin: 0;
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hex:hover .hex-caption,
+.hex:focus-visible .hex-caption {
+  opacity: 1;
+}
+
+.hex:hover .hex-caption h3,
+.hex:focus-visible .hex-caption h3 {
+  transform: translateY(0);
+}
+
+.hex:hover .hex-caption p,
+.hex:focus-visible .hex-caption p {
+  transform: translateY(0);
+  transition-delay: 0.05s;
+}
+
+/* =========================================
+   6. Responsive Layouts
+   ========================================= */
+@media (max-width: 1024px) {
+  .hex-grid {
+    width: calc((var(--hex-width) + var(--hex-gap)) * 3);
+  }
+  .hex:nth-child(7n + 5) {
+    margin-left: var(--hex-margin-x);
+  }
+  .hex:nth-child(5n + 4) {
+    margin-left: calc((var(--hex-width) / 2) + var(--hex-gap));
+  }
+}
+
+@media (max-width: 768px) {
+  .hex-grid {
+    width: calc((var(--hex-width) + var(--hex-gap)) * 2);
+  }
+  .hex:nth-child(5n + 4) {
+    margin-left: var(--hex-margin-x);
+  }
+  .hex:nth-child(3n + 3) {
+    margin-left: calc((var(--hex-width) / 2) + var(--hex-gap));
+  }
+}
+
+@media (max-width: 550px) {
+  .hex-grid {
+    width: calc((var(--hex-width) * 1.5) + (var(--hex-gap) * 1.5));
+  }
+  .hex:nth-child(3n + 3) {
+    margin-left: var(--hex-margin-x);
+  }
+  .hex:nth-child(even) {
+    margin-left: calc((var(--hex-width) / 2) + var(--hex-gap));
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --hex-width: 160px;
+    --hex-gap: 10px;
+  }
+}
+
+
+.board {
+  flex-shrink: 0;
+  padding: 24px;
+  padding-top: 20px;
+
+  border-radius: 12px;
+  box-shadow: 2px 2px 16px #0003;
+  overflow: hidden;
+
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-color: #66350a;
+    filter: url(#corkboard);
+    z-index: -1;
+  }
+}
+
+.receipt {
+  width: 380px;
+  aspect-ratio: 3/4;
+  padding: 24px;
+
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  background-color: #fff;
+  box-shadow: 2px 2px 16px #0003;
+  rotate: 1.5deg;
+
+  --corner-size: 50px;
+  corner-shape: bevel;
+  border-bottom-right-radius: var(--corner-size);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    filter: url(#paper);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: var(--corner-size);
+    height: var(--corner-size);
+    background-color: #ccc;
+    pointer-events: none;
+  }
+}
+
+.header {
+  font-size: 1.6em;
+  font-family: "Special Elite", system-ui;
+  text-align: center;
+}
+
+
+.clip {
+  position: absolute;
+  bottom: 75%;
+  left: 55%;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  rotate: 2deg;
+  z-index: 2;
+
+  --handle-size: 40px;
+  --line-w: calc(var(--handle-size) * 0.4);
+
+  div {
+    background-color: #4d3e29;
+  }
+
+  .handle {
+    width: var(--handle-size);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+  }
+
+  .bridge {
+    width: var(--line-w);
+    height: var(--handle-size);
+    margin-block: -14px;
+  }
+
+
+  .end {
+    width: 90px;
+    height: 30px;
+    border-radius: 8px 8px 2px 2px;
+  }
+}
+
 /* Carousel */
 .members_display {
     display: grid;
@@ -128,6 +486,14 @@ h2 {
 .group_wrapper {
     max-width: 100%;
     overflow: visible;
+}
+
+h5 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 4rem;
 }
 
 .group_slides {
@@ -339,7 +705,7 @@ h2 {
     transform-origin: top center;
 }
 
-.carousel_item.book_open > .closed_book_case {
+.carousel_item.book_open>.closed_book_case {
     display: none;
 }
 
@@ -445,9 +811,9 @@ h2 {
     text-align: right;
     font-size: 10px;
     letter-spacing: 3px;
-    color:#999;
+    color: #999;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding-bottom: 8px;
 }
 
@@ -476,7 +842,7 @@ h2 {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, rgba(192,57,43,0.2), transparent);
+    background: linear-gradient(to right, rgba(192, 57, 43, 0.2), transparent);
     margin-left: 10px;
 }
 

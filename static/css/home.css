@@ -1,0 +1,317 @@
+/* section ONE */
+.homepage-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-card) 100%);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+    position: relative;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    visibility: hidden;
+    line-height: 1.2;
+}
+
+/* 两条分隔线基础样式 */
+.hero-content hr {
+    border: none;
+    height: 1px;
+    background: var(--primary);
+    margin: 1.2rem auto;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+}
+/* 上面那条：从左向右延伸 */
+.hr-top {
+    margin-left: 0;
+    transform-origin: left center;
+}
+/* 下面那条：从右向左延伸 */
+.hr-bottom {
+    margin-right: 0;
+    transform-origin: right center;
+}
+
+/* 副标题初始状态 */
+.hero-text {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    margin: 0.8rem 0;
+}
+
+.chip-wrap {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+}
+
+.chip {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.piece {
+    position: absolute;
+    transform-origin: center center;
+}
+
+.line-top {
+    top: -9%;
+    right: -11%;
+    mask-image: linear-gradient(to top, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
+    mask-size: 100% 0%;
+    -webkit-mask-size: 100% 0%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: bottom center;
+    -webkit-mask-position: bottom center;
+    transition: mask-size 2s ease-out, -webkit-mask-size 2s ease-out;
+}
+
+.line-top.grow {
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+}
+
+.line-bottom {
+    top: 57%;
+    left: -27%;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask-size: 100% 0%;
+    -webkit-mask-size: 100% 0%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: top center;
+    -webkit-mask-position: top center;
+    transition: mask-size 2s ease-out, -webkit-mask-size 2s ease-out;
+}
+
+.line-bottom.grow {
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+}
+
+.line-left {
+    left: -26%;
+    top: 13%;
+    mask-image: linear-gradient(to left, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+    mask-size: 0% 100%;
+    -webkit-mask-size: 0% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: right center;
+    -webkit-mask-position: right center;
+    transition: mask-size 2s ease-out, -webkit-mask-size 2s ease-out;
+}
+
+.line-left.grow {
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+}
+
+.line-right {
+    top: 32%;
+    right: -2%;
+    mask-image: linear-gradient(to right, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+    mask-size: 0% 100%;
+    -webkit-mask-size: 0% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: left center;
+    -webkit-mask-position: left center;
+    transition: mask-size 2s ease-out, -webkit-mask-size 2s ease-out;
+}
+
+.line-right.grow {
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+}
+
+
+/* Homepage Sections */
+.homepage-section {
+    min-height: 100vh;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Sources section: initial state shows only ask title; image hidden. */
+#sources {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+/* 介绍pahs */
+#sources .pahs-image img {
+  width: 700px;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  will-change: transform, opacity, filter;
+}
+
+#sources .ask h2 {
+  position: absolute;
+  width: 680px;
+  margin: 0;
+  font-size: 5rem;
+  text-align: center;
+}
+
+#sources .sources-content p {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 680px;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+/* 污染源：烟雾 */
+#sources .chimney-wrap img{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 400px;
+}
+
+#sources .chimney {
+    transform-origin: center bottom;
+}
+
+#sources .chimney-text{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 600px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+.water-scene{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* 雨滴容器 */
+#sources .rain-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* 背景雨：细、淡、慢 */
+#sources .rain-bg {
+    position: absolute;
+    inset: 0;
+}
+#sources .rain-bg .drop {
+    position: absolute;
+    top: -20px;
+    width: 1px;
+    height: 8px;
+    background: linear-gradient(to bottom, rgba(140, 190, 255, 0), rgba(140, 190, 255, 0.3));
+}
+
+/* 前景雨：粗、亮、快 */
+#sources .rain-fg {
+    position: absolute;
+    inset: 0;
+}
+#sources .rain-fg .drop {
+    position: absolute;
+    top: -30px;
+    width: 1.5px;
+    height: 18px;
+    background: linear-gradient(to bottom, rgba(180, 220, 255, 0), rgba(180, 220, 255, 0.7));
+}
+
+/* 落地涟漪 */
+#sources .ripple-container {
+    position: absolute;
+    bottom: 20%; /* 对齐河流水面高度，可自行调整 */
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+#sources .ripple {
+    position: absolute;
+    bottom: 0;
+    width: 12px;
+    height: 3px;
+    border: 1px solid rgba(180, 220, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+/* 河流层：垂直走向，从上往下流 */
+.river-layer{
+  position: absolute;
+  top: 0;
+  width: 90%;
+  opacity: 0;
+  overflow: hidden;
+  /* 渐变遮罩：上透明下不透明，用来做从上到下的揭示效果 */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 35%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 35%);
+  -webkit-mask-size: 100% 200%;
+  mask-size: 100% 200%;
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+.river-layer img{
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+.fish-layer{
+  position: absolute;
+  bottom: 18%;
+  left: 0;
+  width: 16%;
+  opacity: 0;
+}
+.fish-layer img{
+  width: 100%;
+  display: block;
+}
+.water-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  opacity: 0;
+  text-align: center;
+  max-width: 80%;
+}

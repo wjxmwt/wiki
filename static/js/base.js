@@ -2,7 +2,7 @@ import initNavigation from './nav.js';
 
 const AppState = {
     currentLang: 'en',
-    currentTheme: 'dark',
+    currentTheme: 'light',
     currentSection: 'home',
     isMenuOpen: false,
     isLoaded: false
