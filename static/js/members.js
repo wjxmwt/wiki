@@ -12,14 +12,65 @@
     const scrollThreshold = 0.1;
 
     // 初始化老师展示界面
-    function initTeacherWindow() {
-        const hexItems = gsap.utils.toArray(".hex-circle-wrap .hex");
-        const receipt = document.querySelector('.receipt');
-        const title = document.querySelector('.receipt .title');
-        const name = document.querySelector('.receipt .name');
-        const description = document.querySelector('.receipt .description');
+    let ringOffset = 0; // 移到外层，不要写函数内部，resize需要访问
+    let hexItems;
+    let receipt, title, name, description;
+    let personData;
 
-        const personData = [
+    // 根据css变量动态生成圆环坐标
+    function generatePosList() {
+        const root = getComputedStyle(document.documentElement);
+        const R = parseFloat(root.getPropertyValue('--circle-radius'));
+        // 6个点角度，0°、60°、120°、180°、240°、300°
+        const w = window.innerWidth;
+        const anglesDeg = [30, 90, 150, 210, 270, 330];
+        return anglesDeg.map(deg => {
+            const rad = deg * Math.PI / 180;
+            return {
+                x: R * Math.sin(rad),
+                y: -R * Math.cos(rad)
+            }
+        })
+    }
+
+    // 将当前ringOffset应用到所有hex
+    function applyRingPositions() {
+        const posList = generatePosList();
+        hexItems.forEach((hex) => {
+            const originalIdx = Number(hex.dataset.personIndex);
+            const posIndex = (originalIdx + ringOffset) % 6;
+            const pos = posList[posIndex];
+            gsap.to(hex, {
+                x: pos.x,
+                y: pos.y,
+                duration: 0.4,
+                ease: "power2.out"
+            })
+        })
+    }
+
+    // 更新整个圆环位置的公共函数（点击调用）
+    function updateRing(targetClickOriginalIndex) {
+        ringOffset = (1 - targetClickOriginalIndex + 6) % 6;
+        applyRingPositions();
+        hexItems.forEach((hex) => {
+            const shapeDom = hex.querySelector(".hex-shape");
+            const curRot = gsap.getProperty(shapeDom, "rotate");
+            gsap.to(shapeDom, {
+                rotate: curRot + 360,
+                duration: 0.8,
+                ease: "power2.out"
+            })
+        });
+    }
+
+    function initTeacherWindow() {
+        hexItems = gsap.utils.toArray(".hex-circle-wrap .hex");
+        receipt = document.querySelector('.receipt');
+        title = document.querySelector('.receipt .title');
+        name = document.querySelector('.receipt .name');
+        description = document.querySelector('.receipt .description');
+        personData = [
             {
                 title: 'Alumnus',
                 name: 'Jiaqi Wang',
@@ -28,17 +79,17 @@
             {
                 title: 'Associate professor',
                 name: 'Nisha He',
-                desc: 'Her research focuses on molecular enzymology, biosensing and enzyme engineering. She guides the design and experimental scheme of the whole-cell biosensor in our project.'
+                desc: 'Her research focuses on molecular enzymology, biosensing and enzyme engineering. She guides the design and experimental scheme of the whole‑cell biosensor in our project.'
             },
             {
                 title: 'Professor',
                 name: 'Haimou Zhang',
-                desc: 'He has long supervised the HUBU-China iGEM team and guided our pollutant detection project.'
+                desc: 'He has long supervised the HUBU‑China iGEM team and guided our pollutant detection project.'
             },
             {
                 title: 'Professor',
                 name: 'Zhifan Yang',
-                desc: 'He has long served as the supervisor of the HUBU-China iGEM team and supported innovative synthetic biology projects.'
+                desc: 'He has long served as the supervisor of the HUBU‑China iGEM team and supported innovative synthetic biology projects.'
             },
             {
                 title: 'Foreign expert',
@@ -48,21 +99,12 @@
             {
                 title: 'Associate professor',
                 name: 'Pan Wu',
-                desc: 'Her guides the construction of PAH-degrading strains and whole-cell biosensors in our project.'
+                desc: 'Her guides the construction of PAH‑degrading strains and whole‑cell biosensors in our project.'
             }
-        ]
-        // ===== 每个六边形【最终停留的坐标】=====
-        // 半径180px，6个点标准正六边形圆环坐标
-        const posList = [
-            { x: 0, y: -315 },   // 0号 上
-            { x: 140, y: -145 },    // 1号 右上
-            { x: 0, y: 80 }, // 2号 右下
-            { x: -230, y: 80 },   // 3号 下
-            { x: -335, y: -115 },    // 4号 左下
-            { x: -230, y: -315 }     // 5号 左上
         ];
 
-        // 初始状态：全部叠在中心点，内部图片旋转0度
+        const posList = generatePosList();
+        // 初始状态：全部叠在中心点
         gsap.set(hexItems, {
             x: 0,
             y: 0,
@@ -72,41 +114,11 @@
         gsap.set(hexItems.map(h => h.querySelector(".hex-shape")), {
             rotate: 0
         });
-        // 更新整个圆环位置的公共函数
-        function updateRing(targetClickOriginalIndex) {
-            // 目标：把点击的这个originalIndex，移动到 posList[0]（最上方点位）
-            // 计算需要偏移多少
-            ringOffset = (1 - targetClickOriginalIndex + 6) % 6;
 
-            hexItems.forEach((hex) => {
-                // 每个六边形固定不变的原始下标 data-person-index
-                const originalIdx = Number(hex.dataset.personIndex);
-                const shapeDom = hex.querySelector(".hex-shape");
-                // 计算这个hex现在应该落到圆环的第几个点位
-                const posIndex = (originalIdx + ringOffset) % 6;
-                const pos = posList[posIndex];
-
-                gsap.to(hex, {
-                    x: pos.x,
-                    y: pos.y,
-                    duration: 0.6,
-                    ease: "power2.out"
-                });
-                // ✅获取当前已经旋转的角度，再叠加360，每次点击多转一圈
-                const curRot = gsap.getProperty(shapeDom, "rotate");
-                // 内部的hex‑shape单独转一整圈360°
-                gsap.to(shapeDom, {
-                    rotate: curRot + 360,
-                    duration: 0.8,
-                    ease: "power2.out"
-                })
-            });
-        }
-        // 每个hex依次执行动画：从圆心，旋转一圈，飞到对应posList位置
+        // 入场散开动画
         hexItems.forEach((hex, idx) => {
             const shapeDom = hex.querySelector(".hex-shape");
             const targetPos = posList[idx];
-
             gsap.to(hex, {
                 x: targetPos.x,
                 y: targetPos.y,
@@ -119,15 +131,15 @@
                     from: "center"
                 }
             });
-
-            // 内部的hex‑shape单独转一整圈360°
             gsap.to(shapeDom, {
                 rotate: 360,
                 duration: 0.8,
                 ease: "power2.out"
             })
         })
-        let activeIndex = 1; // 默认第一个老师
+
+        ringOffset = 0;
+        let activeIndex = 1; // 默认选中第二个
         title.textContent = personData[activeIndex].title;
         name.textContent = personData[activeIndex].name;
         description.textContent = personData[activeIndex].desc;
@@ -136,7 +148,7 @@
         hexItems.forEach(hex => {
             hex.onclick = () => {
                 const idx = Number(hex.dataset.personIndex);
-                if (activeIndex == idx) return;
+                if (activeIndex === idx) return;
                 updateRing(idx);
                 hexItems[activeIndex].classList.remove('active');
                 hexItems[idx].classList.add('active');
@@ -157,8 +169,16 @@
         const groupSlides = document.querySelector('.group_slides');
         if (!groupSlides) return;
 
-        let cardWidth = 400;
         let activeIndex = 2;
+
+        function getCardMetrics() {
+            const cards = document.querySelectorAll('.carousel_card');
+            const firstCard = cards[0];
+            const gap = parseFloat(getComputedStyle(groupSlides).gap) || 8;
+            const cardWidth = firstCard ? firstCard.offsetWidth : 350;
+            return { gap, cardWidth };
+        }
+
         // 添加卡片点击事件
         function cardAddClick() {
             const cards = document.querySelectorAll('.carousel_card');
@@ -195,10 +215,42 @@
         }
         // 更新旋转图状态
         function updateCarousel() {
-            groupSlides.style.transform = `translateX(calc(59vw - ${activeIndex * cardWidth + cardWidth / 2}px))`;
             const cards = document.querySelectorAll('.carousel_card');
             const closedBookCases = document.querySelectorAll('.closed_book_case');
             const titles = document.querySelectorAll('.carousel_title');
+
+            if (window.innerWidth <= 640) {
+                groupSlides.style.transform = 'none';
+                groupSlides.style.width = 'max-content';
+                groupSlides.style.justifyContent = 'flex-start';
+                groupSlides.style.flexDirection = 'row';
+
+                cards.forEach((card, index) => {
+                    const isActive = activeIndex === index;
+                    card.classList.toggle('is_active', isActive);
+                    const rotateY = (activeIndex - index) * 60;
+                    const scale = isActive ? 1 : 0.8;
+                    const carouselTransform = `rotateY(${rotateY}deg) scale(${scale})`;
+                    card.style.transform = carouselTransform;
+                    if (closedBookCases[index]) {
+                        closedBookCases[index].style.transform = carouselTransform;
+                    }
+                });
+
+                titles.forEach((title, index) => {
+                    const isActive = activeIndex === index;
+                    title.style.filter = isActive ? 'blur(0)' : 'blur(10px)';
+                    title.style.opacity = isActive ? 1 : 0.5;
+                });
+                return;
+            }
+
+            const { gap, cardWidth } = getCardMetrics();
+            const wrapperWidth = groupSlides.parentElement ? groupSlides.parentElement.clientWidth : window.innerWidth;
+            const offset = (wrapperWidth - cardWidth) / 2 - activeIndex * (cardWidth + gap);
+
+            groupSlides.style.transform = `translateX(${offset}px)`;
+
             cards.forEach((card, index) => {
                 const isActive = activeIndex === index;
                 card.classList.toggle('is_active', isActive);
@@ -283,6 +335,8 @@
         document.addEventListener('click', () => {
             closeActiveCardBook();
         });
+
+        window.addEventListener('resize', updateCarousel);
 
         cardAddClick();
         updateCarousel();
@@ -408,6 +462,13 @@
         sections[0].classList.add('visible');
         sections[0].dataset.lazyLoaded = 'true';
     }
+
+    // 窗口resize防抖处理，屏幕大小改变重新排布圆环
+    const debounceResize = debounce(() => {
+        if (!hexItems || hexItems.length === 0) return;
+        applyRingPositions();
+    }, 120);
+    window.addEventListener('resize', debounceResize);
 
     // 监听滚动事件（使用防抖优化性能）
     const debouncedHandleScroll = debounce(handleScroll, 100);

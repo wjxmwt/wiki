@@ -2,6 +2,7 @@
     --ease-back-out-1-6: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --hex-width: 210px;
     --hex-gap: 10px;
+    --circle-radius: 240px;
     --sqrt3: 1.73205;
     --hex-height: calc(var(--hex-width) * 2 / var(--sqrt3));
     --hex-margin-x: calc(var(--hex-gap) / 2);
@@ -140,14 +141,16 @@ h2 {
 .hex-circle-wrap {
   position: relative;
   /* 环形大圆半径，调整这个数值控制圆圈大小 */
-  width: 420px;
-  height: 420px;
-  margin: 0 200px;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  aspect-ratio:1/1;
+  flex-shrink:0;
 }
 .hex-circle-wrap .hex {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 35%;
+  left: 35%;
   width: var(--hex-width);
   height: var(--hex-height);
   /* 取消旧蜂窝布局margin */
@@ -164,6 +167,48 @@ h2 {
   overflow: hidden;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background-color: #1e2025;
+}
+
+/* ==========媒体查询响应式========== */
+/* 平板 */
+@media (max-width:1200px){
+    :root{
+        --hex-width:170px;
+        --circle-radius:260px;
+    }
+    .teacher_display{
+        gap:60px;
+    }
+}
+/* 小平板 */
+@media (max-width:860px){
+    :root{
+        --hex-width:140px;
+        --circle-radius:170px;
+    }
+    .teacher_display{
+        gap:40px;
+    }
+    .receipt{
+        width:300px !important;
+    }
+}
+/* 手机端：关键！flex改为上下堆叠，去掉横向gap */
+@media (max-width:640px){
+    :root{
+        --hex-width:120px;
+        --circle-radius:140px;
+    }
+    .teacher_display{
+        flex-direction:column;
+        gap:40px;
+    }
+    .hex-circle-wrap{
+        max-width:420px;
+    }
+    .receipt{
+        width:280px !important;
+    }
 }
 
 .hex-shape::after {
@@ -237,8 +282,6 @@ h2 {
 
 /* 激活状态，整个六边形整体放大上浮 */
 .hex.active {
-  width: 300px;
-  height: 300px;
   filter: drop-shadow(0 22px 30px rgba(0,0,0,0.75)); /* 放大加深阴影，突出浮起效果 */
 }
 /* active状态下图片不要单独放大，跟随父scale一起放大 */
@@ -317,51 +360,7 @@ h2 {
   transition-delay: 0.05s;
 }
 
-/* =========================================
-   6. Responsive Layouts
-   ========================================= */
-@media (max-width: 1024px) {
-  .hex-grid {
-    width: calc((var(--hex-width) + var(--hex-gap)) * 3);
-  }
-  .hex:nth-child(7n + 5) {
-    margin-left: var(--hex-margin-x);
-  }
-  .hex:nth-child(5n + 4) {
-    margin-left: calc((var(--hex-width) / 2) + var(--hex-gap));
-  }
-}
 
-@media (max-width: 768px) {
-  .hex-grid {
-    width: calc((var(--hex-width) + var(--hex-gap)) * 2);
-  }
-  .hex:nth-child(5n + 4) {
-    margin-left: var(--hex-margin-x);
-  }
-  .hex:nth-child(3n + 3) {
-    margin-left: calc((var(--hex-width) / 2) + var(--hex-gap));
-  }
-}
-
-@media (max-width: 550px) {
-  .hex-grid {
-    width: calc((var(--hex-width) * 1.5) + (var(--hex-gap) * 1.5));
-  }
-  .hex:nth-child(3n + 3) {
-    margin-left: var(--hex-margin-x);
-  }
-  .hex:nth-child(even) {
-    margin-left: calc((var(--hex-width) / 2) + var(--hex-gap));
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --hex-width: 160px;
-    --hex-gap: 10px;
-  }
-}
 
 
 .board {
@@ -438,9 +437,8 @@ h2 {
 
 .clip {
   position: absolute;
-  bottom: 75%;
-  left: 55%;
-  right: 0;
+  top: -5%;
+  left: 38%;
   width: fit-content;
   margin-inline: auto;
 
@@ -481,11 +479,16 @@ h2 {
 /* Carousel */
 .members_display {
     display: grid;
+    width: 100%;
+    min-height: 100vh;
+    padding: clamp(2rem, 4vw, 5rem) 0;
+    overflow: hidden;
 }
 
 .group_wrapper {
-    max-width: 100%;
-    overflow: visible;
+    width: min(100%, 1600px);
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 h5 {
@@ -493,30 +496,82 @@ h5 {
     z-index: 2;
     text-align: center;
     font-family: 'DM Sans', sans-serif;
-    font-size: 4rem;
+    font-size: clamp(2.2rem, 3vw, 4rem);
+    padding-inline: 1rem;
 }
 
 .group_slides {
     display: flex;
-    gap: 8px;
+    gap: clamp(8px, 1vw, 18px);
     transition: gap 0.8s ease, transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
     will-change: transform, gap;
     margin: 0 auto;
-    width: fit-content;
+    width: max-content;
+    justify-content: center;
 }
 
 
 .carousel_item {
     --closed-book-depth: clamp(26px, 2.2vw, 36px);
-    width: 350px;
-    height: 450px;
+    --book-height: clamp(320px, 32vw, 450px);
+    width: clamp(240px, 22vw, 350px);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    height: auto;
     transform-style: preserve-3d;
-    perspective: 600px;
+    perspective: 900px;
     will-change: transform, opacity, margin-left, margin-right;
     transition: opacity 0.7s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), margin-left 0.8s ease, margin-right 0.8s ease;
     /* 优化性能 */
     flex-shrink: 0;
+}
+
+@media (max-width: 1100px) {
+    .carousel_item {
+        width: clamp(220px, 28vw, 300px);
+        --book-height: clamp(300px, 38vw, 380px);
+    }
+}
+
+@media (max-width: 760px) {
+    .members_display {
+        padding: 2rem 0 3rem;
+    }
+
+    .group_wrapper {
+        padding: 0 0.5rem;
+    }
+
+    .carousel_item {
+        width: min(68vw, 260px);
+        --book-height: clamp(300px, 68vw, 380px);
+    }
+}
+
+@media (max-width: 640px) {
+    .group_wrapper {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        padding-bottom: 0.5rem;
+    }
+
+    .group_slides {
+        width: max-content;
+        min-width: 100%;
+        justify-content: flex-start;
+        padding: 0.25rem 0.5rem 0.5rem;
+        transform: none !important;
+    }
+
+    .carousel_item {
+        width: min(72vw, 270px);
+        --book-height: clamp(320px, 86vw, 420px);
+    }
 }
 
 .carousel_item.book_open {
@@ -526,19 +581,26 @@ h5 {
 
 .carousel_card {
     width: 100%;
-    height: 100%;
+    height: var(--book-height);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 9px;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
     transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carousel_title {
+    position: relative;
+    z-index: 2;
+    width: 100%;
     font-size: 2rem;
     white-space: nowrap;
     text-align: center;
+    opacity: 1;
+    filter: none;
     transform: filter 0.8s ease, opacity 0.8s ease;
 }
 
@@ -602,14 +664,17 @@ h5 {
 }
 
 .group_book_3d.book_open {
-    --spine-shift: 200px;
+    --spine-shift: 100px;
 }
 
 /* Closed-book shell: visible only while a book is presented in the carousel. */
 .closed_book_case {
     position: absolute;
-    inset: 0;
-    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--book-height);
+    z-index: 2;
     transform-style: preserve-3d;
     pointer-events: none;
     transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -800,6 +865,7 @@ h5 {
  * 人物 Introduction
  */
 .introduction {
+    position: relative;
     padding: 30px;
     box-sizing: border-box;
     display: flex;
@@ -876,8 +942,14 @@ h5 {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
     h2 {
         font-size: 2rem;
+    }
+    .description {
+        font-size: 14px;
+    }
+    .name {
+        font-size: 20px;
     }
 }
