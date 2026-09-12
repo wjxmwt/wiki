@@ -92,6 +92,12 @@ function updateLanguageUI() {
             langText.textContent = AppState.currentLang === 'en' ? 'ZH' : 'EN';
         }
     }
+    typesetMath();
+}
+
+function typesetMath() {
+    if (!window.MathJax?.typesetPromise) return;
+    window.MathJax.typesetPromise([document]).catch(() => {});
 }
 
 /**

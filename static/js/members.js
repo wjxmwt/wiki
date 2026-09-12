@@ -1,476 +1,315 @@
 (function () {
     gsap.registerPlugin(ScrollTrigger, SplitText);
-    const membersPage = document.querySelector('.members_page');
-    if (!membersPage) return;
 
-    const sections = Array.from(membersPage.querySelectorAll('section'));
-    if (!sections.length) return;
-
-    let carouselInitialized = false;
-    let currentSectionIndex = 0;
-    let isScrolling = false;
-    const scrollThreshold = 0.1;
-
-    // 初始化老师展示界面
-    let ringOffset = 0; // 移到外层，不要写函数内部，resize需要访问
-    let hexItems;
-    let receipt, title, name, description;
-    let personData;
-
-    // 根据css变量动态生成圆环坐标
-    function generatePosList() {
-        const root = getComputedStyle(document.documentElement);
-        const R = parseFloat(root.getPropertyValue('--circle-radius'));
-        // 6个点角度，0°、60°、120°、180°、240°、300°
-        const w = window.innerWidth;
-        const anglesDeg = [30, 90, 150, 210, 270, 330];
-        return anglesDeg.map(deg => {
-            const rad = deg * Math.PI / 180;
-            return {
-                x: R * Math.sin(rad),
-                y: -R * Math.cos(rad)
-            }
-        })
-    }
-
-    // 将当前ringOffset应用到所有hex
-    function applyRingPositions() {
-        const posList = generatePosList();
-        hexItems.forEach((hex) => {
-            const originalIdx = Number(hex.dataset.personIndex);
-            const posIndex = (originalIdx + ringOffset) % 6;
-            const pos = posList[posIndex];
-            gsap.to(hex, {
-                x: pos.x,
-                y: pos.y,
-                duration: 0.4,
-                ease: "power2.out"
-            })
-        })
-    }
-
-    // 更新整个圆环位置的公共函数（点击调用）
-    function updateRing(targetClickOriginalIndex) {
-        ringOffset = (1 - targetClickOriginalIndex + 6) % 6;
-        applyRingPositions();
-        hexItems.forEach((hex) => {
-            const shapeDom = hex.querySelector(".hex-shape");
-            const curRot = gsap.getProperty(shapeDom, "rotate");
-            gsap.to(shapeDom, {
-                rotate: curRot + 360,
-                duration: 0.8,
-                ease: "power2.out"
-            })
-        });
-    }
-
-    function initTeacherWindow() {
-        hexItems = gsap.utils.toArray(".hex-circle-wrap .hex");
-        receipt = document.querySelector('.receipt');
-        title = document.querySelector('.receipt .title');
-        name = document.querySelector('.receipt .name');
-        description = document.querySelector('.receipt .description');
-        personData = [
-            {
-                title: 'Alumnus',
-                name: 'Jiaqi Wang',
-                desc: 'He has rich experience in synthetic biology competitions and research. He supports our project on experimental design and iGEM preparation based on his previous competition experience.'
-            },
-            {
-                title: 'Associate professor',
-                name: 'Nisha He',
-                desc: 'Her research focuses on molecular enzymology, biosensing and enzyme engineering. She guides the design and experimental scheme of the whole‑cell biosensor in our project.'
-            },
-            {
-                title: 'Professor',
-                name: 'Haimou Zhang',
-                desc: 'He has long supervised the HUBU‑China iGEM team and guided our pollutant detection project.'
-            },
-            {
-                title: 'Professor',
-                name: 'Zhifan Yang',
-                desc: 'He has long served as the supervisor of the HUBU‑China iGEM team and supported innovative synthetic biology projects.'
-            },
-            {
-                title: 'Foreign expert',
-                name: 'Jonathan Nimal',
-                desc: 'He supports our team on English materials, international presentation and iGEM defense.'
-            },
-            {
-                title: 'Associate professor',
-                name: 'Pan Wu',
-                desc: 'Her guides the construction of PAH‑degrading strains and whole‑cell biosensors in our project.'
-            }
-        ];
-
-        const posList = generatePosList();
-        // 初始状态：全部叠在中心点
-        gsap.set(hexItems, {
-            x: 0,
-            y: 0,
+    // 开头文字动画
+    const introText = document.querySelector(".group-photo-text-container h2");
+    const splitText = new SplitText(introText, { type: "chars" });
+    gsap.from(splitText.chars, {
+        y: 150,
+        opacity: 0,
+        duration: 2,
+        ease: "bounce.out",
+        stagger: 0.1
+    }, 1);
+    // 标题文字动画
+    const numTextList = document.querySelectorAll(".project-title-container span");
+    numTextList.forEach(numText => {
+        gsap.from(numText, {
             opacity: 0,
-            scale: 0.7
-        });
-        gsap.set(hexItems.map(h => h.querySelector(".hex-shape")), {
-            rotate: 0
-        });
-
-        // 入场散开动画
-        hexItems.forEach((hex, idx) => {
-            const shapeDom = hex.querySelector(".hex-shape");
-            const targetPos = posList[idx];
-            gsap.to(hex, {
-                x: targetPos.x,
-                y: targetPos.y,
-                opacity: 1,
-                scale: 1,
-                duration: 0.8,
-                ease: "back.out(1.2)",
-                stagger: {
-                    each: 0.12,
-                    from: "center"
-                }
-            });
-            gsap.to(shapeDom, {
-                rotate: 360,
-                duration: 0.8,
-                ease: "power2.out"
-            })
-        })
-
-        ringOffset = 0;
-        let activeIndex = 1; // 默认选中第二个
-        title.textContent = personData[activeIndex].title;
-        name.textContent = personData[activeIndex].name;
-        description.textContent = personData[activeIndex].desc;
-        hexItems[activeIndex].classList.add('active');
-
-        hexItems.forEach(hex => {
-            hex.onclick = () => {
-                const idx = Number(hex.dataset.personIndex);
-                if (activeIndex === idx) return;
-                updateRing(idx);
-                hexItems[activeIndex].classList.remove('active');
-                hexItems[idx].classList.add('active');
-                activeIndex = idx;
-                title.textContent = personData[idx].title;
-                name.textContent = personData[idx].name;
-                description.textContent = personData[idx].desc;
-                gsap.fromTo(receipt, { opacity: 0, x: 20 },
-                    { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" })
-            }
-        })
-    }
-    // 初始化成员旋转图
-    function initMembersCarousel() {
-        if (carouselInitialized) return;
-        carouselInitialized = true;
-
-        const groupSlides = document.querySelector('.group_slides');
-        if (!groupSlides) return;
-
-        let activeIndex = 2;
-
-        function getCardMetrics() {
-            const cards = document.querySelectorAll('.carousel_card');
-            const firstCard = cards[0];
-            const gap = parseFloat(getComputedStyle(groupSlides).gap) || 8;
-            const cardWidth = firstCard ? firstCard.offsetWidth : 350;
-            return { gap, cardWidth };
-        }
-
-        // 添加卡片点击事件
-        function cardAddClick() {
-            const cards = document.querySelectorAll('.carousel_card');
-            cards.forEach((card, index) => {
-                card.onclick = (e) => {
-                    // 阻止事件冒泡（点击卡片时，不触发父元素的点击事件）
-                    e.stopPropagation();
-                    handleCardClick(index);
-                };
-            });
-        }
-        // 处理卡片点击事件
-        function handleCardClick(index) {
-            if (activeIndex !== index) {
-                const previousIndex = activeIndex;
-                const isOpenBefore = closeActiveCardBook(previousIndex);
-                if (isOpenBefore) {
-                    setTimeout(() => {
-                        activeIndex = index;
-                        updateCarousel();
-                    }, 800);
-                } else {
-                    activeIndex = index;
-                    updateCarousel();
-                }
-            } else {
-                toggleActiveCardBook();
-            }
-        }
-        // 切换到指定索引的卡片
-        function toSlide(index) {
-            activeIndex = index;
-            updateCarousel();
-        }
-        // 更新旋转图状态
-        function updateCarousel() {
-            const cards = document.querySelectorAll('.carousel_card');
-            const closedBookCases = document.querySelectorAll('.closed_book_case');
-            const titles = document.querySelectorAll('.carousel_title');
-
-            if (window.innerWidth <= 640) {
-                groupSlides.style.transform = 'none';
-                groupSlides.style.width = 'max-content';
-                groupSlides.style.justifyContent = 'flex-start';
-                groupSlides.style.flexDirection = 'row';
-
-                cards.forEach((card, index) => {
-                    const isActive = activeIndex === index;
-                    card.classList.toggle('is_active', isActive);
-                    const rotateY = (activeIndex - index) * 60;
-                    const scale = isActive ? 1 : 0.8;
-                    const carouselTransform = `rotateY(${rotateY}deg) scale(${scale})`;
-                    card.style.transform = carouselTransform;
-                    if (closedBookCases[index]) {
-                        closedBookCases[index].style.transform = carouselTransform;
-                    }
-                });
-
-                titles.forEach((title, index) => {
-                    const isActive = activeIndex === index;
-                    title.style.filter = isActive ? 'blur(0)' : 'blur(10px)';
-                    title.style.opacity = isActive ? 1 : 0.5;
-                });
-                return;
-            }
-
-            const { gap, cardWidth } = getCardMetrics();
-            const wrapperWidth = groupSlides.parentElement ? groupSlides.parentElement.clientWidth : window.innerWidth;
-            const offset = (wrapperWidth - cardWidth) / 2 - activeIndex * (cardWidth + gap);
-
-            groupSlides.style.transform = `translateX(${offset}px)`;
-
-            cards.forEach((card, index) => {
-                const isActive = activeIndex === index;
-                card.classList.toggle('is_active', isActive);
-                const rotateY = (activeIndex - index) * 60;
-                const scale = isActive ? 1 : 0.8;
-                const carouselTransform = `rotateY(${rotateY}deg) scale(${scale})`;
-                card.style.transform = carouselTransform;
-                if (closedBookCases[index]) {
-                    closedBookCases[index].style.transform = carouselTransform;
-                }
-            });
-            titles.forEach((title, index) => {
-                const isActive = activeIndex === index;
-                title.style.filter = isActive ? 'blur(0)' : 'blur(10px)';
-                title.style.opacity = isActive ? 1 : 0.5;
-            });
-        }
-
-        const carouselItems = document.querySelectorAll('.carousel_item');
-        // 获取指定索引的卡片容器
-        function getCardContainer(index) {
-            const item = carouselItems[index];
-            return item ? item.querySelector('.group_book_3d') : null;
-        }
-        // 获取指定索引的卡片项
-        function getCardItems(index) {
-            const item = carouselItems[index];
-            return item ? item.querySelectorAll('.group_book_3d_item') : [];
-        }
-        // 更新指定容器的状态
-        function updateContainerState(index) {
-            const container = getCardContainer(index);
-            const items = getCardItems(index);
-            if (!container || items.length === 0) return;
-            // 检查是否有打开的页面
-            const pages = Array.from(items).slice(0, -1);
-            const anyOpen = pages.some((item) => item.classList.contains('is_open'));
-            if (anyOpen) {
-                container.classList.add('book_open');
-                const carouselItem = carouselItems[index];
-                if (carouselItem) {
-                    carouselItem.classList.add('book_open');
-                }
-            } else {
-                container.classList.remove('book_open');
-                const carouselItem = carouselItems[index];
-                if (carouselItem) {
-                    carouselItem.classList.remove('book_open');
-                }
-            }
-        }
-
-        function closeActiveCardBook(index = activeIndex) {
-            const items = getCardItems(index);
-            let isOpen = items[0].classList.contains('is_open');
-            Array.from(items).slice(0, -1).forEach((item) => item.classList.remove('is_open'));
-            updateContainerState(index);
-            return isOpen;
-        }
-
-        function openNextPage(index = activeIndex) {
-            const items = getCardItems(index);
-            const pages = Array.from(items).slice(0, -1);
-            const nextPage = pages.find((item) => !item.classList.contains('is_open'));
-            if (nextPage) {
-                nextPage.classList.add('is_open');
-                updateContainerState(index);
-            }
-        }
-
-        function toggleActiveCardBook() {
-            const items = getCardItems(activeIndex);
-            const pages = Array.from(items).slice(0, -1);
-            const allOpen = pages.length > 0 && pages.every((item) => item.classList.contains('is_open'));
-            if (allOpen) {
-                closeActiveCardBook();
-            } else {
-                openNextPage(activeIndex);
-            }
-        }
-
-        document.addEventListener('click', () => {
-            closeActiveCardBook();
-        });
-
-        window.addEventListener('resize', updateCarousel);
-
-        cardAddClick();
-        updateCarousel();
-    }
-
-    // 激活指定节部分
-    function activateSection(section) {
-        if (section.dataset.lazyLoaded === 'true') return;
-
-        section.dataset.lazyLoaded = 'true';
-        section.classList.add('is-loaded');
-        section.classList.add('visible');
-
-        if (section.id === 'membersDisplay') {
-            initMembersCarousel();
-        }
-        if (section.id === 'teacherDisplay') {
-            initTeacherWindow();
-        }
-    }
-
-    // 懒加载观察器
-    const lazyObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                activateSection(entry.target);
-                lazyObserver.unobserve(entry.target); // 只观察一次
+            y: -100,
+            duration: 0.5,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: numText,
+                start: "top 88%",
+                once: true
             }
         });
-    }, {
-        threshold: 0.4,
+    });
+    const titleTextList = document.querySelectorAll(".project-title");
+    titleTextList.forEach(titleText => {
+        const splitTitleText = new SplitText(titleText, {
+            type: 'chars'
+        });
+        gsap.from(splitTitleText.chars, {
+            opacity: 0,
+            x: 150,
+            duration: 2,
+            ease: "bounce.out",
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: titleText,
+                start: "top 88%",
+                once: true
+            }
+        });
+    });
+    // 分隔线动画
+    gsap.utils.toArray(".project-title-container hr").forEach((line) => {
+        gsap.set(line, {
+            scaleX: 0,
+            transformOrigin: "left center"
+        });
+
+        gsap.to(line, {
+            scaleX: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: line,
+                start: "top 78%",
+                once: true
+            }
+        });
+    });
+    // leader img play
+    const imgList = document.querySelectorAll("img");
+    imgList.forEach(img => {
+        gsap.from(img, {
+            opacity: 0,
+            clipPath: "inset(0 0 100% 0)",
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: img,
+                start: "top 75%",
+                once: true
+            }
+        });
+    })
+    // leader introduction play
+    const descList = document.querySelectorAll(".introduction");
+    descList.forEach(desc => {
+        const splitDesc = new SplitText(desc, {
+            type: 'lines'
+        });
+        gsap.from(splitDesc.lines, {
+            rotationX: -100,
+            transformOrigin: "50% 50% -160px",
+            opacity: 0,
+            duration: 1,
+            ease: "power3",
+            stagger: 0.25,
+            scrollTrigger: {
+                trigger: desc,
+                start: "top 70%",
+                once: true
+            }
+        });
+    })
+
+    const memberContainerList = document.querySelectorAll(".member-container");
+    memberContainerList.forEach(memberContainer => {
+        gsap.from(memberContainer, {
+            opacity: 0,
+            clipPath: "inset(0 100% 0 0)",
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: memberContainer,
+                start: "top 75%",
+                once: true
+            }
+        });
     });
 
-    // 初始化所有section
-    sections.forEach((section) => {
-        section.classList.add('lazy-section');
-        lazyObserver.observe(section);
+    const memberModal = document.querySelector("#memberModal");
+    const memberModalImage = document.querySelector("#memberModalImage");
+    const memberModalName = document.querySelector("#memberModalName");
+    const memberModalRole = document.querySelector("#memberModalRole");
+    const memberModalDescription = document.querySelector("#memberModalDescription");
+    const memberModalClose = memberModal.querySelector(".member-modal-close");
+    const memberDetails = [
+        {
+            name: "Xinying Li",
+            role: "WETLAB MEMBER",
+            description: "iGEM has taught me far more than teamwork; it has helped me accomplish goals I once never dared to imagine. For me, it is both a brand-new challenge full of unknowns and a rare opportunity for growth. As a core member of the wet lab group, I took part hands-on in various experimental operations and honed my core laboratory skills. Though it consumed much time, every effort was well worth it. Troubleshooting repeatedly and tackling difficult problems in the lab solidified my professional foundation; collaborating with teammates on experiment design and execution further sharpened my communication and coordination abilities. Together we built our project from zero to one, then pushed it step by step toward one hundred, growing and transforming alongside one another."
+        },
+        {
+            name: "Minxi Qiu",
+            role: "WIKI MEMBER",
+            description: "As a beginner in web design, I initially thought the Wiki was simply a place to put our results online. Only after joining iGEM and actually getting hands-on did I discover the many details that needed polishing. Technical challenges such as layout adaptation, content rendering, and formatting standards often pushed me to debug and deliberate again and again. Participating in iGEM strengthened my cross-disciplinary collaboration and communication skills, familiarized me with iGEM's Wiki standards, and improved my scientific communication and awareness of teamwork and task division."
+        },
+        {
+            name: "Jiaze Sun",
+            role: "WETLAB MEMBER",
+            description: "When I first joined the project, I only had a vague impression of it and was largely drawn by how innovative it sounded. After diving into real work, I discovered the discipline behind every successful experiment. From preparing materials to recording results and repeating failed trials, I have developed a stronger sense of responsibility and learned that meaningful progress comes from persistent, careful work."
+        },
+        {
+            name: "Feier Yi",
+            role: "HP MEMBER",
+            description: "iGEM equipped me with the ability to let the engineering cycle guide my practice, moving steadily toward our goals through implementation, feedback, and iterative optimization, while growing together with friendly competition partners."
+        },
+        {
+            name: "Linying Lan",
+            role: "ART MEMBER",
+            description: "Joining iGEM made me understand that science requires not only rigorous experiments but also compelling expression. As a team member, I committed myself to turning complex research outcomes into intuitive visual language. Through countless rounds of revision and reflection, I learned to build bridges of communication through design, so that scientific stories can be understood by more people."
+        },
+        {
+            name: "Yuhan Hu",
+            role: "ART MEMBER",
+            description: "TMy name is Hu Yuhan. In the iGEM art and design group, I was responsible for visual design including the logo, mascot, and presentation slides, learning to present research ideas through creative visuals."
+        },
+        {
+            name: "Yunyuan Li",
+            role: "HP MEMBER",
+            description: "Through hands-on practice in the iGEM project, I built practical experience in teamwork and multi-stakeholder communication, and came to deeply understand that research projects should connect with real-world social realities. Within the team, my work focused on external communication, while I also took charge of organizing content and materials for the science-education and outreach component, participating in interviews, writing outreach materials, and other concrete tasks for the project."
+        },{
+            name: "Wanyue Zheng",
+            role: "HP MEMBER",
+            description: "By joining iGEM, I learned research-project collaboration and Wiki documentation writing, and how to organize tasks and drive work forward through communication under the pressure of multitasking. I was mainly responsible for report writing and HP-related work."
+        },{
+            name: "Lingxuan Xiang",
+            role: "HP MEMBER",
+            description: "As a member of the HP group, I was in charge of science outreach and education, and also took part in interviews, data compilation, and sample collection. iGEM made me realize that the power of science lies not only in data but in whether it can be understood by more people. Turning synthetic biology into accessible stories proved far more challenging than expected — and all the more meaningful for it. I learned how to communicate and collaborate, and I felt that the team's cohesion lives in every discussion and every moment of support."
+        },{
+            name: "Entong Zhu",
+            role: "HP MEMBER",
+            description: "While working in the HP group, I made many new friends and picked up many new skills. I designed posters and wrote social media posts, and these tasks sharpened my aesthetic sense, my ability to summarize text, and my information-collection skills, among others."
+        },{
+            name: "Xiran Ma",
+            role: "HP MEMBER",
+            description: "As a member of the HP group mainly responsible for interviews, copywriting, and video editing, my major in Journalism and Communication helped me deeply appreciate the value of science communication within iGEM. At first, facing topics in fields I had little prior exposure to, I felt intimidated and anxious. But my teammates' patient guidance and encouragement helped me push past my limits step by step, teaching me to converse with people in all kinds of situations and to tell the story of synthetic biology through images."
+        },{
+            name: "Yiwen Xu",
+            role: "HP MEMBER",
+            description: "Being part of the IGEM team, in the beginning, feltlike an opportunity for me to showcase my talents.As time passed, I began to realize there was a lotmore to learn in this journey. What challenged memost were the technical questions that arose fromour experimental findings, which kept me up atnight, pondering for an answer. Support from myteam and investigators helped me to navigate it.Presenting our findings to the local teams in IGEMChina helped me assess my ability to communicateffectively."
+        },{
+            name: "Siyi Zhu",
+            role: "ART MEMBER",
+            description: "When I first joined the iGEM team, I simply hoped to use this opportunity to pursue my interests. Later, I served as the leader of the art and design group, and this role strengthened my sense of responsibility. Working shoulder to shoulder with our advisor and teammates, we pushed forward various publicity and visual-design tasks together. This experience taught me to balance creative expression with the team's needs, to grow through communication and coordination, and to genuinely feel the fulfillment and joy of contributing to a collective."
+        },{
+            name: "Xinyue YU",
+            role: "ART MEMBER",
+            description: "As a member of the iGEM art and design team, I gained a great deal as the project progressed. Design works like a converter, transforming abstract text into visual images. My biggest challenge was turning obscure scientific logic into posters, webpages, and other materials that balanced rigor with aesthetics — and many drafts were reworked again and again. These bright outcomes would not have been possible without teamwork; my teammates' and advisor's research materials and revision feedback were a great help."
+        },{
+            name: "Ruilin Yang",
+            role: "WIKI MEMBER",
+            description: "As a member of the iGEM Wiki team, through website design and development as well as mini-program development, I learned to turn ideas into reality step by step, and came to understand more deeply the importance of teamwork and communication. When problems arose, the process of working with teammates to find solutions taught me a great deal."
+        },{
+            name: "Qimeng Fan",
+            role: "DRYLAB MEMBER",
+            description: "Participating in iGEM gave me valuable hands-on experience. I helped coordinate the activities of our modeling group, which taught me how to manage team members and communicate efficiently with teammates. Senior members also introduced me to knowledge related to biological modeling, covering protein modeling and data modeling, giving me an initial understanding of basic modeling methods and logic."
+        },{
+            name: "Mengfei Liu",
+            role: "DRYLAB MEMBER",
+            description: "Joining the iGEM team was, for me, a perfect opportunity to put theoretical knowledge into practice. As the project progressed, I realized I still had much room to grow. The successive, unexpected data challenges that emerged during the project posed my greatest test, often keeping me up at night as I searched for reasonable explanations. Whenever I got stuck, my teammates and advisor offered invaluable guidance. Sharing results and exchanging ideas with other iGEM teams also greatly strengthened my logical thinking and cross-team communication skills."
+        },{
+            name: "Yulin Jin",
+            role: ">DRYLAB MEMBER",
+            description: "As a member of the iGEM modeling group, I initially expected merely to consolidate my skills with modeling tools. Instead, I found myself lacking hands-on experience in combining domain knowledge with data modeling. I learned as I worked on the project, refining the models continuously and discovering the charm of cross-disciplinary collaboration."
+        },{
+            name: "Yifang Wang",
+            role: "ART MEMBER",
+            description: "iGEM helped me discover that science is not only rigorous but also full of creativity and warmth. Turning our ideas into works together with my teammates has been a truly wonderful journey."
+        },{
+            name: "Chanzi Liu",
+            role: "WETLAB MEMBER",
+            description: "When I first joined the iGEM experimental group, I was eager to bring our bold designs to life in the lab. Yet the road proved far tougher than imagined: countless failed transformations, faint gel bands, and repeatedly fluctuating data, often forcing me to stay by the workbench for long hours troubleshooting. Faced with one disappointing result after another, I felt lost and doubtful of myself. Fortunately, my teammates' companionship and my supervisor's advice let me readjust the plan and keep trying. Every small breakthrough taught me rigor, patience, and the resolve never to give up. This experience not only sharpened my experimental skills but also taught me the resilience a researcher should possess."
+        },{
+            name: "Jixiang Wang",
+            role: "WIKI MEMBER",
+            description: "When I first joined the iGEM team, I assumed it would simply be an opportunity to showcase my front-end development and web-animation skills. As the project progressed, I gained far more than technical growth. Working at the intersection of synthetic biology and digital design, I learned to translate complex experimental logic into clear, intuitive web visuals, and understood how refined visualization can help professional scientific content reach and be understood by more people."
+        }
+    ];
+    let lastFocusedMember = null;
+
+    const closeMemberModal = () => {
+        if (memberModal.hidden || memberModal.classList.contains("is-closing")) return;
+
+        memberModal.classList.add("is-closing");
+        document.body.classList.remove("member-modal-open");
+    };
+
+    memberModal.addEventListener("animationend", event => {
+        if (event.target !== memberModal || event.animationName !== "member-modal-fade-out") return;
+
+        memberModal.hidden = true;
+        memberModal.classList.remove("is-closing");
+        if (lastFocusedMember) lastFocusedMember.focus();
     });
 
-    // 防抖函数 - 优化性能
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
+    memberContainerList.forEach((memberContainer, index) => {
+        memberContainer.tabIndex = 0;
+        memberContainer.setAttribute("role", "button");
+        memberContainer.setAttribute("aria-label", "View member details");
+
+        const openMemberModal = () => {
+            const image = memberContainer.querySelector(".member-img");
+            const details = memberDetails[index];
+
+            if (!details) return;
+
+            memberModalImage.src = image.src;
+            memberModalImage.alt = image.alt;
+            memberModalName.textContent = details.name;
+            memberModalRole.textContent = details.role;
+            memberModalDescription.textContent = details.description;
+            lastFocusedMember = memberContainer;
+            memberModal.classList.remove("is-closing");
+            memberModal.hidden = false;
+            document.body.classList.add("member-modal-open");
+            memberModalClose.focus();
         };
-    }
 
-    // 滚动吸附处理函数
-    function handleScroll() {
-        // 如果正在滚动动画中，忽略
-        if (isScrolling) return;
-
-        const windowHeight = window.innerHeight;
-        const scrollTop = window.scrollY;
-
-        // 向下滚动检测
-        if (currentSectionIndex < sections.length - 1) {
-            const nextSection = sections[currentSectionIndex + 1];
-            const nextSectionTop = nextSection.offsetTop;
-            // 计算下一个section已经进入视口的高度
-            const visibleHeight = scrollTop + windowHeight - nextSectionTop;
-
-            // 关键：只在可见高度在10%-90%之间时触发，避免边界问题
-            if (visibleHeight > windowHeight * scrollThreshold && visibleHeight < windowHeight * 0.9) {
-                scrollToSection(currentSectionIndex + 1);
-                return;
+        memberContainer.addEventListener("click", openMemberModal);
+        memberContainer.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openMemberModal();
             }
-        }
+        });
+    });
 
-        // 向上滚动检测
-        if (currentSectionIndex > 0) {
-            const currentSection = sections[currentSectionIndex];
-            const currentSectionTop = currentSection.offsetTop;
-            // 当前section顶部超出视口的距离
-            const topGap = currentSectionTop - scrollTop;
+    memberModal.addEventListener("click", event => {
+        if (event.target.matches("[data-member-modal-close]")) closeMemberModal();
+    });
 
-            // 关键：只在顶部露出在10%-90%之间时触发
-            if (topGap > windowHeight * scrollThreshold && topGap < windowHeight * 0.9) {
-                scrollToSection(currentSectionIndex - 1);
-                return;
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !memberModal.hidden) closeMemberModal();
+    });
+
+    const advisorContainerList = document.querySelectorAll(".advisor-container");
+    advisorContainerList.forEach(advisorContainer => {
+        gsap.from(advisorContainer, {
+            opacity: 0,
+            clipPath: "inset(0 0 100% 0)",
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: advisorContainer,
+                start: "top 75%",
+                once: true
             }
-        }
-    }
+        });
+    })
 
-    // 滚动到指定section
-    function scrollToSection(index) {
-        // 参数校验
-        if (index < 0 || index >= sections.length || isScrolling) return;
+    // 图片悬停效果
+    gsap.utils.toArray(".leader-img, .advisor-img, .member-img").forEach((image) => {
+        const container = image.closest(
+            ".leader-img-container, .advisor-img-container, .member-img-container"
+        );
 
-        isScrolling = true;
-        currentSectionIndex = index;
+        if (!container) return;
 
-        const section = sections[index];
-        const targetPosition = section.offsetTop;
-
-        // 平滑滚动
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
+        container.addEventListener("mouseenter", () => {
+            gsap.to(image, {
+                scale: 1.06,
+                filter: "brightness(1.12) saturate(1.15)",
+                duration: 0.45,
+                ease: "power2.out"
+            });
         });
 
-        // 使用定时器检测滚动完成（比requestAnimationFrame更稳定）
-        let checkCount = 0;
-        const checkInterval = setInterval(() => {
-            checkCount++;
-            const currentScroll = window.scrollY;
+        container.addEventListener("mouseleave", () => {
+            gsap.to(image, {
+                scale: 1,
+                filter: "brightness(1) saturate(1)",
+                duration: 0.45,
+                ease: "power2.out"
+            });
+        });
+    });
 
-            // 到达目标位置（允许5px误差）或超时(1秒)
-            if (Math.abs(currentScroll - targetPosition) < 5 || checkCount >= 20) {
-                clearInterval(checkInterval);
-                isScrolling = false;
-            }
-        }, 50); // 每50ms检查一次
-    }
-
-    // 初始化第一个section为可见
-    if (sections[0]) {
-        sections[0].classList.add('visible');
-        sections[0].dataset.lazyLoaded = 'true';
-    }
-
-    // 窗口resize防抖处理，屏幕大小改变重新排布圆环
-    const debounceResize = debounce(() => {
-        if (!hexItems || hexItems.length === 0) return;
-        applyRingPositions();
-    }, 120);
-    window.addEventListener('resize', debounceResize);
-
-    // 监听滚动事件（使用防抖优化性能）
-    const debouncedHandleScroll = debounce(handleScroll, 100);
-    window.addEventListener('scroll', debouncedHandleScroll, { passive: true });
+    ScrollTrigger.refresh();
 })();

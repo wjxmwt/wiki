@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dry Lab · Salicylic‑Acid Biosensor Modeling | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+<meta name="description"
+  content="iGEM Dry‑Lab modeling for salicylic‑acid biosensor: Hill full‑range fitting, low‑concentration linear calibration, IUPAC 3σ LOD & LOQ calculation, guiding wet‑lab biosensor optimization for PAHs detection.">
+
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <!-- Project 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Project" class="nav-link " data-section="Project">
+          <i class="fas fa-home"></i>
+          <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Description" class="dropdown-link"><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+          <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程实现">Engineering</span></a></li>
+          <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Wet Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Wet Lab" class="nav-link " data-section="Wet-Lab">
+          <i class="fa-solid fa-flask"></i>
+          <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+          <li><a href="../../#Design" class="dropdown-link"><span class="nav-text" data-text-en="Design" data-text-zh="实验设计">Design</span></a></li>
+          <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+          <li><a href="../../wetlab/salicylic-acid/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Experiments" data-text-zh="实验内容">Experiments</span></a></li>
+          <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+          <li><a href="../../#Safety" class="dropdown-link"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Dry Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Dry Lab" class="nav-link active" data-section="Dry-Lab">
+          <i class="fa-solid fa-flask-vial"></i>
+          <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../naphthalene/index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Naphthalene" data-text-zh="萘建模">Modeling Naphthalene</span></a></li>
+          <li><a href="index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Salicylic Acid" data-text-zh="水杨酸建模">Modeling Salicylic Acid</span></a></li>
+          <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+          <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+        </ul>
+      </li>
+      <!-- Team 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Team" class="nav-link " data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+          <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- 无下拉的导航项 -->
+      <li class="nav-item">
+        <a href="../../#Human Practice" class="nav-link " data-section="Human-Practice">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="../../#Video" class="nav-link " data-section="Video">
+          <i class="fa-solid fa-video"></i>
+          <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Toggle Language">
+        <i class="fas fa-language"></i><span class="lang-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-sun"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li><a href="#sec-background" data-text-en="Background" data-text-zh="背景">Background</a></li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-design" data-text-en="Model Design & Assumptions" data-text-zh="模型设计与假设">Model Design & Assumptions</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-design-framework" data-text-en="Mathematical framework" data-text-zh="数学模型框架">Mathematical framework</a></li>
+        <li><a href="#sec-design-assumptions" data-text-en="Simplifying assumptions" data-text-zh="简化假设">Simplifying assumptions</a></li>
+    </ul>
+</li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-implementation" data-text-en="Model Implementation & Parameters" data-text-zh="模型实现与参数">Model Implementation & Parameters</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-implementation-code" data-text-en="Code implementation" data-text-zh="代码实现">Code implementation</a></li>
+        <li><a href="#sec-implementation-source" data-text-en="Parameter source & calibration" data-text-zh="参数来源与校准">Parameter source & calibration</a></li>
+    </ul>
+</li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-result" data-text-en="Model Results & Validation" data-text-zh="模型结果与验证">Model Results & Validation</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-result-fitting" data-text-en="Fitting performance" data-text-zh="拟合性能">Fitting performance</a></li>
+        <li><a href="#sec-result-limit" data-text-en="Limitations" data-text-zh="模型局限性">Limitations</a></li>
+    </ul>
+</li>
+<li><a href="#sec-conclusion" data-text-en="Model Application & Significance" data-text-zh="模型应用与意义">Model Application & Significance</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <!-- 装饰背景 -->
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="DRY‑LAB · MATHEMATICAL MODELING" data-text-zh="干实验 · 数学建模">DRY‑LAB · MATHEMATICAL MODELING</div>
+      <h1 class="hero-title" data-html data-text-en="Salicylic‑Acid <span class='hero-accent'>Biosensor Modeling</span>" data-text-zh="水杨酸生物传感器<span class='hero-accent'>建模</span>">Salicylic‑Acid <span class="hero-accent">Biosensor Modeling</span></h1>
+      <p class="hero-desc" data-text-en="We established Hill full‑range dose‑response model and low‑concentration linear calibration for NahR‑Psal biosensor. LOD and LOQ were calculated under IUPAC 3σ criterion, providing quantitative benchmark and engineering guidance for wet‑lab biosensor characterization."
+         data-text-zh="我们为NahR‑Psal生物传感器建立Hill全范围剂量响应模型与低浓度线性校准模型，依据IUPAC 3σ准则计算检测下限与定量下限，为湿实验传感器表征提供定量指标与工程优化指导。">
+        We established Hill full‑range dose‑response model and low‑concentration linear calibration for NahR‑Psal biosensor. LOD and LOQ were calculated under IUPAC 3σ criterion, providing quantitative benchmark and engineering guidance for wet‑lab biosensor characterization.
+      </p>
+      <div class="hero-actions">
+        <a href="#sec-design" class="hero-btn hero-btn-primary">
+          <span data-text-en="Read Design" data-text-zh="模型设计">Read Design</span> <i class="fa-solid fa-arrow-down"></i>
+        </a>
+        <a href="#sec-result" class="hero-btn hero-btn-secondary">
+          <span data-text-en="View Results" data-text-zh="模拟结果">View Results</span> <i class="fa-solid fa-chart-line"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="Dry Lab Modeling">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="COMPUTATION" data-text-zh="计算模拟">COMPUTATION</div>
+          <div class="hero-image-title" data-text-en="Dose‑Response Simulation" data-text-zh="剂量‑响应模拟">Dose‑Response Simulation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<!-- ==================== 1. Background 背景 ==================== -->
+<section id="sec-background" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-circle-info"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Background" data-text-zh="背景">Background</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p class="drop-cap" data-text-en="Our sensing strain MUT3rd uses salicylic acid to activate the Psal promoter and drive GFP reporter expression. Fluorescence intensity serves as measurable readout correlated with extracellular salicylic‑acid concentration, which is the key intermediate metabolite during PAHs biodegradation."
+     data-text-zh="我们的传感工程菌MUT3rd依靠水杨酸激活Psal启动子，驱动GFP报告基因表达；荧光强度作为可测量输出信号，与胞外水杨酸浓度相关，而水杨酸正是多环芳烃生物降解过程的关键中间代谢物。">
+    Our sensing strain MUT3rd uses salicylic acid to activate the Psal promoter and drive GFP reporter expression. Fluorescence intensity serves as measurable readout correlated with extracellular salicylic‑acid concentration, which is the key intermediate metabolite during PAHs biodegradation.
+  </p>
+
+  <p data-text-en="This quantitative dry‑lab model solves two core practical problems: first, build mathematical relationship between salicylic‑acid concentration and fluorescence output; second, compute biosensor limit‑of‑detection (LOD), quantitatively characterize the analytical performance of our genetic whole‑cell biosensor."
+     data-text-zh="本干实验定量模型解决两个核心实际问题：第一，建立水杨酸浓度与荧光输出之间的数学关系；第二，计算生物传感器检测下限LOD，定量表征基因工程全细胞传感器的分析性能。">
+    This quantitative dry‑lab model solves two core practical problems: first, build mathematical relationship between salicylic‑acid concentration and fluorescence output; second, compute biosensor limit‑of‑detection (LOD), quantitatively characterize the analytical performance of our genetic whole‑cell biosensor.
+  </p>
+</section>
+
+<!-- ==================== 2. Model Design & Assumptions 模型设计与假设 ==================== -->
+<section id="sec-design" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-calculator"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Design &amp; Assumptions" data-text-zh="模型设计与假设">Model Design &amp; Assumptions</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-design-framework">
+    <h3 data-text-en="Mathematical framework" data-text-zh="数学模型框架">Mathematical framework</h3>
+    <p data-text-en="We adopted dual‑model strategy for biosensor characterization: Hill equation for full‑range sigmoidal dose‑response fitting; low‑concentration linear regression as engineering calibration curve for LOD calculation."
+       data-text-zh="我们采用双模型策略完成传感器表征：Hill方程用于全范围S型剂量‑响应拟合；低浓度线性回归作为工程校准曲线，用于检测下限LOD计算。">
+      We adopted dual‑model strategy for biosensor characterization: Hill equation for full‑range sigmoidal dose‑response fitting; low‑concentration linear regression as engineering calibration curve for LOD calculation.
+    </p>
+    <div class="protocol-card">
+      <div class="card-title">
+        <i class="fa-solid fa-square-root-variable"></i>
+        <span data-text-en="Equation set" data-text-zh="方程组">Equation set</span>
+      </div>
+      <p><strong>1. Full‑range Hill dose‑response model:</strong></p>
+\[
+F(C)=\alpha_0+\alpha_{\mathrm{max}} \cdot \frac{C^n}{K_M^n + C^n}
+\]
+      <p><strong>2. Low‑concentration linear calibration model (0‑0.1 μM):</strong></p>
+\[
+F = S\cdot C + b
+\]
+      <p><strong>3. Concentration inversion formula from measured fluorescence:</strong></p>
+\[
+C=\frac{F-b}{S}
+\]
+    </div>
+  </div>
+
+  <div id="sec-design-assumptions">
+    <h3 data-text-en="Simplifying assumptions &amp; rationale" data-text-zh="简化假设与依据">Simplifying assumptions &amp; rationale</h3>
+    <ul class="step-list">
+      <li data-text-en="Biosensor reaches steady‑state: fluorescence signal stops changing over incubation time, guaranteed by fixed wet‑lab incubation protocol."
+          data-text-zh="传感器达到稳态：荧光信号不再随孵育时间变化，由湿实验固定孵育流程保证。">Biosensor reaches steady‑state: fluorescence signal stops changing over incubation time, guaranteed by fixed wet‑lab incubation protocol.</li>
+      <li data-text-en="Linear approximation holds under low salicylic‑acid concentration; experimental data shows good linear correlation within 0‑0.1 μM."
+          data-text-zh="低水杨酸浓度下满足线性近似；实验数据证明在0‑0.1 μM范围内线性相关性良好。">Linear approximation holds under low salicylic‑acid concentration; experimental data shows good linear correlation within 0‑0.1 μM.</li>
+      <li data-text-en="Background noise follows Gaussian distribution, IUPAC standard 3‑σ statistical rule is applicable."
+          data-text-zh="背景噪声服从高斯分布，可以使用IUPAC标准3‑σ统计判据。">Background noise follows Gaussian distribution, IUPAC standard 3‑σ statistical rule is applicable.</li>
+      <li data-text-en="Signal higher than \(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\) is defined as detectable positive signal, standard biosensor LOD judging rule."
+          data-text-zh="荧光信号大于 \(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\) 即可判定为可检出阳性信号，是生物传感器领域标准LOD判定规则。">Signal higher than \(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\) is defined as detectable positive signal, standard biosensor LOD judging rule.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 3. Model Implementation & Parameters ==================== -->
+<section id="sec-implementation" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-code"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Implementation &amp; Parameters" data-text-zh="模型实现与参数">Model Implementation &amp; Parameters</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-implementation-code">
+    <h3 data-text-en="Code implementation" data-text-zh="代码实现">Code implementation</h3>
+    <p data-text-en="Model fitting was completed in Python 3.13 with scipy library. Non‑linear least‑square algorithm was used for Hill equation fitting. Experimental dataset includes 7 salicylic‑acid concentration points (0‑0.8 μM), each with three biological replicates."
+       data-text-zh="模型拟合基于Python 3.13与scipy科学计算库完成；采用非线性最小二乘法进行Hill方程拟合。实验数据集包含7个水杨酸浓度梯度点（0‑0.8 μM），每个浓度设置3组生物学重复。">
+      Model fitting was completed in Python 3.13 with scipy library. Non‑linear least‑square algorithm was used for Hill equation fitting. Experimental dataset includes 7 salicylic‑acid concentration points (0‑0.8 μM), each with three biological replicates.
+    </p>
+  </div>
+
+  <div id="sec-implementation-source">
+    <h3 data-text-en="Parameter source &amp; calibration" data-text-zh="参数来源与校准">Parameter source &amp; calibration</h3>
+    <p data-text-en="All model parameters are directly fitted and calibrated from wet‑lab experimental measurement data."
+       data-text-zh="全部模型参数均由湿实验室实测实验数据直接拟合校准得到。">
+      All model parameters are directly fitted and calibrated from wet‑lab experimental measurement data.
+    </p>
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-table"></i>
+        <span data-text-en="Fitted model parameters" data-text-zh="模型拟合参数表">Fitted model parameters</span>
+      </div>
+      <div class="wetlab-table-wrapper">
+        <table class="wetlab-table">
+          <thead>
+            <tr>
+              <th data-text-en="Parameter" data-text-zh="参数">Parameter</th>
+              <th data-text-en="Symbol" data-text-zh="符号">Symbol</th>
+              <th data-text-en="Estimated value" data-text-zh="拟合值">Estimated value</th>
+              <th data-text-en="Biological meaning" data-text-zh="生物学含义">Biological meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Blank fluorescence mean</td>
+              <td>\(F_{\mathrm{blank}}\)</td>
+              <td>1897</td>
+              <td data-text-en="Average fluorescence of blank control" data-text-zh="空白对照组平均荧光">Average fluorescence of blank control</td>
+            </tr>
+            <tr>
+              <td>Background standard deviation</td>
+              <td>\(\sigma_{\mathrm{bg}}\)</td>
+              <td>16.70</td>
+              <td data-text-en="Fluorescence noise standard deviation of blank" data-text-zh="空白信号荧光噪声标准差">Fluorescence noise standard deviation of blank</td>
+            </tr>
+            <tr>
+              <td>Linear slope</td>
+              <td>\(S\)</td>
+              <td>15926.34</td>
+              <td data-text-en="Signal gain under low‑concentration linear region" data-text-zh="低浓度线性区信号增益">Signal gain under low‑concentration linear region</td>
+            </tr>
+            <tr>
+              <td>Linear intercept</td>
+              <td>\(b\)</td>
+              <td>1933.53</td>
+              <td data-text-en="Intercept term for low‑concentration calibration" data-text-zh="低浓度校准曲线截距">Intercept term for low‑concentration calibration</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. Model Results & Validation ==================== -->
+<section id="sec-result" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-chart-line"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Results &amp; Validation" data-text-zh="模型结果与验证">Model Results &amp; Validation</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-result-fitting">
+    <h3 data-text-en="Fitting performance" data-text-zh="拟合性能">Fitting performance</h3>
+    <p data-text-en="Hill full‑range model: \(R^2=0.9755\). Hill coefficient \(n \approx 1.00\), indicating nearly non‑cooperative binding between salicylic acid and NahR protein. Low‑concentration linear regression (0‑0.1 μM): \(R^2=0.9957\), showing excellent linearity in weak‑signal region."
+       data-text-zh="Hill全范围模型：\(R^2=0.9755\)；Hill系数 \(n \approx 1.00\)，说明水杨酸与NahR蛋白接近无协同结合。低浓度线性回归（0‑0.1 μM）：\(R^2=0.9957\)，弱信号区间线性度极佳。">
+      Hill full‑range model: \(R^2=0.9755\). Hill coefficient \(n \approx 1.00\), indicating nearly non‑cooperative binding between salicylic acid and NahR protein. Low‑concentration linear regression (0‑0.1 μM): \(R^2=0.9957\), showing excellent linearity in weak‑signal region.
+    </p>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/salicylic.png" alt="Salicylic‑acid dose‑response curve and LOD">
+      <figcaption data-html
+        data-text-en="Fig.1 &nbsp; Dose‑response curve and LOD of salicylic‑acid biosensor. Red curve: Hill full‑range fitting; blue dashed: low‑concentration linear calibration; grey dotted: 3σ detection threshold; dots: experimental mean ± SD (n=3)."
+        data-text-zh="图1 &nbsp; 水杨酸生物传感器剂量‑响应曲线与检测下限。红色实线：Hill全范围拟合；蓝色虚线：低浓度线性校准；灰色点线：3σ检测阈值；散点：实验均值±标准差(n=3)。">
+        Fig.1 &nbsp; Dose‑response curve and LOD of salicylic‑acid biosensor. Red curve: Hill full‑range fitting; blue dashed: low‑concentration linear calibration; grey dotted: 3σ detection threshold; dots: experimental mean ± SD (n=3).
+      </figcaption>
+    </figure>
+
+    <div class="key-finding">
+      <p data-text-en="Performance metrics calculated by IUPAC 3σ rule:<br>
+      • Practical experimental LOD = \(0.05\ \mu M\), signal at LOD is 45 % higher than 3σ threshold, stably detectable in wet‑lab;<br>
+      • Theoretical sensitivity (3σ/slope): \(3.15\ \mathrm{nM}\);<br>
+      • Limit of quantitation LOQ = \(10.49\ \mathrm{nM}\)."
+         data-text-zh="依据IUPAC 3σ规则计算得到性能指标：<br>
+      • 实际实验检测下限 LOD = \(0.05\ \mu M\)；LOD对应点信号较3σ阈值高出45 %，湿实验条件下可以稳定检出；<br>
+      • 理论灵敏度(3σ/斜率)：\(3.15\ \mathrm{nM}\)；<br>
+      • 定量下限 LOQ = \(10.49\ \mathrm{nM}\)。">
+        <strong>Performance metrics calculated by IUPAC 3σ rule:</strong><br>
+        • Practical experimental LOD = \(0.05\ \mu M\), signal at LOD is 45 % higher than 3σ threshold, stably detectable in wet‑lab;<br>
+        • Theoretical sensitivity (3σ/slope): \(3.15\ \mathrm{nM}\);<br>
+        • Limit of quantitation LOQ = \(10.49\ \mathrm{nM}\).
+      </p>
+    </div>
+  </div>
+
+  <div id="sec-result-limit">
+    <h3 data-text-en="Limitations" data-text-zh="模型局限性">Limitations</h3>
+    <ul class="step-list">
+      <li data-text-en="Experimental dataset does not reach signal saturation region; fitted \(F_{\mathrm{max}}\) and \(EC_{50}\) from Hill model are extrapolated values."
+          data-text-zh="现有实验数据集尚未到达信号饱和区；Hill模型得到的 \(F_{\mathrm{max}}\)、\(EC_{50}\) 属于外推得到的数值。">Experimental dataset does not reach signal saturation region; fitted \(F_{\mathrm{max}}\) and \(EC_{50}\) from Hill model are extrapolated values.</li>
+      <li data-text-en="Only three replicates for blank fluorescence measurement, leading to relatively wide confidence interval for estimated LOD."
+          data-text-zh="空白荧光测量仅设置3次重复，造成LOD估计的置信区间相对较宽。">Only three replicates for blank fluorescence measurement, leading to relatively wide confidence interval for estimated LOD.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 5. Model Application & Significance ==================== -->
+<section id="sec-conclusion" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-lightbulb"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Application &amp; Significance" data-text-zh="模型应用与意义">Model Application &amp; Significance</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+  <p data-text-en="1. Guidance for wet‑lab optimization: Three tunable core parameters determine LOD performance: NahR‑salicylic‑acid binding affinity \(K_M\), basal leakage \(\alpha_0\), signal gain slope \(S\). Three engineering strategies are proposed: decrease \(K_M\) for higher affinity; reduce basal background leakage; improve signal gain slope to enhance weak‑signal distinguishability."
+     data-text-zh="1. 指导湿实验优化：决定LOD性能的三个可调控核心参数：NahR‑水杨酸结合亲和力\(K_M\)、本底泄露\(\alpha_0\)、信号增益斜率\(S\)。提出三条工程改进策略：降低\(K_M\)提升结合亲和力；降低本底泄露噪声；提高信号增益斜率，增强弱信号分辨能力。">
+    1. Guidance for wet‑lab optimization: Three tunable core parameters determine LOD performance: NahR‑salicylic‑acid binding affinity \(K_M\), basal leakage \(\alpha_0\), signal gain slope \(S\). Three engineering strategies are proposed: decrease \(K_M\) for higher affinity; reduce basal background leakage; improve signal gain slope to enhance weak‑signal distinguishability.
+  </p>
+  <p data-text-en="2. Concentration inversion for unknown samples: The linear calibration formula calculates salicylic‑acid concentration directly from measured fluorescence. The model also judges whether data falls within valid linear window (0‑0.1 μM) to avoid extrapolation error."
+     data-text-zh="2. 未知样品浓度反推：利用线性校准公式可以通过测得荧光直接反算样品水杨酸浓度；同时模型可以判断测量点是否落在有效线性窗口（0‑0.1 μM）内，避免外推带来计算错误。">
+    2. Concentration inversion for unknown samples: The linear calibration formula calculates salicylic‑acid concentration directly from measured fluorescence. The model also judges whether data falls within valid linear window (0‑0.1 μM) to avoid extrapolation error.
+  </p>
+  <p data-text-en="3. Project‑level contribution: Delivered quantitative performance benchmarks (practical LOD, theoretical sensitivity, LOQ) for our NahR‑Psal biosensor, supporting wiki content, presentation and biosensor design. It points out clear follow‑up experimental directions: collect saturation‑range data and increase blank replicates to narrow confidence interval, reducing blind trial‑and‑error cost."
+     data-text-zh="3. 项目层面贡献：为本项目NahR‑Psal生物传感器输出定量性能基准（实际LOD、理论灵敏度、LOQ），支撑Wiki、答辩与传感器设计；给出明确后续实验方向：采集饱和区间数据、增加空白重复组数来缩窄置信区间，降低盲目试错成本。">
+    3. Project‑level contribution: Delivered quantitative performance benchmarks (practical LOD, theoretical sensitivity, LOQ) for our NahR‑Psal biosensor, supporting wiki content, presentation and biosensor design. It points out clear follow‑up experimental directions: collect saturation‑range data and increase blank replicates to narrow confidence interval, reducing blind trial‑and‑error cost.
+  </p>
+</section>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

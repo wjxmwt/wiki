@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dry Lab · Naphthalene Modeling | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+<meta name="description"
+  content="iGEM Dry-Lab modeling for PAHs bioremediation: cascade kinetic model coupling naphthalene degradation and NahR-Psal salicylate biosensor, LOD prediction via IUPAC 3σ criterion and Bootstrap uncertainty analysis.">
+
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <!-- Project 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Project" class="nav-link " data-section="Project">
+          <i class="fas fa-home"></i>
+          <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Description" class="dropdown-link"><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+          <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程实现">Engineering</span></a></li>
+          <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Wet Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Wet Lab" class="nav-link " data-section="Wet-Lab">
+          <i class="fa-solid fa-flask"></i>
+          <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+          <li><a href="../../#Design" class="dropdown-link"><span class="nav-text" data-text-en="Design" data-text-zh="实验设计">Design</span></a></li>
+          <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+          <li><a href="../../wetlab/salicylic-acid/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Experiments" data-text-zh="实验内容">Experiments</span></a></li>
+          <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+          <li><a href="../../#Safety" class="dropdown-link"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+        </ul>
+      </li>
+
+      <!-- Dry Lab 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Dry Lab" class="nav-link active" data-section="Dry-Lab">
+          <i class="fa-solid fa-flask-vial"></i>
+          <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Naphthalene" data-text-zh="萘建模">Modeling Naphthalene</span></a></li>
+          <li><a href="../salicylic-acid/index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Salicylic Acid" data-text-zh="水杨酸建模">Modeling Salicylic Acid</span></a></li>
+          <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+          <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+        </ul>
+      </li>
+      <!-- Team 下拉菜单 -->
+      <li class="nav-item has-dropdown">
+        <a href="../../#Team" class="nav-link " data-section="Team">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+          <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+        </ul>
+      </li>
+
+      <!-- 无下拉的导航项 -->
+      <li class="nav-item">
+        <a href="../../#Human Practice" class="nav-link " data-section="Human-Practice">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="../../#Video" class="nav-link " data-section="Video">
+          <i class="fa-solid fa-video"></i>
+          <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Toggle Language">
+        <i class="fas fa-language"></i><span class="lang-text">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-sun"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li><a href="#sec-background" data-text-en="Background" data-text-zh="背景">Background</a></li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-design" data-text-en="Model Design & Assumptions" data-text-zh="模型设计与假设">Model Design & Assumptions</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-design-framework" data-text-en="Mathematical framework" data-text-zh="数学模型框架">Mathematical framework</a></li>
+        <li><a href="#sec-design-selection" data-text-en="Algorithm selection" data-text-zh="算法选择">Algorithm selection</a></li>
+        <li><a href="#sec-design-assumptions" data-text-en="Simplifying assumptions" data-text-zh="简化假设">Simplifying assumptions</a></li>
+    </ul>
+</li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-implementation" data-text-en="Model Implementation & Parameters" data-text-zh="模型实现与参数">Model Implementation & Parameters</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-implementation-code" data-text-en="Code implementation" data-text-zh="代码实现">Code implementation</a></li>
+        <li><a href="#sec-implementation-source" data-text-en="Parameter source & calibration" data-text-zh="参数来源与校准">Parameter source & calibration</a></li>
+    </ul>
+</li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-result" data-text-en="Model Result & Validation" data-text-zh="模型结果与验证">Model Result & Validation</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-result-simulation" data-text-en="Simulation & fitting results" data-text-zh="模拟与拟合结果">Simulation & fitting results</a></li>
+        <li><a href="#sec-result-accuracy" data-text-en="Accuracy and limitation" data-text-zh="模型准确性与局限性">Accuracy and limitation</a></li>
+    </ul>
+</li>
+<li><a href="#sec-conclusion" data-text-en="Model Application & Significance" data-text-zh="模型应用与意义">Model Application & Significance</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <!-- 装饰背景 -->
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="DRY-LAB · MATHEMATICAL MODELING" data-text-zh="干实验 · 数学建模">DRY‑LAB · MATHEMATICAL MODELING</div>
+      <h1 class="hero-title" data-html data-text-en="Naphthalene <span class='hero-accent'>Biosensor Modeling</span>" data-text-zh="萘生物传感器<span class='hero-accent'>建模</span>">Naphthalene <span class="hero-accent">Biosensor Modeling</span></h1>
+      <p class="hero-desc" data-text-en="We constructed a cascade kinetic model coupling naphthalene biodegradation and salicylate‑dependent NahR‑Psal biosensor, predicting limit‑of‑detection for environmental naphthalene monitoring and offering theoretical guidance for wet‑lab optimization."
+         data-text-zh="我们构建耦合萘降解通路与NahR‑Psal水杨酸传感器的级联动力学模型，预测萘生物传感器检测下限，为环境萘检测提供理论依据，同时指导湿实验优化。">
+        We constructed a cascade kinetic model coupling naphthalene biodegradation and salicylate‑dependent NahR‑Psal biosensor, predicting limit‑of‑detection for environmental naphthalene monitoring and offering theoretical guidance for wet‑lab optimization.
+      </p>
+      <div class="hero-actions">
+        <a href="#sec-design" class="hero-btn hero-btn-primary">
+          <span data-text-en="Read Design" data-text-zh="模型设计">Read Design</span> <i class="fa-solid fa-arrow-down"></i>
+        </a>
+        <a href="#sec-result" class="hero-btn hero-btn-secondary">
+          <span data-text-en="View Results" data-text-zh="模拟结果">View Results</span> <i class="fa-solid fa-chart-line"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="Dry Lab Modeling">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="COMPUTATION" data-text-zh="计算模拟">COMPUTATION</div>
+          <div class="hero-image-title" data-text-en="Cascade Biosensor Simulation" data-text-zh="级联生物传感器模拟">Cascade Biosensor Simulation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<!-- ==================== 1. Background 背景 ==================== -->
+<section id="sec-background" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-circle-info"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Background" data-text-zh="背景">Background</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p class="drop-cap" data-text-en="Naphthalene is a typical low‑molecular‑weight polycyclic aromatic hydrocarbon (PAH). Inside engineered bacteria, naphthalene is degraded into salicylate by naphthalene dioxygenase. The generated salicylate further activates the NahR‑Psal biosensor to produce fluorescent output signal. The whole system forms a two‑step cascade: naphthalene input → enzymatic degradation → salicylate intermediate → NahR cooperative binding → fluorescence readout."
+     data-text-zh="萘是典型低分子量多环芳烃（PAH）。在工程菌内，萘可被萘双加氧酶降解生成水杨酸；水杨酸进一步激活NahR‑Psal生物传感器产生荧光输出信号。整套系统构成两级级联反应：萘输入→酶促降解→水杨酸中间物→NahR协同结合→荧光输出。">
+    Naphthalene is a typical low‑molecular‑weight polycyclic aromatic hydrocarbon (PAH). Inside engineered bacteria, naphthalene is degraded into salicylate by naphthalene dioxygenase. The generated salicylate further activates the NahR‑Psal biosensor to produce fluorescent output signal. The whole system forms a two‑step cascade: naphthalene input → enzymatic degradation → salicylate intermediate → NahR cooperative binding → fluorescence readout.
+  </p>
+
+  <p data-text-en="Due to Michaelis‑Menten enzymatic kinetics and Hill‑type cooperative transcription response, the relationship between naphthalene concentration and final fluorescence is highly non‑linear. Therefore, pure experimental characterization cannot directly obtain reliable theoretical limit‑of‑detection (LOD). Our dry‑lab model aims to quantitatively describe this cascade response, compute IUPAC‑standard LOD for naphthalene, evaluate estimation uncertainty, and provide theoretical guidance for biosensor performance optimization for environmental naphthalene monitoring."
+     data-text-zh="由于酶促反应遵循米氏动力学、转录报告遵循Hill协同结合，萘浓度和最终荧光信号呈现强非线性关系，仅靠湿实验很难直接获得可靠理论检测下限。本干实验模型旨在定量描述整套级联响应，按照IUPAC标准计算萘检测下限，评估结果不确定性，为面向环境萘监测的生物传感器性能优化提供理论指导。">
+    Due to Michaelis‑Menten enzymatic kinetics and Hill‑type cooperative transcription response, the relationship between naphthalene concentration and final fluorescence is highly non‑linear. Therefore, pure experimental characterization cannot directly obtain reliable theoretical limit‑of‑detection (LOD). Our dry‑lab model aims to quantitatively describe this cascade response, compute IUPAC‑standard LOD for naphthalene, evaluate estimation uncertainty, and provide theoretical guidance for biosensor performance optimization for environmental naphthalene monitoring.
+  </p>
+</section>
+
+<!-- ==================== 2. Model Design & Assumptions 模型设计与假设 ==================== -->
+<section id="sec-design" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-calculator"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Design &amp; Assumptions" data-text-zh="模型设计与假设">Model Design &amp; Assumptions</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-design-framework">
+    <h3 data-text-en="Mathematical framework" data-text-zh="数学模型框架">Mathematical framework</h3>
+    <p data-text-en="We built a composite cascade model combining Michaelis‑Menten equation (naphthalene‑to‑salicylate degradation module) and Hill equation (salicylate‑to‑fluorescence sensing module). The salicylate output from degradation module is substituted into Hill equation to directly map naphthalene concentration to fluorescence intensity."
+       data-text-zh="我们构建米氏方程（萘→水杨酸降解模块）与Hill方程（水杨酸→荧光传感模块）组合级联模型，将降解模块输出水杨酸浓度代入Hill方程，直接建立萘浓度与荧光输出的映射关系。">
+      We built a composite cascade model combining Michaelis‑Menten equation (naphthalene‑to‑salicylate degradation module) and Hill equation (salicylate‑to‑fluorescence sensing module). The salicylate output from degradation module is substituted into Hill equation to directly map naphthalene concentration to fluorescence intensity.
+    </p>
+    <div class="protocol-card">
+      <div class="card-title">
+        <i class="fa-solid fa-square-root-variable"></i>
+        <span data-text-en="Equation set" data-text-zh="方程组">Equation set</span>
+      </div>
+      <p><strong>1. Sensing module (Hill equation):</strong><br>
+      \[F=F_0+F_{\mathrm{max}}\cdot \frac{[\mathrm{Sal}]^n}{K_D^n+[\mathrm{Sal}]^n}\]</p>
+      <p><strong>2. Degradation module (Michaelis‑Menten kinetics under fixed 3 h):</strong><br>
+      \[[\mathrm{Sal}]=\frac{V_{\mathrm{max}}\cdot [\mathrm{Naph}]}{K_m+[\mathrm{Naph}]}\]</p>
+      <p><strong>3. Combined cascade model:</strong><br>
+      \[F=F_0+F_{\mathrm{max}}\cdot \frac{\left(\frac{V_{\mathrm{max}}\cdot [\mathrm{Naph}]}{K_m+[\mathrm{Naph}]}\right)^n}{K_D^n+\left(\frac{V_{\mathrm{max}}\cdot [\mathrm{Naph}]}{K_m+[\mathrm{Naph}]}\right)^n}\]</p>
+    </div>
+  </div>
+
+  <div id="sec-design-selection">
+    <h3 data-text-en="Algorithm selection" data-text-zh="算法选择">Algorithm selection</h3>
+    <ul class="step-list">
+      <li data-text-en="Hill curve fitting: Levenberg‑Marquardt algorithm (nlsLM), nonlinear least‑squares for biochemical sigmoidal curve fitting."
+          data-text-zh="Hill曲线拟合：Levenberg‑Marquardt算法(nlsLM)，用于生化S型曲线非线性最小二乘拟合。">Hill curve fitting: Levenberg‑Marquardt algorithm (nlsLM), nonlinear least‑squares for biochemical sigmoidal curve fitting.</li>
+        <li data-text-en="LOD calculation: IUPAC 3σ criterion. Solve naphthalene concentration when fluorescence equals <p>\(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\). Two parallel approaches: experimental interpolation and reverse solving from cascade model."
+          data-text-zh="检测下限计算：IUPAC 3σ准则。求解荧光等于 \(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\) 对应的萘浓度；采用实验插值法、模型反向求解两套并行方案。">
+          LOD calculation: IUPAC 3σ criterion. Solve naphthalene concentration when fluorescence equals <p>\(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\)</p>. Two parallel approaches: experimental interpolation and reverse solving from cascade model.</li>
+      <li data-text-en="Uncertainty evaluation: Bootstrap resampling (n = 500) to obtain LOD distribution, 95 % confidence interval and coefficient of variation."
+          data-text-zh="不确定性评估：Bootstrap重采样（500次），输出LOD分布、95%置信区间、变异系数。">Uncertainty evaluation: Bootstrap resampling (n = 500) to obtain LOD distribution, 95 % confidence interval and coefficient of variation.</li>
+    </ul>
+  </div>
+
+  <div id="sec-design-assumptions">
+    <h3 data-text-en="Simplifying assumptions &amp; rationale" data-text-zh="简化假设与依据">Simplifying assumptions &amp; rationale</h3>
+    <ul class="step-list">
+      <li data-text-en="Reaction time fixed at 3 h: salicylate production reaches quasi‑steady‑state, Michaelis‑Menten can describe accumulated salicylate yield without full time‑course ODE."
+          data-text-zh="反应时间固定3 h：水杨酸生成达到准稳态，米氏方程描述累积水杨酸产量，无需构建完整时间序列ODE。">Reaction time fixed at 3 h: salicylate production reaches quasi‑steady‑state, Michaelis‑Menten can describe accumulated salicylate yield without full time‑course ODE.</li>
+      <li data-text-en="No intracellular salicylate degradation or consumption except NahR binding; salicylate loss is negligible under our experimental conditions."
+          data-text-zh="胞内水杨酸除NahR结合外无降解消耗；本实验条件下水杨酸损耗可忽略。">No intracellular salicylate degradation or consumption except NahR binding; salicylate loss is negligible under our experimental conditions.</li>
+      <li data-text-en="Hill parameters are constant: NahR‑salicylate sensing characteristics do not change after coupling with naphthalene degradation pathway; Hill parameters are pre‑fitted from salicylate standard curve and kept fixed."
+          data-text-zh="Hill模型参数恒定：NahR‑水杨酸传感特性在耦合萘降解通路后不变；Hill参数由水杨酸标准曲线预先拟合并固定。">Hill parameters are constant: NahR‑salicylate sensing characteristics do not change after coupling with naphthalene degradation pathway; Hill parameters are pre‑fitted from salicylate standard curve and kept fixed.</li>
+        <li data-text-en="Background fluorescence \(F_{\mathrm{blank}}\) and background noise \(\sigma_{\mathrm{bg}}\) are constant and independent of naphthalene concentration."
+          data-text-zh="本底荧光 \(F_{\mathrm{blank}}\)、背景噪声 \(\sigma_{\mathrm{bg}}\) 恒定，不随萘浓度变化。">Background fluorescence \(F_{\mathrm{blank}}\) and background noise \(\sigma_{\mathrm{bg}}\) are constant and independent of naphthalene concentration.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 3. Model Implementation & Parameters ==================== -->
+<section id="sec-implementation" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-code"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Implementation &amp; Parameters" data-text-zh="模型实现与参数">Model Implementation &amp; Parameters</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-implementation-code">
+    <h3 data-text-en="Code implementation" data-text-zh="代码实现">Code implementation</h3>
+    <p data-text-en="All model fitting, LOD solving and Bootstrap uncertainty analysis were implemented in R language. We used minpack.lm::nlsLM for non‑linear least‑square regression. Custom functions realized threshold calculation, experimental interpolation and model reverse solving for LOD. Self‑written Bootstrap loop with 500 resampling cycles outputs parameter table, R², LOD values and reliability logs."
+       data-text-zh="全部模型拟合、LOD求解、Bootstrap不确定性分析基于R语言实现。使用minpack.lm包nlsLM完成非线性最小二乘回归；自定义函数实现阈值计算、实验插值、模型反向求解LOD；自研500次循环Bootstrap脚本输出参数表、R²、LOD结果与可靠性日志。">
+      All model fitting, LOD solving and Bootstrap uncertainty analysis were implemented in R language. We used minpack.lm::nlsLM for non‑linear least‑square regression. Custom functions realized threshold calculation, experimental interpolation and model reverse solving for LOD. Self‑written Bootstrap loop with 500 resampling cycles outputs parameter table, R², LOD values and reliability logs.
+    </p>
+  </div>
+
+  <div id="sec-implementation-source">
+    <h3 data-text-en="Parameter source &amp; calibration" data-text-zh="参数来源与校准">Parameter source &amp; calibration</h3>
+     <p data-text-en="Sensing‑module Hill parameters were calibrated from independent salicylate fluorescence standard curve and kept fixed. Degradation‑module parameters \(V_{\mathrm{max}}\) and \(K_m\) were fitted against naphthalene titration fluorescence data. Background parameters were directly measured from blank control samples."
+       data-text-zh="传感模块Hill参数由独立水杨酸标准荧光曲线拟合得到并固定；降解模块参数 \(V_{\mathrm{max}}\)、\(K_m\) 使用萘梯度荧光实验数据拟合；背景参数直接取自空白对照组实测值。">
+      Sensing‑module Hill parameters were calibrated from independent salicylate fluorescence standard curve and kept fixed. Degradation‑module parameters \(V_{\mathrm{max}}\) and \(K_m\) were fitted against naphthalene titration fluorescence data. Background parameters were directly measured from blank control samples.
+    </p>
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-table"></i>
+        <span data-text-en="Fitted model parameters" data-text-zh="模型拟合参数表">Fitted model parameters</span>
+      </div>
+      <div class="wetlab-table-wrapper">
+        <table class="wetlab-table">
+          <thead>
+            <tr>
+              <th data-text-en="Parameter" data-text-zh="参数">Parameter</th>
+              <th data-text-en="Symbol" data-text-zh="符号">Symbol</th>
+              <th data-text-en="Estimated value" data-text-zh="拟合值">Estimated value</th>
+              <th data-text-en="Biological meaning" data-text-zh="生物学含义">Biological meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basal fluorescence</td>
+              <td>\(F_0\)</td>
+              <td>1892.32</td>
+              <td data-text-en="Background fluorescence without induction" data-text-zh="无诱导本底荧光">Background fluorescence without induction</td>
+            </tr>
+            <tr>
+              <td>Maximal fluorescence</td>
+              <td>\(F_{max}\)</td>
+              <td>9104.67</td>
+              <td data-text-en="Saturated reporting fluorescence" data-text-zh="饱和报告荧光">Saturated reporting fluorescence</td>
+            </tr>
+            <tr>
+              <td>Dissociation constant</td>
+              <td>\(K_D\)</td>
+              <td>0.5311 μM</td>
+              <td data-text-en="NahR affinity to salicylate" data-text-zh="NahR对水杨酸解离常数">NahR affinity to salicylate</td>
+            </tr>
+            <tr>
+              <td>Hill coefficient</td>
+              <td>\(n\)</td>
+              <td>1.571</td>
+              <td data-text-en="Positive cooperativity of NahR binding" data-text-zh="NahR结合协同系数">Positive cooperativity of NahR binding</td>
+            </tr>
+            <tr>
+              <td>Max salicylate yield</td>
+              <td>\(V_{max}\)</td>
+              <td>1.515 μM</td>
+              <td data-text-en="3‑h maximum salicylate production" data-text-zh="3小时最大水杨酸生成量">3‑h maximum salicylate production</td>
+            </tr>
+            <tr>
+              <td>Michaelis constant</td>
+              <td>\(K_m\)</td>
+              <td>1.1445 μM</td>
+              <td data-text-en="Naphthalene dioxygenase affinity to naphthalene" data-text-zh="萘双加氧酶米氏常数">Naphthalene dioxygenase affinity to naphthalene</td>
+            </tr>
+            <tr>
+              <td>Blank fluorescence</td>
+              <td>\(F_{blank}\)</td>
+              <td>1893.0</td>
+              <td data-text-en="Blank control fluorescence" data-text-zh="空白对照荧光">Blank control fluorescence</td>
+            </tr>
+            <tr>
+              <td>Background noise</td>
+              <td>\(\sigma_{bg}\)</td>
+              <td>8.5</td>
+              <td data-text-en="Standard deviation of blank signal" data-text-zh="空白信号标准差">Standard deviation of blank signal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. Model Result & Validation ==================== -->
+<section id="sec-result" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-chart-line"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Result &amp; Validation" data-text-zh="模型结果与验证">Model Result &amp; Validation</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-result-simulation">
+    <h3 data-text-en="Simulation &amp; fitting results" data-text-zh="模拟与拟合结果">Simulation &amp; fitting results</h3>
+    <p data-text-en="Hill fitting of salicylate standard curve gives \(R^2=0.9389\). Hill coefficient n = 1.571 > 1 confirms positive cooperative interaction between NahR and salicylate. Global fitting of cascade model against naphthalene titration data yields \(R^2=0.9565\), showing high consistency between simulated curve and wet‑lab experimental points."
+       data-text-zh="水杨酸标准曲线Hill拟合得到 \(R^2=0.9389\)；Hill系数n = 1.571 > 1，证实NahR‑水杨酸存在正协同结合。级联模型对萘梯度荧光全局拟合 \(R^2=0.9565\)，模拟曲线与湿实验实测点高度吻合。">
+      Hill fitting of salicylate standard curve gives \(R^2=0.9389\). Hill coefficient n = 1.571 > 1 confirms positive cooperative interaction between NahR and salicylate. Global fitting of cascade model against naphthalene titration data yields \(R^2=0.9565\), showing high consistency between simulated curve and wet‑lab experimental points.
+    </p>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/naph.png" alt="Naphthalene cascade model simulation figure">
+      <figcaption data-html
+        data-text-en="Fig.4 &nbsp; Model simulation plots. (A) Salicylate‑to‑fluorescence Hill standard curve. (B) Naphthalene‑to‑fluorescence cascade response curve on log‑scale. (C) Magnified view near LOD threshold. (D) Bootstrap LOD distribution histogram."
+        data-text-zh="图4 &nbsp; 模型模拟结果图。(A)水杨酸‑荧光Hill标准曲线；(B)对数坐标萘‑荧光级联响应曲线；(C)检测下限阈值局部放大；(D)Bootstrap重采样LOD分布直方图。">
+        Fig.4 &nbsp; Model simulation plots. (A) Salicylate‑to‑fluorescence Hill standard curve. (B) Naphthalene‑to‑fluorescence cascade response curve on log‑scale. (C) Magnified view near LOD threshold. (D) Bootstrap LOD distribution histogram.
+      </figcaption>
+    </figure>
+
+    <div class="key-finding">
+      <p data-text-en="LOD calculation by IUPAC 3σ criterion:<br>
+      • Experimental interpolation: \(LOD_{exp}=0.050942\ \mu M\ (\approx50.94\ nM)\)<br>
+      • Model reverse solving: \(LOD_{model}=0.0509\ \mu M\)<br>
+      Bootstrap uncertainty(n=500): 95%CI = [0.0498, 0.0521] μM, CV &lt; 3 %. Two independent LOD approaches agree very well, and small CV demonstrates stable estimation."
+         data-text-zh="IUPAC 3σ准则检测下限计算结果：<br>
+      • 实验插值法：\(LOD_{exp}=0.050942\ \mu M\ (\approx50.94\ nM)\)<br>
+      • 模型反向求解：\(LOD_{model}=0.0509\ \mu M\)<br>
+      Bootstrap不确定性分析(n=500)：95%置信区间 = [0.0498, 0.0521] μM，变异系数CV &lt; 3 %。两套独立LOD计算结果高度吻合，低变异系数证明估计结果稳定性高。">
+        <strong>LOD calculation by IUPAC 3σ criterion:</strong><br>
+        • Experimental interpolation: \(LOD_{exp}=0.050942\ \mu M\ (\approx50.94\ nM)\)<br>
+        • Model reverse solving: \(LOD_{model}=0.0509\ \mu M\)<br>
+        Bootstrap uncertainty(n=500): 95%CI = [0.0498, 0.0521] μM, CV &lt; 3 %. Two independent LOD approaches agree very well, and small CV demonstrates stable estimation.
+      </p>
+    </div>
+  </div>
+
+  <div id="sec-result-accuracy">
+    <h3 data-text-en="Accuracy and limitation" data-text-zh="模型准确性与局限性">Accuracy and limitation</h3>
+    <p data-text-en="Our model is validated by three pieces of evidence: close match between fitted curve and wet‑lab data; near‑identical LOD values from experimental interpolation and model reverse solving; low coefficient of variation from Bootstrap resampling."
+       data-text-zh="模型有效性有三点证据支撑：拟合曲线与湿实验数据贴合度高；实验插值与模型反向求解LOD几乎一致；Bootstrap重采样得到较低变异系数。">
+      Our model is validated by three pieces of evidence: close match between fitted curve and wet‑lab data; near‑identical LOD values from experimental interpolation and model reverse solving; low coefficient of variation from Bootstrap resampling.
+    </p>
+    <ul class="step-list">
+      <li data-text-en="Parameters are calibrated under fixed 3 h incubation time; \(V_{max}\) and effective LOD will shift if reaction duration changes."
+          data-text-zh="参数是在固定3 h孵育条件下校准；若改变反应时长，\(V_{max}\)与实际LOD会发生偏移。">Parameters are calibrated under fixed 3 h incubation time; \(V_{max}\) and effective LOD will shift if reaction duration changes.</li>
+      <li data-text-en="The model ignores matrix effects in real‑world environmental water samples. Complex samples may alter enzyme activity or NahR performance, which is not incorporated."
+          data-text-zh="模型未考虑真实环境水样基质效应；复杂样品会改变酶活或NahR性能，当前模型未纳入该影响。">The model ignores matrix effects in real‑world environmental water samples. Complex samples may alter enzyme activity or NahR performance, which is not incorporated.</li>
+      <li data-text-en="This is a steady‑state model and cannot capture dynamic time‑dependent evolution of intracellular salicylate concentration."
+          data-text-zh="本模型为稳态模型，无法捕捉胞内水杨酸随时间动态变化过程。">This is a steady‑state model and cannot capture dynamic time‑dependent evolution of intracellular salicylate concentration.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 5. Model Application & Significance ==================== -->
+<section id="sec-conclusion" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-lightbulb"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Model Application &amp; Significance" data-text-zh="模型应用与意义">Model Application &amp; Significance</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+  <p data-text-en="1. Characterize biosensor performance: The model predicts naphthalene LOD ~50.94 nM, far below WHO drinking‑water naphthalene limit (~0.78 μM). Quantitatively proving our biosensor possesses practical potential for environmental naphthalene monitoring. Above 51 nM, fluorescence signal can be statistically distinguished from background noise."
+     data-text-zh="1. 表征传感器性能：模型预测萘检测下限约50.94 nM，远低于WHO饮用水萘限值（约0.78 μM），定量证明传感器具备环境萘监测实用潜力；萘浓度高于51 nM时荧光信号可以统计上与背景区分。">
+    1. Characterize biosensor performance: The model predicts naphthalene LOD ~50.94 nM, far below WHO drinking‑water naphthalene limit (~0.78 μM). Quantitatively proving our biosensor possesses practical potential for environmental naphthalene monitoring. Above 51 nM, fluorescence signal can be statistically distinguished from background noise.
+  </p>
+  <p data-text-en="2. Guide wet‑lab optimization: The cascade model connects enzyme parameters (\(K_m\), \(V_{max}\)) and sensor parameters (\(K_D\), Hill‑n)) to final LOD output. We can predict how tuning enzyme expression or NahR affinity reshapes detection performance, reducing blind wet‑lab trial‑and‑error."
+     data-text-zh="2. 指导湿实验优化：级联模型建立酶参数(\(K_m\), \(V_{max}\))、传感器参数(\(K_D\), Hill‑n)与最终检测下限之间的定量关系。可以预测调整酶表达量、NahR亲和力对传感器性能带来的改变，减少湿实验盲目试错。">
+    2. Guide wet‑lab optimization: The cascade model connects enzyme parameters (\(K_m\), \(V_{max}\)) and sensor parameters (\(K_D\), Hill‑n)) to final LOD output. We can predict how tuning enzyme expression or NahR affinity reshapes detection performance, reducing blind wet‑lab trial‑and‑error.
+  </p>
+  <p data-text-en="3. Cross‑validate experimental results: Model‑predicted LOD matches experimental interpolation results. Bootstrap supplies quantitative uncertainty instead of only a single LOD number, improving reliability of our wet‑lab conclusion."
+     data-text-zh="3. 交叉验证湿实验结果：模型预测LOD与实验插值结果互相印证；Bootstrap给出定量不确定性而不是单一LOD数值，提升湿实验结论可信度。">
+    3. Cross‑validate experimental results: Model‑predicted LOD matches experimental interpolation results. Bootstrap supplies quantitative uncertainty instead of only a single LOD number, improving reliability of our wet‑lab conclusion.
+  </p>
+  <p data-text-en="4. Project‑level contribution: This cascade mathematical model bridges naphthalene degradation pathway and genetic reporting module. It provides a reusable workflow for multi‑step whole‑cell biosensor modeling and supports our project’s core claim for PAHs environmental detection."
+     data-text-zh="4. 项目层面贡献：该级联数学模型打通萘降解通路与基因报告模块；提供一套可复用的多级联全细胞生物传感器建模流程，支撑本项目PAHs环境检测的核心结论。">
+    4. Project‑level contribution: This cascade mathematical model bridges naphthalene degradation pathway and genetic reporting module. It provides a reusable workflow for multi‑step whole‑cell biosensor modeling and supports our project’s core claim for PAHs environmental detection.
+  </p>
+</section>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

@@ -22,6 +22,18 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
 
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <!-- 全局样式 -->
   <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
 
@@ -115,7 +127,8 @@
           <i class="fa-solid fa-chevron-down"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="../../#Modeling" class="dropdown-link"><span class="nav-text" data-text-en="Modeling" data-text-zh="建模分析">Modeling</span></a></li>
+          <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Naphthalene" data-text-zh="萘建模">Modeling Naphthalene</span></a></li>
+          <li><a href="../../drylab/salicylic-acid/index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Salicylic Acid" data-text-zh="水杨酸建模">Modeling Salicylic Acid</span></a></li>
           <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
           <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
         </ul>
