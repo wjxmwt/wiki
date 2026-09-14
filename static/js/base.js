@@ -9,14 +9,14 @@ const AppState = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initializeApp();
-    initTheme();
+    // initializeApp();
+    // initTheme();
     initLoaderAnimation();
-    initLanguage();
+    // initLanguage();
     initNavigation();
     initScrollEffects();
     initMobildMenu();
-    updateThemeUI();
+    // updateThemeUI();
     initSubpageTransitions();
     init3DTiltAndGlow();
     
@@ -27,111 +27,111 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * 初始化应用状态
  */
-function initializeApp() {
-    loadPreferences();
-}
+// function initializeApp() {
+//     loadPreferences();
+// }
 
-function loadPreferences() {
-    // 从本地存储加载用户偏好
-    const savedLang = sessionStorage.getItem('portfolio-lang');
-    const savedTheme = sessionStorage.getItem('portfolio-theme');
-    if (savedLang) AppState.currentLang = savedLang;
-    if (savedTheme) AppState.currentTheme = savedTheme;
-}
+// function loadPreferences() {
+//     // 从本地存储加载用户偏好
+//     const savedLang = sessionStorage.getItem('portfolio-lang');
+//     const savedTheme = sessionStorage.getItem('portfolio-theme');
+//     if (savedLang) AppState.currentLang = savedLang;
+//     if (savedTheme) AppState.currentTheme = savedTheme;
+// }
 
 /**
  * 语言切换
  */
-function initLanguage() {
-    const langToggle = document.getElementById('langToggle');
-    if (langToggle) {
-        langToggle.addEventListener('click', toggleLanguage);
-    }
-    setLanguage(AppState.currentLang);
-}
+// function initLanguage() {
+//     const langToggle = document.getElementById('langToggle');
+//     if (langToggle) {
+//         langToggle.addEventListener('click', toggleLanguage);
+//     }
+//     setLanguage(AppState.currentLang);
+// }
 
-function toggleLanguage() {
-    const newLang = AppState.currentLang === 'en' ? 'zh' : 'en';
-    setLanguage(newLang);
-    sessionStorage.setItem('portfolio-lang', newLang);
-}
+// function toggleLanguage() {
+//     const newLang = AppState.currentLang === 'en' ? 'zh' : 'en';
+//     setLanguage(newLang);
+//     sessionStorage.setItem('portfolio-lang', newLang);
+// }
 
-function setLanguage(lang) {
-    AppState.currentLang = lang;
-    const html = document.documentElement;
-    const body = document.body;
-    if (lang === 'zh') {
-        html.setAttribute('lang', 'zh');
-        body.setAttribute('data-lang', 'zh');
-    } else {
-        html.setAttribute('lang', 'en');
-        body.setAttribute('data-lang', 'en');
-    }
-    updateLanguageUI();
-}
+// function setLanguage(lang) {
+//     AppState.currentLang = lang;
+//     const html = document.documentElement;
+//     const body = document.body;
+//     if (lang === 'zh') {
+//         html.setAttribute('lang', 'zh');
+//         body.setAttribute('data-lang', 'zh');
+//     } else {
+//         html.setAttribute('lang', 'en');
+//         body.setAttribute('data-lang', 'en');
+//     }
+//     updateLanguageUI();
+// }
 
-function updateLanguageUI() {
-    const textElements = document.querySelectorAll('[data-text-en],[data-text-zh]');
-    textElements.forEach(element => {
-        const enText = element.getAttribute('data-text-en') || '';
-        const zhText = element.getAttribute('data-text-zh') || '';
-        // 双重过滤防御：如果是 data-html 或是文本中检测到 HTML 标签图案，则以 innerHTML 形式解析渲染
-        const hasHTMLTags = /<\/?[a-z][\s\S]*>/i.test(enText) || /<\/?[a-z][\s\S]*>/i.test(zhText);
-        const useHTML = element.hasAttribute('data-html') || hasHTMLTags;
-        const setter = useHTML ? 'innerHTML' : 'textContent';
-        if (AppState.currentLang === 'zh' && zhText) {
-            element[setter] = zhText;
-        } else if (AppState.currentLang === 'en' && enText) {
-            element[setter] = enText;
-        }
-    });
-    const langToggle = document.getElementById('langToggle');
-    if (langToggle) {
-        const langText = langToggle.querySelector('.lang-text');
-        if (langText) {
-            langText.textContent = AppState.currentLang === 'en' ? 'ZH' : 'EN';
-        }
-    }
-    typesetMath();
-}
+// function updateLanguageUI() {
+//     const textElements = document.querySelectorAll('[data-text-en],[data-text-zh]');
+//     textElements.forEach(element => {
+//         const enText = element.getAttribute('data-text-en') || '';
+//         const zhText = element.getAttribute('data-text-zh') || '';
+//         // 双重过滤防御：如果是 data-html 或是文本中检测到 HTML 标签图案，则以 innerHTML 形式解析渲染
+//         const hasHTMLTags = /<\/?[a-z][\s\S]*>/i.test(enText) || /<\/?[a-z][\s\S]*>/i.test(zhText);
+//         const useHTML = element.hasAttribute('data-html') || hasHTMLTags;
+//         const setter = useHTML ? 'innerHTML' : 'textContent';
+//         if (AppState.currentLang === 'zh' && zhText) {
+//             element[setter] = zhText;
+//         } else if (AppState.currentLang === 'en' && enText) {
+//             element[setter] = enText;
+//         }
+//     });
+//     const langToggle = document.getElementById('langToggle');
+//     if (langToggle) {
+//         const langText = langToggle.querySelector('.lang-text');
+//         if (langText) {
+//             langText.textContent = AppState.currentLang === 'en' ? 'ZH' : 'EN';
+//         }
+//     }
+//     typesetMath();
+// }
 
-function typesetMath() {
-    if (!window.MathJax?.typesetPromise) return;
-    window.MathJax.typesetPromise([document]).catch(() => {});
-}
+// function typesetMath() {
+//     if (!window.MathJax?.typesetPromise) return;
+//     window.MathJax.typesetPromise([document]).catch(() => {});
+// }
 
 /**
  * 主题风格切换：亮/暗
  */
-function initTheme() {
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    setTheme(AppState.currentTheme);
-}
+// function initTheme() {
+//     const themeToggle = document.getElementById('themeToggle');
+//     if (themeToggle) {
+//         themeToggle.addEventListener('click', toggleTheme);
+//     }
+//     setTheme(AppState.currentTheme);
+// }
 
-function toggleTheme() {
-    const newTheme = AppState.currentTheme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    sessionStorage.setItem('portfolio-theme', newTheme); // 本地存储
-}
+// function toggleTheme() {
+//     const newTheme = AppState.currentTheme === 'light' ? 'dark' : 'light';
+//     setTheme(newTheme);
+//     sessionStorage.setItem('portfolio-theme', newTheme); // 本地存储
+// }
 
-function setTheme(theme) {
-    AppState.currentTheme = theme;
-    document.body.setAttribute('data-theme', theme);
-    updateThemeUI();
-}
+// function setTheme(theme) {
+//     AppState.currentTheme = theme;
+//     document.body.setAttribute('data-theme', theme);
+//     updateThemeUI();
+// }
 
-function updateThemeUI() {
-    const themeToggle = document.getElementById("themeToggle");
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (icon) {
-            icon.className = AppState.currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        }
-    }
-}
+// function updateThemeUI() {
+//     const themeToggle = document.getElementById("themeToggle");
+//     if (themeToggle) {
+//         const icon = themeToggle.querySelector('i');
+//         if (icon) {
+//             icon.className = AppState.currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+//         }
+//     }
+// }
 
 
 /**

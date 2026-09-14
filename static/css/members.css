@@ -155,7 +155,7 @@ h3 {
     width: 600px;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #fffdfa;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -344,7 +344,7 @@ body.member-modal-open {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1240px) {
     .members {
         gap: 0.5rem;
     }
@@ -501,46 +501,5 @@ body.member-modal-open {
     .member-modal-details p {
         font-size: 0.95rem;
         line-height: 1.65;
-    }
-}
-
-@media (min-width: 701px) and (max-width: 1200px) {
-    .group-photo-img {
-        width: calc(100% - 3rem);
-    }
-
-    .leader-container {
-        width: calc(100% - 3rem);
-        gap: 2rem;
-    }
-
-    .leader-img,
-    .leader-introduction {
-        width: min(48%, 600px);
-    }
-
-    .members-introduction-container {
-        width: calc(100% - 3rem);
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2rem;
-    }
-
-    .member-container {
-        width: 100%;
-        gap: 1rem;
-    }
-
-    .member-img {
-        width: clamp(150px, 24vw, 230px);
-    }
-
-    .advisors-introduction-container {
-        width: calc(100% - 3rem);
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2rem;
-    }
-
-    .advisor-container {
-        width: 100%;
     }
 }

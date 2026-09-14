@@ -3,7 +3,7 @@
     --primary: #059669;
     --secondary: #34D399;
     --accent: #10B981;
-    --bg-light: #fffcf5;
+    --bg-light: white;
     --bg-card: #ECFDF5;
     --bg-hover: #D1FAE5;
     --border: rgba(16, 185, 129, 0.15);
@@ -33,7 +33,7 @@
     --font-code: 'Fira Code', monospace;
 }
 
-[data-theme="dark"] {
+/* [data-theme="dark"] {
     --primary: #34D399;
     --secondary: #6EE7B7;
     --accent: #10B981;
@@ -51,7 +51,7 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-glow: 0 0 20px rgba(52, 211, 153, 0.25);
-}
+} */
 
 * {
     margin: 0;
@@ -121,7 +121,7 @@ body.page-loading {
     transition: opacity 0.42s ease, visibility 0.42s ease, background-color 0.2s ease;
 }
 
-[data-theme="dark"] .loader-screen {
+/* [data-theme="dark"] .loader-screen {
     --loader-bg: #022C22;
     --loader-circuit: #72D46E;
     --loader-circuit-muted: rgba(114, 212, 110, 0.36);
@@ -140,7 +140,7 @@ body.page-loading {
     --loader-dot-edge: #DFFF18;
     --loader-track: rgba(114, 212, 110, 0.2);
     --loader-shadow: rgba(188, 255, 24, 0.38);
-}
+} */
 
 .loader-screen.hidden {
     opacity: 0;
