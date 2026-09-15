@@ -1,92 +1,111 @@
 {% extends 'templates/base.html' %}
 
-{% block title %}PAH Detection & Degradation System{% endblock %}
+{% block title %}PAH Detection & Degradation{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css', v='1.0.2') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/lenis/lenis.css', v='1.3.26') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css', v='5.0.0') }}">
 {% endblock %}
 
 {% block content %}
-<!-- section ONE -->
-<section id="hero" class="homepage-hero">
-    <div class="hero-content">
-        <h1 class="hero-title" data-text-en="Engineered E. coli for PAH Detection & Degradation"
-            data-text-zh="工程化大肠杆菌用于多环芳烃检测与降解">Engineered E. coli for PAH Detection & Degradation</h1>
-        <hr class="hr-top">
-        <p class="hero-text" data-text-en="A Synthetic Biology Solution for Environmental Monitoring"
-        data-text-zh="环境监测的合成生物学解决方案">A Synthetic Biology Solution for Environmental Monitoring</p>
-        <hr class="hr-bottom">
+{% set chapters = [
+  ('beginning', 'On the road', '公路', 'Emissions on the road', '公路上的排放', [
+    ('A car passes. Behind it, exhaust spreads into the air above the road.', '汽车驶过，尾气在车后散开，逐渐混入道路上方的空气。'),
+    ('Fuel combustion can release polycyclic aromatic hydrocarbons, or PAHs. Some pollutants remain after the visible exhaust has dispersed.', '燃料燃烧可能产生多环芳烃（PAHs）。即使看不见尾气了，部分污染物仍可能留在空气中。'),
+    ('Some PAHs attach to airborne particles. Air can carry those particles beyond the road where they began.', '一些多环芳烃会附着在空气中的颗粒上，随空气扩散，离开最初排放的道路。')
+  ]),
+  ('air', 'Industrial emissions', '工业排放', 'Above the industrial district', '工业区上空', [
+    ('Road traffic is one source of PAHs. Industrial combustion is another.', '除了道路上的汽车，工业燃烧也是多环芳烃的来源之一。'),
+    ('Smoke spreads above the chimneys. Its appearance alone cannot tell us which pollutants are present, or how much there is.', '烟雾从烟囱口升起，向四周扩散。仅凭烟雾的颜色和浓淡，无法判断其中有哪些污染物、含量有多少。'),
+    ('Particles travel with the air before some settle onto the ground. This is one way pollutants reach the soil.', '颗粒随空气移动，其中一部分会沉降到地面。附着在颗粒上的污染物，也随之进入土壤。')
+  ]),
+  ('soil', 'Deposition', '沉降与积累', 'Pollutants settle in soil', '污染物在土壤中积累', [
+    ('A particle lands beside a young plant. In the soil below, roots grow between grains of earth and small pores.', '一颗尘粒落在幼苗旁。地表之下，根系穿过土壤团块之间的孔隙，向更深处延伸。'),
+    ('Some PAHs bind to soil particles and can persist there. Their distribution depends on the soil and the compounds involved.', '一些多环芳烃会吸附在土壤颗粒上，并在其中停留。不同土壤和不同污染物的积累情况并不相同。'),
+    ('Rain wets the surface. As water begins to flow, some loose particles move with it; others stay behind.', '雨滴打湿地表，积水开始流动。部分松散颗粒被水流带走，另一些仍留在原处。')
+  ]),
+  ('rain', 'Surface runoff', '地表径流', 'Rain carries particles downstream', '雨水将颗粒带入河道', [
+    ('Small streams of rainwater meet along the slope and flow into a drainage channel.', '雨水沿坡面汇成细流，流入排水沟，再向河岸汇集。'),
+    ('The water carries soil and suspended particles. Some of those particles may also carry PAHs.', '水流夹带着泥沙和悬浮颗粒，其中一些颗粒上可能附着多环芳烃。'),
+    ('At the outlet, runoff enters the river. This movement transfers part of the pollution; it does not mean the pollutants have disappeared.', '径流从排水口进入河道。污染物可能随水流转移，但这并不意味着污染已经消失。')
+  ]),
+  ('sample', 'Water sampling', '河边取样', 'Taking a water sample', '从河里取一份水样', [
+    ('At the riverbank, a sample bottle enters the water. The illustration follows a sample from collection to the laboratory.', '采样瓶从河岸边伸入水中。这里用一次取样过程，展示水样如何从环境进入实验室。'),
+    ('The bottle fills and is lifted from the river. Clear-looking water can still contain substances we cannot identify by eye.', '采样瓶装入水后，被缓缓提起。看起来清澈的水，也可能含有肉眼无法识别的物质。'),
+    ('The sample is labelled before it reaches the bench. A record of where and how it was collected helps later analysis.', '水样送上实验台之前，需要做好标记。取样地点和采样方式等记录，是后续分析的重要依据。')
+  ]),
+  ('lab', 'In the laboratory', '实验室', 'From the river to the lab', '把样品带回实验室', [
+    ('The bottle is set on the bench. Small volumes of liquid can now be transferred and studied under controlled conditions.', '采样瓶放到实验台上。研究人员可以取出少量液体，在可控条件下开展分析。'),
+    ('A pipette takes up a small volume and releases it into an observation area.', '移液器吸取少量液体，将液滴转移到观察区域。'),
+    ('Our project studies a metabolic pathway and a sensing system. To explain their connection, we follow naphthalene, one member of the PAH family.', '我们的项目研究代谢途径与感应系统之间的联系。下面以多环芳烃中的萘为例，说明这两个过程如何衔接。')
+  ]),
+  ('pathway', 'Naphthalene metabolism', '萘的代谢', 'Following naphthalene', '观察萘的代谢过程', [
+    ('Naphthalene has two connected carbon rings. It is the starting compound in the pathway shown here.', '萘具有两个相连的碳环，是这里展示的代谢途径的起点。'),
+    ('Several enzyme-catalysed reactions convert naphthalene into salicylate. This is a sequence of chemical changes, not a single instantaneous step.', '经过多步酶促反应，萘可以转化为水杨酸。这一过程包含连续的化学变化，需要分步完成。'),
+    ('Salicylate is the compound recognised by our sensing system. Following it connects the metabolic pathway to the fluorescent readout.', '感应系统识别的对象是水杨酸。通过检测水杨酸，我们把代谢过程与后续的荧光读出联系起来。')
+  ]),
+  ('signal', 'Fluorescence', '荧光读出', 'Reading the fluorescent signal', '读取细胞的荧光信号', [
+    ('Salicylate binds to the regulatory protein NahR. This interaction enables the next stage of the response.', '水杨酸与调控蛋白 NahR 结合，感应系统由此产生响应。'),
+    ('Activated NahR promotes expression from Psal. Transcription and translation lead to production of the fluorescent protein eGFP.', '活化的 NahR 促进 Psal 调控下的基因表达。经过转录和翻译，细胞产生荧光蛋白 eGFP。'),
+    ('With suitable excitation light, eGFP produces green fluorescence. Measurements and controls are needed to interpret that signal.', '在合适的激发光下，eGFP 会产生绿色荧光。要解释这一信号，还需要测量结果和对照实验。')
+  ]),
+  ('return', 'Our project', '项目研究', 'Explore the research', '了解我们的研究', [
+    ('The view returns to the laboratory. A sample, a record and a signal each tell us something different.', '视野回到实验室。样品、记录和荧光信号，分别提供了研究所需的不同信息。'),
+    ('Our project investigates PAH detection and degradation. Experiments and models help us examine the steps connecting the two.', '我们的项目围绕多环芳烃的检测与降解展开，通过实验和模型研究其中各个环节。'),
+    ('Explore the experiments, follow the models, or meet the team carrying out this work.', '你可以继续了解实验过程、查看模型分析，或认识参与这项研究的团队。')
+  ])
+] %}
+<main id="Project" class="home-story" data-story-root>
+  <div class="story-stage" data-story-stage>
+    <div class="story-scene" aria-hidden="true">
+      {% include 'templates/components/home-scenes.html' %}
+      <canvas class="story-particles" data-story-particles></canvas>
+      <canvas class="story-three" data-story-three></canvas>
+      <div class="story-vignette"></div>
     </div>
-    
-    <div class="chip-wrap">
-        <img class="piece chip" style="width:600px;height: 600px;"
-            src="{{ url_for('static', filename='image/index/ex.png') }}" alt="Chip">
-
-        <!-- 2.向上延伸线条：图片的底边必须刚好对接芯片的顶边！ -->
-        <img class="piece line-top" style="width:367px;height:310px;
-                " src="{{ url_for('static', filename='image/index/top.png') }}" alt="向上线条">
-
-        <!-- 3.向下延伸线条：图片的顶边对接芯片的底边 -->
-        <img class="piece line-bottom" style="width:474px;height:255px;
-                " src="{{ url_for('static', filename='image/index/bottom.png') }}" alt="向下线条">
-
-        <!-- 4.向左延伸线条：图片的右边对接芯片的左边 -->
-        <img class="piece line-left" style="width:396px;height:239px;
-                " src="{{ url_for('static', filename='image/index/left.png') }}" alt="向左线条">
-
-        <!-- 5.向右延伸线条：图片的左边对接芯片的右边 -->
-        <img class="piece line-right" style="width:283px;height:401px;
-                " src="{{ url_for('static', filename='image/index/right.png') }}" alt="向右线条">
+    <div class="story-masthead">
+      <span>PAH<span class="story-masthead-dot">.</span></span>
+      <span data-text-en="FROM THE ENVIRONMENT TO THE LAB" data-text-zh="从环境到实验室">FROM THE ENVIRONMENT TO THE LAB</span>
     </div>
-</section>
-
-<!-- section TWO -->
-<section id="sources" class="homepage-section homepage-sources">
-    <!-- 分子图片 -->
-    <div class="pahs-image">
-        <img src="{{ url_for('static', filename='image/index/pahs.png' ) }}" alt="pahs" style="width: 700px;">
-    </div>
-    <!-- ? -->
-    <div class="ask">
-        <h2>What are PAHs?</h2>
-    </div>
-    <!-- 解释 -->
-    <div class="sources-content">
-        <p>PAHs are aromatic compounds formed by two or more fused benzene rings. Featuring stable chemical properties,
-            they can persist in the environment for a long time. </p>
-    </div>
-    <!-- 污染源：烟雾 -->
-    <div class="chimney-wrap">
-        <img class="chimney" src="{{ url_for('static', filename='image/home/chimney.png' ) }}" alt="chimney">
-        <img class="smoke1" src="{{ url_for('static', filename='image/home/smoke1.png' ) }}" alt="smoke1">
-        <img class="smoke2" src="{{ url_for('static', filename='image/home/smoke2.png' ) }}" alt="smoke2">
-        <img class="smoke3" src="{{ url_for('static', filename='image/home/smoke3.png' ) }}" alt="smoke3">
-        <p class="chimney-text">PAHs are closely linked to our daily lives. They are continuously released from vehicle
-            exhaust, barbecue and cooking fumes, straw and coal combustion, aged road asphalt, industrial wastewater
-            discharge and oil spills.</p>
-    </div>
-    <!-- 污染源：水 -->
-    <div class="water-scene">
-        <div class="rain-layer"></div>
-        <div class="river-layer">
-            <img src="{{ url_for('static', filename='image/index/rivers.png') }}" alt="river">
+    <div class="story-reader" data-story-reader>
+      {% for id, eyebrow_en, eyebrow_zh, title_en, title_zh, passages in chapters %}
+      <article class="story-copy{% if loop.first %} is-current{% endif %}" id="story-{{ id }}" data-story-chapter="{{ id }}" data-copy-layout="{{ 'right' if id in ['air', 'rain', 'signal'] else 'left' }}">
+        <p class="story-eyebrow"><span class="story-index">{{ '%02d' | format(loop.index) }}</span><span data-text-en="{{ eyebrow_en }}" data-text-zh="{{ eyebrow_zh }}">{{ eyebrow_en }}</span></p>
+        {% if loop.first %}
+        <h1 data-text-en="{{ title_en }}" data-text-zh="{{ title_zh }}">{{ title_en }}</h1>
+        {% else %}
+        <h2 data-text-en="{{ title_en }}" data-text-zh="{{ title_zh }}">{{ title_en }}</h2>
+        {% endif %}
+        <div class="story-passages">
+          {% for text_en, text_zh in passages %}
+          <p class="story-prose" data-story-beat="{{ loop.index0 }}" data-text-en="{{ text_en }}" data-text-zh="{{ text_zh }}">{{ text_en }}</p>
+          {% endfor %}
         </div>
-        <!-- <div class="fish-layer">
-            <img src="{{ url_for('static', filename='image/index/fish.png') }}" alt="fish">
-        </div> -->
-        <p class="water-text">PAHs accumulate stepwise along the food chain. Residues in fish, shrimp and vegetables
-            continuously enter human bodies. Although ambient concentrations rarely cause acute poisoning, long-term
-            low-dose exposure gradually damages the respiratory system and liver and increases cancer risks. Since PAH
-            pollution is invisible to the naked eye, people can hardly perceive local contamination levels, and such
-            hidden environmental risks have long been overlooked.</p>
+        <svg class="story-still" viewBox="0 140 1600 860" aria-hidden="true"><use href="#v2-art-{{ id }}"/>{% if id in ['sample', 'lab', 'return'] %}<use href="#v2-bottle" transform="translate(1080 780)"/>{% elif id == 'signal' %}<use href="#story-cell-static" transform="translate(750 630)"/>{% endif %}</svg>
+        {% if loop.last %}
+        <div class="story-links">
+          <a href="{{ url_for('wetlab_salicylic_acid') }}"><span data-text-en="Inside the lab" data-text-zh="走进实验室">Inside the lab</span><span aria-hidden="true">↗</span></a>
+          <a href="{{ url_for('drylab_naphthalene') }}"><span data-text-en="Follow the model" data-text-zh="查看模型分析">Follow the model</span><span aria-hidden="true">↗</span></a>
+          <a href="{{ url_for('team_members') }}"><span data-text-en="Meet the people" data-text-zh="认识我们">Meet the people</span><span aria-hidden="true">↗</span></a>
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
     </div>
-</section>
-
+    <div class="story-science-note" data-story-note><span data-text-en="Sampling and mechanism illustrations · not environmental sample results" data-text-zh="取样与机理示意 · 非环境样本实测结果">Sampling and mechanism illustrations · not environmental sample results</span></div>
+    <div class="story-bottom">
+      <a class="story-scroll" href="#story-air" data-story-jump="air"><span class="story-scroll-icon" aria-hidden="true">↓</span><span data-text-en="Scroll to explore" data-text-zh="向下滚动，继续了解">Scroll to explore</span></a>
+      <div class="story-progress" role="progressbar" aria-label="Story progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-story-progress><span></span></div>
+      <a class="story-skip" href="#story-return" data-story-jump="return" data-text-en="Go to our research ↗" data-text-zh="了解项目研究 ↗">Go to our research ↗</a>
+    </div>
+  </div>
+</main>
+<footer class="story-footer"><span>PAH DETECTION &amp; DEGRADATION</span><span data-text-en="An iGEM project" data-text-zh="iGEM 项目研究">An iGEM project</span><a href="#story-beginning" data-story-jump="beginning" data-text-en="Back to the beginning ↑" data-text-zh="回到故事开头 ↑">Back to the beginning ↑</a></footer>
 {% endblock %}
 
 {% block extra_js %}
 <script src="{{ url_for('static', filename='gsap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='ScrollTrigger.min.js') }}"></script>
-<script src="{{ url_for('static', filename='SplitText.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/home.js', v='1.0.0') }}"></script>
+<script src="{{ url_for('static', filename='vendor/lenis/lenis.min.js', v='1.3.26') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/home.js', v='5.0.0') }}"></script>
 {% endblock %}
