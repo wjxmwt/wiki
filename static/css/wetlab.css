@@ -373,20 +373,20 @@
     transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
-[data-theme="dark"] .wetlab-content {
+/* [data-theme="dark"] .wetlab-content {
     background: #022C22;
     border-color: rgba(52, 211, 153, 0.15);
     color: #A7F3D0;
-}
+} */
 
 .wetlab-content p {
     margin-bottom: 1.6rem;
     text-align: justify;
 }
 
-[data-theme="dark"] .wetlab-content p {
+/* [data-theme="dark"] .wetlab-content p {
     color: rgba(236, 253, 245, 0.8);
-}
+} */
 
 /* ---------- 首字母下沉 ---------- */
 .drop-cap::first-letter {
@@ -447,9 +447,9 @@
     border-bottom: none !important;
 }
 
-[data-theme="dark"] .wetlab-content .section-heading h2 {
+/* [data-theme="dark"] .wetlab-content .section-heading h2 {
     color: #ECFDF5;
-}
+} */
 
 .section-heading-bar {
     width: 32px;
@@ -476,9 +476,9 @@
     scroll-margin-top: 120px;
 }
 
-[data-theme="dark"] .wetlab-content h3 {
+/* [data-theme="dark"] .wetlab-content h3 {
     color: #ECFDF5;
-}
+} */
 
 .wetlab-content h3::before {
     content: '';

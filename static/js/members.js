@@ -81,15 +81,14 @@
     const descList = document.querySelectorAll(".introduction");
     descList.forEach(desc => {
         const splitDesc = new SplitText(desc, {
-            type: 'lines'
+            type: 'words'
         });
-        gsap.from(splitDesc.lines, {
+        gsap.from(splitDesc.words, {
             rotationX: -100,
             transformOrigin: "50% 50% -160px",
             opacity: 0,
             duration: 1,
             ease: "power3",
-            stagger: 0.25,
             scrollTrigger: {
                 trigger: desc,
                 start: "top 70%",
@@ -126,70 +125,82 @@
             description: "iGEM has taught me far more than teamwork; it has helped me accomplish goals I once never dared to imagine. For me, it is both a brand-new challenge full of unknowns and a rare opportunity for growth. As a core member of the wet lab group, I took part hands-on in various experimental operations and honed my core laboratory skills. Though it consumed much time, every effort was well worth it. Troubleshooting repeatedly and tackling difficult problems in the lab solidified my professional foundation; collaborating with teammates on experiment design and execution further sharpened my communication and coordination abilities. Together we built our project from zero to one, then pushed it step by step toward one hundred, growing and transforming alongside one another."
         },
         {
-            name: "Minxi Qiu",
-            role: "WIKI MEMBER",
-            description: "As a beginner in web design, I initially thought the Wiki was simply a place to put our results online. Only after joining iGEM and actually getting hands-on did I discover the many details that needed polishing. Technical challenges such as layout adaptation, content rendering, and formatting standards often pushed me to debug and deliberate again and again. Participating in iGEM strengthened my cross-disciplinary collaboration and communication skills, familiarized me with iGEM's Wiki standards, and improved my scientific communication and awareness of teamwork and task division."
-        },
-        {
             name: "Jiaze Sun",
             role: "WETLAB MEMBER",
-            description: "When I first joined the project, I only had a vague impression of it and was largely drawn by how innovative it sounded. After diving into real work, I discovered the discipline behind every successful experiment. From preparing materials to recording results and repeating failed trials, I have developed a stronger sense of responsibility and learned that meaningful progress comes from persistent, careful work."
+            description: "When I first joined the iGEM team, I had only a vague impression of what it involved and was mainly drawn to its innovative nature. However, as I became immersed in hands-on work, I discovered the discipline and dedication behind every successful experiment. From preparing materials and carefully recording results to repeating failed trials, I developed a stronger sense of responsibility and learned that meaningful scientific progress comes from persistent, careful, and meticulous work. "
+        },{
+            name: "Chanzi Liu",
+            role: "WETLAB MEMBER",
+            description: "When I first joined the iGEM experimental group, I was eager to bring our bold designs to life in the laboratory. Yet the journey proved far more challenging than I had imagined, with countless failed transformations, faint gel bands, and inconsistent data that often kept me at the workbench for long hours troubleshooting. Faced with one disappointing result after another, I sometimes felt lost and began to doubt myself. Fortunately, the support of my teammates and guidance from my supervisor helped me adjust our approach and keep moving forward. Every small breakthrough taught me the importance of rigor, patience, and perseverance. This experience not only strengthened my experimental skills but also taught me the resilience and determination that are essential for a researcher."
         },
         {
             name: "Feier Yi",
-            role: "HP MEMBER",
+            role: "HP LEADER",
             description: "iGEM equipped me with the ability to let the engineering cycle guide my practice, moving steadily toward our goals through implementation, feedback, and iterative optimization, while growing together with friendly competition partners."
-        },
-        {
-            name: "Linying Lan",
-            role: "ART MEMBER",
-            description: "Joining iGEM made me understand that science requires not only rigorous experiments but also compelling expression. As a team member, I committed myself to turning complex research outcomes into intuitive visual language. Through countless rounds of revision and reflection, I learned to build bridges of communication through design, so that scientific stories can be understood by more people."
-        },
-        {
-            name: "Yuhan Hu",
-            role: "ART MEMBER",
-            description: "TMy name is Hu Yuhan. In the iGEM art and design group, I was responsible for visual design including the logo, mascot, and presentation slides, learning to present research ideas through creative visuals."
-        },
-        {
-            name: "Yunyuan Li",
-            role: "HP MEMBER",
-            description: "Through hands-on practice in the iGEM project, I built practical experience in teamwork and multi-stakeholder communication, and came to deeply understand that research projects should connect with real-world social realities. Within the team, my work focused on external communication, while I also took charge of organizing content and materials for the science-education and outreach component, participating in interviews, writing outreach materials, and other concrete tasks for the project."
-        },{
-            name: "Wanyue Zheng",
-            role: "HP MEMBER",
-            description: "By joining iGEM, I learned research-project collaboration and Wiki documentation writing, and how to organize tasks and drive work forward through communication under the pressure of multitasking. I was mainly responsible for report writing and HP-related work."
-        },{
-            name: "Lingxuan Xiang",
-            role: "HP MEMBER",
-            description: "As a member of the HP group, I was in charge of science outreach and education, and also took part in interviews, data compilation, and sample collection. iGEM made me realize that the power of science lies not only in data but in whether it can be understood by more people. Turning synthetic biology into accessible stories proved far more challenging than expected — and all the more meaningful for it. I learned how to communicate and collaborate, and I felt that the team's cohesion lives in every discussion and every moment of support."
-        },{
-            name: "Entong Zhu",
-            role: "HP MEMBER",
-            description: "While working in the HP group, I made many new friends and picked up many new skills. I designed posters and wrote social media posts, and these tasks sharpened my aesthetic sense, my ability to summarize text, and my information-collection skills, among others."
-        },{
-            name: "Xiran Ma",
-            role: "HP MEMBER",
-            description: "As a member of the HP group mainly responsible for interviews, copywriting, and video editing, my major in Journalism and Communication helped me deeply appreciate the value of science communication within iGEM. At first, facing topics in fields I had little prior exposure to, I felt intimidated and anxious. But my teammates' patient guidance and encouragement helped me push past my limits step by step, teaching me to converse with people in all kinds of situations and to tell the story of synthetic biology through images."
         },{
             name: "Yiwen Xu",
             role: "HP MEMBER",
             description: "Being part of the IGEM team, in the beginning, feltlike an opportunity for me to showcase my talents.As time passed, I began to realize there was a lotmore to learn in this journey. What challenged memost were the technical questions that arose fromour experimental findings, which kept me up atnight, pondering for an answer. Support from myteam and investigators helped me to navigate it.Presenting our findings to the local teams in IGEMChina helped me assess my ability to communicateffectively."
+        },
+        {
+            name: "Yunyuan Li",
+            role: "HP MEMBER",
+            description: "Through hands-on experience in the iGEM project, I developed practical skills in teamwork and communication with multiple stakeholders. I also came to understand the importance of connecting research projects with real-world social needs and challenges. Within the team, my work focused primarily on external communication. Taking responsibility for organizing content and materials for the science education and outreach component, participating in interviews, writing outreach materials, and contributing to other project-related activities significantly strengthened my practical skills and communication abilities."
+        },{
+            name: "Wanyue Zheng",
+            role: "HP MEMBER",
+            description: "Learning how to collaborate on a research project, write and organize Wiki documentation, manage tasks, and move work forward through effective communication while handling multiple responsibilities was a major takeaway for me. Writing reports and contributing to Human Practices (HP) activities also gave me a strong sense of purpose and value, helping me recognize the broader impact of our research beyond the laboratory."
+        },{
+            name: "Lingxuan Xiang",
+            role: "HP MEMBER",
+            description: "Being responsible for science outreach and education, while also participating in interviews, data compilation, and sample collection, gave me a different perspective and valuable exposure to the broader aspects of scientific research. iGEM made me realize that the power of science lies not only in the data it produces, but also in how effectively that knowledge can be understood and shared with others. Turning synthetic biology into accessible and engaging stories proved far more challenging than I had expected—and all the more meaningful because of it. Through this experience, I learned how to communicate and collaborate more effectively, and I came to appreciate that the team’s cohesion is built through every discussion, every shared challenge, and every moment of support."
+        },{
+            name: "Entong Zhu",
+            role: "HP MEMBER",
+            description: "iGEM helped me build new friendships and develop many new skills. Designing posters and writing social media posts sharpened my aesthetic sense, strengthened my ability to summarize information effectively, and improved my skills in collecting and organizing information. Beyond these practical skills, the experience also taught me how to communicate ideas creatively and connect with a wider audience."
+        },{
+            name: "Xiran Ma",
+            role: "HP MEMBER",
+            description: "As a member of the Human Practices (HP) group, I was mainly responsible for conducting interviews, writing copy, and editing videos. My background in Journalism and Communication helped me deeply appreciate the importance of science communication within iGEM. At first, I felt intimidated and anxious when faced with scientific topics to which I had little prior exposure. However, the patient guidance and encouragement of my teammates helped me gradually push beyond my comfort zone. Through this experience, I learned how to communicate with people from different backgrounds and situations, and how to tell the story of synthetic biology through compelling visual content."
         },{
             name: "Siyi Zhu",
+            role: "ART LEADER",
+            description: "When I first joined the iGEM team, I simply hoped to use the opportunity to pursue my interests. Later, I became the leader of the art and design group, a role that strengthened my sense of responsibility. Working closely with our advisor and teammates, we collaborated on various publicity and visual-design tasks and worked together to move our projects forward. This experience taught me how to balance creative expression with the needs of the team, grow through communication and coordination, and genuinely appreciate the fulfillment and joy that come from contributing to a collective effort."
+        },
+        {
+            name: "Yuhan Hu",
             role: "ART MEMBER",
-            description: "When I first joined the iGEM team, I simply hoped to use this opportunity to pursue my interests. Later, I served as the leader of the art and design group, and this role strengthened my sense of responsibility. Working shoulder to shoulder with our advisor and teammates, we pushed forward various publicity and visual-design tasks together. This experience taught me to balance creative expression with the team's needs, to grow through communication and coordination, and to genuinely feel the fulfillment and joy of contributing to a collective."
+            description: "As a member of the iGEM art and design group, I worked on visual materials including the team logo, mascot, and presentation slides. This experience helped me understand the universal language of visual communication and taught me how to present complex research ideas through creative and engaging visuals. It was a journey of learning how design can bridge the gap between scientific research and the wider world.  "
         },{
-            name: "Xinyue YU",
+            name: "Xinyue Yu",
             role: "ART MEMBER",
-            description: "As a member of the iGEM art and design team, I gained a great deal as the project progressed. Design works like a converter, transforming abstract text into visual images. My biggest challenge was turning obscure scientific logic into posters, webpages, and other materials that balanced rigor with aesthetics — and many drafts were reworked again and again. These bright outcomes would not have been possible without teamwork; my teammates' and advisor's research materials and revision feedback were a great help."
+            description: "As a member of the iGEM art and design team, I gained valuable experience throughout the project. I came to see design as a bridge that transforms abstract ideas and complex scientific concepts into clear and engaging visual communication. One of my biggest challenges was translating complex scientific concepts into posters, webpages, and other materials that balanced scientific rigor with visual appeal. Many of these designs went through multiple rounds of revision and refinement. These outcomes would not have been possible without teamwork; the research materials and constructive feedback provided by my teammates and advisor were invaluable in helping me improve my work."
+        },
+        {
+            name: "Linying Lan",
+            role: "ART MEMBER",
+            description: "Stepping into the world of iGEM made me realize that science requires not only rigorous experimentation but also a compelling voice. As a team member, I committed myself to transforming complex research outcomes into visual narratives that could communicate scientific ideas to a wider audience. Through countless rounds of revision and reflection, I learned how to build bridges of communication through design, making scientific stories more accessible and understandable to everyone."
+        },{
+            name: "Yifang Wang",
+            role: "ART MEMBER",
+            description: "iGEM helped me discover that science is not only rigorous but also filled with creativity and human connection. Bringing our ideas to life together with my teammates has been a truly meaningful and rewarding journey."
+        },
+        {
+            name: "Minxi Qiu",
+            role: "WIKI LEADER",
+            description: "As a beginner in web design, I initially thought, the Wiki was simply a platform for presenting our results online. However, after joining iGEM and gaining hands-on experience, I discovered the many details that required careful attention and refinement. Technical challenges such as responsive layout design, content rendering, and formatting standards often required me to debug, troubleshoot, and revise my work repeatedly. Participating in iGEM strengthened my cross-disciplinary collaboration and communication skills, familiarized me with iGEM’s Wiki standards, and enhanced my ability to communicate scientific information effectively. It also deepened my understanding of teamwork, task division, and the importance of coordinating with members from different disciplines."
         },{
             name: "Ruilin Yang",
             role: "WIKI MEMBER",
-            description: "As a member of the iGEM Wiki team, through website design and development as well as mini-program development, I learned to turn ideas into reality step by step, and came to understand more deeply the importance of teamwork and communication. When problems arose, the process of working with teammates to find solutions taught me a great deal."
+            description: "As a member of the iGEM Wiki team, I worked on website design and development as well as mini-program development. Through these experiences, I learned how to turn ideas into reality step by step and gained a deeper understanding of the importance of teamwork and communication. Whenever problems arose, working closely with my teammates to identify solutions and overcome challenges taught me a great deal about collaboration, problem-solving, and perseverance."
+        },{
+            name: "Jixiang Wang",
+            role: "WIKI MEMBER",
+            description: "When I first joined the iGEM team, I assumed it would simply be an opportunity to showcase my front-end development and web animation skills. As the project progressed, however, I gained far more than technical experience. Working at the intersection of synthetic biology and digital design, I learned to translate complex experimental concepts and logic into clear, intuitive web visuals. I also came to understand how thoughtful visualization can make complex scientific content more accessible and help it reach a wider audience."
         },{
             name: "Qimeng Fan",
-            role: "DRYLAB MEMBER",
-            description: "Participating in iGEM gave me valuable hands-on experience. I helped coordinate the activities of our modeling group, which taught me how to manage team members and communicate efficiently with teammates. Senior members also introduced me to knowledge related to biological modeling, covering protein modeling and data modeling, giving me an initial understanding of basic modeling methods and logic."
+            role: "DRYLAB LEADER",
+            description: "Participating in iGEM gave me valuable hands-on experience. I helped coordinate the activities of our modeling group, which taught me how to coordinate team members and communicate effectively with my teammates. Senior members also introduced me to biological modeling, including protein modeling and data modeling, giving me an initial understanding of fundamental modeling methods and the underlying logic behind them."
         },{
             name: "Mengfei Liu",
             role: "DRYLAB MEMBER",
@@ -197,19 +208,7 @@
         },{
             name: "Yulin Jin",
             role: ">DRYLAB MEMBER",
-            description: "As a member of the iGEM modeling group, I initially expected merely to consolidate my skills with modeling tools. Instead, I found myself lacking hands-on experience in combining domain knowledge with data modeling. I learned as I worked on the project, refining the models continuously and discovering the charm of cross-disciplinary collaboration."
-        },{
-            name: "Yifang Wang",
-            role: "ART MEMBER",
-            description: "iGEM helped me discover that science is not only rigorous but also full of creativity and warmth. Turning our ideas into works together with my teammates has been a truly wonderful journey."
-        },{
-            name: "Chanzi Liu",
-            role: "WETLAB MEMBER",
-            description: "When I first joined the iGEM experimental group, I was eager to bring our bold designs to life in the lab. Yet the road proved far tougher than imagined: countless failed transformations, faint gel bands, and repeatedly fluctuating data, often forcing me to stay by the workbench for long hours troubleshooting. Faced with one disappointing result after another, I felt lost and doubtful of myself. Fortunately, my teammates' companionship and my supervisor's advice let me readjust the plan and keep trying. Every small breakthrough taught me rigor, patience, and the resolve never to give up. This experience not only sharpened my experimental skills but also taught me the resilience a researcher should possess."
-        },{
-            name: "Jixiang Wang",
-            role: "WIKI MEMBER",
-            description: "When I first joined the iGEM team, I assumed it would simply be an opportunity to showcase my front-end development and web-animation skills. As the project progressed, I gained far more than technical growth. Working at the intersection of synthetic biology and digital design, I learned to translate complex experimental logic into clear, intuitive web visuals, and understood how refined visualization can help professional scientific content reach and be understood by more people."
+            description: "As a member of the iGEM modeling group, I initially expected to strengthen my skills in using modeling tools. However, I soon realized that I lacked hands-on experience in integrating domain knowledge with data modeling. Through working on the project, I learned by doing, continuously refining our models and gaining a deeper understanding of how theoretical knowledge can be applied in practice. This experience also allowed me to discover the value and potential of cross-disciplinary collaboration."
         }
     ];
     let lastFocusedMember = null;

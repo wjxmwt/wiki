@@ -103,11 +103,13 @@
     opacity: 1;
     transform: translateY(-50%) scale(1);
 }
+
 .menu-container {
     position: relative;
     width: 1200px;
     justify-items: end;
 }
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -211,7 +213,7 @@
     border-radius: 8px;
     transition: all var(--transition-fast);
     position: relative;
-    font-size: 1.1vw;
+    font-size: 1.2vw;
 }
 
 .nav-link::before {
