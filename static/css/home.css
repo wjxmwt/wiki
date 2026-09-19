@@ -5,20 +5,6 @@
 }
 
 .home-story {
-    --scene-sky-top: #092e29;
-    --scene-sky-bottom: #6f9682;
-    --scene-mountain: #47685b;
-    --story-paper: #edf0dc;
-    --story-muted: #b5c8b7;
-    --story-ink: #082f26;
-    --story-shade: 6, 35, 29;
-    --lab-top: #173b33;
-    --lab-bottom: #416453;
-    background: var(--bg-light);
-    position: relative;
-}
-
-[data-theme='light'] .home-story {
     --scene-sky-top: #dfebda;
     --scene-sky-bottom: #b2c8ae;
     --scene-mountain: #77947a;
@@ -28,6 +14,8 @@
     --story-shade: 231, 238, 221;
     --lab-top: #e2e9d7;
     --lab-bottom: #a6beaa;
+    background: var(--bg-light);
+    position: relative;
 }
 
 .story-stage { position: relative; overflow: hidden; }
