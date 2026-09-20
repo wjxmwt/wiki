@@ -211,6 +211,33 @@
             description: "As a member of the iGEM modeling group, I initially expected to strengthen my skills in using modeling tools. However, I soon realized that I lacked hands-on experience in integrating domain knowledge with data modeling. Through working on the project, I learned by doing, continuously refining our models and gaining a deeper understanding of how theoretical knowledge can be applied in practice. This experience also allowed me to discover the value and potential of cross-disciplinary collaboration."
         }
     ];
+    const teacherDetails = [
+        {
+            name: "Nisha He",
+            role: "PRIMARY PI",
+            description: "Nisha He is an associate professor and master’s supervisor at Hubei University. Her research focuses on molecular enzymology, biosensing and enzyme engineering. She guides the design and experimental scheme of the whole-cell biosensor in our project."
+        },{
+            name: "Jonathan Nimal",
+            role: "SECONDARY PI",
+            description: "Jonathan Nimal is a foreign expert at Hubei University, specializing in academic writing and scientific communication. He supports our team on English materials, international presentation and iGEM defense."
+        },{
+            name: "Haimou Zhang",
+            role: "SECONDARY PI",
+            description: "Haimou Zhang is a professor and doctoral supervisor at Hubei University, focusing on environmental toxicology and biology education. He has long supervised the HUBU-China iGEM team and guided our pollutant detection project."
+        },{
+            name: "Zhifan Yang",
+            role: "SECONDARY PI",
+            description: "Zhifan Yang is a professor and doctoral supervisor at Hubei University, whose research focuses on molecular biology and synthetic biology. He has long served as the supervisor of the HUBU-China iGEM team and supported innovative synthetic biology projects."
+        },{
+            name: "Jiaqi Wang",
+            role: "Advisor",
+            description: "Jiaqi Wang is an alumnus of the School of Life Sciences, Hubei University. He has rich experience in synthetic biology competitions and research. He supports our project on experimental design and iGEM preparation based on his previous competition experience."
+        },{
+            name: "Pan Wu",
+            role: "Instructor",
+            description: "Pan Wu is an associate professor and master’s supervisor at Hubei University. His research focuses on biodegradation of persistent toxic pollutants and molecular modification of industrial enzymes. He guides the construction of PAH-degrading strains and whole-cell biosensors in our project."
+        }
+    ]
     let lastFocusedMember = null;
 
     const closeMemberModal = () => {
@@ -260,6 +287,39 @@
         });
     });
 
+    const advisorContainerList = document.querySelectorAll(".advisor-container");
+    advisorContainerList.forEach((advisorContainer, index) => {
+        advisorContainer.tabIndex = 0;
+        advisorContainer.setAttribute("role", "button");
+        advisorContainer.setAttribute("aria-label", "View teacher details");
+
+        const openAdvisorModal = () => {
+            const image = advisorContainer.querySelector(".advisor-img");
+            const details = teacherDetails[index];
+
+            if (!details) return;
+
+            memberModalImage.src = image.src;
+            memberModalImage.alt = image.alt;
+            memberModalName.textContent = details.name;
+            memberModalRole.textContent = details.role;
+            memberModalDescription.textContent = details.description;
+            lastFocusedMember = advisorContainer;
+            memberModal.classList.remove("is-closing");
+            memberModal.hidden = false;
+            document.body.classList.add("member-modal-open");
+            memberModalClose.focus();
+        };
+
+        advisorContainer.addEventListener("click", openAdvisorModal);
+        advisorContainer.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openAdvisorModal();
+            }
+        });
+    });
+
     memberModal.addEventListener("click", event => {
         if (event.target.matches("[data-member-modal-close]")) closeMemberModal();
     });
@@ -268,7 +328,6 @@
         if (event.key === "Escape" && !memberModal.hidden) closeMemberModal();
     });
 
-    const advisorContainerList = document.querySelectorAll(".advisor-container");
     advisorContainerList.forEach(advisorContainer => {
         gsap.from(advisorContainer, {
             opacity: 0,

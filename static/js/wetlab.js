@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initImageLightbox();
     initMobileTOC();
+    initExpertAccordion();
 });
 
 /* ========================================
@@ -19,10 +20,20 @@ function initWetlabTOC() {
     const tocLinks = document.querySelectorAll('#tocList a');
     if (!tocLinks.length) return;
 
-    const sectionIds = Array.from(tocLinks).map(a => a.getAttribute('href').replace('#', ''));
     const OFFSET = 160; // 导航栏高度 + 额外偏移
 
+    // 判断目录项当前是否可见（用于合并页面中按 data-tab 切换隐藏的目录项）
+    function isVisible(el) {
+        return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+    }
+
     function updateActiveTOC() {
+        // 仅统计当前可见的目录项，避免被切换隐藏的另一套目录/章节干扰高亮计算
+        const visibleLinks = Array.from(tocLinks).filter(isVisible);
+        const sectionIds = (visibleLinks.length ? visibleLinks : Array.from(tocLinks))
+            .map(a => a.getAttribute('href').replace('#', ''));
+        if (!sectionIds.length) return;
+
         let activeId = sectionIds[0];
 
         for (let i = 0; i < sectionIds.length; i++) {
@@ -51,6 +62,9 @@ function initWetlabTOC() {
 
     window.addEventListener('scroll', updateActiveTOC, { passive: true });
     updateActiveTOC();
+
+    // 供合并型页面（如 Modeling 页）在切换模型按钮后调用，重新计算目录高亮
+    window.wetlabRefreshTOC = updateActiveTOC;
 
     // 点击平滑滚动
     tocLinks.forEach(link => {
@@ -208,8 +222,26 @@ function initImageLightbox() {
 }
 
 /* ========================================
-   6. 移动端侧边栏折叠
+   7. 专家访谈手风琴（Stakeholder Analysis 页面）
    ======================================== */
+function initExpertAccordion() {
+    const items = document.querySelectorAll('.expert-accordion-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+        const header = item.querySelector('.expert-accordion-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+            item.classList.toggle('open');
+            header.setAttribute('aria-expanded', item.classList.contains('open'));
+        });
+    });
+
+    // 默认展开第一个
+    if (!document.querySelector('.expert-accordion-item.open')) {
+        items[0].classList.add('open');
+    }
+}
 function initMobileTOC() {
     const toggleBtn = document.getElementById('tocToggleBtn');
     const toc = document.getElementById('wetlab-toc');

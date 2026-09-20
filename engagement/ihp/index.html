@@ -1,0 +1,852 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Human Practice · Stakeholder Analysis | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+<meta name="description"
+  content="Stakeholder analysis of the NapRemSen PAHs biosensor project under the Responsible Research and Innovation (RRI) framework, covering the public, frontline environmental practitioners, remediation enterprises, regulators, and academic experts.">
+
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="nav-menu" id="navMenu">
+        <!-- Project 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Project" class="nav-link " data-section="Project">
+            <i class="fas fa-home"></i>
+            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../project/description" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="../../project/design" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+          </ul>
+        </li>
+        <!-- Wet Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Wet Lab" class="nav-link " data-section="Wet-Lab">
+            <i class="fa-solid fa-flask"></i>
+            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text">Engineering</span></a></li>
+            <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+            <li><a href="../../#Protocol" class="dropdown-link "><span class="nav-text">Protocol</span></a></li>
+            <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li> 
+            <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+            <li><a href="../../wetlab/safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Dry Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Dry Lab" class="nav-link active" data-section="Dry-Lab">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+          </ul>
+        </li>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Team" class="nav-link " data-section="Team">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
+        </li>
+      
+        <li class="nav-item">
+          <a href="../../#Video" class="nav-link " data-section="Video">
+            <i class="fa-solid fa-video"></i>
+            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-controls">
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li><a href="#sec-intro" data-text-en="Framework &amp; Methodology" data-text-zh="研究框架与方法">Framework &amp; Methodology</a></li>
+<li><a href="#sec-positioning" data-text-en="Product Positioning Iteration" data-text-zh="产品定位迭代">Product Positioning Iteration</a></li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-stakeholders" data-text-en="Stakeholder Perspectives" data-text-zh="利益相关方视角">Stakeholder Perspectives</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-sh-public" data-text-en="1. General Public" data-text-zh="1. 社会公众">1. General Public</a></li>
+        <li><a href="#sec-sh-frontline" data-text-en="2. Frontline Practitioners" data-text-zh="2. 一线环保实践者">2. Frontline Practitioners</a></li>
+        <li><a href="#sec-sh-enterprise" data-text-en="3. Remediation Enterprises" data-text-zh="3. 水体修复企业">3. Remediation Enterprises</a></li>
+        <li><a href="#sec-sh-regulator" data-text-en="4. Regulatory Authorities" data-text-zh="4. 政府监管部门">4. Regulatory Authorities</a></li>
+        <li><a href="#sec-sh-experts" data-text-en="5. Academic &amp; Engineering Experts" data-text-zh="5. 学术与工程专家">5. Academic &amp; Engineering Experts</a></li>
+    </ul>
+</li>
+<li><a href="#sec-summary" data-text-en="Summary of Engagement Outcomes" data-text-zh="沟通成果总结">Summary of Engagement Outcomes</a></li>
+<li><a href="#sec-references" data-text-en="References" data-text-zh="参考文献">References</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="HUMAN PRACTICE · RRI FRAMEWORK" data-text-zh="人文实践 · RRI框架">HUMAN PRACTICE · RRI FRAMEWORK</div>
+      <h1 class="hero-title" data-html
+        data-text-en="Stakeholder <span class='hero-accent'>Analysis</span>"
+        data-text-zh="利益相关方<span class='hero-accent'>分析</span>">
+        Stakeholder <span class="hero-accent">Analysis</span>
+      </h1>
+      <p class="hero-desc" data-text-en="As an innovative whole-cell biosensor system targeting PAHs, NapRemSen's success depends not only on technical feasibility, but also on public understanding, industrial recognition and regulatory acceptance. Guided by the Responsible Research and Innovation (RRI) framework, we engaged five key stakeholder groups between January and August 2026 to translate their concerns into concrete project iterations."
+         data-text-zh="作为一套面向多环芳烃（PAHs）的创新型全细胞生物传感系统，NapRemSen的成功不仅取决于实验室层面的技术可行性，也取决于公众理解、行业认可与监管接受度。在负责任研究与创新（RRI）框架的指导下，我们在2026年1月至8月期间与五类关键利益相关方展开对话，并将他们的意见转化为具体的项目迭代。">
+        As an innovative whole-cell biosensor system targeting PAHs, NapRemSen's success depends not only on technical feasibility, but also on public understanding, industrial recognition and regulatory acceptance. Guided by the Responsible Research and Innovation (RRI) framework, we engaged five key stakeholder groups between January and August 2026 to translate their concerns into concrete project iterations.
+      </p>
+      <div class="hero-actions">
+        <a href="#sec-stakeholders" class="hero-btn hero-btn-primary">
+          <span data-text-en="Stakeholder Perspectives" data-text-zh="利益相关方视角">Stakeholder Perspectives</span> <i class="fa-solid fa-people-group"></i>
+        </a>
+        <a href="#sec-summary" class="hero-btn hero-btn-secondary">
+          <span data-text-en="Engagement Outcomes" data-text-zh="沟通成果">Engagement Outcomes</span> <i class="fa-solid fa-flag-checkered"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/ihp/figure-01-rri-framework.png" alt="RRI framework">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="RRI" data-text-zh="负责任研究与创新">RRI</div>
+          <div class="hero-image-title" data-text-en="Anticipation · Reflexivity · Inclusion · Responsiveness" data-text-zh="预期性·反思性·包容性·响应性">Anticipation · Reflexivity · Inclusion · Responsiveness</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<!-- ==================== 1. Framework & Methodology ==================== -->
+<section id="sec-intro" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-diagram-project"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Framework &amp; Methodology" data-text-zh="研究框架与方法">Framework &amp; Methodology</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p data-text-en="One who lifts alone finds it hard to rise; many who walk together find it easy to go far. A collapsing building cannot be propped up by a single beam, nor can a bursting river be blocked by a handful of soil."
+       data-text-zh="独柱难支，众行致远。大厦将倾，非一木所能支；江河决堤，非一抔土所能堵。">
+      "One who lifts alone finds it hard to rise; many who walk together find it easy to go far. A collapsing building cannot be propped up by a single beam, nor can a bursting river be blocked by a handful of soil."
+    </p>
+    <cite data-text-en="— Wei Yuan, Mo Gu · Governance Chapter Eight, Qing Dynasty" data-text-zh="——魏源《默觚·治篇八》，清代">— Wei Yuan, <em>Mo Gu · Governance</em> Chapter Eight, Qing Dynasty</cite>
+  </div>
+
+  <p class="drop-cap" data-text-en="As an innovative whole-cell biosensor system targeting polycyclic aromatic hydrocarbons (PAHs), NapRemSen's success depends not only on technical feasibility at the laboratory level, but also on public understanding, industrial recognition, and regulatory acceptance. This study adopts the Responsible Research and Innovation (RRI) framework as its methodological guide. RRI emphasizes that research and innovation processes must remain responsive to societal needs, aligning technological development pathways with societal expectations through early engagement and sustained dialogue with multiple stakeholders."
+     data-text-zh="作为一套针对多环芳烃（PAHs）的创新型全细胞生物传感系统，NapRemSen的成功不仅取决于实验室层面的技术可行性，也取决于公众理解、行业认可与监管接受度。本研究采用负责任研究与创新（RRI）框架作为方法论指导。RRI强调研究与创新过程必须持续回应社会需求，通过与多方利益相关者的早期接触与持续对话，使技术发展路径与社会期待保持一致。">
+    As an innovative whole-cell biosensor system targeting polycyclic aromatic hydrocarbons (PAHs), NapRemSen's success depends not only on technical feasibility at the laboratory level, but also on public understanding, industrial recognition, and regulatory acceptance. This study adopts the Responsible Research and Innovation (RRI) framework as its methodological guide. RRI emphasizes that research and innovation processes must remain responsive to societal needs, aligning technological development pathways with societal expectations through early engagement and sustained dialogue with multiple stakeholders.
+  </p>
+
+  <p data-text-en="Grounded in RRI's four core dimensions — Anticipation, Reflexivity, Inclusion, and Responsiveness — we identified five key stakeholder groups: the general public concerned with biosafety; frontline volunteers actively engaged in routine environmental protection activities; water remediation enterprises with industrial-scale operational experience and governance responsibilities; governmental regulatory authorities establishing supervisory frameworks; and academic and engineering experts driving technological innovation."
+     data-text-zh="基于RRI的四个核心维度——预期性（Anticipation）、反思性（Reflexivity）、包容性（Inclusion）与响应性（Responsiveness）——我们确定了五类关键利益相关方：关注生物安全的社会公众；积极参与日常环保活动的一线志愿者；具备产业化运营经验与治理责任的水体修复企业；建立监管框架的政府监管部门；以及推动技术创新的学术与工程专家。">
+    Grounded in RRI's four core dimensions — <strong>Anticipation, Reflexivity, Inclusion, and Responsiveness</strong> — we identified five key stakeholder groups: the general public concerned with biosafety; frontline volunteers actively engaged in routine environmental protection activities; water remediation enterprises with industrial-scale operational experience and governance responsibilities; governmental regulatory authorities establishing supervisory frameworks; and academic and engineering experts driving technological innovation.
+  </p>
+
+  <figure class="wetlab-figure">
+    <img src="../../static/image/ihp/figure-01-rri-framework.png" alt="RRI framework">
+    <figcaption data-text-en="Figure 1: RRI framework" data-text-zh="图1：RRI框架">Figure 1: RRI framework</figcaption>
+  </figure>
+
+  <p data-text-en="Between January and August 2026, we collected diverse perspectives through questionnaire surveys, on-site visits, and in-depth semi-structured interviews. The RRI framework guided us not only to document stakeholder viewpoints, but also to conduct systematic analysis of the structural gaps within the socio-technical system revealed by their feedback, translating concerns and recommendations into actionable project iterations. This process bridges the gap between laboratory research and real-world societal needs, supporting the sustainable translation of NapRemSen technology toward real-world scenarios."
+     data-text-zh="在2026年1月至8月期间，我们通过问卷调查、现场走访与深度半结构化访谈收集了多方观点。RRI框架不仅指导我们记录利益相关方的看法，也帮助我们系统分析其反馈所揭示的社会‑技术系统结构性缺口，将关切与建议转化为可执行的项目迭代。这一过程弥合了实验室研究与真实社会需求之间的差距，支撑NapRemSen技术向现实场景的可持续转化。">
+    Between January and August 2026, we collected diverse perspectives through questionnaire surveys, on-site visits, and in-depth semi-structured interviews. The RRI framework guided us not only to document stakeholder viewpoints, but also to conduct systematic analysis of the structural gaps within the socio-technical system revealed by their feedback, translating concerns and recommendations into actionable project iterations. This process bridges the gap between laboratory research and real-world societal needs, supporting the sustainable translation of NapRemSen technology toward real-world scenarios.
+  </p>
+</section>
+
+<!-- ==================== 2. Product Positioning Iteration ==================== -->
+<section id="sec-positioning" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-route"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Product Positioning Iteration" data-text-zh="产品定位迭代">Product Positioning Iteration</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p data-text-en="NapRemSen's product positioning underwent three critical adjustments through stakeholder dialogue."
+     data-text-zh="通过与利益相关方的持续对话，NapRemSen的产品定位经历了三次关键调整。">
+    NapRemSen's product positioning underwent three critical adjustments through stakeholder dialogue.
+  </p>
+
+  <div class="positioning-timeline">
+    <div class="positioning-step">
+      <div class="positioning-step-number">1</div>
+      <div class="positioning-step-title" data-text-en="Integrated in-situ tool" data-text-zh="原位一体化工具">Integrated in-situ tool</div>
+      <p data-text-en="Our initial positioning was an integrated in-situ detection and degradation tool, aiming to simultaneously complete PAHs screening and in-situ remediation at contamination sites. Regulators at the Huangpi District Bureau of Ecology and Environment pointed out that whole-cell biosensor data lacks legal evidentiary weight, and environmental release of live bacteria requires stringent approval — making this scenario difficult to realize under the current regulatory framework."
+         data-text-zh="最初的定位是一款原位一体化检测降解工具，目标是在污染现场同步完成PAHs筛查与原位修复。黄陂区生态环境局的监管人员指出，全细胞生物传感器数据不具备法律证据效力，且活菌的环境释放需要严格审批——该场景在现行监管框架下难以实现。">
+        Our initial positioning was an integrated in-situ detection and degradation tool, aiming to simultaneously complete PAHs screening and in-situ remediation at contamination sites. Regulators at the Huangpi District Bureau of Ecology and Environment pointed out that whole-cell biosensor data lacks legal evidentiary weight, and environmental release of live bacteria requires stringent approval — making this scenario difficult to realize under the current regulatory framework.
+      </p>
+    </div>
+    <div class="positioning-step">
+      <div class="positioning-step-number">2</div>
+      <div class="positioning-step-title" data-text-en="Quantitative screening tool" data-text-zh="定量前置筛查工具">Quantitative screening tool</div>
+      <p data-text-en="We reoriented the product as a preliminary screening tool for precise quantitative analysis, as a front-end supplement to laboratory GC-MS methods. Dr. Jianjun Han noted that fluorescence readings are subject to multiple interfering factors — strain activity, culture medium conditions, environmental matrices — so their quantitative precision cannot meet legally required accuracy standards."
+         data-text-zh="随后我们将产品重新定位为面向精确定量分析的前置筛查工具，作为实验室GC‑MS方法的前端补充。韩建军博士指出，荧光读数受菌株活性、培养基条件、环境基质等多重因素干扰，其定量精度难以达到法定所需的准确度标准。">
+        We reoriented the product as a preliminary screening tool for precise quantitative analysis, as a front-end supplement to laboratory GC-MS methods. Dr. Jianjun Han noted that fluorescence readings are subject to multiple interfering factors — strain activity, culture medium conditions, environmental matrices — so their quantitative precision cannot meet legally required accuracy standards.
+      </p>
+    </div>
+    <div class="positioning-step">
+      <div class="positioning-step-number">3</div>
+      <div class="positioning-step-title" data-text-en="Qualitative assessment tool" data-text-zh="定性评估工具">Qualitative assessment tool</div>
+      <p data-text-en="Our tertiary positioning established the product as a qualitative assessment tool for evaluating remediation effectiveness, covering two directions: pre-remediation screening of high-risk areas, and post-remediation validation. The output is an intuitive high/low contamination judgment based on preset fluorescence thresholds, requiring no interpretation of raw readings."
+         data-text-zh="第三次定位将产品确立为用于评估修复效果的定性评估工具，覆盖两个应用方向：修复前对高风险区域的筛查，以及修复后的效果验证。产品输出是基于预设荧光阈值的直观『高/低污染』判断，无需对原始荧光读数进行专业解读。">
+        Our tertiary positioning established the product as a qualitative assessment tool for evaluating remediation effectiveness, covering two directions: pre-remediation screening of high-risk areas, and post-remediation validation. The output is an intuitive high/low contamination judgment based on preset fluorescence thresholds, requiring no interpretation of raw readings.
+      </p>
+    </div>
+  </div>
+
+  <figure class="wetlab-figure">
+    <img src="../../static/image/ihp/figure-02-positioning-iteration.png" alt="Schematic diagram of product positioning iteration">
+    <figcaption data-text-en="Figure 2: Schematic diagram of product positioning iteration" data-text-zh="图2：产品定位迭代示意图">Figure 2: Schematic diagram of product positioning iteration</figcaption>
+  </figure>
+</section>
+
+<!-- ==================== 3. Stakeholder Perspectives ==================== -->
+<section id="sec-stakeholders" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-people-group"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Stakeholder Perspectives" data-text-zh="利益相关方视角">Stakeholder Perspectives</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <!-- 3.1 General Public -->
+  <div id="sec-sh-public">
+    <h3 data-text-en="1. Perspective from the General Public" data-text-zh="1. 社会公众视角">1. Perspective from the General Public</h3>
+
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-03-public-awareness-map.png" alt="Public awareness map">
+      <figcaption data-text-en="Figure 3: Public awareness map of whole-cell PAHs biosensing technology" data-text-zh="图3：公众对全细胞PAHs生物传感技术的认知地图">Figure 3: Public awareness map of whole-cell PAHs biosensing technology</figcaption>
+    </figure>
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-04-questionnaire-results.png" alt="Questionnaire survey results">
+      <figcaption data-text-en="Figure 4: Partial display of the questionnaire survey results" data-text-zh="图4：问卷调查结果局部展示">Figure 4: Partial display of the questionnaire survey results</figcaption>
+    </figure>
+
+    <h4 data-text-en="Analysis: Current Situation" data-text-zh="现状分析">Analysis: Current Situation</h4>
+    <p data-text-en="We collected 394 valid questionnaire responses. Among respondents, 99.24% were under 25 years of age, and 98.85% were students. Survey data revealed that 81.16% of respondents expressed willingness to actively use a portable detection tool, yet 79.61% of respondents had little to no understanding of PAHs. While the public demonstrated high approval of microbial-based pollution remediation concepts, their knowledge of synthetic biology technical details remained limited. Notably, 53.46% of respondents mistakenly believed that natural plastic degradation produces PAHs, reflecting a prevalent scientific misconception."
+       data-text-zh="我们共回收394份有效问卷。受访者中，99.24%年龄在25岁以下，98.85%为在校学生。数据显示，81.16%的受访者表示愿意主动使用便携式检测工具，但79.61%的受访者对PAHs几乎没有了解。公众对微生物修复污染这一概念的认可度较高，但对合成生物学技术细节的了解仍然有限。值得注意的是，53.46%的受访者错误地认为塑料自然降解会产生PAHs，反映出一种普遍存在的科学误解。">
+      We collected <strong>394 valid questionnaire responses</strong>. Among respondents, 99.24% were under 25 years of age, and 98.85% were students. Survey data revealed that 81.16% of respondents expressed willingness to actively use a portable detection tool, yet 79.61% of respondents had little to no understanding of PAHs. While the public demonstrated high approval of microbial-based pollution remediation concepts, their knowledge of synthetic biology technical details remained limited. Notably, 53.46% of respondents mistakenly believed that natural plastic degradation produces PAHs, reflecting a prevalent scientific misconception.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-card-number">394</div>
+        <div class="stat-card-label" data-text-en="Valid questionnaire responses" data-text-zh="有效问卷份数">Valid questionnaire responses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-number">81.16%</div>
+        <div class="stat-card-label" data-text-en="Willing to use a portable detection tool" data-text-zh="愿意使用便携检测工具">Willing to use a portable detection tool</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-number">79.61%</div>
+        <div class="stat-card-label" data-text-en="Have little to no understanding of PAHs" data-text-zh="对PAHs几乎没有了解">Have little to no understanding of PAHs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-number">53.46%</div>
+        <div class="stat-card-label" data-text-en="Mistakenly believe plastic degradation produces PAHs" data-text-zh="误认为塑料降解会产生PAHs">Mistakenly believe plastic degradation produces PAHs</div>
+      </div>
+    </div>
+
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-05-current-situation-analysis.png" alt="Current situation analysis results">
+      <figcaption data-text-en="Figure 5: Current situation analysis results" data-text-zh="图5：现状分析结果">Figure 5: Current situation analysis results</figcaption>
+    </figure>
+
+    <p data-text-en="The public holds a supportive yet cautious attitude toward whole-cell biosensor technology. Core concerns center on the ecological risks of genetically engineered bacteria, the reliability of the autolysis biosafety module, and the potential for escaped engineered strains to disrupt native microbial communities and trigger unforeseen ecological cascading effects. The survey also indicated that public acceptance increased significantly after respondents were introduced to the density-dependent autolysis suicide circuit."
+       data-text-zh="公众对全细胞生物传感技术总体持支持但审慎的态度。核心关切集中在基因工程菌的生态风险、自裂解生物安全模块的可靠性，以及一旦工程菌株逃逸，是否会扰乱本土微生物群落并引发不可预见的生态连锁效应。调查还显示，在了解密度依赖型自裂解自杀回路后，受访者的接受度显著提升。">
+      The public holds a supportive yet cautious attitude toward whole-cell biosensor technology. Core concerns center on the ecological risks of genetically engineered bacteria, the reliability of the autolysis biosafety module, and the potential for escaped engineered strains to disrupt native microbial communities and trigger unforeseen ecological cascading effects. The survey also indicated that public acceptance increased significantly after respondents were introduced to the density-dependent autolysis suicide circuit.
+    </p>
+
+    <h4 data-text-en="Reflection and Project Insights" data-text-zh="反思与项目启示">Reflection and Project Insights</h4>
+    <span class="rri-tag" data-dim="inclusion"><i class="fa-solid fa-circle-nodes"></i> Inclusion</span>
+    <p data-text-en="The Inclusion dimension of the RRI framework requires that technological innovation not be decoupled from its social context. Laboratory performance advantages alone, without social acceptance, cannot realize practical value. Public feedback elevated biosafety from an auxiliary module to a project-priority prerequisite, establishing 'safety first' as a core principle. The partial nature of public understanding also highlights the need for tiered science communication targeting synthetic biology environmental applications."
+       data-text-zh="RRI框架中的包容性维度要求技术创新不能脱离其社会语境。仅有实验室层面的性能优势、缺乏社会接受度，无法实现实际应用价值。公众反馈将生物安全从辅助模块提升为项目优先级前提，确立了『安全第一』的核心原则。公众理解的局限性也凸显了针对合成生物学环境应用开展分层科普的必要性。">
+      The Inclusion dimension of the RRI framework requires that technological innovation not be decoupled from its social context. Laboratory performance advantages alone, without social acceptance, cannot realize practical value. Public feedback elevated biosafety from an auxiliary module to a project-priority prerequisite, establishing "safety first" as a core principle. The partial nature of public understanding also highlights the need for tiered science communication targeting synthetic biology environmental applications.
+    </p>
+
+    <h4 data-text-en="Action Plan" data-text-zh="行动方案">Action Plan</h4>
+    <ul class="step-list">
+      <li data-text-en="Technical level: Optimize the autolysis genetic circuit; conduct environmental risk assessment experiments simulating complex real-world water and soil matrices to validate the controlled capability of engineered strains."
+          data-text-zh="技术层面：优化自裂解基因回路；开展模拟真实复杂水体与土壤基质的环境风险评估实验，验证工程菌株的可控能力。"><strong data-text-en="Technical level:" data-text-zh="技术层面：">Technical level:</strong> Optimize the autolysis genetic circuit; conduct environmental risk assessment experiments simulating complex real-world water and soil matrices to validate the controlled capability of engineered strains.</li>
+      <li data-text-en="Communication level: Operate WeChat, Xiaohongshu, and Instagram accounts to produce differentiated science communication content for adolescents, high schoolers, and general adults, alongside offline science lectures in secondary schools. The 53.46% misconception rate identified in the survey serves as a precise entry point, extending the theme from naphthalene to the broader category of PAHs."
+          data-text-zh="传播层面：运营微信公众号、小红书与Instagram账号，为青少年、高中生与普通成年人分别制作差异化的科普内容，并在中学开展线下科普讲座。问卷中发现的53.46%误解率是一个精准的切入点，可将主题从萘拓展到更广泛的PAHs类别。"><strong data-text-en="Communication level:" data-text-zh="传播层面：">Communication level:</strong> Operate WeChat, Xiaohongshu, and Instagram accounts to produce differentiated science communication content for adolescents, high schoolers, and general adults, alongside offline science lectures in secondary schools. The 53.46% misconception rate identified in the survey serves as a precise entry point, extending the theme from naphthalene to the broader category of PAHs.</li>
+    </ul>
+
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-06-communication-media.png" alt="Diagram of communication media">
+      <figcaption data-text-en="Figure 6: Diagram of communication media" data-text-zh="图6：传播媒介示意图">Figure 6: Diagram of communication media</figcaption>
+    </figure>
+  </div>
+
+  <!-- 3.2 Frontline Environmental Practitioners -->
+  <div id="sec-sh-frontline">
+    <h3 data-text-en="2. Perspective from Frontline Environmental Practitioners" data-text-zh="2. 一线环保实践者视角">2. Perspective from Frontline Environmental Practitioners</h3>
+
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-07-chenzhou-interview.png" alt="On-site interview at Chenzhou River Youth Action Center">
+      <figcaption data-text-en="Figure 7: On-site interview at Chenzhou River Youth Action Center" data-text-zh="图7：晨州河青年行动中心现场访谈">Figure 7: On-site interview at Chenzhou River Youth Action Center</figcaption>
+    </figure>
+
+    <h4 data-text-en="Analysis: Current Situation" data-text-zh="现状分析">Analysis: Current Situation</h4>
+    <p data-text-en="The team conducted an in-depth interview with Ms. Wu Xianglian, director of the Chenzhou River Youth Action Center. Her volunteer team has accumulated over 8,000 kilometers of river patrol experience. Frontline practice revealed a critical pain point: volunteers can conduct on-site routine water quality tests for pH, heavy metals, residual chlorine, and COD, but PAHs — as organic pollutants — can only be analyzed in professional laboratories. Upon detecting water quality anomalies, volunteers can only report to environmental authorities and await official sampling and testing, a process that takes days to weeks."
+       data-text-zh="团队与晨州河青年行动中心负责人吴湘莲女士进行了深度访谈。她所在的志愿者团队已累计巡河超过8000公里。一线实践揭示了一个关键痛点：志愿者可以现场完成pH、重金属、余氯、COD等常规水质检测，但PAHs作为有机污染物只能送专业实验室分析。一旦发现水质异常，志愿者只能上报环保部门，等待官方采样检测，这一过程往往需要数天至数周。">
+      The team conducted an in-depth interview with Ms. Wu Xianglian, director of the Chenzhou River Youth Action Center. Her volunteer team has accumulated over 8,000 kilometers of river patrol experience. Frontline practice revealed a critical pain point: volunteers can conduct on-site routine water quality tests for pH, heavy metals, residual chlorine, and COD, but PAHs — as organic pollutants — can only be analyzed in professional laboratories. Upon detecting water quality anomalies, volunteers can only report to environmental authorities and await official sampling and testing, a process that takes days to weeks.
+    </p>
+    <p data-text-en="Ms. Wu shared two real-world contamination cases. The Yanquan River experienced severe water discoloration and pollution in 2024, with local government completing remediation between March and September 2025. An Anren black-odorous water body identified through satellite positioning required excavators and manual labor, taking two days and one night to complete remediation."
+       data-text-zh="吴女士分享了两个真实污染案例。堰泉河在2024年发生了严重的水体变色与污染，当地政府在2025年3月至9月期间完成修复。安仁一处通过卫星定位发现的黑臭水体则动用了挖掘机与人工，历时两天一夜完成整治。">
+      Ms. Wu shared two real-world contamination cases. The Yanquan River experienced severe water discoloration and pollution in 2024, with local government completing remediation between March and September 2025. An Anren black-odorous water body identified through satellite positioning required excavators and manual labor, taking two days and one night to complete remediation.
+    </p>
+    <p data-text-en="When the team demonstrated the biosensor prototype to Ms. Wu, she expressed clear willingness to use it. She identified two primary application scenarios: on-site water quality screening during river patrols and community science outreach demonstrations. She also conveyed the core concern of local residents: engineered bacteria might mutate and eventually enter the food chain through groundwater or agricultural crops, ultimately endangering human health."
+       data-text-zh="当团队向吴女士展示生物传感器原型时，她明确表达了使用意愿，并指出了两个主要应用场景：巡河过程中的现场水质筛查，以及社区科普展示。她也转达了当地居民的核心担忧：工程菌是否可能发生突变，并最终通过地下水或农作物进入食物链，危害人体健康。">
+      When the team demonstrated the biosensor prototype to Ms. Wu, she expressed clear willingness to use it. She identified two primary application scenarios: on-site water quality screening during river patrols and community science outreach demonstrations. She also conveyed the core concern of local residents: engineered bacteria might mutate and eventually enter the food chain through groundwater or agricultural crops, ultimately endangering human health.
+    </p>
+
+    <h4 data-text-en="Reflection and Project Insights" data-text-zh="反思与项目启示">Reflection and Project Insights</h4>
+    <span class="rri-tag" data-dim="anticipation"><i class="fa-solid fa-circle-nodes"></i> Anticipation</span>
+    <span class="rri-tag" data-dim="responsiveness"><i class="fa-solid fa-circle-nodes"></i> Responsiveness</span>
+    <p data-text-en="The Anticipation dimension of the RRI framework requires technology developers to proactively identify potential societal concerns and ethical issues. Frontline patrol volunteers lack rapid screening tools for invisible organic pollutants — device miniaturization and visual output are mandatory requirements for field deployment, not optional enhancements. The Responsiveness dimension requires us to actively incorporate public concerns into technological design: biosafety communication must be prioritized, transparently demonstrating our biological containment design to alleviate concerns about environmental release and gene transfer. Volunteers do not require precise quantitative data; they need to quickly determine whether a water body poses PAHs contamination risk to decide whether escalation is necessary."
+       data-text-zh="RRI框架中的预期性维度要求技术开发者主动识别潜在的社会关切与伦理问题。一线巡河志愿者缺乏针对隐性有机污染物的快速筛查工具——设备小型化与可视化输出是现场部署的刚性需求，而非锦上添花的优化项。响应性维度要求我们将公众关切主动纳入技术设计：生物安全的沟通必须被优先考虑，需要透明地展示我们的生物containment设计，以缓解公众对环境释放与基因转移的担忧。志愿者并不需要精确的定量数据，他们需要的是快速判断某个水体是否存在PAHs污染风险，以决定是否需要上报。">
+      The Anticipation dimension of the RRI framework requires technology developers to proactively identify potential societal concerns and ethical issues. Frontline patrol volunteers lack rapid screening tools for invisible organic pollutants — device miniaturization and visual output are mandatory requirements for field deployment, not optional enhancements. The Responsiveness dimension requires us to actively incorporate public concerns into technological design: biosafety communication must be prioritized, transparently demonstrating our biological containment design to alleviate concerns about environmental release and gene transfer. Volunteers do not require precise quantitative data; they need to quickly determine whether a water body poses PAHs contamination risk to decide whether escalation is necessary.
+    </p>
+
+    <h4 data-text-en="Action Plan" data-text-zh="行动方案">Action Plan</h4>
+    <ul class="step-list">
+      <li data-text-en="Technical level: Develop an integrated outdoor portable kit requiring no large-scale laboratory instrumentation, with fluorescence signals distinguishable by the naked eye."
+          data-text-zh="技术层面：开发无需大型实验室仪器的一体化户外便携试剂盒，荧光信号可用肉眼直接区分。"><strong data-text-en="Technical level:" data-text-zh="技术层面：">Technical level:</strong> Develop an integrated outdoor portable kit requiring no large-scale laboratory instrumentation, with fluorescence signals distinguishable by the naked eye.</li>
+      <li data-text-en="Cooperation level: Establish a pilot cooperation with the Chenzhou River Youth Action Center, planning field water sample testing demonstrations at the Yanquan River."
+          data-text-zh="合作层面：与晨州河青年行动中心建立试点合作，计划在堰泉河开展现场水样检测演示。"><strong data-text-en="Cooperation level:" data-text-zh="合作层面：">Cooperation level:</strong> Establish a pilot cooperation with the Chenzhou River Youth Action Center, planning field water sample testing demonstrations at the Yanquan River.</li>
+      <li data-text-en="Outreach level: Develop science communication teaching materials and provide them free of charge to volunteers for environmental education presentations in schools and communities."
+          data-text-zh="推广层面：开发科普教学材料并免费提供给志愿者，用于在学校与社区开展环境教育宣讲。"><strong data-text-en="Outreach level:" data-text-zh="推广层面：">Outreach level:</strong> Develop science communication teaching materials and provide them free of charge to volunteers for environmental education presentations in schools and communities.</li>
+    </ul>
+  </div>
+
+  <!-- 3.3 Water Remediation Enterprises -->
+  <div id="sec-sh-enterprise">
+    <h3 data-text-en="3. Perspective from Water Remediation Enterprises" data-text-zh="3. 水体修复企业视角">3. Perspective from Water Remediation Enterprises</h3>
+
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-08-zhongke-interview-1.png" alt="On-site interview at Zhongke Aquatic Environmental Technology Co., Ltd.">
+    </figure>
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-09-zhongke-interview-2.png" alt="On-site interview at Zhongke Aquatic Environmental Technology Co., Ltd.">
+      <figcaption data-text-en="Figure 8 &amp; 9: On-site interview at Zhongke Aquatic Environmental Technology Co., Ltd." data-text-zh="图8、9：中科水生环境科技有限公司现场访谈">Figure 8 &amp; 9: On-site interview at Zhongke Aquatic Environmental Technology Co., Ltd.</figcaption>
+    </figure>
+
+    <h4 data-text-en="Analysis: Current Situation" data-text-zh="现状分析">Analysis: Current Situation</h4>
+    <p data-text-en="The team conducted an on-site interview with Zhongke Aquatic Environmental Technology Co., Ltd., an enterprise specializing in water pollution remediation projects. Their feedback revealed multiple industry pain points."
+       data-text-zh="团队与专注于水污染修复项目的中科水生环境科技有限公司开展了现场访谈，其反馈揭示了多个行业痛点。">
+      The team conducted an on-site interview with Zhongke Aquatic Environmental Technology Co., Ltd., an enterprise specializing in water pollution remediation projects. Their feedback revealed multiple industry pain points.
+    </p>
+    <p data-text-en="Detection blind spots: current remediation assessment indicators primarily cover total nitrogen, total phosphorus, ammonia nitrogen, COD, and TOC. PAHs are not mandatory testing items. The enterprise encountered a case where vegetation failed to grow normally during a project, suggesting the presence of toxic substances beyond standard assessment indicators — most likely persistent organic pollutants."
+       data-text-zh="检测盲区：目前的修复评估指标主要覆盖总氮、总磷、氨氮、COD与TOC，PAHs并非强制检测项目。该企业曾遇到一个项目中植被无法正常生长的案例，提示存在标准评估指标之外的毒性物质，很可能是持久性有机污染物。">
+      <strong data-text-en="Detection blind spots:" data-text-zh="检测盲区：">Detection blind spots:</strong> current remediation assessment indicators primarily cover total nitrogen, total phosphorus, ammonia nitrogen, COD, and TOC. PAHs are not mandatory testing items. The enterprise encountered a case where vegetation failed to grow normally during a project, suggesting the presence of toxic substances beyond standard assessment indicators — most likely persistent organic pollutants.
+    </p>
+    <p data-text-en="Cost and timeline: obtaining accurate contaminant concentration data requires third-party laboratory testing, with a minimum cost of approximately 150 RMB per single indicator. Pre-remediation site assessment is costly and time-consuming. The enterprise expressed strong demand for a portable kit supporting multi-sample parallel testing, expecting on-site preliminary reference data to assist in estimating vegetation planting density and remediation budgets."
+       data-text-zh="成本与周期：获取准确的污染物浓度数据需要委托第三方实验室检测，单项指标的最低成本约为150元人民币。修复前的场地评估成本高、耗时长。该企业对支持多样本并行检测的便携式试剂盒表现出强烈需求，希望通过现场初步参考数据辅助估算植被种植密度与修复预算。">
+      <strong data-text-en="Cost and timeline:" data-text-zh="成本与周期：">Cost and timeline:</strong> obtaining accurate contaminant concentration data requires third-party laboratory testing, with a minimum cost of approximately <strong>150 RMB per single indicator</strong>. Pre-remediation site assessment is costly and time-consuming. The enterprise expressed strong demand for a portable kit supporting multi-sample parallel testing, expecting on-site preliminary reference data to assist in estimating vegetation planting density and remediation budgets.
+    </p>
+    <p data-text-en="Microbial remediation obstacles: introducing exogenous remediation strains requires domestication at high cost, and survival rates decline sharply in natural field environments. Domestic policies specifically addressing biosafety evaluation for persistent organic pollutant remediation remain absent, limiting real-world application scenarios."
+       data-text-zh="微生物修复障碍：引入外源修复菌株需要高成本驯化，且在自然野外环境中存活率会大幅下降。国内目前尚缺乏专门针对持久性有机污染物微生物修复的生物安全评估政策，限制了实际应用场景。">
+      <strong data-text-en="Microbial remediation obstacles:" data-text-zh="微生物修复障碍：">Microbial remediation obstacles:</strong> introducing exogenous remediation strains requires domestication at high cost, and survival rates decline sharply in natural field environments. Domestic policies specifically addressing biosafety evaluation for persistent organic pollutant remediation remain absent, limiting real-world application scenarios.
+    </p>
+
+    <h4 data-text-en="Reflection and Project Insights" data-text-zh="反思与项目启示">Reflection and Project Insights</h4>
+    <span class="rri-tag" data-dim="responsiveness"><i class="fa-solid fa-circle-nodes"></i> Responsiveness</span>
+    <p data-text-en="The Responsiveness dimension of the RRI framework requires adjusting technological development pathways in response to stakeholder feedback. This enterprise interview drove us to adopt a demand-driven innovation logic. In the early project stage, we focused on biological innovation without adequately addressing the industry's core question: why should the industry adopt our technology? Industry partners require quantitative evidence demonstrating advantages over existing solutions in real-world scenarios — not merely laboratory-scale scientific breakthroughs. Precise application scenario positioning is equally essential: our technology is better suited for advanced treatment of characteristic pollutants in high-difficulty industrial wastewater and ecological remediation demonstration projects, rather than direct competition with already-mature municipal wastewater treatment processes."
+       data-text-zh="RRI框架中的响应性维度要求根据利益相关方反馈调整技术发展路径。这次企业访谈促使我们采用需求驱动的创新逻辑。项目早期，我们专注于生物学层面的创新，却未充分回应行业的核心问题：行业为什么要采用我们的技术？行业合作伙伴需要的是在真实场景中优于现有方案的量化证据，而不仅仅是实验室尺度的科学突破。精准的应用场景定位同样至关重要：我们的技术更适合高难度工业废水中特征污染物的深度处理与生态修复示范项目，而非与已经成熟的市政污水处理工艺直接竞争。">
+      The Responsiveness dimension of the RRI framework requires adjusting technological development pathways in response to stakeholder feedback. This enterprise interview drove us to adopt a demand-driven innovation logic. In the early project stage, we focused on biological innovation without adequately addressing the industry's core question: why should the industry adopt our technology? Industry partners require quantitative evidence demonstrating advantages over existing solutions in real-world scenarios — not merely laboratory-scale scientific breakthroughs. Precise application scenario positioning is equally essential: our technology is better suited for advanced treatment of characteristic pollutants in high-difficulty industrial wastewater and ecological remediation demonstration projects, rather than direct competition with already-mature municipal wastewater treatment processes.
+    </p>
+
+    <h4 data-text-en="Action Plan" data-text-zh="行动方案">Action Plan</h4>
+    <ul class="step-list">
+      <li data-text-en="Application scenario focusing: target high-difficulty industrial wastewater niche segments, including characteristic pollutant treatment in electroplating and chemical industries."
+          data-text-zh="应用场景聚焦：面向高难度工业废水细分领域，包括电镀、化工行业的特征污染物处理。"><strong data-text-en="Application scenario focusing:" data-text-zh="应用场景聚焦：">Application scenario focusing:</strong> target high-difficulty industrial wastewater niche segments, including characteristic pollutant treatment in electroplating and chemical industries.</li>
+      <li data-text-en="Technical validation: conduct comparative experiments between engineered strain solutions and conventional remediation approaches, quantifying indicators including cell adhesion stability, treatment efficiency, and comprehensive costs."
+          data-text-zh="技术验证：开展工程菌方案与传统修复方法的对比实验，量化细胞附着稳定性、处理效率与综合成本等指标。"><strong data-text-en="Technical validation:" data-text-zh="技术验证：">Technical validation:</strong> conduct comparative experiments between engineered strain solutions and conventional remediation approaches, quantifying indicators including cell adhesion stability, treatment efficiency, and comprehensive costs.</li>
+      <li data-text-en="Policy research: investigate existing biosafety regulations for persistent organic pollutant remediation and explore compliance pathways for project implementation."
+          data-text-zh="政策研究：调研现行针对持久性有机污染物修复的生物安全法规，探索项目落地的合规路径。"><strong data-text-en="Policy research:" data-text-zh="政策研究：">Policy research:</strong> investigate existing biosafety regulations for persistent organic pollutant remediation and explore compliance pathways for project implementation.</li>
+    </ul>
+  </div>
+
+  <!-- 3.4 Governmental Regulatory Authorities -->
+  <div id="sec-sh-regulator">
+    <h3 data-text-en="4. Perspective from Governmental Regulatory Authorities" data-text-zh="4. 政府监管部门视角">4. Perspective from Governmental Regulatory Authorities</h3>
+
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-10-huangpi-interview-1.png" alt="Interview at Huangpi District Bureau of Ecology and Environment, Wuhan">
+    </figure>
+    <figure class="wetlab-figure">
+      <img src="../../static/image/ihp/figure-11-huangpi-interview-2.png" alt="Interview at Huangpi District Bureau of Ecology and Environment, Wuhan">
+      <figcaption data-text-en="Figure 10 &amp; 11: Interview at Huangpi District Bureau of Ecology and Environment, Wuhan" data-text-zh="图10、11：武汉市黄陂区生态环境局访谈">Figure 10 &amp; 11: Interview at Huangpi District Bureau of Ecology and Environment, Wuhan</figcaption>
+    </figure>
+
+    <h4 data-text-en="Analysis: Current Situation" data-text-zh="现状分析">Analysis: Current Situation</h4>
+    <p data-text-en="The team conducted an interview with Li Qiqi, staff member at the Huangpi District Bureau of Ecology and Environment, Wuhan. Regulatory authorities serve as gatekeepers for environmental release of genetically engineered microorganisms, prioritizing biosafety controllability above technological novelty. Water environment assessment policies are shifting from single chemical indicator compliance toward comprehensive aquatic ecosystem health evaluation. Traditional chemical monitoring indicators cannot adequately address non-point source pollution events such as stormwater overflow."
+       data-text-zh="团队与武汉市黄陂区生态环境局工作人员李琪琪进行了访谈。监管部门是基因工程微生物环境释放的把关者，其首要考量是生物安全的可控性，而非技术的新颖程度。水环境评价政策正从单一化学指标达标，转向对水生态系统健康的综合评估。传统化学监测指标难以充分应对雨水溢流等面源污染事件。">
+      The team conducted an interview with Li Qiqi, staff member at the Huangpi District Bureau of Ecology and Environment, Wuhan. Regulatory authorities serve as gatekeepers for environmental release of genetically engineered microorganisms, prioritizing biosafety controllability above technological novelty. Water environment assessment policies are shifting from single chemical indicator compliance toward comprehensive aquatic ecosystem health evaluation. Traditional chemical monitoring indicators cannot adequately address non-point source pollution events such as stormwater overflow.
+    </p>
+    <p data-text-en="Domestic approval procedures for environmental release of genetically engineered microorganisms are stringent. Laboratory-scale safety verification is insufficient to eliminate regulatory concerns over long-term ecological impacts following environmental release."
+       data-text-zh="国内针对基因工程微生物环境释放的审批程序十分严格。仅有实验室尺度的安全验证，不足以消除监管部门对环境释放后长期生态影响的担忧。">
+      Domestic approval procedures for environmental release of genetically engineered microorganisms are stringent. Laboratory-scale safety verification is insufficient to eliminate regulatory concerns over long-term ecological impacts following environmental release.
+    </p>
+
+    <h4 data-text-en="Reflection and Project Insights" data-text-zh="反思与项目启示">Reflection and Project Insights</h4>
+    <span class="rri-tag" data-dim="reflexivity"><i class="fa-solid fa-circle-nodes"></i> Reflexivity</span>
+    <p data-text-en="The Reflexivity dimension of the RRI framework requires researchers to examine the assumptions, established practices, and potential limitations of technological development. Regulatory feedback requires the team to closely track evolving trends in water environment assessment policy. While the autolysis suicide circuit meets the baseline biosafety requirement, empirical evidence under complex environmental conditions is still needed. In the secondary iteration of product positioning, our decision to abandon precise quantitative analysis directly responds to regulatory logic — regulatory agencies do not need another device generating data; they need a screening tool capable of assisting pollution risk judgment."
+       data-text-zh="RRI框架中的反思性维度要求研究者审视技术发展过程中的既有假设、既定做法与潜在局限。监管方的反馈要求团队密切跟踪水环境评价政策的演变趋势。虽然自裂解自杀回路满足了生物安全的基线要求，但在复杂环境条件下仍需要更多实证数据支撑。在产品定位的第二次迭代中，我们放弃精确定量分析这一决定，正是对监管逻辑的直接回应——监管机构并不需要又一台产生数据的设备，而是需要一款能够辅助污染风险判断的筛查工具。">
+      The Reflexivity dimension of the RRI framework requires researchers to examine the assumptions, established practices, and potential limitations of technological development. Regulatory feedback requires the team to closely track evolving trends in water environment assessment policy. While the autolysis suicide circuit meets the baseline biosafety requirement, empirical evidence under complex environmental conditions is still needed. In the secondary iteration of product positioning, our decision to abandon precise quantitative analysis directly responds to regulatory logic — regulatory agencies do not need another device generating data; they need a screening tool capable of assisting pollution risk judgment.
+    </p>
+
+    <h4 data-text-en="Action Plan" data-text-zh="行动方案">Action Plan</h4>
+    <ul class="step-list">
+      <li data-text-en="Compliance pathway: align the high/low contamination qualitative assessment approach confirmed in the tertiary product positioning with the existing environmental monitoring method certification system, clarifying the linkage pathway between qualitative screening tools and standard methods. When detection data lacks legal evidentiary weight, the functional boundary is auxiliary risk pre-screening in regulatory decision-making."
+          data-text-zh="合规路径：将第三次产品定位中确定的『高/低污染』定性评估方案，与现行环境监测方法认证体系相衔接，明确定性筛查工具与标准方法之间的衔接路径。当检测数据不具备法律证据效力时，其功能边界应定位为监管决策中的辅助性风险前筛查。"><strong data-text-en="Compliance pathway:" data-text-zh="合规路径：">Compliance pathway:</strong> align the high/low contamination qualitative assessment approach confirmed in the tertiary product positioning with the existing environmental monitoring method certification system, clarifying the linkage pathway between qualitative screening tools and standard methods. When detection data lacks legal evidentiary weight, the functional boundary is auxiliary risk pre-screening in regulatory decision-making.</li>
+      <li data-text-en="Experimental design: conduct fluorescence threshold validation experiments using real water samples, aiming to determine the optimal fluorescence threshold range for high/low contamination judgment. Collect multiple sets of real water samples with known contamination levels (verified by GC-MS) to establish the correspondence between fluorescence signals and contamination grades."
+          data-text-zh="实验设计：使用真实水样开展荧光阈值验证实验，目标是确定用于高/低污染判断的最优荧光阈值区间。收集多组已知污染水平（经GC‑MS验证）的真实水样，建立荧光信号与污染等级之间的对应关系。"><strong data-text-en="Experimental design:" data-text-zh="实验设计：">Experimental design:</strong> conduct fluorescence threshold validation experiments using real water samples, aiming to determine the optimal fluorescence threshold range for high/low contamination judgment. Collect multiple sets of real water samples with known contamination levels (verified by GC-MS) to establish the correspondence between fluorescence signals and contamination grades.</li>
+      <li data-text-en="Assessment protocol: following national standard sample testing specifications, evaluate the degree of fluorescence response shift under different matrix conditions using the standard addition method, forming technical documentation of confidence intervals for qualitative judgment."
+          data-text-zh="评估规程：遵循国家标准样品检测规范，采用标准加入法评估不同基质条件下荧光响应的偏移程度，形成定性判断置信区间的技术文档。"><strong data-text-en="Assessment protocol:" data-text-zh="评估规程：">Assessment protocol:</strong> following national standard sample testing specifications, evaluate the degree of fluorescence response shift under different matrix conditions using the standard addition method, forming technical documentation of confidence intervals for qualitative judgment.</li>
+    </ul>
+  </div>
+
+  <!-- 3.5 Academic & Engineering Experts -->
+  <div id="sec-sh-experts">
+    <h3 data-text-en="5. Guidance from Academic and Engineering Experts" data-text-zh="5. 学术与工程专家指导">5. Guidance from Academic and Engineering Experts</h3>
+    <p data-text-en="Click on each expert to expand their interview details." data-text-zh="点击各位专家的姓名可展开访谈详情。">
+      Click on each expert to expand their interview details.
+    </p>
+
+    <div class="expert-accordion">
+      <!-- Professor Xinli Xing -->
+      <div class="expert-accordion-item">
+        <button class="expert-accordion-header" aria-expanded="false">
+          <div class="expert-accordion-header-text">
+            <span class="expert-accordion-name" data-text-en="Professor Xinli Xing" data-text-zh="邢新丽 教授">Professor Xinli Xing</span>
+            <span class="expert-accordion-affiliation" data-text-en="China University of Geosciences (Wuhan) · Environmental Geochemistry" data-text-zh="中国地质大学（武汉）· 环境地球化学">China University of Geosciences (Wuhan) · Environmental Geochemistry</span>
+          </div>
+          <i class="fa-solid fa-chevron-down expert-chevron"></i>
+        </button>
+        <div class="expert-accordion-body">
+          <div class="expert-accordion-body-inner">
+            <figure class="wetlab-figure">
+              <img src="../../static/image/ihp/figure-12-prof-xing-interview.png" alt="Online interview with Professor Xinli Xing">
+              <figcaption data-text-en="Figure 12: Online interview with Professor Xinli Xing" data-text-zh="图12：与邢新丽教授的线上访谈">Figure 12: Online interview with Professor Xinli Xing</figcaption>
+            </figure>
+            <h4 data-text-en="Event Description" data-text-zh="访谈内容">Event Description</h4>
+            <p data-text-en="The team conducted an interview with Professor Xing on project background investigation and field sampling strategies. Professor Xing provided methodological guidance on pollutant environmental behavior and on-site detection technologies."
+               data-text-zh="团队就项目背景调研与现场采样策略采访了邢新丽教授。邢教授就污染物环境行为与现场检测技术提供了方法论层面的指导。">
+              The team conducted an interview with Professor Xing on project background investigation and field sampling strategies. Professor Xing provided methodological guidance on pollutant environmental behavior and on-site detection technologies.
+            </p>
+            <p data-text-en="Professor Xing noted that pollutant migration behavior is governed by physicochemical parameters including K_OW, K_OA, and Henry's constant. Naphthalene is highly volatile and migrates primarily through atmospheric transport, while high-ring PAHs tend to adsorb onto soil particles. Field sampling point design must differentiate land use types, seasonal temperature, and soil organic matter content. For naphthalene, additional atmospheric deposition sampling points are required."
+               data-text-zh="邢教授指出，污染物的迁移行为受K_OW、K_OA以及亨利常数等理化参数支配。萘具有高挥发性，主要通过大气传输迁移，而高环数PAHs则更倾向于吸附在土壤颗粒上。现场采样点的设计需要区分土地利用类型、季节温度与土壤有机质含量；针对萘，还需要额外增设大气沉降采样点。">
+              Professor Xing noted that pollutant migration behavior is governed by physicochemical parameters including K<sub>OW</sub>, K<sub>OA</sub>, and Henry's constant. Naphthalene is highly volatile and migrates primarily through atmospheric transport, while high-ring PAHs tend to adsorb onto soil particles. Field sampling point design must differentiate land use types, seasonal temperature, and soil organic matter content. For naphthalene, additional atmospheric deposition sampling points are required.
+            </p>
+            <p data-text-en="In composite contamination sites where heavy metals and microplastics coexist, detection interference occurs. Blank controls and single-variable experiments are needed to quantify interference effects. Commercial PID rapid detection devices can only reflect total volatile organic compounds and cannot distinguish individual PAH monomers. On-site screening devices and laboratory GC-MS instruments are complementary and cannot substitute for one another."
+               data-text-zh="在重金属与微塑料共存的复合污染场地中，会出现检测干扰。需要设置空白对照与单变量实验来量化干扰效应。商用PID快速检测设备只能反映总挥发性有机物，无法区分具体的PAH单体。现场筛查设备与实验室GC‑MS仪器是互补关系，二者不能相互替代。">
+              In composite contamination sites where heavy metals and microplastics coexist, detection interference occurs. Blank controls and single-variable experiments are needed to quantify interference effects. Commercial PID rapid detection devices can only reflect total volatile organic compounds and cannot distinguish individual PAH monomers. On-site screening devices and laboratory GC-MS instruments are complementary and cannot substitute for one another.
+            </p>
+            <p data-text-en="Current environmental assessment standards lag behind emerging pollutant risks. In the absence of national standards, toxicological tests, regional background values, and international criteria can be referenced for risk evaluation. Traditional pollution source fingerprinting is limited by environmental transformation; isotope tracing requires high sample concentrations, limiting large-scale field application. Lake sediment stratification can support long-term remediation effectiveness assessment."
+               data-text-zh="现行环境评价标准落后于新兴污染物的风险。在国家标准缺失的情况下，可参考毒理学试验、区域背景值与国际标准进行风险评估。传统的污染源指纹识别受环境转化限制；同位素示踪需要较高的样品浓度，限制了大规模现场应用。湖泊沉积物分层可用于支持长期修复效果评估。">
+              Current environmental assessment standards lag behind emerging pollutant risks. In the absence of national standards, toxicological tests, regional background values, and international criteria can be referenced for risk evaluation. Traditional pollution source fingerprinting is limited by environmental transformation; isotope tracing requires high sample concentrations, limiting large-scale field application. Lake sediment stratification can support long-term remediation effectiveness assessment.
+            </p>
+            <h4 data-text-en="Implications for Our Project" data-text-zh="对本项目的启示">Implications for Our Project</h4>
+            <p data-text-en="Professor Xing's assessment that on-site rapid detection devices and laboratory gold-standard methods cannot substitute for one another provides a theoretical basis for abandoning the precise quantitative analysis positioning, confirming the sound direction of pre-screening and risk triage."
+               data-text-zh="邢教授关于『现场快速检测设备与实验室金标准方法不能相互替代』的判断，为放弃精确定量分析定位提供了理论依据，也印证了前置筛查与风险分级这一方向的合理性。">
+              Professor Xing's assessment that on-site rapid detection devices and laboratory gold-standard methods cannot substitute for one another provides a theoretical basis for abandoning the precise quantitative analysis positioning, confirming the sound direction of pre-screening and risk triage.
+            </p>
+            <p data-text-en="The guidance that naphthalene migrates primarily through atmospheric transport indicates the need to incorporate atmospheric deposition into sampling design, rather than focusing solely on water and soil. The recommendation regarding composite pollution interference has been incorporated into the experimental protocol — blank controls and single-variable experiments will be set up to quantify interference effects. The suggestion to reference toxicological tests, regional background values, and international standards when national standards are absent provides methodological support for the project's risk assessment framework."
+               data-text-zh="萘主要通过大气传输迁移这一指导意见，提示我们需要在采样设计中纳入大气沉降因素，而不能只聚焦于水体与土壤。关于复合污染干扰的建议已被纳入实验方案——将设置空白对照与单变量实验来量化干扰效应。在国家标准缺失时参考毒理学试验、区域背景值与国际标准的建议，为项目的风险评估框架提供了方法论支持。">
+              The guidance that naphthalene migrates primarily through atmospheric transport indicates the need to incorporate atmospheric deposition into sampling design, rather than focusing solely on water and soil. The recommendation regarding composite pollution interference has been incorporated into the experimental protocol — blank controls and single-variable experiments will be set up to quantify interference effects. The suggestion to reference toxicological tests, regional background values, and international standards when national standards are absent provides methodological support for the project's risk assessment framework.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Associate Professor Wei Cai -->
+      <div class="expert-accordion-item">
+        <button class="expert-accordion-header" aria-expanded="false">
+          <div class="expert-accordion-header-text">
+            <span class="expert-accordion-name" data-text-en="Associate Professor Wei Cai" data-text-zh="蔡巍 副教授">Associate Professor Wei Cai</span>
+            <span class="expert-accordion-affiliation" data-text-en="Hubei University, School of Resources and Environment · Wastewater Biological Treatment" data-text-zh="湖北大学资源环境学院 · 废水生物处理">Hubei University, School of Resources and Environment · Wastewater Biological Treatment</span>
+          </div>
+          <i class="fa-solid fa-chevron-down expert-chevron"></i>
+        </button>
+        <div class="expert-accordion-body">
+          <div class="expert-accordion-body-inner">
+            <figure class="wetlab-figure">
+              <img src="../../static/image/ihp/figure-13-prof-cai-interview.png" alt="Interview with Associate Professor Wei Cai">
+              <figcaption data-text-en="Figure 13: Interview with Associate Professor Wei Cai" data-text-zh="图13：与蔡巍副教授的访谈">Figure 13: Interview with Associate Professor Wei Cai</figcaption>
+            </figure>
+            <h4 data-text-en="Event Description" data-text-zh="访谈内容">Event Description</h4>
+            <p data-text-en="The team interviewed Associate Professor Cai on engineered strain environmental adaptability and remediation process feasibility. Professor Cai's research encompasses aerobic granular sludge and algae-bacteria symbiotic systems, with feedback focusing on engineering implementation."
+               data-text-zh="团队就工程菌株的环境适应性与修复工艺可行性采访了蔡巍副教授。蔡教授的研究方向涵盖好氧颗粒污泥与藻菌共生系统，其反馈聚焦于工程实施层面。">
+              The team interviewed Associate Professor Cai on engineered strain environmental adaptability and remediation process feasibility. Professor Cai's research encompasses aerobic granular sludge and algae-bacteria symbiotic systems, with feedback focusing on engineering implementation.
+            </p>
+            <p data-text-en="Professor Cai noted that exogenous functional bacteria face competition from native microbial communities in real wastewater environments. They may enhance treatment effects in the short term but struggle to maintain dominance long-term. Microbial treatment must consider ecological niche and signaling molecule regulation, factors that directly affect metabolic activity and treatment efficiency. Calcium alginate microsphere encapsulation is a viable direction, but long-term colonization and functional durability data are needed."
+               data-text-zh="蔡教授指出，外源功能菌在真实废水环境中会面临本地微生物群落的竞争，短期内可能提升处理效果，但长期难以维持优势地位。微生物处理需要考虑生态位与信号分子调控，这些因素直接影响代谢活性与处理效率。海藻酸钙微球包埋是一个可行方向，但仍需要长期定殖与功能持久性方面的数据支撑。">
+              Professor Cai noted that exogenous functional bacteria face competition from native microbial communities in real wastewater environments. They may enhance treatment effects in the short term but struggle to maintain dominance long-term. Microbial treatment must consider ecological niche and signaling molecule regulation, factors that directly affect metabolic activity and treatment efficiency. Calcium alginate microsphere encapsulation is a viable direction, but long-term colonization and functional durability data are needed.
+            </p>
+            <p data-text-en="Whole-cell biosensors must be validated in real wastewater (containing high salinity, byproducts, and other complex components) for specificity and adaptability. Degradation byproduct toxicity must be monitored to avoid secondary pollution. Biosafety risk management for genetically modified organisms should incorporate protective measures at the design stage to prevent environmental dispersal."
+               data-text-zh="全细胞生物传感器必须在含高盐度、副产物等复杂组分的真实废水中验证其特异性与适应性。需要监测降解副产物的毒性，避免造成二次污染。转基因生物的生物安全风险管理应在设计阶段就纳入防护措施，防止环境扩散。">
+              Whole-cell biosensors must be validated in real wastewater (containing high salinity, byproducts, and other complex components) for specificity and adaptability. Degradation byproduct toxicity must be monitored to avoid secondary pollution. Biosafety risk management for genetically modified organisms should incorporate protective measures at the design stage to prevent environmental dispersal.
+            </p>
+            <p data-text-en="Professor Cai also shared insights from Japan's water environment governance experience: full-chain control of hazardous substances with sensitive sensors installed at discharge points for real-time monitoring; use of natural material treatment technologies and source interception strategies for pollutant emission control; and strict safety training and examination systems to ensure standardized handling of hazardous waste by laboratory personnel."
+               data-text-zh="蔡教授还分享了日本水环境治理经验：对危险物质实施全链条管控，在排放口安装灵敏传感器进行实时监测；采用天然材料处理技术与源头拦截策略控制污染物排放；以及严格的安全培训与考核制度，确保实验室人员规范处理危险废物。">
+              Professor Cai also shared insights from Japan's water environment governance experience: full-chain control of hazardous substances with sensitive sensors installed at discharge points for real-time monitoring; use of natural material treatment technologies and source interception strategies for pollutant emission control; and strict safety training and examination systems to ensure standardized handling of hazardous waste by laboratory personnel.
+            </p>
+            <h4 data-text-en="Implications for Our Project" data-text-zh="对本项目的启示">Implications for Our Project</h4>
+            <p data-text-en="Professor Cai validated the rational direction of calcium alginate microsphere encapsulation and clarified the focus of subsequent technical validation: supplementing long-term colonization and functional durability data. Microsphere encapsulation is the core technical form enabling closed-loop application of engineered strains and a prerequisite for the qualitative assessment tool established in the product iteration."
+               data-text-zh="蔡教授肯定了海藻酸钙微球包埋这一方向的合理性，并明确了后续技术验证的重点：补充长期定殖与功能持久性数据。微球包埋是实现工程菌株闭环应用的核心技术形式，也是产品迭代中确立的定性评估工具得以成立的前提。">
+              Professor Cai validated the rational direction of calcium alginate microsphere encapsulation and clarified the focus of subsequent technical validation: supplementing long-term colonization and functional durability data. Microsphere encapsulation is the core technical form enabling closed-loop application of engineered strains and a prerequisite for the qualitative assessment tool established in the product iteration.
+            </p>
+            <p data-text-en="The recommendation for real wastewater validation has been incorporated into the experimental protocol. Multiple actual industrial wastewater and surface water samples will be collected to test the degree of fluorescence response shift, providing data support for determining high/low contamination judgment thresholds. The reminder regarding byproduct toxicity has been incorporated into degradation experiment testing indicators. The recommendation for upfront safety protection has been reflected in the autolysis module design phase."
+               data-text-zh="真实废水验证的建议已被纳入实验方案：将收集多份实际工业废水与地表水样品，测试荧光响应的偏移程度，为确定高/低污染判断阈值提供数据支持。关于副产物毒性的提醒已被纳入降解实验的检测指标。关于安全防护应前置的建议，已体现在自裂解模块的设计阶段。">
+              The recommendation for real wastewater validation has been incorporated into the experimental protocol. Multiple actual industrial wastewater and surface water samples will be collected to test the degree of fluorescence response shift, providing data support for determining high/low contamination judgment thresholds. The reminder regarding byproduct toxicity has been incorporated into degradation experiment testing indicators. The recommendation for upfront safety protection has been reflected in the autolysis module design phase.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professor Xuejing Yu -->
+      <div class="expert-accordion-item">
+        <button class="expert-accordion-header" aria-expanded="false">
+          <div class="expert-accordion-header-text">
+            <span class="expert-accordion-name" data-text-en="Professor Xuejing Yu" data-text-zh="余雪静 教授">Professor Xuejing Yu</span>
+            <span class="expert-accordion-affiliation" data-text-en="Hubei University, School of Life Sciences · Environmental Microbiology and Synthetic Biology" data-text-zh="湖北大学生命科学学院 · 环境微生物学与合成生物学">Hubei University, School of Life Sciences · Environmental Microbiology and Synthetic Biology</span>
+          </div>
+          <i class="fa-solid fa-chevron-down expert-chevron"></i>
+        </button>
+        <div class="expert-accordion-body">
+          <div class="expert-accordion-body-inner">
+            <figure class="wetlab-figure">
+              <img src="../../static/image/ihp/figure-14-prof-yu-interview.jpeg" alt="Interview with Professor Xuejing Yu">
+              <figcaption data-text-en="Figure 14: Interview with Professor Xuejing Yu" data-text-zh="图14：与余雪静教授的访谈">Figure 14: Interview with Professor Xuejing Yu</figcaption>
+            </figure>
+            <h4 data-text-en="Event Description" data-text-zh="访谈内容">Event Description</h4>
+            <p data-text-en="The team interviewed Professor Yu on the technical roadmap and product positioning of the detection-degradation integrated system. Professor Yu provided the following recommendations."
+               data-text-zh="团队就检测‑降解一体化系统的技术路线与产品定位采访了余雪静教授，余教授提出了以下建议。">
+              The team interviewed Professor Yu on the technical roadmap and product positioning of the detection-degradation integrated system. Professor Yu provided the following recommendations.
+            </p>
+            <p data-text-en="Whole-cell biosensors have inherent limits in absolute accuracy, but their ultra-low detection limits make them sufficiently capable for front-end qualitative screening tasks. The product's value lies not in replacing standard methods, but in providing low-cost preliminary screening for large sample volumes."
+               data-text-zh="全细胞生物传感器在绝对精度上存在固有局限，但其超低检测限使其足以胜任前端定性筛查任务。产品的价值不在于取代标准方法，而在于为大批量样品提供低成本的前置筛查。">
+              Whole-cell biosensors have inherent limits in absolute accuracy, but their ultra-low detection limits make them sufficiently capable for front-end qualitative screening tasks. The product's value lies not in replacing standard methods, but in providing low-cost preliminary screening for large sample volumes.
+            </p>
+            <p data-text-en="The project's core competitive advantage lies in the integration of detection and degradation. The vast majority of current biosensors only have detection functionality, whereas this system can convert toxic naphthalene into non-toxic salicylic acid, achieving source-level remediation."
+               data-text-zh="本项目的核心竞争优势在于检测与降解的一体化。目前绝大多数生物传感器只具备检测功能，而本系统能够将有毒的萘转化为无毒的水杨酸，实现源头层面的修复。">
+              The project's core competitive advantage lies in the integration of detection and degradation. The vast majority of current biosensors only have detection functionality, whereas this system can convert toxic naphthalene into non-toxic salicylic acid, achieving source-level remediation.
+            </p>
+            <p data-text-en="Given the difficulty of degrading high-ring PAHs, degradation experiments can begin with naphthalene derivatives (methylnaphthalene, chloronaphthalene), gradually expanding the substrate spectrum and building a foundation for future progression to more complex PAHs."
+               data-text-zh="考虑到高环数PAHs的降解难度较大，降解实验可以先从萘的衍生物（甲基萘、氯代萘）入手，逐步拓展底物谱系，为未来向更复杂的PAHs推进打下基础。">
+              Given the difficulty of degrading high-ring PAHs, degradation experiments can begin with naphthalene derivatives (methylnaphthalene, chloronaphthalene), gradually expanding the substrate spectrum and building a foundation for future progression to more complex PAHs.
+            </p>
+            <h4 data-text-en="Implications for Our Project" data-text-zh="对本项目的启示">Implications for Our Project</h4>
+            <p data-text-en="Professor Yu's assessment that accuracy is limited but qualitative screening is feasible supports the product positioning iteration, helping the team confirm that qualitative assessment is a more pragmatic product direction than precise quantification."
+               data-text-zh="余教授关于『精度有限但定性筛查可行』的判断支持了产品定位迭代，帮助团队确认定性评估相较于精确定量是更务实的产品方向。">
+              Professor Yu's assessment that accuracy is limited but qualitative screening is feasible supports the product positioning iteration, helping the team confirm that qualitative assessment is a more pragmatic product direction than precise quantification.
+            </p>
+            <p data-text-en="The view that integrated detection-degradation design is the core competitive advantage provides a clear narrative for external communication. The recommendation for naphthalene derivative substrate spectrum expansion has been incorporated into the subsequent experimental plan."
+               data-text-zh="检测‑降解一体化设计是核心竞争优势这一观点，为对外传播提供了清晰的叙事线索。关于拓展萘衍生物底物谱系的建议已被纳入后续实验计划。">
+              The view that integrated detection-degradation design is the core competitive advantage provides a clear narrative for external communication. The recommendation for naphthalene derivative substrate spectrum expansion has been incorporated into the subsequent experimental plan.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professor Haimou Zhang -->
+      <div class="expert-accordion-item">
+        <button class="expert-accordion-header" aria-expanded="false">
+          <div class="expert-accordion-header-text">
+            <span class="expert-accordion-name" data-text-en="Professor Haimou Zhang" data-text-zh="张海某 教授">Professor Haimou Zhang</span>
+            <span class="expert-accordion-affiliation" data-text-en="Hubei University, School of Life Sciences · Science Education and Outreach Standards" data-text-zh="湖北大学生命科学学院 · 科学教育与科普标准">Hubei University, School of Life Sciences · Science Education and Outreach Standards</span>
+          </div>
+          <i class="fa-solid fa-chevron-down expert-chevron"></i>
+        </button>
+        <div class="expert-accordion-body">
+          <div class="expert-accordion-body-inner">
+            <figure class="wetlab-figure">
+              <img src="../../static/image/ihp/figure-15-prof-zhang-interview.png" alt="Interview with Professor Haimou Zhang">
+              <figcaption data-text-en="Figure 15: Interview with Professor Haimou Zhang" data-text-zh="图15：与张海某教授的访谈">Figure 15: Interview with Professor Haimou Zhang</figcaption>
+            </figure>
+            <h4 data-text-en="Event Description" data-text-zh="访谈内容">Event Description</h4>
+            <p data-text-en="The team interviewed Professor Zhang on the science communication system for the education component. Professor Zhang's guidance focused on the objectives, content, and evaluation criteria of science outreach."
+               data-text-zh="团队就教育板块的科普传播体系采访了张海某教授，张教授的指导聚焦于科普工作的目标、内容与评价标准。">
+              The team interviewed Professor Zhang on the science communication system for the education component. Professor Zhang's guidance focused on the objectives, content, and evaluation criteria of science outreach.
+            </p>
+            <p data-text-en="The core function of science outreach is not knowledge transfer, but improving public scientific literacy. Science outreach should serve the cultivation of four scientific spirits: empiricism, rationality, innovation, and critical thinking. Conceptually, the broad 'education model' should be converged into a practical 'science outreach toolkit' with clearly defined target audiences and application scenarios. Content design must ensure scientific accuracy, follow the principle of tailoring to different audiences, and may incorporate scientific history, everyday hot topics, and cutting-edge research findings to increase appeal. The outreach theme is recommended to expand from naphthalene alone to the broader category of PAHs."
+               data-text-zh="科普的核心功能不是知识传递，而是提升公众科学素养。科普工作应服务于四种科学精神的培养：实证精神、理性精神、创新精神与批判性思维。在理念上，宽泛的『教育模式』应收敛为受众与应用场景明确的实用型『科普工具包』。内容设计须确保科学准确性，遵循因材施教的原则，并可融入科学史、日常热点话题与前沿研究成果以提升吸引力。建议将科普主题从萘单一物质，拓展到更广泛的PAHs类别。">
+              The core function of science outreach is not knowledge transfer, but improving public scientific literacy. Science outreach should serve the cultivation of four scientific spirits: empiricism, rationality, innovation, and critical thinking. Conceptually, the broad "education model" should be converged into a practical "science outreach toolkit" with clearly defined target audiences and application scenarios. Content design must ensure scientific accuracy, follow the principle of tailoring to different audiences, and may incorporate scientific history, everyday hot topics, and cutting-edge research findings to increase appeal. The outreach theme is recommended to expand from naphthalene alone to the broader category of PAHs.
+            </p>
+            <p data-text-en="Science outreach must achieve measurable improvements in public scientific literacy. An outreach effectiveness evaluation system should be established, honestly recording all feedback including negative and ineffective results, and using objective analysis of causes to improve work — exemplifying the scientific spirit of empiricism."
+               data-text-zh="科普工作必须实现公众科学素养的可测量提升。应建立科普效果评价体系，如实记录包括负面与无效结果在内的所有反馈，并通过客观的原因分析来改进工作——这本身就是实证精神的体现。">
+              Science outreach must achieve measurable improvements in public scientific literacy. An outreach effectiveness evaluation system should be established, honestly recording all feedback including negative and ineffective results, and using objective analysis of causes to improve work — exemplifying the scientific spirit of empiricism.
+            </p>
+            <h4 data-text-en="Implications for Our Project" data-text-zh="对本项目的启示">Implications for Our Project</h4>
+            <p data-text-en="Professor Zhang prompted the team to shift science outreach from an activity-count orientation toward measurable public scientific literacy improvement. The concept of a 'science outreach toolkit' clarified target audiences and reusability."
+               data-text-zh="张教授促使团队将科普工作的导向，从『活动数量』转向可测量的公众科学素养提升。『科普工具包』这一概念也明确了目标受众与可复用性。">
+              Professor Zhang prompted the team to shift science outreach from an activity-count orientation toward measurable public scientific literacy improvement. The concept of a "science outreach toolkit" clarified target audiences and reusability.
+            </p>
+            <p data-text-en="The requirement to establish an outreach effectiveness evaluation system has been incorporated into the subsequent work plan. A concise assessment questionnaire will be designed and distributed before and after outreach activities, honestly recording positive, ineffective, and negative data."
+               data-text-zh="建立科普效果评价体系这一要求已被纳入后续工作计划：将设计一份简明的评估问卷，在科普活动前后分发，如实记录正面、无效与负面数据。">
+              The requirement to establish an outreach effectiveness evaluation system has been incorporated into the subsequent work plan. A concise assessment questionnaire will be designed and distributed before and after outreach activities, honestly recording positive, ineffective, and negative data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. Summary of Stakeholder Engagement Outcomes ==================== -->
+<section id="sec-summary" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-flag-checkered"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Summary of Stakeholder Engagement Outcomes" data-text-zh="利益相关方沟通成果总结">Summary of Stakeholder Engagement Outcomes</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p data-text-en="Through multi-stakeholder dialogue involving the public, enterprises, regulators, and academic experts, the NapRemSen project achieved the following iterations across three dimensions: technological design, product positioning, and science communication."
+     data-text-zh="通过与公众、企业、监管部门与学术专家的多方对话，NapRemSen项目在技术设计、产品定位与科学传播三个维度上实现了以下迭代。">
+    Through multi-stakeholder dialogue involving the public, enterprises, regulators, and academic experts, the NapRemSen project achieved the following iterations across three dimensions: technological design, product positioning, and science communication.
+  </p>
+
+  <div class="key-finding">
+    <p data-text-en="Product positioning iteration: from integrated in-situ detection and degradation tool, to precise quantitative screening tool, and ultimately to a qualitative high/low contamination assessment tool based on fluorescence thresholds — applicable to both pre-remediation screening of high-risk areas and post-remediation effectiveness validation."
+       data-text-zh="产品定位迭代：从原位一体化检测降解工具，到精确定量筛查工具，最终确立为基于荧光阈值的『高/低污染』定性评估工具——适用于高风险区域的修复前筛查与修复后效果验证两个场景。">
+      <strong data-text-en="Product positioning iteration:" data-text-zh="产品定位迭代：">Product positioning iteration:</strong> from integrated in-situ detection and degradation tool, to precise quantitative screening tool, and ultimately to a qualitative high/low contamination assessment tool based on fluorescence thresholds — applicable to both pre-remediation screening of high-risk areas and post-remediation effectiveness validation.
+    </p>
+  </div>
+
+  <p data-text-en="Experimental protocol optimization: field sampling scheme optimized with differentiated land use types and additional atmospheric deposition sampling points; real water sample validation and long-term stability testing of microsphere encapsulation; naphthalene derivative substrate spectrum expansion plan and salicylic acid resource recovery exploration pathway."
+     data-text-zh="实验方案优化：按不同土地利用类型优化了现场采样方案，并增设大气沉降采样点；开展真实水样验证与微球包埋的长期稳定性测试；制定萘衍生物底物谱系拓展计划以及水杨酸资源化回收探索路径。">
+    <strong data-text-en="Experimental protocol optimization:" data-text-zh="实验方案优化：">Experimental protocol optimization:</strong> field sampling scheme optimized with differentiated land use types and additional atmospheric deposition sampling points; real water sample validation and long-term stability testing of microsphere encapsulation; naphthalene derivative substrate spectrum expansion plan and salicylic acid resource recovery exploration pathway.
+  </p>
+
+  <p data-text-en="Science communication standards established: a tiered science communication system with measurable scientific literacy improvement as the objective; an outreach effectiveness evaluation mechanism established with honest recording of all feedback."
+     data-text-zh="科学传播标准的建立：以可测量的科学素养提升为目标，建立了分层科普体系；建立了科普效果评价机制，如实记录所有反馈。">
+    <strong data-text-en="Science communication standards established:" data-text-zh="科学传播标准的建立：">Science communication standards established:</strong> a tiered science communication system with measurable scientific literacy improvement as the objective; an outreach effectiveness evaluation mechanism established with honest recording of all feedback.
+  </p>
+
+  <p data-text-en="Remaining challenges: stability of the autolysis circuit under complex real-world environmental conditions requires further verification; complete cost comparison data against traditional detection methods remains insufficient; fluorescence threshold-based qualitative judgment standards require calibration across multiple types of real water samples. These constitute the priority directions for subsequent work."
+     data-text-zh="尚存挑战：自裂解回路在复杂真实环境条件下的稳定性仍需进一步验证；与传统检测方法的完整成本对比数据仍不充分；基于荧光阈值的定性判断标准需要在多种类型的真实水样上进行校准。这些是后续工作的优先方向。">
+    <strong data-text-en="Remaining challenges:" data-text-zh="尚存挑战：">Remaining challenges:</strong> stability of the autolysis circuit under complex real-world environmental conditions requires further verification; complete cost comparison data against traditional detection methods remains insufficient; fluorescence threshold-based qualitative judgment standards require calibration across multiple types of real water samples. These constitute the priority directions for subsequent work.
+  </p>
+
+  <p data-text-en="All of the above challenges originate from real-world feedback obtained through questionnaire surveys, on-site visits, and expert interviews. They are not the terminus of this project's development, but rather clarify the direction for sustainable optimization. Based on these findings, in subsequent project advancement, we will systematically translate feedback from each exchange into technical improvements, experimental design adjustments, and application strategy refinements, ensuring that NapRemSen achieves true balance among technical feasibility, economic rationality, and social responsibility."
+     data-text-zh="以上所有挑战都源自问卷调查、现场走访与专家访谈所获得的真实反馈。它们并非项目发展的终点，而是为可持续优化指明了方向。基于这些发现，在项目后续推进过程中，我们将系统性地把每一次交流中的反馈转化为技术改进、实验设计调整与应用策略优化，确保NapRemSen在技术可行性、经济合理性与社会责任之间实现真正的平衡。">
+    All of the above challenges originate from real-world feedback obtained through questionnaire surveys, on-site visits, and expert interviews. They are not the terminus of this project's development, but rather clarify the direction for sustainable optimization. Based on these findings, in subsequent project advancement, we will systematically translate feedback from each exchange into technical improvements, experimental design adjustments, and application strategy refinements, ensuring that NapRemSen achieves true balance among technical feasibility, economic rationality, and social responsibility.
+  </p>
+</section>
+
+<!-- ==================== 5. References ==================== -->
+<section id="sec-references" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-book"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="References" data-text-zh="参考文献">References</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <ul class="references-list">
+    <li>von Schomberg R. A vision of responsible research and innovation [M]// Owen R, Bessant J, Heintz M. Responsible Innovation: Managing the Responsible Emergence of Science and Innovation in Society. Chichester: John Wiley &amp; Sons, 2013: 51-74.</li>
+    <li>Stilgoe J, Owen R, Macnaghten P. Developing a framework for responsible innovation [J]. Research Policy, 2013, 42(9): 1568-1580.</li>
+    <li>Sun Y J, Zhang X H, Zhang D Y, et al. New naphthalene whole-cell bioreporter for measuring and assessing naphthalene in polycyclic aromatic hydrocarbons contaminated site [J]. Chemosphere, 2017, 186: 510-518.</li>
+    <li>Zeng N, Wu Y, Chen W, et al. Whole-cell microbial bioreporter for soil contaminants detection [J]. Frontiers in Bioengineering and Biotechnology, 2021, 9: 622994.</li>
+    <li>Li S Y, Lyu F J, Zhao G Y, et al. Research progress in microbial whole-cell biosensors for the detection of aromatic compounds [J]. Chinese Journal of Biotechnology, 2024. (in Chinese)</li>
+    <li>GB 36600-2018. Soil Environmental Quality — Risk Control Standard for Soil Contamination of Development Land (Trial). Ministry of Ecology and Environment, State Administration for Market Regulation. (in Chinese)</li>
+    <li>GB 15618-2018. Soil Environmental Quality — Risk Control Standard for Soil Contamination of Agricultural Land (Trial). Ministry of Ecology and Environment, State Administration for Market Regulation. (in Chinese)</li>
+    <li>Action Plan for New Pollutants Control (General Office of the State Council Document No. 15, 2022). (in Chinese)</li>
+    <li>Priority Control Chemicals Catalog (First Batch) (Ministry of Environmental Protection Announcement No. 83, 2017). Ministry of Environmental Protection. (in Chinese)</li>
+    <li>Stockholm Convention Persistent Organic Pollutants Review Committee. POPs Review List.</li>
+    <li>Liu Y Y, Wang L, Jia X Q. Research progress on degradation of polycyclic aromatic hydrocarbons by mixed microbial systems [J]. Chinese Journal of Biotechnology, 2025, 41(5): 1843-1860. (in Chinese)</li>
+    <li>Chen J, Luan T G, Luo L J. Research progress on bacterial degradation of alkylated polycyclic aromatic hydrocarbons [J]. Environmental Chemistry, 2023. (in Chinese)</li>
+    <li>Zeng J, Wu Y C, Lin X G. Research progress on microbial remediation of PAH-contaminated soils [J]. Acta Pedologica Sinica. (in Chinese)</li>
+    <li>Salicylate or Phthalate: The Main Intermediates in the Bacterial Degradation of Naphthalene [J]. Processes, 2021, 9(11): 1862.</li>
+    <li>Grund E, Denecke B, Eichenlaub R. Naphthalene degradation via salicylate and gentisate by Rhodococcus sp. strain B4 [J]. Applied and Environmental Microbiology, 1992, 58(6): 1874-1877.</li>
+    <li>Guo J, Xu Y Z. The logic, path and effect of public participation in environmental governance [J]. Resources Science, 2020, 42(7). (in Chinese)</li>
+  </ul>
+</section>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

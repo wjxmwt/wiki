@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wet Lab · Design | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../static/image/logo-icon.png">
+  
+<meta name="description"
+  content="Design of a dual-strain co-culture PAHs biosensing system: bidirectional promoter engineering, NahR saturation mutagenesis, degradation promoter replacement, culture condition optimization and dual-strain adaptation for naphthalene detection.">
+
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../static/css/base.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../static/css/wetlab.css?v=1.0.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="nav-menu" id="navMenu">
+        <!-- Project 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Project" class="nav-link active" data-section="Project">
+            <i class="fas fa-home"></i>
+            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="description" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="design" class="dropdown-link active"><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+          </ul>
+        </li>
+        <!-- Wet Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Wet Lab" class="nav-link " data-section="Wet-Lab">
+            <i class="fa-solid fa-flask"></i>
+            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text">Engineering</span></a></li>
+            <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+            <li><a href="../../#Protocol" class="dropdown-link "><span class="nav-text">Protocol</span></a></li>
+            <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li> 
+            <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+            <li><a href="../wetlab/safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Dry Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+          </ul>
+        </li>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Team" class="nav-link " data-section="Team">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
+        </li>
+      
+        <li class="nav-item">
+          <a href="../../#Video" class="nav-link " data-section="Video">
+            <i class="fa-solid fa-video"></i>
+            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-controls">
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li><a href="#sec-intro" data-text-en="Introduction of Design" data-text-zh="设计概述">Introduction of Design</a></li>
+<li><a href="#sec-wildtype" data-text-en="Wild-Type System &amp; Deficiency Analysis" data-text-zh="野生型系统与缺陷分析">Wild-Type System &amp; Deficiency Analysis</a></li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-optimization" data-text-en="Five-Dimension System Optimization" data-text-zh="五维系统优化">Five-Dimension System Optimization</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-opt-promoter" data-text-en="Bidirectional promoter engineering" data-text-zh="双向启动子改造">Bidirectional promoter engineering</a></li>
+        <li><a href="#sec-opt-nahr" data-text-en="NahR saturation mutagenesis" data-text-zh="NahR饱和突变">NahR saturation mutagenesis</a></li>
+        <li><a href="#sec-opt-degradation" data-text-en="Degradation promoter optimization" data-text-zh="降解启动子优化">Degradation promoter optimization</a></li>
+        <li><a href="#sec-opt-culture" data-text-en="Culture condition optimization" data-text-zh="培养条件优化">Culture condition optimization</a></li>
+        <li><a href="#sec-opt-coculture" data-text-en="Dual-strain co-culture optimization" data-text-zh="双菌共培养优化">Dual-strain co-culture optimization</a></li>
+    </ul>
+</li>
+<li><a href="#sec-summary" data-text-en="Design Summary &amp; Future Prospect" data-text-zh="设计总结与未来展望">Design Summary &amp; Future Prospect</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <!-- 装饰背景 -->
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="WET-LAB · SYSTEM DESIGN" data-text-zh="湿实验 · 系统设计">WET‑LAB · SYSTEM DESIGN</div>
+      <h1 class="hero-title" data-html
+        data-text-en="Dual-Strain Co-Culture <span class='hero-accent'>PAHs Biosensing System</span>"
+        data-text-zh="双菌共培养<span class='hero-accent'>多环芳烃生物传感系统</span>">
+        Dual-Strain Co-Culture <span class="hero-accent">PAHs Biosensing System</span>
+      </h1>
+      <p class="hero-desc" data-text-en="Starting from the native naphthalene degradation and NahR-Psal sensing pathways, we identified the wild-type system's weaknesses and re-engineered it across five dimensions — promoters, sensor protein, degradation pathway, culture conditions and co-culture ratio — to build a low-cost, high-sensitivity whole-cell biosensor for on-site PAHs screening."
+         data-text-zh="从天然萘降解通路与NahR‑Psal感应通路出发，我们分析了野生型系统的短板，并从启动子、传感蛋白、降解通路、培养条件与共培养比例五个维度对系统进行了重新设计，构建出一套低成本、高灵敏度的全细胞生物传感器，用于现场PAHs快速筛查。">
+        Starting from the native naphthalene degradation and NahR-Psal sensing pathways, we identified the wild-type system's weaknesses and re-engineered it across five dimensions — promoters, sensor protein, degradation pathway, culture conditions and co-culture ratio — to build a low-cost, high-sensitivity whole-cell biosensor for on-site PAHs screening.
+      </p>
+      <div class="hero-actions">
+        <a href="#sec-intro" class="hero-btn hero-btn-primary">
+          <span data-text-en="Read Introduction" data-text-zh="设计概述">Read Introduction</span> <i class="fa-solid fa-arrow-down"></i>
+        </a>
+        <a href="#sec-optimization" class="hero-btn hero-btn-secondary">
+          <span data-text-en="View Optimization" data-text-zh="查看优化方案">View Optimization</span> <i class="fa-solid fa-sliders"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../static/image/wetlab/hero-lab.png" alt="Wet Lab Design">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="SYSTEM DESIGN" data-text-zh="系统设计">SYSTEM DESIGN</div>
+          <div class="hero-image-title" data-text-en="NahR-Psal Biosensor Engineering" data-text-zh="NahR‑Psal传感器改造">NahR-Psal Biosensor Engineering</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<!-- ==================== 1. Introduction of Design ==================== -->
+<section id="sec-intro" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-circle-info"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Introduction of Design" data-text-zh="设计概述">Introduction of Design</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p class="drop-cap" data-text-en="Polycyclic aromatic hydrocarbons (PAHs) are ubiquitous persistent organic pollutants in urban soil and water environments, mainly derived from vehicle exhaust, asphalt aging, cooking fumes and fossil fuel combustion. As the simplest and most frequently detected low-molecular-weight PAH, naphthalene poses carcinogenic and teratogenic risks under long-term low-dose exposure. According to Chinese national standard GB 36600-2018, strict risk screening values are defined for soil naphthalene contamination. However, conventional HPLC detection requires complicated pretreatment, high cost and laboratory dependence, making rapid on-site screening impossible."
+     data-text-zh="多环芳烃（PAHs）是城市土壤与水环境中普遍存在的持久性有机污染物，主要来源于机动车尾气、沥青老化、烹饪油烟及化石燃料燃烧。萘作为结构最简单、检出频率最高的低分子量PAH，长期低剂量暴露具有致癌和致畸风险。根据中国国家标准GB 36600‑2018，土壤萘污染已设有严格的风险筛查值。然而，传统HPLC检测前处理复杂、成本高且依赖实验室，难以实现现场快速筛查。">
+    Polycyclic aromatic hydrocarbons (PAHs) are ubiquitous persistent organic pollutants in urban soil and water environments, mainly derived from vehicle exhaust, asphalt aging, cooking fumes and fossil fuel combustion. As the simplest and most frequently detected low-molecular-weight PAH, naphthalene poses carcinogenic and teratogenic risks under long-term low-dose exposure. According to Chinese national standard GB 36600-2018, strict risk screening values are defined for soil naphthalene contamination. However, conventional HPLC detection requires complicated pretreatment, high cost and laboratory dependence, making rapid on-site screening impossible.
+  </p>
+
+  <p data-text-en="In this project, we constructed a dual-strain co-culture biosensing system based on the native naphthalene degradation pathway and NahR-Psal sensing pathway. The engineered degrader strain metabolizes naphthalene into salicylic acid, while the sensor strain recognizes salicylic acid and triggers eGFP fluorescence expression. The normalized fluorescence intensity (FL/OD₆₀₀) can quantitatively reflect environmental naphthalene concentration."
+     data-text-zh="在本项目中，我们基于天然萘降解通路与NahR‑Psal感应通路，构建了一套双菌共培养生物传感系统。工程化降解菌株将萘代谢为水杨酸，传感菌株识别水杨酸并触发eGFP荧光表达；归一化荧光强度（FL/OD₆₀₀）可定量反映环境萘浓度。">
+    In this project, we constructed a <strong>dual-strain co-culture biosensing system</strong> based on the native naphthalene degradation pathway and NahR-Psal sensing pathway. The engineered degrader strain metabolizes naphthalene into salicylic acid, while the sensor strain recognizes salicylic acid and triggers eGFP fluorescence expression. The normalized fluorescence intensity (FL/OD₆₀₀) can quantitatively reflect environmental naphthalene concentration.
+  </p>
+
+  <p data-text-en="The wild-type system suffers from low sensitivity, weak signal output and insufficient degradation efficiency. Therefore, we performed systematic optimization from five dimensions: bidirectional promoter engineering, NahR saturation mutagenesis, degradation promoter replacement, culture condition optimization, and dual-strain system adaptation. Our iterative modifications greatly improved sensitivity, response speed and detection limit, realizing a low-cost and high-performance whole-cell biosensor for environmental PAH screening."
+     data-text-zh="野生型系统存在灵敏度低、信号输出弱、降解效率不足等问题。为此，我们从五个维度对系统进行了系统性优化：双向启动子改造、NahR饱和突变、降解启动子替换、培养条件优化以及双菌系统适配。经过多轮迭代改造，系统的灵敏度、响应速度与检测限均大幅提升，最终实现了一款低成本、高性能的环境PAHs全细胞生物传感器。">
+    The wild-type system suffers from low sensitivity, weak signal output and insufficient degradation efficiency. Therefore, we performed systematic optimization from five dimensions: <strong>bidirectional promoter engineering, NahR saturation mutagenesis, degradation promoter replacement, culture condition optimization, and dual-strain system adaptation</strong>. Our iterative modifications greatly improved sensitivity, response speed and detection limit, realizing a low-cost and high-performance whole-cell biosensor for environmental PAH screening.
+  </p>
+</section>
+
+<!-- ==================== 2. Wild-Type System Design and Deficiency Analysis ==================== -->
+<section id="sec-wildtype" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-bacterium"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Wild-Type System Design &amp; Deficiency Analysis" data-text-zh="野生型系统设计与缺陷分析">Wild-Type System Design &amp; Deficiency Analysis</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p data-text-en="The original pathway is derived from Pseudomonas putida G7, which contains the native NahR-Psal-Pr bidirectional regulatory pathway and complete naphthalene degradation gene cluster. In wild-type strains, NahR recognizes salicylic acid and activates the Psal promoter to drive reporter expression, while the nah gene cluster catalyzes naphthalene-to-salicylate conversion."
+     data-text-zh="原始通路来源于恶臭假单胞菌（Pseudomonas putida）G7菌株，其中含有天然的NahR‑Psal‑Pr双向调控通路以及完整的萘降解基因簇。在野生型菌株中，NahR识别水杨酸并激活Psal启动子驱动报告基因表达，而nah基因簇则负责催化萘向水杨酸的转化。">
+    The original pathway is derived from <em>Pseudomonas putida</em> G7, which contains the native NahR-Psal-Pr bidirectional regulatory pathway and complete naphthalene degradation gene cluster. In wild-type strains, NahR recognizes salicylic acid and activates the Psal promoter to drive reporter expression, while the <em>nah</em> gene cluster catalyzes naphthalene-to-salicylate conversion.
+  </p>
+
+  <p data-text-en="However, after being transferred into E. coli DH5α, the native system showed severe limitations. The wild-type Psal-Pr bidirectional promoter poorly matches the E. coli transcriptional system, resulting in low transcription efficiency. Native NahR exhibits poor sensitivity to low-concentration salicylic acid. The original degradation promoter is weak and limits naphthalene conversion efficiency. The unoptimized system presents high baseline, low signal output and narrow dynamic range, which cannot detect trace environmental naphthalene pollution. Based on these deficiencies, we carried out multi-round rational engineering and system optimization."
+     data-text-zh="然而，将该通路转入大肠杆菌DH5α后，原生系统暴露出明显局限：野生型Psal‑Pr双向启动子与大肠杆菌转录系统适配性差，转录效率低；天然NahR对低浓度水杨酸的敏感性不足；原始降解启动子活性弱，限制了萘的转化效率。未经优化的系统本底高、信号输出弱、动态范围窄，无法检出环境中痕量的萘污染。基于以上缺陷，我们开展了多轮理性设计与系统优化。">
+    However, after being transferred into <em>E. coli</em> DH5α, the native system showed severe limitations. The wild-type Psal-Pr bidirectional promoter poorly matches the <em>E. coli</em> transcriptional system, resulting in low transcription efficiency. Native NahR exhibits poor sensitivity to low-concentration salicylic acid. The original degradation promoter is weak and limits naphthalene conversion efficiency. The unoptimized system presents high baseline, low signal output and narrow dynamic range, which cannot detect trace environmental naphthalene pollution. Based on these deficiencies, we carried out multi-round rational engineering and system optimization.
+  </p>
+</section>
+
+<!-- ==================== 3-7. Five-Dimension System Optimization ==================== -->
+<section id="sec-optimization" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-sliders"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Five-Dimension System Optimization" data-text-zh="五维系统优化">Five-Dimension System Optimization</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <!-- 3. Bidirectional Promoter Engineering -->
+  <div id="sec-opt-promoter">
+    <h3 data-text-en="Bidirectional promoter engineering" data-text-zh="双向启动子改造">Bidirectional promoter engineering</h3>
+    <p data-text-en="The wild-type Psal-Pr bidirectional promoter contains atypical -10 and -35 sequences, leading to low RNA polymerase binding affinity and poor transcriptional activity in E. coli. We performed site-directed mutagenesis on core promoter regions: the -10 box was optimized to TATAAT and the -35 box to TTGACA, fully matching the conserved consensus sequence of E. coli."
+       data-text-zh="野生型Psal‑Pr双向启动子的‑10、‑35区序列不典型，导致RNA聚合酶结合亲和力低，在大肠杆菌中转录活性差。我们对核心启动子区域进行了定点突变：将‑10 box优化为TATAAT、‑35 box优化为TTGACA，使其完全匹配大肠杆菌的保守共有序列。">
+      The wild-type Psal-Pr bidirectional promoter contains atypical ‑10 and ‑35 sequences, leading to low RNA polymerase binding affinity and poor transcriptional activity in <em>E. coli</em>. We performed site-directed mutagenesis on core promoter regions: the ‑10 box was optimized to TATAAT and the ‑35 box to TTGACA, fully matching the conserved consensus sequence of <em>E. coli</em>.
+    </p>
+    <p data-text-en="The optimized promoter significantly enhanced transcriptional output. The salicylic acid detection limit decreased from 0.1 mM to 20 μM, achieving a 5-fold improvement in sensitivity, which laid a solid foundation for trace signal capture and low-concentration pollutant detection."
+       data-text-zh="优化后的启动子显著提升了转录输出。水杨酸检测下限从0.1 mM降至20 μM，灵敏度提升5倍，为痕量信号捕获与低浓度污染物检测奠定了基础。">
+      The optimized promoter significantly enhanced transcriptional output. The salicylic acid detection limit decreased from 0.1 mM to 20 μM, achieving a <strong>5-fold improvement in sensitivity</strong>, which laid a solid foundation for trace signal capture and low-concentration pollutant detection.
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Result: Salicylic-acid detection limit 0.1 mM → 20 μM (5× more sensitive) after -10/-35 box optimization to TATAAT / TTGACA."
+         data-text-zh="结果：‑10/‑35 box优化为TATAAT / TTGACA后，水杨酸检测下限由0.1 mM降至20 μM，灵敏度提升5倍。">
+        <strong>Result:</strong> Salicylic‑acid detection limit 0.1 mM → 20 μM (5× more sensitive) after ‑10/‑35 box optimization to TATAAT / TTGACA.
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. NahR Saturation Mutagenesis -->
+  <div id="sec-opt-nahr">
+    <h3 data-text-en="NahR saturation mutagenesis" data-text-zh="NahR饱和突变">NahR saturation mutagenesis</h3>
+    <p data-text-en="NahR is the core sensory protein that determines the system's salicylic acid recognition sensitivity. Based on the optimized Psal promoter backbone, we constructed a saturation mutagenesis library targeting key functional sites N169 and R248 of NahR. After plate preliminary screening and liquid rescreening, we obtained the high-performance mutant NahR-118 (G169T248)."
+       data-text-zh="NahR是决定系统水杨酸识别灵敏度的核心传感蛋白。在优化后的Psal启动子骨架基础上，我们针对NahR的关键功能位点N169与R248构建了饱和突变文库，经平板初筛与液体复筛，获得了高性能突变体NahR‑118（G169T248）。">
+      NahR is the core sensory protein that determines the system's salicylic acid recognition sensitivity. Based on the optimized Psal promoter backbone, we constructed a saturation mutagenesis library targeting key functional sites N169 and R248 of NahR. After plate preliminary screening and liquid rescreening, we obtained the high-performance mutant <strong>NahR‑118 (G169T248)</strong>.
+    </p>
+    <p data-text-en="This mutant exhibits obvious fluorescence induction under extremely low salicylic acid concentration (1 μM), greatly improving the system's ultra-low concentration detection capability. In addition, the mutant plasmid presents a relaxed topological conformation, which optimizes NahR-ligand and NahR-DNA interaction, amplifies transcriptional output, reduces background noise and improves signal-to-noise ratio."
+       data-text-zh="该突变体在极低水杨酸浓度（1 μM）下即表现出明显的荧光诱导，大幅提升了系统对超低浓度目标物的检测能力。此外，突变体质粒呈现松弛的拓扑构象，优化了NahR‑配体与NahR‑DNA的相互作用，放大了转录输出，降低了背景噪声，提高了信噪比。">
+      This mutant exhibits obvious fluorescence induction under extremely low salicylic acid concentration (1 μM), greatly improving the system's ultra-low concentration detection capability. In addition, the mutant plasmid presents a relaxed topological conformation, which optimizes NahR‑ligand and NahR‑DNA interaction, amplifies transcriptional output, reduces background noise and improves signal‑to‑noise ratio.
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Result: NahR-118 (G169T248) responds clearly to 1 μM salicylic acid, with reduced background and improved signal-to-noise ratio."
+         data-text-zh="结果：NahR‑118（G169T248）对1 μM水杨酸即有明显响应，背景噪声降低，信噪比提升。">
+        <strong>Result:</strong> NahR‑118 (G169T248) responds clearly to 1 μM salicylic acid, with reduced background and improved signal‑to‑noise ratio.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. Degradation Pathway Promoter Optimization -->
+  <div id="sec-opt-degradation">
+    <h3 data-text-en="Degradation promoter optimization" data-text-zh="降解启动子优化">Degradation promoter optimization</h3>
+    <p data-text-en="The wild-type naphthalene degradation gene cluster is weakly expressed in E. coli, resulting in low naphthalene-to-salicylate conversion efficiency and insufficient sensory signal. To strengthen upstream degradation performance, we tested five constitutive promoters with different expression strengths and selected P114 as the optimal replacement for the native promoter."
+       data-text-zh="野生型萘降解基因簇在大肠杆菌中表达水平较低，导致萘向水杨酸的转化效率不足、上游感应信号不充分。为增强上游降解性能，我们测试了5种不同表达强度的组成型启动子，最终选定P114作为原生启动子的最优替换方案。">
+      The wild-type naphthalene degradation gene cluster is weakly expressed in <em>E. coli</em>, resulting in low naphthalene-to-salicylate conversion efficiency and insufficient sensory signal. To strengthen upstream degradation performance, we tested five constitutive promoters with different expression strengths and selected <strong>P114</strong> as the optimal replacement for the native promoter.
+    </p>
+    <p data-text-en="After promoter replacement, bacterial naphthalene metabolism was significantly enhanced. The coupled degradation-sensing system achieved a 1.4-fold higher fluorescence output compared with the original system, effectively smoothing the whole signal pathway from naphthalene degradation to fluorescence generation."
+       data-text-zh="更换启动子后，菌株的萘代谢能力显著增强。耦合降解‑感应系统的荧光输出较原系统提升了1.4倍，有效打通了从萘降解到荧光产生的整条信号通路。">
+      After promoter replacement, bacterial naphthalene metabolism was significantly enhanced. The coupled degradation-sensing system achieved a <strong>1.4‑fold higher fluorescence output</strong> compared with the original system, effectively smoothing the whole signal pathway from naphthalene degradation to fluorescence generation.
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Result: Native degradation promoter replaced with P114, giving 1.4× higher coupled fluorescence output."
+         data-text-zh="结果：原生降解启动子替换为P114后，耦合系统荧光输出提升1.4倍。">
+        <strong>Result:</strong> Native degradation promoter replaced with P114, giving 1.4× higher coupled fluorescence output.
+      </p>
+    </div>
+  </div>
+
+  <!-- 6. Culture Condition Optimization -->
+  <div id="sec-opt-culture">
+    <h3 data-text-en="Culture condition optimization" data-text-zh="培养条件优化">Culture condition optimization</h3>
+    <p data-text-en="Naphthalene dioxygenase (NahA), the key degrading enzyme, relies on [2Fe-2S] metal cofactors for catalytic activity. To further enhance degradation efficiency, we systematically optimized medium composition, metal ion supplementation and incubation time. The results proved that supplementation of 0.5 mg/mL Fe²⁺ in LBA100 medium maximizes enzyme activity."
+       data-text-zh="关键降解酶萘双加氧酶（NahA）的催化活性依赖[2Fe‑2S]金属辅因子。为进一步提升降解效率，我们对培养基组成、金属离子添加量与孵育时间进行了系统优化。结果表明，在LBA100培养基中补充0.5 mg/mL Fe²⁺可使酶活性达到最大。">
+      Naphthalene dioxygenase (NahA), the key degrading enzyme, relies on [2Fe‑2S] metal cofactors for catalytic activity. To further enhance degradation efficiency, we systematically optimized medium composition, metal ion supplementation and incubation time. The results proved that supplementation of <strong>0.5 mg/mL Fe²⁺</strong> in LBA100 medium maximizes enzyme activity.
+    </p>
+    <p data-text-en="Under optimal conditions, the system completes naphthalene degradation and produces stable fluorescence signals within only 3 hours, realizing rapid detection and greatly shortening the experimental cycle."
+       data-text-zh="在最优条件下，系统可在3小时内完成萘降解并产生稳定的荧光信号，实现了快速检测，大幅缩短了实验周期。">
+      Under optimal conditions, the system completes naphthalene degradation and produces stable fluorescence signals within only <strong>3 hours</strong>, realizing rapid detection and greatly shortening the experimental cycle.
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Result: 0.5 mg/mL Fe²⁺ in LBA100 medium maximizes NahA activity; stable fluorescence achieved within 3 hours."
+         data-text-zh="结果：LBA100培养基中添加0.5 mg/mL Fe²⁺可使NahA活性最大化；3小时内即可获得稳定荧光信号。">
+        <strong>Result:</strong> 0.5 mg/mL Fe²⁺ in LBA100 medium maximizes NahA activity; stable fluorescence achieved within 3 hours.
+      </p>
+    </div>
+  </div>
+
+  <!-- 7. Dual-strain Co-culture System Optimization -->
+  <div id="sec-opt-coculture">
+    <h3 data-text-en="Dual-strain co-culture optimization" data-text-zh="双菌共培养优化">Dual-strain co-culture optimization</h3>
+    <p data-text-en="Bacterial ratio and cell density are critical to the stability and sensitivity of the co-culture system. We optimized the inoculation ratio and working OD gradiently, and finally determined the optimal working density of sensor strain as OD₆₀₀ = 0.8. The standardized dual-strain system exhibits high stability and repeatability, achieving an ultra-low detection limit of 0.1 μM for naphthalene, which fully meets the detection demand of trace environmental pollutants."
+       data-text-zh="菌株接种比例与细胞密度是共培养系统稳定性与灵敏度的关键因素。我们对接种比例与工作OD进行了梯度优化，最终确定传感菌株的最优工作密度为OD₆₀₀ = 0.8。标准化后的双菌系统表现出高稳定性与可重复性，对萘的检测下限达到0.1 μM，充分满足环境痕量污染物的检测需求。">
+      Bacterial ratio and cell density are critical to the stability and sensitivity of the co-culture system. We optimized the inoculation ratio and working OD gradiently, and finally determined the optimal working density of sensor strain as <strong>OD₆₀₀ = 0.8</strong>. The standardized dual-strain system exhibits high stability and repeatability, achieving an ultra-low detection limit of <strong>0.1 μM</strong> for naphthalene, which fully meets the detection demand of trace environmental pollutants.
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Result: Optimal sensor-strain working density OD₆₀₀ = 0.8; standardized dual-strain system reaches a 0.1 μM naphthalene detection limit."
+         data-text-zh="结果：传感菌株最优工作密度OD₆₀₀ = 0.8；标准化双菌系统对萘的检测下限达到0.1 μM。">
+        <strong>Result:</strong> Optimal sensor-strain working density OD₆₀₀ = 0.8; standardized dual-strain system reaches a 0.1 μM naphthalene detection limit.
+      </p>
+    </div>
+  </div>
+
+  <!-- 优化总览表 -->
+  <div class="protocol-card wetlab-animate">
+    <div class="card-title">
+      <i class="fa-solid fa-table"></i>
+      <span data-text-en="Optimization overview" data-text-zh="优化方案总览">Optimization overview</span>
+    </div>
+    <div class="wetlab-table-wrapper">
+      <table class="wetlab-table">
+        <thead>
+          <tr>
+            <th data-text-en="Dimension" data-text-zh="优化维度">Dimension</th>
+            <th data-text-en="Strategy" data-text-zh="策略">Strategy</th>
+            <th data-text-en="Key result" data-text-zh="关键结果">Key result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-text-en="Bidirectional promoter engineering" data-text-zh="双向启动子改造">Bidirectional promoter engineering</td>
+            <td data-text-en="-10 box → TATAAT, -35 box → TTGACA" data-text-zh="‑10 box → TATAAT，‑35 box → TTGACA">‑10 box → TATAAT, ‑35 box → TTGACA</td>
+            <td data-text-en="Detection limit 0.1 mM → 20 μM (5×)" data-text-zh="检测下限0.1 mM → 20 μM（提升5倍）">Detection limit 0.1 mM → 20 μM (5×)</td>
+          </tr>
+          <tr>
+            <td data-text-en="NahR saturation mutagenesis" data-text-zh="NahR饱和突变">NahR saturation mutagenesis</td>
+            <td data-text-en="Saturation mutagenesis at N169 / R248 → NahR-118" data-text-zh="对N169 / R248位点饱和突变 → NahR‑118">Saturation mutagenesis at N169 / R248 → NahR‑118</td>
+            <td data-text-en="Clear response at 1 μM salicylic acid" data-text-zh="1 μM水杨酸即有明显响应">Clear response at 1 μM salicylic acid</td>
+          </tr>
+          <tr>
+            <td data-text-en="Degradation promoter optimization" data-text-zh="降解启动子优化">Degradation promoter optimization</td>
+            <td data-text-en="Native promoter replaced with P114" data-text-zh="原生启动子替换为P114">Native promoter replaced with P114</td>
+            <td data-text-en="1.4× higher coupled fluorescence output" data-text-zh="耦合荧光输出提升1.4倍">1.4× higher coupled fluorescence output</td>
+          </tr>
+          <tr>
+            <td data-text-en="Culture condition optimization" data-text-zh="培养条件优化">Culture condition optimization</td>
+            <td data-text-en="0.5 mg/mL Fe²⁺ supplemented in LBA100" data-text-zh="LBA100中补充0.5 mg/mL Fe²⁺">0.5 mg/mL Fe²⁺ supplemented in LBA100</td>
+            <td data-text-en="Stable signal within 3 hours" data-text-zh="3小时内获得稳定信号">Stable signal within 3 hours</td>
+          </tr>
+          <tr>
+            <td data-text-en="Dual-strain co-culture optimization" data-text-zh="双菌共培养优化">Dual-strain co-culture optimization</td>
+            <td data-text-en="Sensor strain working density OD₆₀₀ = 0.8" data-text-zh="传感菌株工作密度OD₆₀₀ = 0.8">Sensor strain working density OD₆₀₀ = 0.8</td>
+            <td data-text-en="Naphthalene detection limit 0.1 μM" data-text-zh="萘检测下限0.1 μM">Naphthalene detection limit 0.1 μM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 8. Design Summary & Future Prospect ==================== -->
+<section id="sec-summary" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-lightbulb"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Design Summary &amp; Future Prospect" data-text-zh="设计总结与未来展望">Design Summary &amp; Future Prospect</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p data-text-en="To solve the low sensitivity, weak signal and low degradation efficiency of the wild-type system, we performed five-layer iterative optimization: bidirectional promoter modification enhanced transcription, NahR saturation mutagenesis improved ultra-trace recognition, degradation promoter replacement strengthened metabolism, metal ion optimization accelerated catalysis, and dual-strain standardization stabilized signal output."
+     data-text-zh="为解决野生型系统灵敏度低、信号弱、降解效率不足的问题，我们进行了五层迭代优化：双向启动子改造增强了转录，NahR饱和突变提升了超痕量识别能力，降解启动子替换强化了代谢，金属离子优化加速了催化，双菌标准化稳定了信号输出。">
+    To solve the low sensitivity, weak signal and low degradation efficiency of the wild-type system, we performed five-layer iterative optimization: bidirectional promoter modification enhanced transcription, NahR saturation mutagenesis improved ultra-trace recognition, degradation promoter replacement strengthened metabolism, metal ion optimization accelerated catalysis, and dual-strain standardization stabilized signal output.
+  </p>
+
+  <p data-text-en="Finally, we constructed a high-sensitivity, fast-response and high-stability dual-strain PAHs biosensing platform. Free from reliance on large precision instruments, our system enables low-cost and rapid screening of naphthalene pollution in soil and water, providing a novel and convenient synthetic biology solution for urban invisible organic pollution monitoring."
+     data-text-zh="最终，我们构建了一套高灵敏度、快响应、高稳定性的双菌PAHs生物传感平台。该系统无需依赖大型精密仪器，即可实现对土壤与水体中萘污染的低成本快速筛查，为城市隐性有机污染监测提供了一种新颖、便捷的合成生物学解决方案。">
+    Finally, we constructed a <strong>high-sensitivity, fast-response and high-stability</strong> dual-strain PAHs biosensing platform. Free from reliance on large precision instruments, our system enables low-cost and rapid screening of naphthalene pollution in soil and water, providing a novel and convenient synthetic biology solution for urban invisible organic pollution monitoring.
+  </p>
+
+  <p data-text-en="For practical application, we plan to develop portable PAHs detection kits based on our optimized biosensing system, suitable for on-site field detection, community soil surveys and suburban farmland sampling. Furthermore, we have built a supporting online photographic identification platform. By capturing fluorescence images under ultraviolet excitation and utilizing the fitting conversion relationship between green saturation and normalized fluorescence intensity, the platform can intelligently and quantitatively calculate naphthalene concentration, realizing a fully lightweight detection process of 'sampling-culturing-photographing-intelligent quantification' and further lowering the threshold of environmental pollutant detection."
+     data-text-zh="面向实际应用，我们计划基于优化后的传感系统开发便携式PAHs检测试剂盒，适用于现场检测、社区土壤排查与城郊农田采样。此外，我们还搭建了配套的在线拍照识别平台：通过采集紫外激发下的荧光图像，并利用绿色饱和度与归一化荧光强度之间的拟合换算关系，平台可以智能定量计算萘浓度，实现『采样‑培养‑拍照‑智能定量』的全流程轻量化检测，进一步降低环境污染物检测的门槛。">
+    For practical application, we plan to develop portable PAHs detection kits based on our optimized biosensing system, suitable for on-site field detection, community soil surveys and suburban farmland sampling. Furthermore, we have built a supporting online photographic identification platform. By capturing fluorescence images under ultraviolet excitation and utilizing the fitting conversion relationship between green saturation and normalized fluorescence intensity, the platform can intelligently and quantitatively calculate naphthalene concentration, realizing a fully lightweight detection process of "sampling‑culturing‑photographing‑intelligent quantification" and further lowering the threshold of environmental pollutant detection.
+  </p>
+</section>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../static/anime.min.js"></script>
+  <script type="module" src="../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

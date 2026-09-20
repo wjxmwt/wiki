@@ -97,8 +97,8 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="../../#Description" class="dropdown-link"><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
-            <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程实现">Engineering</span></a></li>
+            <li><a href="../../project/description" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="../../project/design" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
             <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
           </ul>
         </li>
@@ -110,12 +110,12 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
           <ul class="dropdown-menu">
+            <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text">Engineering</span></a></li>
             <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
-            <li><a href="../../#Design" class="dropdown-link"><span class="nav-text" data-text-en="Design" data-text-zh="实验设计">Design</span></a></li>
+            <li><a href="../../#Protocol" class="dropdown-link "><span class="nav-text">Protocol</span></a></li>
+            <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li> 
             <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
-            <li><a href="../../wetlab/salicylic-acid/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Experiments" data-text-zh="实验内容">Experiments</span></a></li>
-            <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
-            <li><a href="../../#Safety" class="dropdown-link"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+            <li><a href="../../wetlab/safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
           </ul>
         </li>
 
@@ -127,8 +127,7 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
           <ul class="dropdown-menu">
-            <li style="width:15vw;"><a href="index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Naphthalene" data-text-zh="萘建模">Modeling Naphthalene</span></a></li>
-            <li><a href="../salicylic-acid/index.html" class="dropdown-link"><span class="nav-text" data-text-en="Modeling Salicylic Acid" data-text-zh="水杨酸建模">Modeling Salicylic Acid</span></a></li>
+            <li><a href="index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
             <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
             <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
           </ul>
@@ -146,12 +145,19 @@
           </ul>
         </li>
 
-        <!-- 无下拉的导航项 -->
-        <li class="nav-item">
-          <a href="../../#Human Practice" class="nav-link " data-section="Human-Practice">
-            <i class="fas fa-briefcase"></i>
-            <span class="nav-text" data-text-en="Human-Practice" data-text-zh="人文实践">Human Practice</span>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
           </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="../../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
         </li>
       
         <li class="nav-item">
@@ -246,11 +252,11 @@
         We constructed a cascade kinetic model coupling naphthalene biodegradation and salicylate‑dependent NahR‑Psal biosensor, predicting limit‑of‑detection for environmental naphthalene monitoring and offering theoretical guidance for wet‑lab optimization.
       </p>
       <div class="hero-actions">
-        <a href="#sec-design" class="hero-btn hero-btn-primary">
-          <span data-text-en="Read Design" data-text-zh="模型设计">Read Design</span> <i class="fa-solid fa-arrow-down"></i>
+        <a href="index.html" class="hero-btn hero-btn-primary">
+          <span>Naphthalene Model</span> <i class="fa-solid fa-arrow-down"></i>
         </a>
-        <a href="#sec-result" class="hero-btn hero-btn-secondary">
-          <span data-text-en="View Results" data-text-zh="模拟结果">View Results</span> <i class="fa-solid fa-chart-line"></i>
+        <a href="../salicylic-acid/index.html" class="hero-btn hero-btn-secondary">
+          <span>Salicylic Acid Model</span> <i class="fa-solid fa-chart-line"></i>
         </a>
       </div>
     </div>

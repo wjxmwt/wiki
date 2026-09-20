@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wet Lab · Safety | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+<meta name="description"
+  content="Biosafety, chemical safety, waste management, equipment safety, and emergency preparedness procedures for our BSL-1 naphthalene-sensing dual-strain biosensor project.">
+
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="nav-menu" id="navMenu">
+        <!-- Project 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Project" class="nav-link " data-section="Project">
+            <i class="fas fa-home"></i>
+            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../project/description" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="../../project/design" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+          </ul>
+        </li>
+        <!-- Wet Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Wet Lab" class="nav-link active" data-section="Wet-Lab">
+            <i class="fa-solid fa-flask"></i>
+            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../#Engineering" class="dropdown-link"><span class="nav-text">Engineering</span></a></li>
+            <li><a href="../../#Result" class="dropdown-link"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+            <li><a href="../../#Protocol" class="dropdown-link "><span class="nav-text">Protocol</span></a></li>
+            <li><a href="../../#Parts" class="dropdown-link"><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li> 
+            <li><a href="../../#Notebook" class="dropdown-link"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+            <li><a href="index.html" class="dropdown-link active"><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Dry Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+          </ul>
+        </li>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Team" class="nav-link " data-section="Team">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="../../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
+        </li>
+      
+        <li class="nav-item">
+          <a href="../../#Video" class="nav-link " data-section="Video">
+            <i class="fa-solid fa-video"></i>
+            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-controls">
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li><a href="#sec-intro" data-text-en="Daily Safety in BSL-1 Lab" data-text-zh="BSL‑1实验室日常安全">Daily Safety in BSL-1 Lab</a></li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-biosafety" data-text-en="Biosafety &amp; Protection" data-text-zh="生物安全与防护">Biosafety &amp; Protection</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-bio-microorganism" data-text-en="Microorganism handling" data-text-zh="微生物操作">Microorganism handling</a></li>
+        <li><a href="#sec-bio-genetic" data-text-en="Genetic modification &amp; risks" data-text-zh="基因改造与潜在风险">Genetic modification &amp; risks</a></li>
+        <li><a href="#sec-bio-containment" data-text-en="Containment strategy" data-text-zh="防扩散策略">Containment strategy</a></li>
+    </ul>
+</li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-chemical" data-text-en="Chemical Safety" data-text-zh="化学品安全">Chemical Safety</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-chem-hazards" data-text-en="Major chemicals &amp; hazards" data-text-zh="主要化学品与危害">Major chemicals &amp; hazards</a></li>
+        <li><a href="#sec-chem-ppe" data-text-en="Personal protective equipment" data-text-zh="个人防护装备">Personal protective equipment</a></li>
+    </ul>
+</li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-waste" data-text-en="Waste Management" data-text-zh="废弃物管理">Waste Management</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-waste-bio" data-text-en="Biological waste disposal" data-text-zh="生物废弃物处理">Biological waste disposal</a></li>
+        <li><a href="#sec-waste-chem" data-text-en="Chemical waste disposal" data-text-zh="化学废弃物处理">Chemical waste disposal</a></li>
+    </ul>
+</li>
+<li><a href="#sec-equipment" data-text-en="Equipment Safety" data-text-zh="设备安全">Equipment Safety</a></li>
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-training" data-text-en="Training &amp; Emergency Preparation" data-text-zh="安全培训与应急准备">Training &amp; Emergency Preparation</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-training-program" data-text-en="Training &amp; safety review" data-text-zh="培训与安全例会">Training &amp; safety review</a></li>
+        <li><a href="#sec-training-emergency" data-text-en="Emergency plan" data-text-zh="应急预案">Emergency plan</a></li>
+    </ul>
+</li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <!-- 装饰背景 -->
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="WET-LAB · BIOSAFETY" data-text-zh="湿实验 · 生物安全">WET‑LAB · BIOSAFETY</div>
+      <h1 class="hero-title" data-html
+        data-text-en="Safety in <span class='hero-accent'>BSL-1 Practice</span>"
+        data-text-zh="BSL‑1实验室<span class='hero-accent'>安全实践</span>">
+        Safety in <span class="hero-accent">BSL-1 Practice</span>
+      </h1>
+      <p class="hero-desc" data-text-en="Safety is the core principle running through our whole project — gene cloning, plasmid construction, engineered strain cultivation, dual-strain biosensor assays and environmental soil sample tests are all carried out in a BSL-1 laboratory under a complete, documented safety management workflow."
+         data-text-zh="安全是贯穿本项目全流程的核心原则——基因克隆、质粒构建、工程菌株培养、双菌生物传感检测以及环境土壤样品测试均在BSL‑1实验室内完成，并遵循一套完整、有据可查的安全管理流程。">
+        Safety is the core principle running through our whole project — gene cloning, plasmid construction, engineered strain cultivation, dual-strain biosensor assays and environmental soil sample tests are all carried out in a BSL-1 laboratory under a complete, documented safety management workflow.
+      </p>
+      <div class="hero-actions">
+        <a href="#sec-biosafety" class="hero-btn hero-btn-primary">
+          <span data-text-en="Biosafety" data-text-zh="生物安全">Biosafety</span> <i class="fa-solid fa-shield-halved"></i>
+        </a>
+        <a href="#sec-training-emergency" class="hero-btn hero-btn-secondary">
+          <span data-text-en="Emergency Plan" data-text-zh="应急预案">Emergency Plan</span> <i class="fa-solid fa-kit-medical"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="Wet Lab Safety">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="BSL-1" data-text-zh="生物安全一级">BSL‑1</div>
+          <div class="hero-image-title" data-text-en="Lab Safety &amp; Emergency Response" data-text-zh="实验室安全与应急响应">Lab Safety &amp; Emergency Response</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<!-- ==================== 1. Daily Safety in BSL-1 Lab ==================== -->
+<section id="sec-intro" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-shield-halved"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Daily Safety in BSL-1 Lab" data-text-zh="BSL‑1实验室日常安全">Daily Safety in BSL-1 Lab</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <p class="drop-cap" data-text-en="Safety is the core principle of our project throughout gene cloning, plasmid construction, engineered strain cultivation, dual-strain biosensor assay and environmental soil sample tests."
+     data-text-zh="安全是本项目贯穿基因克隆、质粒构建、工程菌株培养、双菌生物传感检测以及环境土壤样品测试全过程的核心原则。">
+    Safety is the core principle of our project throughout gene cloning, plasmid construction, engineered strain cultivation, dual-strain biosensor assay and environmental soil sample tests.
+  </p>
+
+  <p data-text-en="We use E. coli DH5α as the chassis to construct naphthalene-sensing and naphthalene-degrading engineered strains. Experiments involve organic solvents including naphthalene, acetonitrile and DMSO. All laboratory work is performed in a BSL-1 laboratory. Our work strictly complies with national biosafety regulations and iGEM safety guidelines."
+     data-text-zh="我们以大肠杆菌DH5α为底盘构建萘感应菌株与萘降解工程菌株。实验涉及萘、乙腈、DMSO等有机溶剂，所有实验操作均在BSL‑1实验室内完成，并严格遵守国家生物安全法规及iGEM安全指南。">
+    We use <em>E. coli</em> DH5α as the chassis to construct naphthalene-sensing and naphthalene-degrading engineered strains. Experiments involve organic solvents including naphthalene, acetonitrile and DMSO. All laboratory work is performed in a <strong>BSL-1 laboratory</strong>. Our work strictly complies with national biosafety regulations and iGEM safety guidelines.
+  </p>
+
+  <p data-text-en="A complete safety management workflow has been established to keep every experimental step safe and controllable."
+     data-text-zh="我们建立了一套完整的安全管理流程，确保每一个实验环节都安全、可控。">
+    A complete safety management workflow has been established to keep every experimental step safe and controllable.
+  </p>
+</section>
+
+<!-- ==================== 2. Biosafety and Protection ==================== -->
+<section id="sec-biosafety" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-bacterium"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Biosafety &amp; Protection" data-text-zh="生物安全与防护">Biosafety &amp; Protection</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-bio-microorganism">
+    <h3 data-text-en="Microorganism handling" data-text-zh="微生物操作">Microorganism handling</h3>
+    <p data-text-en="The chassis E. coli DH5α used in our project belongs to Risk Group 1 and is non-pathogenic. Our sensor and degrader engineered strains are stored as glycerol stocks in dedicated -80 °C freezers. Each stock is clearly labeled with strain name, genotype, construction date and responsible member."
+       data-text-zh="本项目使用的底盘菌株大肠杆菌DH5α属于风险等级1，无致病性。传感与降解工程菌株均以甘油菌形式保存于专用‑80 ℃冰箱中，每份菌种都清楚标注菌株名称、基因型、构建日期与负责人。">
+      The chassis <em>E. coli</em> DH5α used in our project belongs to Risk Group 1 and is non-pathogenic. Our sensor and degrader engineered strains are stored as glycerol stocks in dedicated ‑80 °C freezers. Each stock is clearly labeled with strain name, genotype, construction date and responsible member.
+    </p>
+    <p data-text-en="Glycerol stock revival is performed inside a laminar flow cabinet. Only small volumes are taken for streaking or inoculation to avoid repeated freeze-thaw damage."
+       data-text-zh="甘油菌复苏均在超净工作台内进行，每次仅取少量菌液用于划线或接种，避免反复冻融造成的损伤。">
+      Glycerol stock revival is performed inside a laminar flow cabinet. Only small volumes are taken for streaking or inoculation to avoid repeated freeze‑thaw damage.
+    </p>
+    <p data-text-en="All liquid cultures are carried out in sealed shake flasks sealed with breathable sterile membranes to guarantee gas exchange and prevent spillage and cross-contamination. Dual-strain co-culture is performed in closed liquid systems to minimize aerosol risk."
+       data-text-zh="所有液体培养均在密封摇瓶中进行，瓶口以透气无菌膜封闭，既保证气体交换，又防止溢出与交叉污染。双菌共培养在密闭液体体系中完成，以降低气溶胶风险。">
+      All liquid cultures are carried out in sealed shake flasks sealed with breathable sterile membranes to guarantee gas exchange and prevent spillage and cross‑contamination. Dual‑strain co‑culture is performed in closed liquid systems to minimize aerosol risk.
+    </p>
+  </div>
+
+  <div id="sec-bio-genetic">
+    <h3 data-text-en="Genetic modification &amp; potential risks" data-text-zh="基因改造与潜在风险">Genetic modification &amp; potential risks</h3>
+    <p data-text-en="We introduced the NahR-Psal sensory module and naphthalene-degrading nah gene cluster into E. coli DH5α to build our naphthalene-responsive dual-strain system. The original gene fragments come from environmental Pseudomonas putida G7. The engineered strains only gain naphthalene-sensing and metabolic functions. Nevertheless, unforeseen risks from genetic modification still exist. All cultivation, transfer and sample handling of modified organisms follow BSL-1 requirements. Release of engineered bacteria outside laboratory premises is strictly forbidden."
+       data-text-zh="我们将NahR‑Psal感应模块与萘降解nah基因簇导入大肠杆菌DH5α，构建出萘响应型双菌系统。原始基因片段来源于环境中的恶臭假单胞菌G7。工程菌株仅获得了萘感应与相应代谢功能，但基因改造仍可能带来不可预见的风险。所有工程菌的培养、转移与样品处理均遵循BSL‑1要求，严禁将工程菌带出实验室范围。">
+      We introduced the NahR‑Psal sensory module and naphthalene‑degrading <em>nah</em> gene cluster into <em>E. coli</em> DH5α to build our naphthalene‑responsive dual‑strain system. The original gene fragments come from environmental <em>Pseudomonas putida</em> G7. The engineered strains only gain naphthalene‑sensing and metabolic functions. Nevertheless, unforeseen risks from genetic modification still exist. All cultivation, transfer and sample handling of modified organisms follow BSL‑1 requirements. <strong>Release of engineered bacteria outside laboratory premises is strictly forbidden.</strong>
+    </p>
+  </div>
+
+  <div id="sec-bio-containment">
+    <h3 data-text-en="Containment strategy" data-text-zh="防扩散策略">Containment strategy</h3>
+    <ul class="step-list">
+      <li data-text-en="Inside laboratory: all open-tube operations with engineered bacteria are conducted inside laminar flow cabinets. Bench surfaces are disinfected with 75% ethanol after use."
+          data-text-zh="实验室内：所有涉及工程菌的开管操作均在超净工作台内进行；使用后台面以75%乙醇消毒。">Inside laboratory: all open‑tube operations with engineered bacteria are conducted inside laminar flow cabinets. Bench surfaces are disinfected with 75% ethanol after use.</li>
+      <li data-text-en="Outside laboratory: engineered strains are never taken out of the lab. All liquid waste and solid consumables containing modified bacteria must be fully inactivated before disposal."
+          data-text-zh="实验室外：工程菌株绝不带出实验室；所有含工程菌的液体废物与固体耗材必须经充分灭活后方可处置。">Outside laboratory: engineered strains are never taken out of the lab. All liquid waste and solid consumables containing modified bacteria must be fully inactivated before disposal.</li>
+      <li data-text-en="We do not build dedicated genetic kill-switches; physical laboratory management serves as our containment measure."
+          data-text-zh="本项目未构建专门的基因『自杀开关』，防扩散主要依靠实验室的物理管理措施来实现。">We do not build dedicated genetic kill‑switches; physical laboratory management serves as our containment measure.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 3. Chemical Safety ==================== -->
+<section id="sec-chemical" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-flask-vial"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Chemical Safety" data-text-zh="化学品安全">Chemical Safety</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-chem-hazards">
+    <h3 data-text-en="Major chemicals &amp; hazards" data-text-zh="主要化学品与危害">Major chemicals &amp; hazards</h3>
+    <p data-text-en="The table below lists the main chemicals used in our project, their hazards, and the required precautions."
+       data-text-zh="下表列出了本项目中使用的主要化学品、其危害性及相应的防护要求。">
+      The table below lists the main chemicals used in our project, their hazards, and the required precautions.
+    </p>
+    <div class="protocol-card wetlab-animate">
+      <div class="card-title">
+        <i class="fa-solid fa-vial-circle-check"></i>
+        <span data-text-en="Chemical hazards &amp; precautions" data-text-zh="化学品危害与防护措施">Chemical hazards &amp; precautions</span>
+      </div>
+      <div class="wetlab-table-wrapper">
+        <table class="wetlab-table">
+          <thead>
+            <tr>
+              <th data-text-en="Chemical" data-text-zh="化学品">Chemical</th>
+              <th data-text-en="Hazard" data-text-zh="危害">Hazard</th>
+              <th data-text-en="Required precaution" data-text-zh="防护要求">Required precaution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-text-en="Antibiotics (e.g. Ampicillin)" data-text-zh="抗生素（如氨苄青霉素）">Antibiotics (e.g. Ampicillin)</td>
+              <td data-text-en="Used for strain selection; inhalation risk from powder" data-text-zh="用于菌株筛选；粉末称量存在吸入风险">Used for strain selection; inhalation risk from powder</td>
+              <td data-text-en="Dust-proof mask and nitrile gloves during powder weighing" data-text-zh="称量粉末时佩戴防尘口罩与丁腈手套">Dust‑proof mask and nitrile gloves during powder weighing</td>
+            </tr>
+            <tr>
+              <td>IPTG</td>
+              <td data-text-en="Protein inducer with irritant properties" data-text-zh="蛋白诱导剂，具有刺激性">Protein inducer with irritant properties</td>
+              <td data-text-en="Gloves mandatory to prevent direct skin contact" data-text-zh="必须佩戴手套，避免直接接触皮肤">Gloves mandatory to prevent direct skin contact</td>
+            </tr>
+            <tr>
+              <td data-text-en="Naphthalene" data-text-zh="萘">Naphthalene</td>
+              <td data-text-en="Target analyte; toxic, slightly volatile PAH with carcinogenic risk" data-text-zh="目标分析物；具毒性、微挥发性且有致癌风险的PAH">Target analyte; toxic, slightly volatile PAH with carcinogenic risk</td>
+              <td data-text-en="Weigh and dilute inside fume hoods, away from heat sources" data-text-zh="须在通风橱内称量、稀释，远离热源">Weigh and dilute inside fume hoods, away from heat sources</td>
+            </tr>
+            <tr>
+              <td data-text-en="DMSO, Acetonitrile" data-text-zh="DMSO、乙腈">DMSO, Acetonitrile</td>
+              <td data-text-en="Volatile irritant organic solvents" data-text-zh="易挥发的刺激性有机溶剂">Volatile irritant organic solvents</td>
+              <td data-text-en="All vial-opening operations carried out in fume hoods" data-text-zh="所有开瓶操作均在通风橱内进行">All vial‑opening operations carried out in fume hoods</td>
+            </tr>
+            <tr>
+              <td data-text-en="Acid-base solutions" data-text-zh="酸碱溶液">Acid‑base solutions</td>
+              <td data-text-en="Used for medium preparation and sample pretreatment; splash risk" data-text-zh="用于培养基配制与样品前处理；存在飞溅风险">Used for medium preparation and sample pretreatment; splash risk</td>
+              <td data-text-en="Care taken to prevent splashes causing skin or eye injury" data-text-zh="操作时注意防止飞溅造成皮肤或眼部伤害">Care taken to prevent splashes causing skin or eye injury</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-chem-ppe">
+    <h3 data-text-en="Personal protective equipment" data-text-zh="个人防护装备">Personal protective equipment</h3>
+    <p data-text-en="All lab members wear appropriate personal protective equipment. Two levels are defined: basic protection and enhanced protection."
+       data-text-zh="全体实验室成员均佩戴相应的个人防护装备，共分为基础防护与强化防护两个等级。">
+      All lab members wear appropriate personal protective equipment. Two levels are defined: <strong>basic protection</strong> and <strong>enhanced protection</strong>.
+    </p>
+
+    <h4 data-text-en="Basic PPE" data-text-zh="基础防护">Basic PPE</h4>
+    <p data-text-en="For routine work such as inoculation, streaking and medium preparation:" data-text-zh="适用于接种、划线、培养基配制等常规操作：">
+      For routine work such as inoculation, streaking and medium preparation:
+    </p>
+    <ul class="step-list">
+      <li data-text-en="Lab coat: long-sleeve splash-resistant coat, worn only inside laboratory." data-text-zh="实验服：长袖防溅实验服，仅限在实验室内穿着。">Lab coat: long‑sleeve splash‑resistant coat, worn only inside laboratory.</li>
+      <li data-text-en="Safety goggles: protect eyes from splashes; contact lenses are not a substitute." data-text-zh="护目镜：防止液体飞溅入眼；隐形眼镜不能替代护目镜。">Safety goggles: protect eyes from splashes; contact lenses are not a substitute.</li>
+      <li data-text-en="Nitrile gloves: check for damage before use; change gloves between different samples to avoid cross-contamination." data-text-zh="丁腈手套：使用前检查是否破损；更换样品时应更换手套，避免交叉污染。">Nitrile gloves: check for damage before use; change gloves between different samples to avoid cross‑contamination.</li>
+      <li data-text-en="Footwear: closed-toe shoes; sandals and slippers are prohibited." data-text-zh="鞋履：须穿包头鞋，禁止穿凉鞋或拖鞋。">Footwear: closed‑toe shoes; sandals and slippers are prohibited.</li>
+      <li data-text-en="Long hair must be tied back; necklaces, rings and similar ornaments are not allowed." data-text-zh="长发须束起；禁止佩戴项链、戒指等饰品。">Long hair must be tied back; necklaces, rings and similar ornaments are not allowed.</li>
+    </ul>
+
+    <h4 data-text-en="Enhanced PPE" data-text-zh="强化防护">Enhanced PPE</h4>
+    <p data-text-en="For handling high-risk chemicals including naphthalene, acetonitrile and DMSO:" data-text-zh="适用于处理萘、乙腈、DMSO等高风险化学品：">
+      For handling high‑risk chemicals including naphthalene, acetonitrile and DMSO:
+    </p>
+    <ul class="step-list">
+      <li data-text-en="Double-layer nitrile gloves." data-text-zh="双层丁腈手套。">Double‑layer nitrile gloves.</li>
+      <li data-text-en="Face shield: protect against solvent vapor and liquid splashes." data-text-zh="防护面罩：防止溶剂蒸气与液体飞溅。">Face shield: protect against solvent vapor and liquid splashes.</li>
+      <li data-text-en="Dust-resistant mask: required when weighing solid naphthalene or antibiotic powders." data-text-zh="防尘口罩：称量固体萘或抗生素粉末时须佩戴。">Dust‑resistant mask: required when weighing solid naphthalene or antibiotic powders.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 4. Waste Management ==================== -->
+<section id="sec-waste" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-dumpster"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Waste Management" data-text-zh="废弃物管理">Waste Management</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-waste-bio">
+    <h3 data-text-en="Biological waste disposal" data-text-zh="生物废弃物处理">Biological waste disposal</h3>
+    <ul class="step-list">
+      <li data-text-en="Solid biological waste: petri dishes, tips, centrifuge tubes and gloves exposed to engineered bacteria are sealed in biohazard bags and autoclaved at 121 °C for 30 min. Only after complete sterilization can they be discarded as general waste."
+          data-text-zh="固体生物废弃物：接触过工程菌的培养皿、枪头、离心管、手套等，先密封于生物危害袋中，再经121 ℃高压灭菌30分钟，完全灭菌后方可作为一般废弃物丢弃。">Solid biological waste: petri dishes, tips, centrifuge tubes and gloves exposed to engineered bacteria are sealed in biohazard bags and autoclaved at 121 °C for 30 min. Only after complete sterilization can they be discarded as general waste.</li>
+      <li data-text-en="Liquid biological waste: bacterial waste liquid is mixed with 10% final-concentration sodium hypochlorite. The mixture stands for at least 60 min for full inactivation before draining into dedicated lab sewage."
+          data-text-zh="液体生物废弃物：菌液废液与终浓度10%的次氯酸钠混合，静置至少60分钟以充分灭活，之后方可排入实验室专用下水管道。">Liquid biological waste: bacterial waste liquid is mixed with 10% final‑concentration sodium hypochlorite. The mixture stands for at least 60 min for full inactivation before draining into dedicated lab sewage.</li>
+    </ul>
+  </div>
+
+  <div id="sec-waste-chem">
+    <h3 data-text-en="Chemical waste disposal" data-text-zh="化学废弃物处理">Chemical waste disposal</h3>
+    <ul class="step-list">
+      <li data-text-en="Organic waste liquid (naphthalene solution, acetonitrile, DMSO): stored in sealed labeled waste containers and collected regularly by qualified third-party contractors. Direct discharge into drains is forbidden."
+          data-text-zh="有机废液（萘溶液、乙腈、DMSO）：储存于密封标注的废液容器中，定期由具备资质的第三方机构收集处理，严禁直接排入下水道。">Organic waste liquid (naphthalene solution, acetonitrile, DMSO): stored in sealed labeled waste containers and collected regularly by qualified third‑party contractors. Direct discharge into drains is forbidden.</li>
+      <li data-text-en="Sharps waste: needles and broken glass are placed exclusively in sharps containers."
+          data-text-zh="锐器废弃物：针头及破损玻璃仅可放入专用锐器盒中。">Sharps waste: needles and broken glass are placed exclusively in sharps containers.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 5. Equipment Safety ==================== -->
+<section id="sec-equipment" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-gears"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Equipment Safety" data-text-zh="设备安全">Equipment Safety</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <ul class="step-list">
+    <li data-text-en="Laminar flow cabinet: wipe working surface with 75% ethanol before and after use. UV lamps and HEPA filters are replaced periodically with maintenance records kept."
+        data-text-zh="超净工作台：使用前后均以75%乙醇擦拭台面；紫外灯与HEPA滤芯定期更换，并保留维护记录。">Laminar flow cabinet: wipe working surface with 75% ethanol before and after use. UV lamps and HEPA filters are replaced periodically with maintenance records kept.</li>
+    <li data-text-en="Autoclave: operated only by trained personnel. Loading volume does not exceed 80%. Do not open the lid until pressure and temperature fully return to safe levels."
+        data-text-zh="高压灭菌锅：仅由经培训人员操作；装载量不超过80%；须待压力与温度完全降至安全范围后方可开盖。">Autoclave: operated only by trained personnel. Loading volume does not exceed 80%. Do not open the lid until pressure and temperature fully return to safe levels.</li>
+    <li data-text-en="Fume hood: verify proper ventilation before use. Keep the sash lowered during organic-solvent operations. Leave ventilation running for a period after finishing experiments."
+        data-text-zh="通风橱：使用前确认通风正常；进行有机溶剂操作时保持视窗下拉；实验结束后继续通风一段时间。">Fume hood: verify proper ventilation before use. Keep the sash lowered during organic‑solvent operations. Leave ventilation running for a period after finishing experiments.</li>
+    <li data-text-en="Shaking incubator: secure shake flasks firmly to avoid breakage and spillage during high-speed incubation."
+        data-text-zh="摇床培养箱：摇瓶须固定牢靠，避免高速培养时发生破损或溢出。">Shaking incubator: secure shake flasks firmly to avoid breakage and spillage during high‑speed incubation.</li>
+  </ul>
+</section>
+
+<!-- ==================== 6. Safety Training & Emergency Preparation ==================== -->
+<section id="sec-training" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-kit-medical"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Safety Training &amp; Emergency Preparation" data-text-zh="安全培训与应急准备">Safety Training &amp; Emergency Preparation</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div id="sec-training-program">
+    <h3 data-text-en="Training &amp; safety review" data-text-zh="培训与安全例会">Training &amp; safety review</h3>
+    <ul class="step-list">
+      <li data-text-en="Full-member safety training: every team member completes BSL-1 safety training and passes theoretical &amp; practical assessments before lab access. Training covers microbial hazards, chemical risks, waste disposal and emergency response."
+          data-text-zh="全员安全培训：每位成员进入实验室前均须完成BSL‑1安全培训，并通过理论与实操考核。培训内容涵盖微生物风险、化学品风险、废弃物处理及应急响应。">Full‑member safety training: every team member completes BSL‑1 safety training and passes theoretical &amp; practical assessments before lab access. Training covers microbial hazards, chemical risks, waste disposal and emergency response.</li>
+      <li data-text-en="Regular safety meeting: monthly safety review meetings are held to identify potential hazards and update safety protocols."
+          data-text-zh="定期安全例会：每月召开安全回顾会议，排查潜在隐患并更新安全规程。">Regular safety meeting: monthly safety review meetings are held to identify potential hazards and update safety protocols.</li>
+    </ul>
+  </div>
+
+  <div id="sec-training-emergency">
+    <h3 data-text-en="Emergency plan" data-text-zh="应急预案">Emergency plan</h3>
+    <ul class="step-list">
+      <li data-text-en="Organic solvent spill (naphthalene / DMSO / acetonitrile): maximize ventilation. Absorb the spill with absorbent cotton. Clean with plenty of water and collect residues into the chemical waste container."
+          data-text-zh="有机溶剂溢出（萘/DMSO/乙腈）：立即加强通风；用吸附棉吸附溢出液；再用大量清水清洁，并将残液收集至化学废液容器中。">Organic solvent spill (naphthalene / DMSO / acetonitrile): maximize ventilation. Absorb the spill with absorbent cotton. Clean with plenty of water and collect residues into the chemical waste container.</li>
+      <li data-text-en="Skin exposure to chemicals: rinse affected skin with plenty of running water for a minimum of 15 min. In case of eye splashes, use the eyewash station continuously and seek medical support."
+          data-text-zh="化学品接触皮肤：立即用大量流动水冲洗患处至少15分钟；若溅入眼睛，须持续使用洗眼器冲洗并及时就医。">Skin exposure to chemicals: rinse affected skin with plenty of running water for a minimum of 15 min. In case of eye splashes, use the eyewash station continuously and seek medical support.</li>
+      <li data-text-en="Bacterial liquid spill: wear gloves. Cover the contaminated area with sodium-hypochlorite-containing disinfectant wipes, leave for 30 min for inactivation, then wipe clean."
+          data-text-zh="菌液溢出：佩戴手套；用含次氯酸钠的消毒湿巾覆盖污染区域，静置30分钟灭活后擦拭清洁。">Bacterial liquid spill: wear gloves. Cover the contaminated area with sodium‑hypochlorite‑containing disinfectant wipes, leave for 30 min for inactivation, then wipe clean.</li>
+    </ul>
+  </div>
+</section>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>
