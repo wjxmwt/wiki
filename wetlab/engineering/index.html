@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wet Lab · Engineering | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+<link rel="stylesheet" href="../../static/css/wetlab-documents.css?v=20260916.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="nav-menu" id="navMenu">
+        <!-- Project 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Project" class="nav-link " data-section="Project">
+            <i class="fas fa-home"></i>
+            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../project/description/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="../../project/design/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+          </ul>
+        </li>
+        <!-- Wet Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Wet Lab" class="nav-link active" data-section="Wet-Lab">
+            <i class="fa-solid fa-flask"></i>
+            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html" class="dropdown-link active"><span class="nav-text" data-text-en="Engineering" data-text-zh="工程设计">Engineering</span></a></li>
+            <li><a href="../results/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+            <li><a href="../protocal/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a></li>
+            <li><a href="../parts/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+            <li><a href="../notebook/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+            <li><a href="../safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Dry Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+          </ul>
+        </li>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Team" class="nav-link " data-section="Team">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="../../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
+        </li>
+      
+        <li class="nav-item">
+          <a href="../../#Video" class="nav-link " data-section="Video">
+            <i class="fa-solid fa-video"></i>
+            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-controls">
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li class="document-toc-level-2"><a href="#section-1">Overview</a></li>
+<li class="document-toc-level-2"><a href="#section-5">Hierarchical DBTL Iterative Engineering Design</a></li>
+<li class="document-toc-level-2"><a href="#section-7">Module 1: Construction and Optimization of the Salicylic Acid Sensing Pathway</a></li>
+<li class="document-toc-level-3"><a href="#section-9">Cycle 1: Construction of the NahR/Psal Salicylic Acid Biosensor</a></li>
+<li class="document-toc-level-3"><a href="#section-27">Cycle 2: Modification of Pr and Psal Promoter Regions</a></li>
+<li class="document-toc-level-3"><a href="#section-43">Cycle 3: Construction of NahR Dual-Site Saturated Mutant Library for Improved Substrate-Binding Affinity</a></li>
+<li class="document-toc-level-3"><a href="#section-58">Cycle 4: ARTP-Mediated Chassis Adaptive Evolution to Break Chassis-Derived Performance Limits</a></li>
+<li class="document-toc-level-2"><a href="#section-73">Module 2: Naphthalene Degradation System</a></li>
+<li class="document-toc-level-3"><a href="#section-75">Cycle 5: Construction of the Upper Aerobic Naphthalene Degradation Pathway</a></li>
+<li class="document-toc-level-3"><a href="#section-92">Cycle 6: Promoter Replacement for the Degradation Pathway</a></li>
+<li class="document-toc-level-3"><a href="#section-109">Cycle 7: Investigating the Influence of Strain Background on Degradation Efficiency</a></li>
+<li class="document-toc-level-3"><a href="#section-123">Cycle 8: Exploring Culture-Medium Effects on Degradation Efficiency</a></li>
+<li class="document-toc-level-3"><a href="#section-138">Cycle 9: Optimization of Naphthalene-Detection Operating Conditions Based on the Salicylic-Acid Biosensor</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero" id="sec-hero">
+  <div class="hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow-2" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="WET LAB · DBTL CYCLES" data-text-zh="湿实验 · 工程迭代">WET LAB · DBTL CYCLES</div>
+      <h1 class="hero-title" data-text-en="Engineering" data-text-zh="工程设计" >Engineering</h1>
+      <p class="hero-desc" data-text-en="We developed a coupled naphthalene detection system through nine Design–Build–Test–Learn cycles. Follow the engineering of the salicylic-acid biosensor, from promoter and NahR modifications to chassis evolution, then explore how the degradation pathway and co-culture conditions were optimized to connect naphthalene conversion with fluorescence readout." data-text-zh="我们通过九轮设计、构建、测试与学习，逐步构建萘耦合检测系统。本章先介绍水杨酸生物传感器的工程迭代，包括启动子改造、NahR 蛋白优化和底盘进化，再展示降解通路与共培养条件的优化过程，将萘转化与荧光读出衔接起来。">We developed a coupled naphthalene detection system through nine Design–Build–Test–Learn cycles. Follow the engineering of the salicylic-acid biosensor, from promoter and NahR modifications to chassis evolution, then explore how the degradation pathway and co-culture conditions were optimized to connect naphthalene conversion with fluorescence readout.</p>
+      <div class="hero-actions">
+        <a href="#section-7" class="hero-btn hero-btn-primary"><span data-text-en="Sensing Design" data-text-zh="传感系统设计">Sensing Design</span> <i class="fa-solid fa-dna" aria-hidden="true"></i></a>
+        <a href="#section-73" class="hero-btn hero-btn-secondary"><span data-text-en="Degradation Design" data-text-zh="降解系统设计">Degradation Design</span> <i class="fa-solid fa-flask" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="" aria-hidden="true">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="LAB WORK" data-text-zh="实验室现场">LAB WORK</div>
+          <div class="hero-image-title" data-text-en="DBTL Cycles" data-text-zh="工程迭代">DBTL Cycles</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<div class="document-body" lang="en">
+<section class="document-section" id="section-1"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></div>
+  <div class="section-heading-text"><h2>Overview</h2><div class="section-heading-bar"></div></div>
+</div>
+<p class="">Naphthalene, a typical polycyclic aromatic hydrocarbon pollutant, features long residual period, high toxicity and strong environmental concealment. Conventional instrumental detection is time-consuming and costly and cannot perform in-situ real-time monitoring, while chemical degradation approaches tend to cause secondary pollution. To address these bottlenecks, our team constructed a coupled detection-degradation system for naphthalene pollutants based on engineered <em>Escherichia coli.</em> Strictly following the Design-Build-Test-Learn (DBTL) closed-loop iterative engineering workflow of synthetic biology, this project adopted a hierarchical progressive optimization strategy. Centered on two core functional units: the naphthalene degradation module and the salicylic acid sensing module, the whole system underwent multiple nested DBTL cycles to sequentially complete rational modification of core genetic elements, adaptive evolution of chassis strains, and conditional optimization of the degradation system. Ultimately, a highly-sensitive, high-efficiency, safe and portable pollutant detection-remediation system was established. Supporting detection kits and a web-based analytical platform were also developed, realizing full-scale engineering implementation from molecular design to practical environmental application.</p>
+</section>
+<section class="document-section" id="section-5"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></div>
+  <div class="section-heading-text"><h2><strong>Hierarchical DBTL Iterative Engineering Design</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+</section>
+<section class="document-section" id="section-7"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-dna"></i></div>
+  <div class="section-heading-text"><h2><strong>Module 1: Construction and Optimization of the Salicylic Acid Sensing Pathway</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-9"><strong>Cycle 1: Construction of the NahR/Psal Salicylic Acid Biosensor</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-10"><strong>Design</strong></h4>
+<p class="">Literature investigations revealed that previous studies reconstructed a salicylic acid biosensor in <em>E. coli</em> DH5α using the NahR/Psal system derived from the NAH7 plasmid of Pseudomonas putida G7, with <em>Luc</em> as the reporter gene. Site-directed mutagenesis was performed on the NahR protein; under induction by 1 mM salicylic acid, the mutant N169E/R248C exhibited low basal activity and high inducible activity. Accordingly, we referenced this work to reconstruct the salicylic acid biosensing system, which uses salicylic acid — an intermediate metabolite of naphthalene degradation — as the signal molecule to achieve indirect quantitative detection of naphthalene.</p>
+<p class="">In the initial design, the pUC57 vector was used to assemble the Pr-NahR-Psal-eGFP fluorescent sensing system. NahR is transcribed under the constitutive promoter Pr, and Pr and Psal are oriented divergently. In the presence of the inducer salicylic acid, the NahR protein binds salicylic acid and triggers transcription initiation from the downstream Psal promoter, driving expression of enhanced green fluorescent protein (eGFP) for visual signal output.</p>
+<p class="">To establish a stable system baseline, this round of engineering focused on three fundamental optimization directions: First, screening the optimal <em>E. coli</em> chassis strain compatible with exogenous circuits to eliminate host-derived interference on circuit performance. Second, exploring the optimal induction-detection incubation time to avoid temporal issues such as unsaturated signals or signal decay. Third, verifying the basal function of the wild-type circuit and identifying its core performance shortcomings to set engineering benchmarks for subsequent iterative optimization.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/engineering/figure-01.png?v=20260916" alt="Figure 2: Vector for SA Sensing Pathway"></figure>
+<p class="figure-caption">Figure 2: Vector for SA Sensing Pathway</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-18"><strong>Build</strong></h4>
+<p class="">The Pr-NahR-Psal gene fragment was chemically synthesized by Sangon Biotech, fused with eGFP and assembled into the pUC57 vector to yield the original sensing plasmid pUC57-Pr-NahR-Psal-eGFP. The control plasmid pUC57-Psal-eGFP was also constructed. Both plasmids were transformed into <em>E.coli</em> DH5α for functional testing. Meanwhile, the full sensing plasmid was parallelly transformed into <em>E.coli</em> XL10-gold, DH10B and Top10 to generate multiple initial engineered sensing strains for subsequent host screening and performance calibration.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-21"><strong>Test</strong></h4>
+<p class="">Gradient salicylic acid treatments were set with unified detection parameters and culture conditions to verify the functional specificity of the sensing circuit, compare circuit compatibility across different host strains, investigate the influence of incubation duration on fluorescent output, calibrate basal response performance of the wild-type circuit, and collect complete baseline engineering data for identifying intrinsic defects and optimization potential.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-24"><strong>Learn</strong></h4>
+<p class="">This round successfully achieved heterologous expression of the sensing circuit and validated the functional specificity of NahR. DH5α was identified as the best-suited basal chassis, and the standardized detection duration was determined. Nevertheless, critical engineering defects of the wild-type system were confirmed: low transcriptional activity of native promoters and insufficient substrate-binding affinity of NahR resulted in extremely poor sensing sensitivity, which failed to meet the engineering requirements for trace environmental naphthalene detection. Based on this bottleneck, the next iteration targeted site-directed modification of core conserved promoter regions to improve circuit expression efficiency at the transcriptional level.</p>
+</div>
+<h3 id="section-27"><strong>Cycle 2: Modification of Pr and Psal Promoter Regions</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-28"><strong>Design</strong></h4>
+<p class="">Baseline experiments demonstrated that the core conserved sequences of native Pr and Psal promoters show poor compatibility with the <em>E.coli</em> transcription machinery and weak RNA polymerase binding, leading to low gene transcription and faint fluorescent output upon salicylic acid induction — a major transcriptional bottleneck limiting system sensitivity.</p>
+<p class="">Promoter mutagenesis is a common strategy for performance optimization of transcription-factor-based whole-cell biosensors. Pr and Psal from Pseudomonas putida G7 are divergently oriented with partial overlap within their -35 regions. Their -10 and -35 sequences deviate substantially from <em>E. coli</em> consensus promoter sequences. To increase homology between the -10/-35 regions and <em>E. coli</em> consensus motifs, a new modification strategy was adopted: the Psal -10 box was mutated from TATCGT to the consensus TATAAT (identical to the Pr -10 sequence). Within the overlapping -35 region, one A was substituted with G: the Pr -35 box changed from TTGATA to consensus TTGACA, and the Psal -35 box changed from TTATCA to TTGTCA. These modifications strengthen RNA-polymerase-promoter interaction, boost inducible transcription, lower background noise and enhance specific signal output, breaking the performance limitations of the original system at the transcriptional layer.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/engineering/figure-02.png?v=20260916" alt="Figure 3 Schematic for sequence modification of Pr and Psal promoters"></figure>
+<p class="figure-caption">Figure 3 Schematic for sequence modification of Pr and Psal promoters</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-34"><strong>Build</strong></h4>
+<p class="">Site-directed mutagenesis primers were designed based on the wild-type sensing vector. Whole-plasmid PCR was performed to introduce key-region mutations into both Pr and Psal. The <em>Dpn</em>I digestion system was applied to remove wild-type template DNA. Purified mutagenesis products were transformed into DH5α competent cells to obtain the first-generation mutant engineered strain MUT<sup>1st</sup>. All mutant vectors were verified by DNA sequencing to guarantee precise mutation sites and absence of random mismatches, ensuring accuracy and reproducibility of element engineering.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-37"><strong>Test</strong></h4>
+<p class="">Gradient salicylic-acid induction assays were performed under standardized experimental conditions. Fluorescent-response differences between wild-type and MUT<sup>1st</sup> mutant strains were compared to evaluate the engineering benefits of promoter modification, assess sensitivity improvement from transcriptional tuning, and identify the optimization ceiling and remaining deficiencies of this round.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-40"><strong>Learn</strong></h4>
+<p class="">Promoter engineering effectively improved transcriptional compatibility of the exogenous circuit and removed transcriptional-level expression bottlenecks, markedly enhancing low-concentration response capacity. However, pure transcriptional modification exhibited a clear optimization ceiling: it could not resolve the intrinsic protein-substrate binding problem, and recognition of trace salicylic acid still fell short of practical application demands. The core bottleneck shifted to the protein molecular layer. Subsequent work therefore focused on engineering the NahR regulatory protein via saturated mutagenesis to screen high-affinity variants.</p>
+</div>
+<h3 id="section-43"><strong>Cycle 3: Construction of NahR Dual</strong><strong>-</strong><strong>Site Saturated Mutant Library for Improved Substrate</strong><strong>-</strong><strong>Binding Affinity</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-44"><strong>Design</strong></h4>
+<p class="">Transcription factors (TFs) are core functional components of whole-cell microbial biosensors. They contain a ligand-binding domain and a DNA-binding domain that mediate ligand recognition and target-DNA binding, modulate RNA-polymerase recruitment, and ultimately determine biosensor basal expression, inducible activity and detection sensitivity. Protein-engineering approaches such as site-directed mutagenesis and saturated library construction can precisely tune dual affinities of TFs toward ligands and promoter DNA, serving as a key engineering strategy for enhancing whole-cell sensing performance.</p>
+<p class="">Classic studies have proven the engineering value of NahR residue modification: in 1997, Cebolla A’s group performed random mutagenesis on NahR and demonstrated that mutations at residues 169 and 248 greatly enhanced salicylic-acid sensing. In 2004, Hoo Hwi Park performed site-directed mutagenesis on these two sites and confirmed their roles in modulating basal activity and induced expression. In 2010, Hae Ja Shin further validated N169 and R248 as key residues governing salicylic-acid sensing sensitivity. These findings highlight the high engineering potential of NahR positions 169 and 248.</p>
+<p class="">Given that promoter modification had reached its performance ceiling, we constructed a fully-covered dual-site saturated mutagenesis library targeting NahR E169 and R248 on the promoter-mutated MUT<sup>1st</sup> backbone. All amino-acid combinations at these two key residues were explored. Remodeling the substrate-binding microenvironment, widening substrate channels and strengthening intermolecular hydrogen-bond interactions were expected to greatly increase NahR-salicylic-acid binding affinity and fundamentally improve sensing sensitivity.</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-49"><strong>Build</strong></h4>
+<p class="">Whole-plasmid PCR with saturated-mutagenesis primers was carried out using the MUT<sup>1st</sup> promoter-mutated plasmid as template to build the NahR(E169/C248) dual-site mutant library. After template digestion and purification, products were transformed into DH5α to generate a large-scale mutant strain library ensuring full coverage of mutation combinations. Random colonies were sequenced to validate library quality in terms of coverage and diversity for high-performance strain screening.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-52"><strong>Test</strong></h4>
+<p class="">A two-tier high-throughput screening workflow (plate-based primary screening + liquid-culture secondary screening) was established. Primary screening on solid plates with low-concentration inducer picked colonies with superior fluorescent responses. Secondary screening was performed in liquid cultures with ultra-low salicylic-acid concentrations. Mutants were compared for signal specificity, background noise and response sensitivity, yielding the optimal protein-mutant engineered strain MUT<sup>2nd</sup>.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-55"><strong>Learn</strong> </h4>
+<p class="">Saturated mutagenesis successfully identified high-affinity NahR variants, resolving weak protein-substrate binding at the molecular-structure level and substantially improving trace-signal recognition. Nevertheless, new engineering limitations emerged: the performance of optimized exogenous elements was constrained by the intracellular microenvironment of E. coli chassis. Differences in protein folding, cellular metabolism and global transcription-translation suppressed signal output, preventing full realization of element-optimization benefits. Consequently, atmospheric-room-temperature plasma (ARTP)-mediated genome-wide adaptive evolution was adopted to globally enhance chassis performance.</p>
+</div>
+<h3 id="section-58"><strong>Cycle 4: ARTP</strong><strong>-</strong><strong>Mediated Chassis Adaptive Evolution to Break Chassis</strong><strong>-</strong><strong>Derived Performance Limits</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-60"><strong>Design</strong></h4>
+<p class="">Following rational optimization of promoters and proteins, the exogenous sensing circuit reached its element-level optimization ceiling. Intrinsic physiological properties of the chassis became the sole bottleneck for further sensitivity gains. Conventional rational engineering cannot systematically optimize global metabolism, protein folding and stress resistance. In this round, ARTP (atmospheric-room-temperature plasma) random mutagenesis was applied to the best element-optimized strain. Genome-wide random mutations were expected to improve intracellular protein-folding efficiency, transcription-translation homeostasis and signal-output stability, eliminate chassis-dependent background suppression, fully unlock the sensing capacity of optimized elements, and push system sensitivity to its limit.</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-63"><strong>Build</strong></h4>
+<p class="">The superior MUT<sup>2nd</sup> strain was cultured to logarithmic phase. Standardized bacterial suspensions were subjected to ARTP mutagenesis with strictly controlled power, gas flow and treatment duration to achieve mild mutagenesis without excessive cell damage or lethality. Mutagenized cells were recovered, serially diluted and spread to obtain libraries of random single-colony mutants. Plate-based primary screening and liquid-culture secondary screening delivered the best-performing evolved chassis strain MUT<sup>3rd</sup>.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-66"><strong>Test</strong></h4>
+<p class="">Under standardized conditions, trace-salicylic-acid response of the evolved MUT<sup>3rd</sup> was compared with the pre-evolution element-optimized strain to quantify sensitivity gains from chassis evolution and characterize the ultimate sensing performance of the evolved chassis.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-69"><strong>Learn</strong></h4>
+<p class="">ARTP-driven chassis evolution removed intracellular environmental constraints and completed full-layer optimization (from discrete genetic elements to whole-cell chassis) of the sensing module. The ultra-sensitive and stable sensing chassis MUT<sup>3rd</sup> was obtained. Iterative improvement of the standalone sensing module was complete, laying the foundation for degradation-system optimization; this best-performing sensing strain would be reused for degradation-system integration.</p>
+</div>
+</section>
+<section class="document-section" id="section-73"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+  <div class="section-heading-text"><h2><strong>Module 2: Naphthalene Degradation System</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-75"><strong>Cycle 5: Construction of the Upper Aerobic Naphthalene Degradation Pathway</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-76"><strong>Design</strong></h4>
+<p class="">The sensing module had been fully optimized for ultra-sensitive salicylic-acid detection. To realize complete naphthalene detection, an upstream aerobic naphthalene-degradation pathway must be assembled to convert naphthalene into salicylic-acid signal molecules for sensor input. We introduced the nahABCDEF gene cluster from Pseudomonas putida G7, which mediates sequential oxidative catalysis of naphthalene to yield salicylic acid. After constructing the degradation plasmid, a single-strain integration strategy was initially planned: co-transforming the degradation plasmid and sensing plasmid into the MUT<sup>3rd</sup> chassis to realize one-cell degradation-sensing. High-performance liquid chromatography (HPLC) was introduced to biochemically verify heterologous activity of the naphthalene-degradation pathway and provide engineering support for quantitative detection by the whole system.</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-79"><strong>Build</strong></h4>
+<p class="">The nahABCDEF gene cluster was codon-optimized for<em> E. coli</em> to remove rare codons and facilitate heterologous expression. The complete degradation gene cluster was assembled downstream of the constitutive promoter Pnah into the pMD18T vector to generate the initial recombinant degradation plasmid pMD18T-Pnah-nahABCDEF, whose sequence was fully verified by sequencing. The degradation plasmid and sensing plasmid were co-transformed into the ultra-sensitive MUT3rd chassis in an attempt to build an all-in-one single-strain engineered bacterium. Meanwhile, an HPLC analytical workflow was established with naphthalene standards and defined chromatographic parameters for quantitative measurement of naphthalene and its metabolites.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/engineering/figure-03.png?v=20260916" alt="Figure 4: Vector Construct for the Degradation Pathway"></figure>
+<p class="figure-caption">Figure 4: Vector Construct for the Degradation Pathway</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-85"><strong>Test</strong></h4>
+<p class="">Co-transformed strains were subjected to antibiotic selection and plasmid validation to assess the stability of dual-plasmid maintenance. To rigorously verify heterologous functionality of the aerobic naphthalene-degradation pathway, the initial degradation plasmid pMD18T-Pnah-nahABCDEF was transformed into <em>E.coli</em> DH5α to construct degradation-capable engineered bacteria; plasmid-free DH5α served as negative control. Resting-cell assays were performed under unified experimental conditions with 100 μM naphthalene substrate. After defined incubation periods, samples were analyzed by the established HPLC workflow to qualitatively detect residual naphthalene and salicylic-acid production, so as to judge whether the reconstructed degradation pathway catalyzes naphthalene biotransformation.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-88"><strong>Learn</strong></h4>
+<p class="">This round successfully reconstructed the naphthalene-degradation pathway and HPLC experiments confirmed its biological activity, proving that the exogenous nah pathway can catalyze naphthalene conversion in <em>E. coli</em>. However, a critical engineering obstacle emerged: the ultra-sensitive evolved chassis MUT<sup>3rd</sup> exhibited plasmid incompatibility and could not stably replicate and express two plasmids with distinct backbones, making the single-strain integration strategy infeasible.</p>
+<p class="">To circumvent chassis limitations while retaining ultra-high sensing sensitivity and high degradation capacity, an innovative engineering strategy was adopted: abandoning the single-cell design in favor of a co-culture coupled system consisting of separate degradation-engineered bacteria and sensing-engineered bacteria. Baseline compatibility parameters for the co-culture system were determined. Strains were cultured to standardized physiological states: ultra-sensitive sensing bacteria were adjusted to an active stable phase, and optimal degradation bacteria were prepared as resting cells for pre-incubation naphthalene degradation. Three volumetric ratios of degradation strain : sensing strain (1:1, 1:2, 2:1) were tested under consistent shake-flask conditions. Fluorescent readouts evaluated system compatibility across ratios and identified the most stable and high-performance mixing proportion. Subsequent multi-dimensional iterative optimization (promoter, host, culture conditions and detection operating conditions) would be performed on this optimal mixing ratio to establish a stable, efficient and quantifiable naphthalene detection-degradation system.</p>
+</div>
+<h3 id="section-92"><strong>Cycle 6: Promoter Replacement for the Degradation Pathway</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-93">Design</h4>
+<p class="">Cycle 5 demonstrated that the native Pnah promoter drives expression of the naphthalene-degradation pathway, yet this naturally-derived promoter shows weak transcriptional strength and poor stability in <em>E. coli</em>, resulting in low naphthalene conversion efficiency and weak signal output that cannot match the high-performance sensing module. This round focused on transcriptional-level optimization of the degradation module.</p>
+<p class="">Five constitutive promoters of graded strength compatible with E. coli (P100, P118, P110, P114, P113) were selected to replace the wild-type Pnah promoter, generating a promoter-variant library for the degradation pathway. Parallel comparison under uniform conditions would identify the promoter with highest transcriptional activity and degradation stability to enhance nah-gene expression and naphthalene biotransformation efficiency.</p>
+<p class="figure-caption">Figure 5 Replacement with constitutive promoters of different strengths (strength decreases from P100 to P113)</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/engineering/figure-04.png?v=20260916" alt="Figure 5: Substitution of constitutive promoters of different strengths (Promoter strength decreases sequentially from 100 to 113)"></figure>
+<p class="figure-caption">Figure 5: Substitution of constitutive promoters of different strengths (Promoter strength decreases sequentially from 100 to 113)</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-100"><strong>Build</strong></h4>
+<p class="">Seamless cloning was used to substitute the original Pnah promoter on the degradation plasmid with each of the five constitutive promoters. Recombinant vectors were sequenced to confirm accurate promoter substitution, intact open reading frames and absence of unintended mutations. The full set of modified degradation plasmids was transformed into basal DH5α to build a library of degradation-engineered strains for parallel screening.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-103"><strong>Test</strong></h4>
+<p class="">Strains carrying different promoter variants were cultured in parallel under identical media and naphthalene-substrate concentrations. Degradation-conversion performance driven by each promoter was compared via unified detection assays to evaluate expression activity and operational stability and select the optimal degradation-pathway promoter.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-106"><strong>Learn </strong></h4>
+<p class="">Promoter engineering accomplished transcriptional optimization of the degradation pathway and identified the optimal constitutive promoter compatible with E. coli, resolving the drawbacks of weak activity and unstable expression of the native promoter. Experimental evidence confirmed that transcriptional strength is a key factor governing naphthalene-degradation efficiency. Besides element properties, host-chassis background also strongly influences overall degradation-pathway performance. The next iteration therefore screened host strains to further improve compatibility of the degradation chassis.</p>
+</div>
+<h3 id="section-109"><strong>Cycle 7: Investigating the Influence of Strain Background on Degradation Efficiency</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-110"><strong>Design</strong></h4>
+<p class="">Expression efficiency of exogenous pathways heavily depends on the host’s intracellular metabolic environment, protein-folding machinery and stress tolerance. With the optimal degradation promoter fixed, genetic differences among E. coli strains directly affect folding efficiency, enzyme stability and cell growth of nah-encoded degradative enzymes, and thus overall degradation capacity.</p>
+<p class="">To select the chassis best-suited for the degradation pathway, several classic E. coli model strains were chosen as candidate hosts. Each received the same optimized degradation plasmid. Degradation performance was compared under fully standardized experimental setups to pinpoint the best degradation chassis for stable downstream work.</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-114"><strong>Build</strong></h4>
+<p class="">The optimized degradation plasmid with best-performing promoter was transformed into DH5α, XL-10 Gold, MG1655, BL21(DE3), GM272 and other host strains to generate parallel degradation-engineered strains sharing identical plasmids but differing genetic backgrounds. Antibiotic selection and colony PCR validated strain construction consistency.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-117"><strong>Test</strong></h4>
+<p class="">Inoculum density, incubation temperature, duration and naphthalene substrate concentration were strictly unified. Parallel degradation experiments assessed naphthalene-conversion capacity and system stability across host backgrounds to evaluate pathway-host compatibility.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-120"><strong>Learn</strong></h4>
+<p class="">Host screening highlighted the substantial impact of genetic background on naphthalene-degradation efficiency and yielded the host chassis with highest conversion efficiency and system stability for the degradation pathway. At this stage, core elements and chassis for the degradation module were fully optimized. Nevertheless, catalytic enzyme activity remained strongly modulated by external culture conditions and metal co-factor concentrations. Further work systematically optimized media and cultivation parameters to maximize degradation performance.</p>
+</div>
+<h3 id="section-123"><strong>Cycle 8: Exploring Culture</strong><strong>-</strong><strong>Medium Effects on Degradation Efficiency</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-124">Design</h4>
+<p class="">Naphthalene dioxygenase (<em>n</em><em>ahA</em>), the rate-limiting enzyme of the naphthalene-degradation pathway, is an oxidase containing a [2Fe-2S] metal cluster. Its catalytic activity and folding stability rely heavily on exogenous metal co-factors. In addition, cell growth and degradative-enzyme expression are modulated by carbon- and nitrogen-source compositions of culture media. Standard LB medium is not tailored for the naphthalene-degradation pathway and imposes limitations on enzyme activity and degradation saturation. To comprehensively improve system compatibility, this round systematically optimized culture media from three dimensions: metal co-factors, carbon sources and nitrogen sources. Using the resulting optimal medium, the shortest effective degradation duration was determined to shorten detection cycles and improve timeliness for in-situ applications.</p>
+<p class="">A multi-variable medium-optimization setup was established to characterize how different components regulate the coupled naphthalene-degradation-sensing system. For metal ions, graded concentrations of Fe²⁺, Mg²⁺ and Mn²⁺ were supplemented. For carbon sources, soluble starch, D-glucose and sucrose were tested. For nitrogen sources, ratios of beef extract, peptone and yeast extract were adjusted to generate multiple modified-medium formulations. Using the best-performing degradation-engineered strain with standardized starting inoculum and culture conditions, naphthalene-degradation incubations were performed. Sensing fluorescence readouts indirectly evaluated degradation efficiency across media variants to identify optimal metal-ion species-concentrations and carbon-nitrogen source ratios for <em>n</em><em>ahA</em> activity and cell metabolism. After determining the optimal medium, time-gradient experiments were conducted to characterize the minimum incubation time required for efficient naphthalene conversion.</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-128"><strong>Build</strong></h4>
+<p class="">Modified LB media with varied metal-ion supplements, exogenous carbon sources and nitrogen-source ratios were prepared to establish parallel experimental groups. The best degradation-engineered strain was activated and standardized inoculation was applied to each medium for cell propagation and adaptive cultivation. Naphthalene substrate was added to initiate degradation incubations and build the complete variable-condition experimental system. After identifying the optimal medium formulation, time-gradient assays were set up to determine the minimum incubation period supporting efficient naphthalene transformation.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-131"><strong>Test</strong></h4>
+<p class="">Parallel degradation incubations were run under unified experimental conditions. Fluorescent-signal readouts were compared across media groups to assess medium-component effects on degradation efficiency and signal stability, yielding optimal metal-ion type-concentration and carbon-nitrogen ratios for the naphthalene-degradation pathway. Within the optimal medium system, parallel time-gradient incubations characterized how degradation duration influences naphthalene conversion and signal accumulation, defining the minimal incubation time for efficient and stable naphthalene biotransformation.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-134"><strong>Learn </strong></h4>
+<p class="">Systematic medium optimization confirmed that Fe²⁺ is the key functional co-factor modulating NahA rate-limiting-enzyme activity. Consistent with protein-structural features, NahA carries a specific [2Fe-2S] cluster; appropriately supplemented extracellular Fe²⁺ assists proper protein folding, enhances NahA catalytic activity, accelerates naphthalene oxidation and improves overall degradation efficiency and downstream sensing-signal output.</p>
+<p class="">Moreover, this iteration determined the shortest high-efficiency degradation duration, ensuring sufficient naphthalene-to-salicylic-acid conversion and stable signal accumulation while greatly shortening assay runtime and strengthening on-site applicability. At this point, element strength, host chassis, culture environment and reaction duration for the degradation module were fully optimized, delivering maximal degradation performance and stable signal input for subsequent fine-tuning of sensing operating conditions.</p>
+</div>
+<h3 id="section-138"><strong>Cycle 9: Optimization of Naphthalene</strong><strong>-</strong><strong>Detection Operating Conditions Based on the Salicylic</strong><strong>-</strong><strong>Acid Biosensor</strong></h3>
+<div class="dbtl-stage stage-design"><h4 id="section-139">Design</h4>
+<p class="">With the optimal co-culture mixing ratio established, the initial cell density (OD₆₀₀) of sensing bacteria governs detection precision, signal-response threshold and linear fluorescent-output range. Excessively high cell density elevates background noise and causes signal saturation; too-low density yields weak responses and raises the limit of detection, undermining quantitative accuracy and stability. To match the fully optimized degradation system and fixed co-culture ratio, this round investigated the influence of initial sensing-strain OD₆₀₀ on naphthalene-detection performance.</p>
+<p class="">Gradient initial OD₆₀₀ values for sensing bacteria were tested with fixed optimal co-culture proportion and uniform culture conditions. Impacts of cell density on naphthalene sensing response, linear range and detection stability were explored to identify optimal operating cell-density parameters and close the full engineering loop for the whole system.</p>
+</div>
+<div class="dbtl-stage stage-build"><h4 id="section-143"><strong>Build</strong></h4>
+<p class="">The optimal degradation-engineered strain and MUT3rd ultra-sensitive sensing strain were mixed at fixed ratio, while sensing-bacterium suspensions of graded OD₆₀₀ were prepared to construct multiple parallel co-culture detection systems. All variables except cell density were strictly kept identical.</p>
+</div>
+<div class="dbtl-stage stage-test"><h4 id="section-146"><strong>Test</strong></h4>
+<p class="">Naphthalene-substrate gradients and incubation conditions were unified across groups. Sensing-detection experiments characterized differences in response sensitivity, linear-fit quality and system stability over varied cell densities to select the optimal operating cell density for sensing.</p>
+</div>
+<div class="dbtl-stage stage-learn"><h4 id="section-149"><strong>Learn</strong></h4>
+<p class="">This round determined the optimal inoculation density of sensing bacteria suited for the co-culture system and resolved signal distortion and sensitivity fluctuations caused by inappropriate cell density. After full-parameter optimization of mixing ratio, degradation performance and sensing operating conditions, all optimal engineering parameters were integrated to assemble the final naphthalene co-culture detection system.</p>
+<p class="">Using the consolidated optimal parameters, comprehensive performance validation was performed against gradient-concentration naphthalene samples to characterize the practical detection range and performance ceiling of the optimized platform. In total, nine complete DBTL closed-loop iterations were accomplished. Engineering challenges including plasmid incompatibility, low degradation efficiency and unstable sensing were resolved. A robust, logically rigorous and practically deployable synthetic-biology system for in-situ naphthalene detection and biodegradation was constructed.</p>
+</div>
+</section>
+</div>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

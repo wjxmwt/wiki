@@ -1,0 +1,165 @@
+/* Document pages share the article typography and emerald theme tokens. */
+.wetlab-main {
+    min-width: 0;
+}
+
+.document-body {
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.document-body p {
+    text-align: left;
+}
+
+.document-section {
+    margin-bottom: 3.5rem;
+}
+
+.document-body :is(h2, h3, h4, section) {
+    scroll-margin-top: 120px;
+}
+
+.document-toc-level-3 a {
+    font-size: 0.76rem;
+    padding-left: 1.25rem;
+}
+
+.document-toc-level-2 a {
+    font-weight: 700;
+    margin-top: 0.75rem;
+}
+
+/* A continuous rail makes the four stages legible within each DBTL cycle. */
+.dbtl-stage {
+    border-left: 2px solid var(--border);
+    padding: 0.25rem 0 1rem 1.5rem;
+    position: relative;
+}
+
+.dbtl-stage::before {
+    content: '';
+    position: absolute;
+    top: 1.55rem;
+    left: -6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--bg-light);
+}
+
+.document-body .dbtl-stage h4 {
+    margin: 0.8rem 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--primary);
+}
+
+.stage-learn {
+    background: var(--bg-card);
+    border-radius: 0 12px 12px 0;
+    padding-right: 1.25rem;
+}
+
+.document-body .wetlab-figure {
+    margin: 2rem 0 0.75rem;
+    padding: clamp(0.5rem, 2vw, 1.5rem);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.document-body .wetlab-figure img {
+    display: block;
+    max-height: 650px;
+    width: 100%;
+    object-fit: contain;
+    border: 0;
+    box-shadow: none;
+}
+
+.wetlab-content .figure-caption {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.protocol-steps {
+    padding-left: 1.6rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.protocol-steps li {
+    padding: 0.75rem 0 1rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.protocol-steps li::marker {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.reaction-system {
+    margin: 1rem 0 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+}
+
+.reaction-labels, .reaction-system dl > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(6rem, 0.5fr);
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.reaction-labels {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.reaction-system dl > div:last-child {
+    border-bottom: 0;
+}
+
+.reaction-system dd {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+
+.reaction-system p {
+    margin: 0;
+    text-align: left;
+}
+
+@media (max-width: 960px) {
+    .toc-toggle-btn {
+        display: flex;
+        z-index: 901;
+    }
+    .toc-toggle-btn::after {
+        content: '☰';
+    }
+    .toc-toggle-btn i {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .dbtl-stage {
+        padding-left: 1rem;
+    }
+    .reaction-system {
+        padding: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .wetlab-page *, .image-lightbox * { transition: none !important; }
+}

@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wet Lab · Results | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+<link rel="stylesheet" href="../../static/css/wetlab-documents.css?v=20260916.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="nav-menu" id="navMenu">
+        <!-- Project 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Project" class="nav-link " data-section="Project">
+            <i class="fas fa-home"></i>
+            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../project/description/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="../../project/design/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+          </ul>
+        </li>
+        <!-- Wet Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Wet Lab" class="nav-link active" data-section="Wet-Lab">
+            <i class="fa-solid fa-flask"></i>
+            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../engineering/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Engineering" data-text-zh="工程设计">Engineering</span></a></li>
+            <li><a href="index.html" class="dropdown-link active"><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+            <li><a href="../protocal/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a></li>
+            <li><a href="../parts/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+            <li><a href="../notebook/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+            <li><a href="../safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Dry Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+          </ul>
+        </li>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Team" class="nav-link " data-section="Team">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="../../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
+        </li>
+      
+        <li class="nav-item">
+          <a href="../../#Video" class="nav-link " data-section="Video">
+            <i class="fa-solid fa-video"></i>
+            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-controls">
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li class="document-toc-level-2"><a href="#section-0">Module 1: Construction and Optimization of the Salicylic Acid Sensing Pathway</a></li>
+<li class="document-toc-level-3"><a href="#section-2">1.1Performance Characterization of the Initial Salicylic‑Acid Biosensor</a></li>
+<li class="document-toc-level-3"><a href="#section-13">1.2 Promoter Modification Improves Basal Sensing Sensitivity</a></li>
+<li class="document-toc-level-3"><a href="#section-19">1.3 Screening of High‑Sensitivity Sensing Mutants via Saturated Mutagenesis of NahR Protein</a></li>
+<li class="document-toc-level-3"><a href="#section-35">1.4 ARTP‑Mediated Chassis Evolution Realizes Ultimate Upgrade of Sensing Performance</a></li>
+<li class="document-toc-level-2"><a href="#section-40">Module 2: Naphthalene Degradation System</a></li>
+<li class="document-toc-level-3"><a href="#section-41">2.1 Functional Validation of Heterologous Expression for the Aerobic Naphthalene‑Degradation Pathway</a></li>
+<li class="document-toc-level-3"><a href="#section-45">2.2 Plasmid Incompatibility Issue and Determination of the Optimal Co‑culture Ratio</a></li>
+<li class="document-toc-level-3"><a href="#section-50">2.3 Screening and Optimization Results of Promoters for the Degradation Pathway</a></li>
+<li class="document-toc-level-3"><a href="#section-54">2.4 Screening Results of Degradation Chassis Hosts</a></li>
+<li class="document-toc-level-3"><a href="#section-58">2.5 Results of Culture‑Medium Condition Optimization</a></li>
+<li class="document-toc-level-3"><a href="#section-66">2.6 Results of Sensing‑Strain Cell‑Density Optimization</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero" id="sec-hero">
+  <div class="hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow-2" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="WET LAB · EXPERIMENTAL RESULTS" data-text-zh="湿实验 · 实验结果">WET LAB · EXPERIMENTAL RESULTS</div>
+      <h1 class="hero-title" data-text-en="Results" data-text-zh="实验结果" >Results</h1>
+      <p class="hero-desc" data-text-en="We characterized the salicylic-acid biosensor and the naphthalene degradation system through fluorescence measurements and HPLC analysis. Explore the results of promoter modification, NahR mutant screening and chassis evolution, followed by comparisons of degradation hosts, culture conditions and co-culture ratios that informed the coupled detection system." data-text-zh="我们通过荧光测定与 HPLC 分析，表征水杨酸生物传感器和萘降解系统。本章汇集启动子改造、NahR 突变体筛选与底盘进化的实验结果，并展示降解宿主、培养条件和共培养比例的比较，为耦合检测系统的优化提供依据。">We characterized the salicylic-acid biosensor and the naphthalene degradation system through fluorescence measurements and HPLC analysis. Explore the results of promoter modification, NahR mutant screening and chassis evolution, followed by comparisons of degradation hosts, culture conditions and co-culture ratios that informed the coupled detection system.</p>
+      <div class="hero-actions">
+        <a href="#section-0" class="hero-btn hero-btn-primary"><span data-text-en="Sensing Results" data-text-zh="传感实验结果">Sensing Results</span> <i class="fa-solid fa-chart-line" aria-hidden="true"></i></a>
+        <a href="#section-40" class="hero-btn hero-btn-secondary"><span data-text-en="Degradation Results" data-text-zh="降解实验结果">Degradation Results</span> <i class="fa-solid fa-flask" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="" aria-hidden="true">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="LAB WORK" data-text-zh="实验室现场">LAB WORK</div>
+          <div class="hero-image-title" data-text-en="Experimental Results" data-text-zh="实验结果">Experimental Results</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<div class="document-body" lang="en">
+<section class="document-section" id="section-0"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-dna"></i></div>
+  <div class="section-heading-text"><h2><strong>Module 1: Construction and Optimization of the Salicylic Acid Sensing Pathway</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-2"><strong>1.1</strong><strong>Performance Characterization of the Initial Salicylic‑Acid Biosensor</strong></h3>
+<p class="">In this round, the plasmid pUC57‑Pr‑NahR(E169/C248)‑Psal‑eGFP was successfully constructed, achieving heterologous expression of the sensing circuit in Escherichia coli. Using E. coli DH5α/pUC57‑Psal‑eGFP and blank DH5α strain as dual controls, fluorescence detection under gradient salicylic acid induction showed that neither E. coli DH5α nor E. coli DH5α/pUC57‑Psal‑eGFP produced any response in the presence of salicylic acid. This result confirmed that salicylic‑acid binding to NahR is required to activate the Psal promoter for initiating transcription and driving the expression of enhanced green fluorescent protein (eGFP).</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-01.png?v=20260916" alt="Figure 1: Initial Limit of Detection of the Biosensor"></figure>
+<p class="figure-caption">Figure 1: Initial Limit of Detection of the Biosensor</p>
+<p class="">Host‑screening experiments demonstrated that compared with XL10-gold, DH10B and Top10 strains,<em> E. coli</em> DH5α exhibited higher fluorescence intensity and better signal stability, making it the optimal host for sensing assays. Time‑course assays revealed that the fluorescence signal increased most markedly after 10 h of salicylic acid induction; therefore, 10 h was set as the standard detection duration. The original wild‑type sensing system had a limit of detection (LOD) of 100 μM for salicylic acid, with overall low sensing sensitivity.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-02.png?v=20260916" alt="Figure 2: Response values of the SA biosensor in different E. coli strains"></figure>
+<p class="figure-caption">Figure 2: Response values of the SA biosensor in different<em> E. coli</em> strains</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-03.png?v=20260916" alt="Figure 3: Time- and concentration-dependent response curves of the SA whole-cell biosensor"></figure>
+<p class="figure-caption">Figure 3: Time- and concentration-dependent response curves of the SA whole-cell biosensor</p>
+<h3 id="section-13"><strong>1.2 Promoter Modification Improves Basal Sensing Sensitivity</strong></h3>
+<p class="">Site‑directed mutagenesis was performed on the core conserved regions of the Pr and Psal promoters to obtain the MUT<sup>1st</sup> strain. Performance tests showed that the promoter‑modified strain generated obvious fluorescent responses at 20 μM salicylic acid. Compared with the wild‑type system, the limit of detection for salicylic acid decreased from 100 μM to 20 μM, representing a 5‑fold improvement in sensing sensitivity. Moreover, stable dose‑dependent responses were observed across gradient salicylic‑acid concentrations.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-04.png?v=20260916" alt="注：图中E169C248为野生型传感菌，Psal/Pr mutant为MUT1st。"></figure>
+<p class="figure-caption">注：图中E169C248为野生型传感菌，Psal/Pr mutant为MUT<sup>1st</sup>。</p>
+<p class="figure-caption">图4<em> Pr</em>/<em>Psal</em>突变体对不同浓度水杨酸的感应</p>
+<h3 id="section-19"><strong>1.3 Screening of High</strong><strong>‑</strong><strong>Sensitivity Sensing Mutants via Saturated Mutagenesis of NahR Protein</strong></h3>
+<p class="">A dual‑site saturated mutagenesis library targeting E169 and C248 of the NahR protein was constructed based on the MUT<sup>1st</sup> strain. Six plates were transformed with approximately 240 transformants per plate, yielding roughly 1400 transformants in total, which was more than three times the theoretical value of 400. Accordingly, the saturated mutant library covered all theoretical mutation combinations. Sequencing results showed that the 169‑ and 248‑amino‑acid residues of the NahR protein were mutated to distinct amino acids in plasmids from 9 transformants, corresponding to a mutagenesis efficiency of 90 %, which verified the successful construction of the mutant library. Through plate‑based primary screening and low‑concentration liquid‑culture secondary screening, the superior mutant No. 118 was isolated under 1 μM salicylic acid. This mutant featured low background fluorescence, a high signal‑to‑noise ratio, and markedly stronger specific responses compared with other mutants and the MUT1st control group.</p>
+<p class="">Sequencing revealed that in this favorable mutant, residue 169 of NahR was mutated from glutamic acid to glycine, and residue 248 was mutated from cysteine to threonine. This mutant strain was designated NahR(G169T248) (MUT<sup>2nd</sup>), exhibiting greatly improved sensing performance.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-05.png?v=20260916" alt="Figure 5: Primary screening for high-fluorescence mutants using salicylic acid agar plates"></figure>
+<p class="figure-caption">Figure 5: Primary screening for high-fluorescence mutants using salicylic acid agar plates</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-06.png?v=20260916" alt="Figure 6: Secondary screening of high-fluorescence mutants via microplate reader. CK represents the MUT1st control group, DMSO is the control without SA, and 1 μM SA serves as the experimental group. 11, 26, 109, 114, 118, 155, 222, 144 and 252 are the corresponding mutant IDs."></figure>
+<p class="figure-caption">Figure 6: Secondary screening of high-fluorescence mutants via microplate reader. CK represents the MUT1st control group, DMSO is the control without SA, and 1 μM SA serves as the experimental group. 11, 26, 109, 114, 118, 155, 222, 144 and 252 are the corresponding mutant IDs.</p>
+<p class="">To accurately evaluate the gain in trace‑detection performance brought about by protein engineering, this study performed fine‑grained characterization of MUT<sup>2nd</sup> responses to low‑concentration salicylic acid. Using the protein‑mutation‑free MUT1st strain as control, gradient‑response assays were carried out over the ultra‑low salicylic‑acid range of 0–1 μM. The test results showed that MUT1st displayed no significant differences in fluorescence signals within this very low‑concentration window and failed to recognize trace salicylic acid, indicating obvious defects in low‑concentration detection.</p>
+<p class="">In contrast, MUT<sup>2nd</sup> exhibited prominent concentration‑dependent response profiles. For treatment groups with 0.01 μM, 0.05 μM and 0.1 μM salicylic acid, bacterial fluorescence signals could not be statistically distinguished from the blank control group, showing weak response intensities. When the salicylic‑acid concentration increased to 0.2 μM, the fluorescence signal of the system rose significantly above the blank background, generating a stably distinguishable specific response. As the substrate concentration kept increasing, fluorescence intensity increased progressively, demonstrating a favorable dose‑effect relationship.</p>
+<p class="">According to the generally accepted scientific criterion for limit‑of‑detection (LOD) determination (mean background signal plus three times the standard deviation, which covers 99.7 % of random background fluctuations under a normal distribution), combined with gradient-response data, the LOD of strain MUT<sup>2nd</sup>(G169T248) for salicylic acid was determined to be 0.2 μM. At this concentration, the sensing signal could be effectively discriminated from background noise, enabling reliable trace-level detection of salicylic acid.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-07.png?v=20260916" alt="Figure 7: Response of MUT2nd to varying SA concentrations."></figure>
+<p class="figure-caption">Figure 7: Response of MUT<sup>2nd</sup> to varying SA concentrations. </p>
+<p class="figure-caption">Note: Psal/Pr mutant (DH5α) refers to MUT<sup>1st</sup>, and G169T248 (DH5α) refers to MUT<sup>2nd</sup>.</p>
+<h3 id="section-35"><strong>1.4 ARTP</strong><strong>‑</strong><strong>Mediated Chassis Evolution Realizes Ultimate Upgrade of Sensing Performance</strong></h3>
+<p class="">The MUT<sup>2nd</sup> strain was subjected to ARTP mutagenesis and screening to obtain the evolved strain MUT<sup>3rd</sup>. Gradient salicylic‑acid detection results demonstrated that MUT<sup>3rd</sup> could produce a significant fluorescent signal at an extremely low salicylic‑acid concentration of 0.05 μM. Compared with the original wild‑type sensing system, the limit of detection of strain MUT<sup>3rd</sup> for salicylic acid was reduced by 2000‑fold, endowing it with ultra‑high trace‑detection capability.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-08.png?v=20260916" alt="Figure 8: Response of MUT3rd to varying SA concentrations."></figure>
+<p class="figure-caption">Figure 8: Response of MUT3rd to varying SA concentrations. </p>
+<p class="figure-caption">Note: Psal/Pr mutant refers to MUT<sup>1st</sup> obtained via promoter mutation; MUT<sup>3rd</sup> is the mutant screened by ARTP mutagenesis.</p>
+</section>
+<section class="document-section" id="section-40"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
+  <div class="section-heading-text"><h2><strong>Module 2: Naphthalene Degradation System</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-41"><strong>2.1 Functional Validation of Heterologous Expression for the Aerobic Naphthalene</strong><strong>‑</strong><strong>Degradation Pathway</strong></h3>
+<p class="">In this study, the recombinant naphthalene‑degradation plasmid pMD18T‑Pnah‑nahABCDEF was successfully constructed, and heterologous expression of the nahABCDEF gene cluster was achieved in <em>Escherichia coli</em>. HPLC results revealed that DH5α strains harboring the degradation plasmid could efficiently metabolize 100 μM naphthalene and produce salicylic acid, whereas no salicylic‑acid product was detected in the blank control group. This confirmed that the degradation pathway can efficiently catalyze the conversion of naphthalene into salicylic acid.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-09.png?v=20260916" alt="Figure 9: HPLC detection of the product SA"></figure>
+<p class="figure-caption">Figure 9: HPLC detection of the product SA</p>
+<h3 id="section-45"><strong>2.2 Plasmid Incompatibility Issue and Determination of the Optimal Co</strong><strong>‑</strong><strong>culture Ratio</strong></h3>
+<p class="">Experimental verification revealed that the high‑sensitivity strain MUT<sup>3rd</sup> suffered from plasmid incompatibility. It could not stably maintain both the degradation plasmid and the sensing plasmid simultaneously, making the single‑strain detection system unfeasible. Therefore, a coupled co‑culture detection strategy was adopted in this study, and gradient‑ratio assays were performed to screen for the optimal strain combination.</p>
+<p class="">The OD₆₀₀ of the sensing strain was fixed at approximately 1.0, and the degradation strain was pre‑incubated for 24 h for degradation. Three volumetric ratios of degradation strain to sensing strain (1:1, 1:2 and 2:1) were set up. Fluorescence measurements showed that the system exhibited the strongest fluorescent response and the best detection stability at the strain ratio of 2:1. This ratio was defined as the uniform standard condition for subsequent co‑culture experiments.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-10.png?v=20260916" alt="Figure 10: Fluorescence response in co-cultures of sensor and degrading strains with different mixing ratios"></figure>
+<p class="figure-caption">Figure 10: Fluorescence response in co-cultures of sensor and degrading strains with different mixing ratios</p>
+<h3 id="section-50"><strong>2.3 Screening and Optimization Results of Promoters for the Degradation Pathway</strong></h3>
+<p class="">In this study, the wild‑type Pnah promoter was replaced, and five sets of constitutive promoters with different strengths were screened. Detection results under standardized experimental conditions showed that the degradation strain driven by the P114 promoter possessed the highest naphthalene conversion efficiency, with its relative fluorescence intensity 1.4‑fold higher than that of the wild‑type promoter system. Accordingly, P114 was identified as the optimal degradation‑pathway promoter.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-11.png?v=20260916" alt="Figure 11: Relative fluorescence of the biosensor under promoters of varying strengths"></figure>
+<p class="figure-caption">Figure 11: Relative fluorescence of the biosensor under promoters of varying strengths</p>
+<h3 id="section-54"><strong>2.4 Screening Results of Degradation Chassis Hosts</strong></h3>
+<p class="">Comparative compatibility experiments among multiple host strains demonstrated that under consistent culture and degradation conditions, the DH5α strain delivered the highest naphthalene conversion efficiency, optimal fluorescence output and superior system stability, making it the preferred host for the naphthalene degradation module.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-12.png?v=20260916" alt="Figure 12: Chassis cell screening for the naphthalene degradation pathway"></figure>
+<p class="figure-caption">Figure 12: Chassis cell screening for the naphthalene degradation pathway</p>
+<h3 id="section-58"><strong>2.5 Results of Culture</strong><strong>‑</strong><strong>Medium Condition Optimization</strong></h3>
+<p class="">Multi‑dimensional medium‑screening experiments indicated that exogenous supplementation of Fe²⁺ at a final concentration of 0.5 mg/mL could significantly improve the naphthalene degradation efficiency and fluorescence‑sensing performance of the system, while other tested metal ions, carbon‑source and nitrogen‑source components exerted no obvious optimizing effects.</p>
+<p class="">Time‑gradient degradation experiments were carried out using the optimized medium system. The results showed that stable and prominent sensing fluorescence signals could be generated after 3 h of degradation with 100 μM naphthalene substrate, which effectively shortened the detection duration of the system.</p>
+<p class="">Effects of culture‑medium conditions on degradation efficiency</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-13.png?v=20260916" alt="Figure 13 :Additives in culture medium"></figure>
+<p class="figure-caption">Figure 13 :Additives in culture medium</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-14.png?v=20260916" alt="Figure 14: Culture condition optimization of naphthalene-degrading strains for enhanced degradation and sensing efficiency"></figure>
+<p class="figure-caption">Figure 14: Culture condition optimization of naphthalene-degrading strains for enhanced degradation and sensing efficiency</p>
+<h3 id="section-66"><strong>2.6 Results of Sensing</strong><strong>‑</strong><strong>Strain Cell</strong><strong>‑</strong><strong>Density Optimization</strong></h3>
+<p class="">Gradient experiments of sensing‑strain cell density were performed with the optimal co‑culture ratio and degradation system fixed. The results revealed that obvious sensing performance was achieved when the OD₆₀₀ of the sensing strain reached 0.8. This cell density was therefore set as the standardized detection condition.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-15.png?v=20260916" alt="Figure 15: Sensor strain concentration"></figure>
+<p class="figure-caption">Figure 15: Sensor strain concentration</p>
+<p class="">By integrating all optimized experimental conditions, a finalized co‑culture detection system was constructed and tested against naphthalene samples with gradient concentrations ranging from 0.01 μM to 500 μM. The results demonstrated that the system achieved a limit of detection as low as 0.1 μM for naphthalene. Featuring a broad detection range, high sensitivity and favorable stability, it can effectively realize accurate detection of trace naphthalene in aqueous environments.</p>
+<figure class="wetlab-figure"><img loading="lazy" src="../../static/image/wetlab/documents/results/figure-16.png?v=20260916" alt="Figure 16: Naphthalene detection concentrations"></figure>
+<p class="figure-caption">Figure 16: Naphthalene detection concentrations</p>
+</section>
+</div>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

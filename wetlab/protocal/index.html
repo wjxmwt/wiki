@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wet Lab · Protocal | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+
+  
+
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+<link rel="stylesheet" href="../../static/css/wetlab-documents.css?v=20260916.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  
+
+
+
+  
+  
+
+<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
+
+<header class="main-header" id="header">
+  <nav class="nav-container">
+    <div class="nav-brand">
+      <a href="../../">
+        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
+        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
+      </a>
+    </div>
+    <div class="menu-container">
+      <ul class="nav-menu" id="navMenu">
+        <!-- Project 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Project" class="nav-link " data-section="Project">
+            <i class="fas fa-home"></i>
+            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../project/description/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
+            <li><a href="../../project/design/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+          </ul>
+        </li>
+        <!-- Wet Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Wet Lab" class="nav-link active" data-section="Wet-Lab">
+            <i class="fa-solid fa-flask"></i>
+            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../engineering/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Engineering" data-text-zh="工程设计">Engineering</span></a></li>
+            <li><a href="../results/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+            <li><a href="index.html" class="dropdown-link active"><span class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a></li>
+            <li><a href="../parts/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+            <li><a href="../notebook/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
+            <li><a href="../safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Dry Lab 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+          </ul>
+        </li>
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Team" class="nav-link " data-section="Team">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Team 下拉菜单 -->
+        <li class="nav-item has-dropdown">
+          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
+            <i class="fa-solid fa-people-group"></i>
+            <span class="nav-text">Engagement</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li style="width:15vw;"><a href="../../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
+            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
+            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
+            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
+          </ul>
+        </li>
+      
+        <li class="nav-item">
+          <a href="../../#Video" class="nav-link " data-section="Video">
+            <i class="fa-solid fa-video"></i>
+            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-controls">
+      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li class="document-toc-level-2"><a href="#section-1">I. Medium Preparation</a></li>
+<li class="document-toc-level-2"><a href="#section-6">II. Molecular‑Biology Experimental Protocols</a></li>
+<li class="document-toc-level-3"><a href="#section-7">2.1 Plasmid Extraction</a></li>
+<li class="document-toc-level-3"><a href="#section-19">2.2 Recovery of DNA Products</a></li>
+<li class="document-toc-level-3"><a href="#section-27">2.3 Construction of Recombinant Vectors</a></li>
+<li class="document-toc-level-3"><a href="#section-35">2.4 Site‑Directed Mutagenesis</a></li>
+<li class="document-toc-level-3"><a href="#section-40">2.5 Construction of Dual‑Site Saturated‑Mutant Library</a></li>
+<li class="document-toc-level-2"><a href="#section-47">III. Strain Preparation and Transformation Experiments</a></li>
+<li class="document-toc-level-3"><a href="#section-48">3.1 Preparation of Escherichia coli DH5α Competent Cells</a></li>
+<li class="document-toc-level-3"><a href="#section-58">3.2 Chemical Transformation of Competent Cells</a></li>
+<li class="document-toc-level-3"><a href="#section-66">3.3 Colony PCR Verification</a></li>
+<li class="document-toc-level-2"><a href="#section-71">IV. Screening System for Mutant Strains</a></li>
+<li class="document-toc-level-2"><a href="#section-73">V. Salicylic‑Acid Induction and Sensing‑Performance Assay</a></li>
+<li class="document-toc-level-2"><a href="#section-75">VI. Naphthalene‑Degradation Assay and HPLC Detection Protocol</a></li>
+<li class="document-toc-level-3"><a href="#section-76">6.1 Resting‑Cell Preparation and Degradation Assay</a></li>
+<li class="document-toc-level-3"><a href="#section-78">6.2 HPLC Detection Conditions</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero" id="sec-hero">
+  <div class="hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow-2" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="WET LAB · LAB METHODS" data-text-zh="湿实验 · 实验方法">WET LAB · LAB METHODS</div>
+      <h1 class="hero-title" data-text-en="Protocal" data-text-zh="实验方法与操作流程" >Protocal</h1>
+      <p class="hero-desc" data-text-en="This chapter brings together the methods used to construct and evaluate our sensing and degradation strains. It covers media preparation, DNA purification, vector assembly, mutagenesis and strain transformation, followed by mutant screening, salicylic-acid induction assays and HPLC analysis of naphthalene degradation, with reaction systems and operating steps organized for reference." data-text-zh="本章整理传感菌株与降解菌株构建和评价所采用的实验方法，涵盖培养基配制、DNA 纯化、载体组装、突变与菌株转化，以及突变体筛选、水杨酸诱导检测和萘降解的 HPLC 分析。反应体系与操作步骤分项呈现，方便查阅。">This chapter brings together the methods used to construct and evaluate our sensing and degradation strains. It covers media preparation, DNA purification, vector assembly, mutagenesis and strain transformation, followed by mutant screening, salicylic-acid induction assays and HPLC analysis of naphthalene degradation, with reaction systems and operating steps organized for reference.</p>
+      <div class="hero-actions">
+        <a href="#section-6" class="hero-btn hero-btn-primary"><span data-text-en="Molecular Biology" data-text-zh="分子生物学方法">Molecular Biology</span> <i class="fa-solid fa-dna" aria-hidden="true"></i></a>
+        <a href="#section-78" class="hero-btn hero-btn-secondary"><span data-text-en="HPLC Detection" data-text-zh="HPLC 检测">HPLC Detection</span> <i class="fa-solid fa-microscope" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="hero-content-right">
+      <div class="hero-image-card">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="" aria-hidden="true">
+        <div class="hero-image-overlay">
+          <div class="hero-image-badge" data-text-en="LAB WORK" data-text-zh="实验室现场">LAB WORK</div>
+          <div class="hero-image-title" data-text-en="Lab Methods" data-text-zh="实验方法">Lab Methods</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<div class="document-body" lang="en">
+<section class="document-section" id="section-1"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+  <div class="section-heading-text"><h2><strong>I. Medium Preparation</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<p class="">All microbial‑culture experiments in this study adopted autoclaved media. Formulations of routine media are shown below:</p>
+<ol class="protocol-steps" start="1">
+<li><strong>LB liquid medium</strong>: Add 1 g tryptone, 0.5 g yeast extract and 1 g sodium chloride per 100 mL deionized water. For solid LB plates, supplement an extra 1.5 g agar powder per 100 mL medium.</li>
+<li><strong>LK kanamycin</strong><strong>‑</strong><strong>resistant medium</strong>: Based on LB medium, add kanamycin to a final concentration of 50 mg/L for screening and scale‑up culture of plasmid‑bearing engineered strains.</li>
+<li><strong>Basal medium</strong>: 0.5 g/L KH₂PO₄, 0.5 g/L K₂HPO₄, 0.2 g/L MgSO₄, 0.1 g/L CaCl₂, 0.2 g/L NaCl, 1 g/L (NH₄)₂SO₄.</li>
+</ol>
+</section>
+<section class="document-section" id="section-6"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-dna"></i></div>
+  <div class="section-heading-text"><h2><strong>II. Molecular</strong><strong>‑</strong><strong>Biology Experimental Protocols</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-7"><strong>2.1 Plasmid Extraction</strong></h3>
+<p class="">Commercially available plasmid extraction kits were used to isolate plasmids from overnight‑cultured <em>Escherichia coli</em>. Standard operating steps are as follows:</p>
+<ol class="protocol-steps" start="1">
+<li>Take 3 mL overnight‑grown bacterial culture, centrifuge at 12 000 rpm for 30 s, completely discard supernatant and collect cell pellet.</li>
+<li>Add 250 μL pre‑chilled RS* buffer containing RNase A. Pipette repeatedly or vortex to fully resuspend cells without clumping to remove RNA impurities.</li>
+<li>Add 250 μL LB lysis buffer. Gently invert the tube 6‑8 times and incubate at room temperature for 4 min to achieve thorough cell lysis.</li>
+<li>Immediately add 350 μL BD binding buffer. Gently invert the tube 6‑8 times for full mixing, incubate at room temperature for 2 min, centrifuge at 13 000 rpm for 10 min, and carefully collect supernatant.</li>
+<li>Add 100 μL AC buffer to P3 DNA adsorption column, centrifuge at 13 000 rpm for 1 min, discard waste liquid.</li>
+<li>Transfer centrifuged supernatant onto the pre‑treated adsorption column. Centrifuge at 12 000 rpm for 1 min to allow full binding of plasmid DNA to the column membrane, and discard waste liquid.</li>
+<li>Add 500 μL PL* deproteinization buffer, centrifuge at 12 000 rpm for 1 min, discard waste liquid.</li>
+<li>Place P3 DNA adsorption column back into collection tube. Add 600 μL W* wash buffer and centrifuge at 12 000 rpm at room temperature for 30 s; discard waste liquid. Repeat the washing step once to thoroughly remove residual salts and ethanol impurities.</li>
+<li>Return P3 DNA adsorption column to collection tube. Centrifuge the empty column at 12 000 rpm for 2 min to remove residual wash buffer. Open the column lid and bake in an oven for 10 min to completely evaporate residual ethanol.</li>
+<li>Transfer the adsorption column into a brand‑new sterile 1.5 mL centrifuge tube. Add 30 μL nuclease‑free sterile water or elution buffer drop‑wise onto the centre of column membrane. Incubate at room temperature for 2 min, then centrifuge at 12 000 rpm for 1 min to elute pure plasmid DNA. Store at −20 °C for subsequent use.</li>
+</ol>
+<h3 id="section-19"><strong>2.2 Recovery of DNA Products</strong></h3>
+<p class="">Commercially available DNA purification kits were used to purify and recover PCR products and restriction‑digestion products. Operating steps:</p>
+<ol class="protocol-steps" start="1">
+<li>Adjust the volume of DNA sample to be purified to 100 μL with sterile deionized water in a sterile 2 mL centrifuge tube. Add 5‑fold volume of GDP binding buffer and invert for thorough mixing.</li>
+<li>Briefly centrifuge to collect droplets on tube wall. Place FastPure DNA Mini Columns‑G adsorption column into a 2 mL Collection Tube. Transfer 600 μL sample solution onto the adsorption column and centrifuge at 12 000 rpm (13 800 × g) for 30‑60 sec.</li>
+<li>Discard flow‑through. Add 300 μL GDP buffer to the adsorption column, incubate at room temperature for 1 min, centrifuge at 12 000 rpm for 60 sec.</li>
+<li>Discard flow‑through. Add 700 μL GW buffer supplemented with anhydrous ethanol onto the adsorption column, centrifuge at 12 000 rpm for 60 sec and discard waste liquid. Repeat washing once to completely eliminate salt residues that may interfere with downstream experiments.</li>
+<li>Centrifuge empty adsorption column at 12 000 rpm for 2 min. Open lid and bake at low temperature for less than 10 min to fully remove residual ethanol.</li>
+<li>Place adsorption column into a sterilized 1.5 mL centrifuge tube. Add 20‑30 μL pre‑warmed (55 °C) Elution Buffer / ddH₂O onto the centre of column membrane. Incubate at room temperature for 2 min, centrifuge at 12 000 rpm (13 800 × g) for 1 min. Reload eluate onto the column and centrifuge a second time to improve DNA recovery yield.</li>
+</ol>
+<h3 id="section-27"><strong>2.3 Construction of Recombinant Vectors</strong></h3>
+<p class="">Two strategies, restriction‑enzyme digestion‑ligation and homologous recombination, were adopted for recombinant‑vector construction. Detailed reaction systems and procedures are shown below:</p>
+<ol class="protocol-steps" start="1">
+<li><strong>Restriction digestion</strong><strong>‑</strong><strong>ligation</strong>: Digest gene insert and vector with the same pair of restriction endonucleases to generate compatible sticky ends. Ligate using Solution I ligase at 22 °C for 2 h, followed by transformation, plasmid extraction and Sanger sequencing.</li>
+</ol>
+<h4 id="section-30">Digestion System</h4>
+<div class="reaction-system"><div class="reaction-labels"><span><p><strong>Component</strong></p></span><span><p><strong>Volume</strong></p></span></div><dl>
+<div><dt><p>Purified fragment product</p></dt><dd><p>25 μL</p></dd></div>
+<div><dt><p>Buffer</p></dt><dd><p>5 μL</p></dd></div>
+<div><dt><p>Enzyme 1</p></dt><dd><p>1.5 μL</p></dd></div>
+<div><dt><p>Enzyme 2</p></dt><dd><p>1.5 μL</p></dd></div>
+<div><dt><p>ddH₂O</p></dt><dd><p>fill up to 50 μL</p></dd></div>
+</dl></div>
+<h4 id="section-32">Ligation System</h4>
+<div class="reaction-system"><div class="reaction-labels"><span><p><strong>Component</strong></p></span><span><p><strong>Volume</strong></p></span></div><dl>
+<div><dt><p>Treated insert fragment</p></dt><dd><p>3 μL</p></dd></div>
+<div><dt><p>Treated vector backbone</p></dt><dd><p>1 μL</p></dd></div>
+<div><dt><p>Buffer</p></dt><dd><p>0.5 μL</p></dd></div>
+<div><dt><p>Solution I ligase</p></dt><dd><p>0.5 μL</p></dd></div>
+</dl></div>
+<ol class="protocol-steps" start="1">
+<li><strong>Homologous recombination</strong>: Operate according to the <em>ClonExpress II One Step Cloning Kit</em> manual. Prepare a total 5 μL reaction system: 1 μL 5 × CE II Buffer; 1 μL Exnase II; molar ratio of linearized insert fragment to vector = 2 : 1. Mix thoroughly and incubate at 37 °C for 30 min. Perform transformation, plasmid extraction and sequencing afterwards.</li>
+</ol>
+<h3 id="section-35"><strong>2.4 Site</strong><strong>‑</strong><strong>Directed Mutagenesis</strong></h3>
+<p class="">Sequence‑verified plasmids such as pUC57‑Pr‑NahR(E169/C248)‑Psal‑eGFP and pMD18T‑Pnah‑nahA served as templates. Primers were designed to introduce target amino‑acid substitutions; forward and reverse primers share a minimum of 20 bp homologous sequences. Whole‑plasmid inverse PCR was performed. Products with correct band size were recovered and treated with Dpn I to remove methylated template DNA.</p>
+<h4 id="section-37">Dpn I Template‑Digestion System</h4>
+<div class="reaction-system"><div class="reaction-labels"><span><p><strong>Component</strong></p></span><span><p><strong>Volume</strong></p></span></div><dl>
+<div><dt><p>Purified PCR product</p></dt><dd><p>25 μL</p></dd></div>
+<div><dt><p>Dpn I</p></dt><dd><p>1 μL</p></dd></div>
+<div><dt><p>Buffer</p></dt><dd><p>5 μL</p></dd></div>
+<div><dt><p>ddH₂O</p></dt><dd><p>fill up to 50 μL</p></dd></div>
+</dl></div>
+<p class="">Incubate in 37 °C water bath for 2 h, then heat‑inactivate Dpn I at approximately 80 °C for 10 min. Purify DNA solution down to 10 μL after Dpn I digestion. Transform 5 μL purified product into <em>E. coli</em> DH5α competent cells. Several transformants were picked for commercial Sanger sequencing. Sequence‑correct clones were used for subsequent experiments.</p>
+<h3 id="section-40"><strong>2.5 Construction of Dual</strong><strong>‑</strong><strong>Site Saturated</strong><strong>‑</strong><strong>Mutant Library</strong></h3>
+<p class="">Protocol for constructing NahR 169/248 saturated‑mutagenesis library:</p>
+<p class="">First, design a pair of primers (169‑F and 248‑R, see Table 2) using Snapgene to introduce mutations at residues 169 and 248 of NahR. NNS degenerate codons were applied at the two target amino‑acid positions. The forward primer (169‑F) carries the mutation for residue 169 of NahR, and the reverse primer (248‑R) carries the mutation for residue 248 of NahR. Using plasmid pUC57‑Pr/Psal_mut‑NahR(E169/C248)‑eGFP as template, PCR amplification was carried out to obtain the NahR fragment containing 169‑248 mutations. Band size was verified by agarose‑gel electrophoresis, and target fragment was purified with DNA purification kit.</p>
+<p class="">For assembly of recombinant vector harbouring mutated NahR gene: ligate the 169‑248 mutated fragment into backbone vector via homologous recombination; vector linearization primers Z‑F and Z‑R are listed in Table 2.</p>
+<p class="">Recombination system: insert‑to‑vector molar ratio = 2 : 1; 1 μL 5 × CE II Buffer; 1 μL Exnase II; final total volume 5 μL. Incubate ligation reaction at 37 °C for 30 min. Transform ligation product directly into <em>E. coli</em> DH5α competent cells following the transformation protocol, then incubate plate inverted at 37 °C overnight.</p>
+<p class="">Approximately 1400 transformants were obtained for the NahR 169/248 saturated‑mutant library, which was more than three‑fold of the theoretical value of 400. Hence, this saturated‑mutant library covers all theoretical amino‑acid‑combination possibilities.</p>
+<p class="">Randomly pick 10 transformants from the library plate inside a biosafety cabinet. Culture liquid cultures, extract plasmids and send for commercial sequencing. Sequencing results showed that nine out of ten sequenced plasmids contained distinct amino‑acid substitutions at both residue 169 and residue 248 of NahR, demonstrating high mutagenesis efficiency and confirming successful library construction.</p>
+</section>
+<section class="document-section" id="section-47"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-vial"></i></div>
+  <div class="section-heading-text"><h2><strong>III. Strain Preparation and Transformation Experiments</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-48"><strong>3.1 Preparation of </strong><em><strong>Escherichia coli</strong></em><strong> DH5α Competent Cells</strong></h3>
+<ol class="protocol-steps" start="1">
+<li><strong>Strain revival</strong>: Retrieve frozen stock of <em>E. coli</em> DH5α from −80 °C freezer. Pick a small volume of bacterial suspension with a sterile inoculating loop and streak onto LB solid agar plate. Incubate inverted at 37 °C for 12‑16 h (overnight) to obtain single colonies.</li>
+<li><strong>Seed</strong><strong>‑</strong><strong>culture preparation</strong>: Pick a well‑grown single colony and inoculate into 5 mL liquid LB medium. Incubate at 37 °C with shaking at 200 rpm for 12‑16 h to prepare seed culture.</li>
+<li><strong>Scale</strong><strong>‑</strong><strong>up culture</strong>: Inoculate 1 mL seed culture into 100 mL liquid LB medium at 1:100 dilution. Incubate at 37 °C, 200 rpm for 2‑3 h. Closely monitor OD₆₀₀ until it reaches 0.4‑0.6 (early logarithmic phase with high cellular competence).</li>
+<li><strong>Ice</strong><strong>‑</strong><strong>bath pre</strong><strong>‑</strong><strong>treatment</strong>: Rapidly transfer cultured bacterial suspension into pre‑chilled sterile centrifuge tubes and hold on ice for 30 min to cool down the culture slowly and suppress cell metabolism.</li>
+<li><strong>Cell harvest</strong>: Transfer bacterial suspension into 50 mL centrifuge tubes, perform refrigerated centrifugation at 4 °C, 3700 rpm for 10 min. Discard supernatant and retain cell pellet at tube bottom. Keep all operations on ice to avoid competence loss caused by temperature elevation.</li>
+<li><strong>Cell washing</strong>: Add 10 mL pre‑chilled 0.1 mol/L CaCl₂ solution to the tube. Gently resuspend cells (avoid vigorous vortexing to prevent cell lysis). Incubate on ice for 10 min, then centrifuge at 4 °C, 3700 rpm for 10 min.</li>
+<li>Repeat step 6 for 2‑3 cycles.</li>
+<li><strong>Concentrated resuspension</strong>: Depending on pellet size, add 1.6 mL pre‑chilled 0.1 mol/L CaCl₂ and 0.4 mL 70 % glycerol to resuspend cells. Incubate on ice for 5 min to obtain competent‑cell suspension.</li>
+<li><strong>Aliquot and storage</strong>: Dispense competent‑cell suspension at 100 μL per pre‑chilled sterile centrifuge tube. Immediately store at −80 °C freezer, or use directly for transformation of recombinant products.</li>
+</ol>
+<h3 id="section-58"><strong>3.2 Chemical Transformation of Competent Cells</strong></h3>
+<ol class="protocol-steps" start="1">
+<li><strong>Sample preparation</strong>: Thaw one aliquot of freshly‑prepared or −80 °C‑frozen DH5α competent cells naturally on ice. Do not knead the tube repeatedly during thawing to prevent cell damage from abrupt temperature shift.</li>
+<li><strong>Mix recombinant product with competent cells</strong>: After complete thawing, pipette 5 μL homologous recombination product and add slowly to competent‑cell suspension. Mix gently with pipette tips without harsh blowing. Incubate on ice for 30 min.</li>
+<li><strong>Heat</strong><strong>‑</strong><strong>shock treatment</strong>: Quickly transfer centrifuge tube into 42 °C water bath for precisely timed 45‑s heat shock. Keep tube vertical to ensure full submersion of bacterial suspension.</li>
+<li><strong>Ice</strong><strong>‑</strong><strong>bath recovery</strong>: Immediately transfer tube back onto ice after heat‑shock, incubate for 2 min to enable rapid cell‑membrane contraction and stable DNA adsorption.</li>
+<li><strong>Post</strong><strong>‑</strong><strong>transformation recovery culture</strong>: Add 200 μL liquid LB medium, mix gently, shake at 37 °C, 200 rpm for 45 min to restore normal cellular metabolic activity.</li>
+<li><strong>Plating</strong>: Centrifuge recovered culture at 10 000 rpm for 1 min. In biosafety cabinet discard partial supernatant and retain 50 μL to resuspend cell pellet. Pipette bacterial suspension evenly onto kanamycin‑containing LB (LK) agar plate. Spread suspension gently across the whole plate surface using a sterile spreader (pre‑soaked in 75 % ethanol, flame‑sterilized and cooled).</li>
+<li><strong>Incubation</strong>: Incubate plate inverted at 37 °C overnight for 12‑16 h. Plates with appropriately‑sized colonies can be stored at 4 °C.</li>
+</ol>
+<h3 id="section-66"><strong>3.3 Colony PCR Verification</strong></h3>
+<p class="">After ligation products are transformed into <em>Escherichia coli</em> competent cells, colony PCR is performed to verify whether recombinant colonies harbour target DNA fragments.</p>
+<ol class="protocol-steps" start="1">
+<li>In a biosafety cabinet, pick 10 single colonies, resuspend each in 10 μL sterile water with labelling to serve as PCR templates. Set one colony carrying target DNA fragment as positive control and one colony without target DNA fragment as negative control.</li>
+<li>Prepare PCR reaction system containing polymerase, primers and templates; top‑up with water to total volume of 10 μL; set appropriate PCR thermal‑cycling parameters.</li>
+<li>Run agarose‑gel electrophoresis. If bands match the expected size of positive‑control band and no band appears for negative control, inoculate colonies with correct band size into corresponding selective medium. After 8‑12 h incubation, extract plasmids for Sanger sequencing.</li>
+</ol>
+</section>
+<section class="document-section" id="section-71"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></div>
+  <div class="section-heading-text"><h2><strong>IV. Screening System for Mutant Strains</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<p class="">Wash all transformants from solid agar plate with suitable volume of sterile water using a spreader to obtain pooled mutant‑library cell suspension. Dilute suspension with sterile water to suitable concentration and spread onto agar plates containing 0.1 mM salicylic acid. Incubate plates inverted at 37 °C overnight. Perform primary screening under blue‑light imager to select colonies with visibly high fluorescence intensity. Spot‑purify candidate colonies on fresh solid medium. Pick single colonies from primary screening, inoculate into liquid LB medium supplemented with 1 μM salicylic acid for induction, shake culture at 37 °C, 220 rpm for 10 h. Measure fluorescence intensity of primary‑screen candidates via microplate reader for secondary screening, aiming to select mutants combining low background signal and high sensing sensitivity.</p>
+</section>
+<section class="document-section" id="section-73"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
+  <div class="section-heading-text"><h2><strong>V. Salicylic</strong><strong>‑</strong><strong>Acid Induction and Sensing</strong><strong>‑</strong><strong>Performance Assay</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<p class="">Transform sensing plasmid pUC57‑NahR‑eGFP into <em>E. coli</em> DH5α or <em>E. coli</em> HUBU competent cells to construct salicylic‑acid‑detecting strains. Pick single colony and grow overnight seed culture (15 h) in 1 mL LB medium. Inoculate 20 μL seed culture into 20 mL LK selective medium, incubate at 37 °C, 220 rpm with three biological replicates. When OD₆₀₀ of culture reaches ~0.3, add salicylic‑acid inducer. The 0 μM salicylic‑acid control group receives equal volume of DMSO solvent. Incubate cells with shaking at 37 °C, 220 rpm for 8 h for eGFP signal development. Measure absorbance at excitation/emission 488 nm / 511 nm and OD₆₀₀ with microplate reader to calculate relative fluorescence value (FL/OD₆₀₀).</p>
+</section>
+<section class="document-section" id="section-75"><div class="section-heading">
+  <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-microscope"></i></div>
+  <div class="section-heading-text"><h2><strong>VI. Naphthalene</strong><strong>‑</strong><strong>Degradation Assay and HPLC Detection Protocol</strong></h2><div class="section-heading-bar"></div></div>
+</div>
+<h3 id="section-76"><strong>6.1 Resting</strong><strong>‑</strong><strong>Cell Preparation and Degradation Assay</strong></h3>
+<p class="">Pick fresh single colony of degradation‑engineered strain, inoculate into LB liquid medium with corresponding antibiotic, and incubate at 37 °C, 220 rpm until OD₆₀₀ ≈ 2.0. Centrifuge to harvest cells, wash cell pellet twice with basal‑salt medium, and finally resuspend cells in basal‑salt medium to OD₆₀₀ = 4.0. Add naphthalene to a final concentration of 100 μM and incubate with shaking at 37 °C to carry out naphthalene‑degradation experiment.</p>
+<h3 id="section-78"><strong>6.2 HPLC Detection Conditions</strong></h3>
+<p class="">High‑performance liquid chromatography (HPLC) was used to quantify naphthalene and its metabolites. Chromatographic column: InertSustain AQ‑C18 (4.6 × 250 mm). Mobile‑phase composition: 90 % methanol + 10 % deionized water supplemented with 1 % glacial acetic acid; flow rate 0.5 mL/min; detection wavelength 280 nm; injection volume 5‑20 μL. Prior to detection, mix sample with equal volume of HPLC‑grade methanol, sonicate for 10 min, centrifuge and collect supernatant for sample injection.</p>
+</section>
+</div>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>

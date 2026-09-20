@@ -210,7 +210,7 @@ function initSubpageTransitions() {
         });
     }
 
-    // 当前子页面内的链接（如 /wetlab/salicylic-acid）不需要跳转
+    // 当前子页面内的链接不需要跳转
     const currentPageLinks = document.querySelectorAll(`a[href="${currentPath}"]`);
     currentPageLinks.forEach(link => {
         link.addEventListener('click', (e) => {
