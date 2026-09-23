@@ -142,6 +142,13 @@ h3 {
     width: 550px;
 }
 
+.leader-introduction p:not(:first-of-type),
+.member-introduction > p,
+.advisor-introduction > p,
+.member-modal-details p {
+    text-align: justify;
+}
+
 .members-introduction-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
