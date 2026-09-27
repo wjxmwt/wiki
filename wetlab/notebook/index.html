@@ -31,7 +31,7 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <!-- 全局样式 -->
-  <link rel="stylesheet" href="../../static/css/base.css?v=1.0.12">
+  <link rel="stylesheet" href="../../static/css/style.css?v=1.0.12">
 
   
 
@@ -69,111 +69,221 @@
   
 
   
-  
+  <header class="main-header" id="header">
+    <nav class="nav-container">
+        <div class="nav-brand">
+            <a href="../../index.html">
+                <img src="https://static.igem.wiki/teams/6049/wiki/menu/logo.avif" alt="logo" class="logo logo-full" />
+                <img src="https://static.igem.wiki/teams/6049/wiki/menu/logo-icon.avif" alt="logo-icon"
+                    class="logo logo-icon" />
+            </a>
+        </div>
+        <div class="menu-container">
+            <ul class="nav-menu" id="navMenu">
+                <!-- Project 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Project">
+                        <svg t="1790326463262" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="16813" width="20" height="20">
+                            <path
+                                d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8zM472 472h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8zM664 544h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8z"
+                                p-id="16814" fill="#10B981"></path>
+                            <path
+                                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-40 728H184V184h656v656z"
+                                p-id="16815" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../project/description/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Description"
+                                    data-text-zh="项目描述">Description</span></a></li>
+                        <li><a href="../../project/design/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+                        <li><a href="#Contribution" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+                    </ul>
+                </li>
+                <!-- Wet Lab 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link active" data-section="Wet-Lab">
+                        <svg t="1790324893305" class="icon" viewBox="0 0 1025 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="13953" width="20" height="20">
+                            <path
+                                d="M661.840006 119.424c-15.136-15.104-35.2-23.424-56.576-23.424s-41.44 8.32-56.64 23.456l-45.12 45.184c-15.136 15.104-23.488 35.2-23.488 56.608 0 15.072 4.128 29.504 11.872 42.016l-434.464 174.048c-29.056 12.768-49.888 38.976-55.744 70.048-5.92 31.264 4 63.328 26.688 85.984l407.04 402.56c17.536 17.536 40.832 27.488 65.44 28.064 0.576 0.032 1.92 0.032 2.496 0.032 6.464 0 13.024-0.672 19.52-1.984 31.808-6.592 57.856-28.576 69.664-58.496l170.944-428.032c12.864 8.48 28 13.024 43.744 13.024 21.44 0 41.504-8.352 56.576-23.456l45.024-45.056c15.264-15.168 23.616-35.296 23.616-56.736s-8.384-41.6-23.424-56.576l-247.168-247.264zM533.104006 939.744c-3.968 10.016-12.704 17.408-23.264 19.584-2.432 0.512-4.896 0.704-7.328 0.672-8.128-0.192-15.968-3.456-21.824-9.344l-407.296-402.816c-7.488-7.456-10.784-18.144-8.8-28.576 1.952-10.368 8.928-19.136 18.624-23.36l198.944-79.68c134.048 44.576 268.128 1.632 402.24 144.704l-151.296 378.816zM863.760006 434.56l-45.248 45.216c-6.24 6.272-16.384 6.272-22.624 0l-56.576-56.544-45.824 114.848 3.808-9.696c-96.32-96.16-194.208-108.288-282.528-119.136-28.384-3.488-55.904-7.136-82.944-12.96l271.712-108.832-54.88-54.88c-6.24-6.24-6.24-16.384 0-22.624l45.248-45.28c6.24-6.24 16.384-6.24 22.624 0l247.2 247.264c6.336 6.24 6.336 16.384 0.032 22.624zM528.016006 672c44.096 0 80-35.872 80-80s-35.872-80-80-80c-44.128 0-80 35.872-80 80s35.904 80 80 80zM528.016006 544c26.496 0 48 21.504 48 48s-21.504 48-48 48c-26.528 0-48-21.504-48-48s21.472-48 48-48zM944.016006 0c-44.128 0-80 35.872-80 80s35.872 80 80 80 80-35.872 80-80-35.872-80-80-80zM944.016006 128c-26.496 0-48-21.504-48-48s21.504-48 48-48 48 21.504 48 48-21.504 48-48 48zM256.016006 544c0 35.296 28.704 64 64 64s64-28.704 64-64-28.704-64-64-64-64 28.704-64 64zM320.016006 512c17.664 0 32 14.304 32 32s-14.336 32-32 32-32-14.304-32-32 14.336-32 32-32zM384.016006 736c0-17.664 14.336-32 32-32s32 14.336 32 32c0 17.664-14.336 32-32 32s-32-14.336-32-32zM896.016006 256c0-17.664 14.336-32 32-32s32 14.336 32 32c0 17.664-14.336 32-32 32s-32-14.336-32-32z"
+                                fill="#10B981" p-id="13954"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../engineering/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Engineering"
+                                    data-text-zh="工程设计">Engineering</span></a></li>
+                        <li><a href="../results/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+                        <li><a href="../protocal/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a>
+                        </li>
+                        <li><a href="../parts/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+                        <li><a href="index.html"
+                                class="dropdown-link active"><span
+                                    class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a>
+                        </li>
+                        <li><a href="../safety/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+                    </ul>
+                </li>
 
+                <!-- Dry Lab 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Dry-Lab">
+                        <svg t="1790325454549" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="15581" id="mx_n_1790325454550" width="20"
+                            height="20">
+                            <path
+                                d="M733.333333 436.746667V247.52a5.333333 5.333333 0 0 0-2.773333-4.693333l-216.053333-117.333334a5.333333 5.333333 0 0 0-5.013334 0L293.333333 242.826667a5.333333 5.333333 0 0 0-2.773333 4.693333v189.226667a5.333333 5.333333 0 0 1-2.773333 4.64L109.44 538.133333a5.333333 5.333333 0 0 0-2.773333 4.693334v233.653333a5.333333 5.333333 0 0 0 2.773333 4.693333l216.053333 117.333334a5.333333 5.333333 0 0 0 5.013334 0l178.986666-97.013334a5.333333 5.333333 0 0 1 5.013334 0L693.333333 898.293333a5.333333 5.333333 0 0 0 5.013334 0l216.053333-117.333333a5.333333 5.333333 0 0 0 2.773333-4.693333v-233.44a5.333333 5.333333 0 0 0-2.773333-4.693334L736 441.386667a5.333333 5.333333 0 0 1-2.666667-4.64z m-77.333333 4.64l-98.72 53.333333a5.333333 5.333333 0 0 1-7.84-4.693333V393.333333a5.333333 5.333333 0 0 1 2.773333-4.693333l98.72-53.333333a5.333333 5.333333 0 0 1 7.84 4.64v96.8a5.333333 5.333333 0 0 1-2.773333 4.64zM514.506667 210.666667l96 52.053333a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053334a5.333333 5.333333 0 0 1-5.013334 0L413.44 272a5.333333 5.333333 0 0 1 0-9.333333l96-52.053334a5.333333 5.333333 0 0 1 5.066667 0.053334zM229.333333 558.026667l96-52.053334a5.333333 5.333333 0 0 1 5.013334 0l96 52.053334a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053333a5.333333 5.333333 0 0 1-5.013334 0l-96-52.053333a5.333333 5.333333 0 0 1 0-9.333333z m138.666667 125.92l98.72-53.333334a5.333333 5.333333 0 0 1 7.84 4.64v96.96a5.333333 5.333333 0 0 1-2.773333 4.64L373.333333 790.24a5.333333 5.333333 0 0 1-7.84-4.693333v-96.906667a5.333333 5.333333 0 0 1 2.506667-4.693333z m229.333333-125.92l96-52.053334a5.333333 5.333333 0 0 1 5.013334 0l96 52.053334a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053333a5.333333 5.333333 0 0 1-5.013334 0l-96-52.053333a5.333333 5.333333 0 0 1 0-9.333333z m242.453334 178.666666l-98.72 53.333334a5.333333 5.333333 0 0 1-7.84-4.693334v-96.693333a5.333333 5.333333 0 0 1 2.773333-4.693333l98.72-53.333334a5.333333 5.333333 0 0 1 7.84 4.64v96.96a5.333333 5.333333 0 0 1-2.666667 4.48z"
+                                p-id="15582" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../drylab/naphthalene/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+                        <li><a href="#Software" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+                        <li><a href="#Hardware" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+                    </ul>
+                </li>
+                <!-- Team 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Team">
+                        <svg t="1790324819500" class="icon" viewBox="0 0 1030 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="11139" width="20" height="20">
+                            <path
+                                d="M512 722.216625m-33.531486 0a33.531486 33.531486 0 1 0 67.062972 0 33.531486 33.531486 0 1 0-67.062972 0Z"
+                                fill="#10B981" p-id="11140"></path>
+                            <path
+                                d="M512 838.287154m-33.531486 0a33.531486 33.531486 0 1 0 67.062972 0 33.531486 33.531486 0 1 0-67.062972 0Z"
+                                fill="#10B981" p-id="11141"></path>
+                            <path
+                                d="M515.869018 188.292191c-112.201511 0-203.768262 91.566751-203.768262 205.057935 0 73.511335 38.690176 137.994962 96.72544 174.105793-137.994962 49.007557-242.458438 189.581864-242.458438 344.34257 0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c0-159.919395 130.256927-299.20403 283.72796-312.100756 5.15869 0 7.738035-1.289673 12.896725-1.289673s7.738035 0 11.607053-1.289672c107.042821-3.869018 193.450882-94.146096 193.450882-203.768262 0-113.491184-91.566751-205.057935-203.768262-205.057935z m0 358.528968H509.420655c-81.24937-3.869018-145.732997-70.93199-145.732998-153.471033 0-85.118388 68.352645-153.471033 152.181361-153.471033s152.18136 68.352645 152.18136 153.471033c0 83.828715-68.352645 153.471033-152.18136 153.471033z"
+                                fill="#10B981" p-id="11142"></path>
+                            <path
+                                d="M220.534005 469.440806c10.31738 0 19.345088-6.448363 24.503778-16.765743 5.15869-12.896725-1.289673-28.372796-14.186398-33.531486-50.297229-20.634761-83.828715-68.352645-83.828715-123.808564 0-73.511335 59.324937-132.836272 131.5466-132.836272 30.952141 0 60.61461 10.31738 83.828715 30.952141 10.31738 9.027708 27.083123 7.738035 36.110831-3.869018 9.027708-10.31738 7.738035-27.083123-3.869018-36.110831-32.241814-27.083123-74.801008-42.559194-117.360201-42.559194-100.594458 0-183.133501 82.539043-183.133501 184.423174 0 76.09068 45.138539 143.153652 116.070529 171.526448 3.869018 1.289673 6.448363 2.579345 10.31738 2.579345z"
+                                fill="#10B981" p-id="11143"></path>
+                            <path
+                                d="M709.319899 651.284635c-10.31738 10.31738-10.31738 25.793451 0 36.110831 67.062972 68.352645 100.594458 143.153652 100.594459 223.11335 0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.79345-25.793451c0-94.146096-38.690176-181.843829-116.070529-259.224181-10.31738-10.31738-25.793451-10.31738-36.110831 0z"
+                                fill="#10B981" p-id="11144"></path>
+                            <path
+                                d="M98.015113 527.476071C36.110831 595.828715 0 684.816121 0 773.803526c0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c0-76.09068 30.952141-152.18136 83.828715-211.506297 9.027708-10.31738 9.027708-27.083123-1.289672-36.110831-10.31738-10.31738-27.083123-9.027708-36.110832 1.289673z"
+                                fill="#10B981" p-id="11145"></path>
+                            <path
+                                d="M853.763224 451.38539c51.586902-33.531486 83.828715-90.277078 83.828716-154.760705 0-101.884131-82.539043-184.423174-184.423174-184.423174-45.138539 0-87.697733 16.765743-121.229219 46.428212-10.31738 9.027708-11.607053 25.793451-2.579345 36.110831 9.027708 10.31738 25.793451 11.607053 36.110831 2.579345 24.503778-20.634761 55.455919-33.531486 87.697733-33.531486 73.511335 0 132.836272 59.324937 132.836272 132.836272 0 56.745592-36.110831 107.042821-88.987406 126.387909-10.31738 2.579345-24.503778 5.15869-28.372796 16.765744-5.15869 12.896725 1.289673 27.083123 14.186398 32.241813C895.032746 521.027708 973.702771 639.677582 973.702771 760.906801c0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c-1.289673-123.808564-69.642317-242.458438-171.526449-309.521411z"
+                                fill="#10B981" p-id="11146"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../team/members/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+                        <li><a href="#Attribution" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+                    </ul>
+                </li>
 
+                <!-- Engagement 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Engagement">
+                        <svg t="1790324756815" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="10047" width="20" height="20">
+                            <path
+                                d="M772.032 192a59.968 59.968 0 0 1 59.968 60.032v519.936a59.968 59.968 0 0 1-60.032 60.032H252.032A59.968 59.968 0 0 1 192 771.968V252.032C192 218.88 218.88 192 252.032 192h519.936z m0 60.032H251.968v519.936h54.208V446.336c0-11.84 6.144-22.784 16.192-29.056l182.848-80a34.304 34.304 0 0 1 52.48 29.056v405.632h88.512V551.296L588.992 531.2v-63.552l101.632 35.712c9.728 6.4 15.616 17.152 15.616 28.8v239.936h65.728V251.968zM497.664 406.08l-131.456 57.472v308.48h131.456V616.384l-91.52 37.76V589.312l91.52-37.76v-41.536l-91.52 38.912V483.84l91.52-38.912v-38.784z"
+                                p-id="10048" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text">Engagement</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li style="width:15vw;"><a href="../../engagement/ihp/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text">IHP</span></a></li>
+                        <li><a href="#Education" class="dropdown-link"><span
+                                    class="nav-text">Education</span></a></li>
+                        <li><a href="#Enterpreneurship" class="dropdown-link"><span
+                                    class="nav-text">Enterpreneurship</span></a></li>
+                        <li><a href="#Sustainable Dvelopment" class="dropdown-link"><span
+                                    class="nav-text">Sustainable Dvelopment</span></a></li>
+                    </ul>
+                </li>
 
-  
-  
+                <li class="nav-item">
+                    <a class="nav-link " data-section="Video">
+                        <svg t="1790324375360" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="7906" width="20" height="20">
+                            <path
+                                d="M912 302.3L784 376V224c0-35.3-28.7-64-64-64H128c-35.3 0-64 28.7-64 64v576c0 35.3 28.7 64 64 64h592c35.3 0 64-28.7 64-64V648l128 73.7c21.3 12.3 48-3.1 48-27.6V330c0-24.6-26.7-40-48-27.7zM712 792H136V232h576v560z m176-167l-104-59.8V458.9L888 399v226z"
+                                p-id="7907" fill="#10B981"></path>
+                            <path
+                                d="M208 360h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H208c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                                p-id="7908" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-<link rel="stylesheet" href="../../static/css/nav.css?v=1.0.2">
-
-<header class="main-header" id="header">
-  <nav class="nav-container">
-    <div class="nav-brand">
-      <a href="../../">
-        <img src="../../static/image/logo.png?v=2.0.0" alt="logo" class="logo logo-full">
-        <img src="../../static/image/logo-icon.png" alt="logo icon" class="logo logo-icon">
-      </a>
-    </div>
-    <div class="menu-container">
-      <ul class="nav-menu" id="navMenu">
-        <!-- Project 下拉菜单 -->
-        <li class="nav-item has-dropdown">
-          <a href="../../#Project" class="nav-link " data-section="Project">
-            <i class="fas fa-home"></i>
-            <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="../../project/description/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Description" data-text-zh="项目描述">Description</span></a></li>
-            <li><a href="../../project/design/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
-            <li><a href="../../#Contribution" class="dropdown-link"><span class="nav-text" data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
-          </ul>
-        </li>
-        <!-- Wet Lab 下拉菜单 -->
-        <li class="nav-item has-dropdown">
-          <a href="../../#Wet Lab" class="nav-link active" data-section="Wet-Lab">
-            <i class="fa-solid fa-flask"></i>
-            <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="../engineering/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Engineering" data-text-zh="工程设计">Engineering</span></a></li>
-            <li><a href="../results/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
-            <li><a href="../protocal/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a></li>
-            <li><a href="../parts/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
-            <li><a href="index.html" class="dropdown-link active"><span class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a></li>
-            <li><a href="../safety/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
-          </ul>
-        </li>
-
-        <!-- Dry Lab 下拉菜单 -->
-        <li class="nav-item has-dropdown">
-          <a href="../../#Dry Lab" class="nav-link " data-section="Dry-Lab">
-            <i class="fa-solid fa-flask-vial"></i>
-            <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="../../drylab/naphthalene/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
-            <li><a href="../../#Software" class="dropdown-link"><span class="nav-text" data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
-            <li><a href="../../#Hardware" class="dropdown-link"><span class="nav-text" data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
-          </ul>
-        </li>
-        <!-- Team 下拉菜单 -->
-        <li class="nav-item has-dropdown">
-          <a href="../../#Team" class="nav-link " data-section="Team">
-            <i class="fa-solid fa-people-group"></i>
-            <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="../../team/members/index.html" class="dropdown-link "><span class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
-            <li><a href="../../#Attribution" class="dropdown-link"><span class="nav-text" data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
-          </ul>
-        </li>
-
-        <!-- Team 下拉菜单 -->
-        <li class="nav-item has-dropdown">
-          <a href="../../#Engagement" class="nav-link " data-section="Engagement">
-            <i class="fa-solid fa-people-group"></i>
-            <span class="nav-text">Engagement</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li style="width:15vw;"><a href="../../engagement/ihp/index.html" class="dropdown-link "><span class="nav-text">IHP</span></a></li>
-            <li><a href="../../#Education" class="dropdown-link"><span class="nav-text">Education</span></a></li>
-            <li><a href="../../#Enterpreneurship" class="dropdown-link"><span class="nav-text">Enterpreneurship</span></a></li>
-            <li><a href="../../#Sustainable Dvelopment" class="dropdown-link"><span class="nav-text">Sustainable Dvelopment</span></a></li>
-          </ul>
-        </li>
-      
-        <li class="nav-item">
-          <a href="../../#Video" class="nav-link " data-section="Video">
-            <i class="fa-solid fa-video"></i>
-            <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="nav-controls">
-      <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+        <div class="nav-controls">
+            <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 </header>
 
   
