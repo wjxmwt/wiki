@@ -396,3 +396,51 @@
         padding: 1.2rem 1.2rem;
     }
 }
+
+
+/* ============新增一级大章节居中标题样式============ */
+.protocal-group-heading{
+    text-align: center;
+    margin: 4rem 0 2rem;
+    padding:1rem 0;
+    font-size: 1.8rem;
+    font-weight:700;
+    color: var(--p-primary-dark);
+    position: relative;
+}
+.protocal-group-heading::before{
+    content:"";
+    position:absolute;
+    left:15%;
+    right:15%;
+    top:50%;
+    height:1px;
+    background-color: var(--p-border);
+    z-index:1;
+}
+.protocal-group-heading span{
+    position:relative;
+    z-index:2;
+    background-color: var(--p-bg-card);
+    padding:0 1.5rem;
+}
+
+/* 每个一级章节容器间距 */
+.protocal-group{
+    margin-bottom: 3rem;
+}
+/* 每个一级内部按钮网格，保持两栏布局 */
+.protocal-group .protocal-buttons{
+    margin-bottom:0.5rem;
+}
+
+@media (max-width:700px){
+    .protocal-group-heading{
+        font-size:1.35rem;
+        margin:2.5rem 0 1.2rem;
+    }
+    .protocal-group-heading::before{
+        left:5%;
+        right:5%;
+    }
+}

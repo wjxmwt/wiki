@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Protocol | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/style.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../../static/css/protocol.css?v=1.0.12">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  <header class="main-header" id="header">
+    <nav class="nav-container">
+        <div class="nav-brand">
+            <a href="../../index.html">
+                <img src="https://static.igem.wiki/teams/6049/wiki/menu/logo.avif" alt="logo" class="logo logo-full" />
+                <img src="https://static.igem.wiki/teams/6049/wiki/menu/logo-icon.avif" alt="logo-icon"
+                    class="logo logo-icon" />
+            </a>
+        </div>
+        <div class="menu-container">
+            <ul class="nav-menu" id="navMenu">
+                <!-- Project 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Project">
+                        <svg t="1790326463262" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="16813" width="20" height="20">
+                            <path
+                                d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8zM472 472h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8zM664 544h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8z"
+                                p-id="16814" fill="#10B981"></path>
+                            <path
+                                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-40 728H184V184h656v656z"
+                                p-id="16815" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../project/description/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Description"
+                                    data-text-zh="项目描述">Description</span></a></li>
+                        <li><a href="../../project/design/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+                        <li><a href="#Contribution" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+                    </ul>
+                </li>
+                <!-- Wet Lab 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link active" data-section="Wet-Lab">
+                        <svg t="1790324893305" class="icon" viewBox="0 0 1025 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="13953" width="20" height="20">
+                            <path
+                                d="M661.840006 119.424c-15.136-15.104-35.2-23.424-56.576-23.424s-41.44 8.32-56.64 23.456l-45.12 45.184c-15.136 15.104-23.488 35.2-23.488 56.608 0 15.072 4.128 29.504 11.872 42.016l-434.464 174.048c-29.056 12.768-49.888 38.976-55.744 70.048-5.92 31.264 4 63.328 26.688 85.984l407.04 402.56c17.536 17.536 40.832 27.488 65.44 28.064 0.576 0.032 1.92 0.032 2.496 0.032 6.464 0 13.024-0.672 19.52-1.984 31.808-6.592 57.856-28.576 69.664-58.496l170.944-428.032c12.864 8.48 28 13.024 43.744 13.024 21.44 0 41.504-8.352 56.576-23.456l45.024-45.056c15.264-15.168 23.616-35.296 23.616-56.736s-8.384-41.6-23.424-56.576l-247.168-247.264zM533.104006 939.744c-3.968 10.016-12.704 17.408-23.264 19.584-2.432 0.512-4.896 0.704-7.328 0.672-8.128-0.192-15.968-3.456-21.824-9.344l-407.296-402.816c-7.488-7.456-10.784-18.144-8.8-28.576 1.952-10.368 8.928-19.136 18.624-23.36l198.944-79.68c134.048 44.576 268.128 1.632 402.24 144.704l-151.296 378.816zM863.760006 434.56l-45.248 45.216c-6.24 6.272-16.384 6.272-22.624 0l-56.576-56.544-45.824 114.848 3.808-9.696c-96.32-96.16-194.208-108.288-282.528-119.136-28.384-3.488-55.904-7.136-82.944-12.96l271.712-108.832-54.88-54.88c-6.24-6.24-6.24-16.384 0-22.624l45.248-45.28c6.24-6.24 16.384-6.24 22.624 0l247.2 247.264c6.336 6.24 6.336 16.384 0.032 22.624zM528.016006 672c44.096 0 80-35.872 80-80s-35.872-80-80-80c-44.128 0-80 35.872-80 80s35.904 80 80 80zM528.016006 544c26.496 0 48 21.504 48 48s-21.504 48-48 48c-26.528 0-48-21.504-48-48s21.472-48 48-48zM944.016006 0c-44.128 0-80 35.872-80 80s35.872 80 80 80 80-35.872 80-80-35.872-80-80-80zM944.016006 128c-26.496 0-48-21.504-48-48s21.504-48 48-48 48 21.504 48 48-21.504 48-48 48zM256.016006 544c0 35.296 28.704 64 64 64s64-28.704 64-64-28.704-64-64-64-64 28.704-64 64zM320.016006 512c17.664 0 32 14.304 32 32s-14.336 32-32 32-32-14.304-32-32 14.336-32 32-32zM384.016006 736c0-17.664 14.336-32 32-32s32 14.336 32 32c0 17.664-14.336 32-32 32s-32-14.336-32-32zM896.016006 256c0-17.664 14.336-32 32-32s32 14.336 32 32c0 17.664-14.336 32-32 32s-32-14.336-32-32z"
+                                fill="#10B981" p-id="13954"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../engineering/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Engineering"
+                                    data-text-zh="工程设计">Engineering</span></a></li>
+                        <li><a href="../results/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+                        <li><a href="index.html"
+                                class="dropdown-link active"><span
+                                    class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a>
+                        </li>
+                        <li><a href="../parts/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+                        <li><a href="../notebook/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a>
+                        </li>
+                        <li><a href="../safety/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+                    </ul>
+                </li>
+
+                <!-- Dry Lab 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Dry-Lab">
+                        <svg t="1790325454549" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="15581" id="mx_n_1790325454550" width="20"
+                            height="20">
+                            <path
+                                d="M733.333333 436.746667V247.52a5.333333 5.333333 0 0 0-2.773333-4.693333l-216.053333-117.333334a5.333333 5.333333 0 0 0-5.013334 0L293.333333 242.826667a5.333333 5.333333 0 0 0-2.773333 4.693333v189.226667a5.333333 5.333333 0 0 1-2.773333 4.64L109.44 538.133333a5.333333 5.333333 0 0 0-2.773333 4.693334v233.653333a5.333333 5.333333 0 0 0 2.773333 4.693333l216.053333 117.333334a5.333333 5.333333 0 0 0 5.013334 0l178.986666-97.013334a5.333333 5.333333 0 0 1 5.013334 0L693.333333 898.293333a5.333333 5.333333 0 0 0 5.013334 0l216.053333-117.333333a5.333333 5.333333 0 0 0 2.773333-4.693333v-233.44a5.333333 5.333333 0 0 0-2.773333-4.693334L736 441.386667a5.333333 5.333333 0 0 1-2.666667-4.64z m-77.333333 4.64l-98.72 53.333333a5.333333 5.333333 0 0 1-7.84-4.693333V393.333333a5.333333 5.333333 0 0 1 2.773333-4.693333l98.72-53.333333a5.333333 5.333333 0 0 1 7.84 4.64v96.8a5.333333 5.333333 0 0 1-2.773333 4.64zM514.506667 210.666667l96 52.053333a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053334a5.333333 5.333333 0 0 1-5.013334 0L413.44 272a5.333333 5.333333 0 0 1 0-9.333333l96-52.053334a5.333333 5.333333 0 0 1 5.066667 0.053334zM229.333333 558.026667l96-52.053334a5.333333 5.333333 0 0 1 5.013334 0l96 52.053334a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053333a5.333333 5.333333 0 0 1-5.013334 0l-96-52.053333a5.333333 5.333333 0 0 1 0-9.333333z m138.666667 125.92l98.72-53.333334a5.333333 5.333333 0 0 1 7.84 4.64v96.96a5.333333 5.333333 0 0 1-2.773333 4.64L373.333333 790.24a5.333333 5.333333 0 0 1-7.84-4.693333v-96.906667a5.333333 5.333333 0 0 1 2.506667-4.693333z m229.333333-125.92l96-52.053334a5.333333 5.333333 0 0 1 5.013334 0l96 52.053334a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053333a5.333333 5.333333 0 0 1-5.013334 0l-96-52.053333a5.333333 5.333333 0 0 1 0-9.333333z m242.453334 178.666666l-98.72 53.333334a5.333333 5.333333 0 0 1-7.84-4.693334v-96.693333a5.333333 5.333333 0 0 1 2.773333-4.693333l98.72-53.333334a5.333333 5.333333 0 0 1 7.84 4.64v96.96a5.333333 5.333333 0 0 1-2.666667 4.48z"
+                                p-id="15582" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../drylab/naphthalene/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span></a></li>
+                        <li><a href="#Software" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+                        <li><a href="#Hardware" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+                    </ul>
+                </li>
+                <!-- Team 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Team">
+                        <svg t="1790324819500" class="icon" viewBox="0 0 1030 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="11139" width="20" height="20">
+                            <path
+                                d="M512 722.216625m-33.531486 0a33.531486 33.531486 0 1 0 67.062972 0 33.531486 33.531486 0 1 0-67.062972 0Z"
+                                fill="#10B981" p-id="11140"></path>
+                            <path
+                                d="M512 838.287154m-33.531486 0a33.531486 33.531486 0 1 0 67.062972 0 33.531486 33.531486 0 1 0-67.062972 0Z"
+                                fill="#10B981" p-id="11141"></path>
+                            <path
+                                d="M515.869018 188.292191c-112.201511 0-203.768262 91.566751-203.768262 205.057935 0 73.511335 38.690176 137.994962 96.72544 174.105793-137.994962 49.007557-242.458438 189.581864-242.458438 344.34257 0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c0-159.919395 130.256927-299.20403 283.72796-312.100756 5.15869 0 7.738035-1.289673 12.896725-1.289673s7.738035 0 11.607053-1.289672c107.042821-3.869018 193.450882-94.146096 193.450882-203.768262 0-113.491184-91.566751-205.057935-203.768262-205.057935z m0 358.528968H509.420655c-81.24937-3.869018-145.732997-70.93199-145.732998-153.471033 0-85.118388 68.352645-153.471033 152.181361-153.471033s152.18136 68.352645 152.18136 153.471033c0 83.828715-68.352645 153.471033-152.18136 153.471033z"
+                                fill="#10B981" p-id="11142"></path>
+                            <path
+                                d="M220.534005 469.440806c10.31738 0 19.345088-6.448363 24.503778-16.765743 5.15869-12.896725-1.289673-28.372796-14.186398-33.531486-50.297229-20.634761-83.828715-68.352645-83.828715-123.808564 0-73.511335 59.324937-132.836272 131.5466-132.836272 30.952141 0 60.61461 10.31738 83.828715 30.952141 10.31738 9.027708 27.083123 7.738035 36.110831-3.869018 9.027708-10.31738 7.738035-27.083123-3.869018-36.110831-32.241814-27.083123-74.801008-42.559194-117.360201-42.559194-100.594458 0-183.133501 82.539043-183.133501 184.423174 0 76.09068 45.138539 143.153652 116.070529 171.526448 3.869018 1.289673 6.448363 2.579345 10.31738 2.579345z"
+                                fill="#10B981" p-id="11143"></path>
+                            <path
+                                d="M709.319899 651.284635c-10.31738 10.31738-10.31738 25.793451 0 36.110831 67.062972 68.352645 100.594458 143.153652 100.594459 223.11335 0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.79345-25.793451c0-94.146096-38.690176-181.843829-116.070529-259.224181-10.31738-10.31738-25.793451-10.31738-36.110831 0z"
+                                fill="#10B981" p-id="11144"></path>
+                            <path
+                                d="M98.015113 527.476071C36.110831 595.828715 0 684.816121 0 773.803526c0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c0-76.09068 30.952141-152.18136 83.828715-211.506297 9.027708-10.31738 9.027708-27.083123-1.289672-36.110831-10.31738-10.31738-27.083123-9.027708-36.110832 1.289673z"
+                                fill="#10B981" p-id="11145"></path>
+                            <path
+                                d="M853.763224 451.38539c51.586902-33.531486 83.828715-90.277078 83.828716-154.760705 0-101.884131-82.539043-184.423174-184.423174-184.423174-45.138539 0-87.697733 16.765743-121.229219 46.428212-10.31738 9.027708-11.607053 25.793451-2.579345 36.110831 9.027708 10.31738 25.793451 11.607053 36.110831 2.579345 24.503778-20.634761 55.455919-33.531486 87.697733-33.531486 73.511335 0 132.836272 59.324937 132.836272 132.836272 0 56.745592-36.110831 107.042821-88.987406 126.387909-10.31738 2.579345-24.503778 5.15869-28.372796 16.765744-5.15869 12.896725 1.289673 27.083123 14.186398 32.241813C895.032746 521.027708 973.702771 639.677582 973.702771 760.906801c0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c-1.289673-123.808564-69.642317-242.458438-171.526449-309.521411z"
+                                fill="#10B981" p-id="11146"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../team/members/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+                        <li><a href="#Attribution" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+                    </ul>
+                </li>
+
+                <!-- Engagement 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Engagement">
+                        <svg t="1790324756815" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="10047" width="20" height="20">
+                            <path
+                                d="M772.032 192a59.968 59.968 0 0 1 59.968 60.032v519.936a59.968 59.968 0 0 1-60.032 60.032H252.032A59.968 59.968 0 0 1 192 771.968V252.032C192 218.88 218.88 192 252.032 192h519.936z m0 60.032H251.968v519.936h54.208V446.336c0-11.84 6.144-22.784 16.192-29.056l182.848-80a34.304 34.304 0 0 1 52.48 29.056v405.632h88.512V551.296L588.992 531.2v-63.552l101.632 35.712c9.728 6.4 15.616 17.152 15.616 28.8v239.936h65.728V251.968zM497.664 406.08l-131.456 57.472v308.48h131.456V616.384l-91.52 37.76V589.312l91.52-37.76v-41.536l-91.52 38.912V483.84l91.52-38.912v-38.784z"
+                                p-id="10048" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text">Engagement</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="20"
+                            height="20">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li style="width:15vw;"><a href="../../engagement/ihp/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text">IHP</span></a></li>
+                        <li><a href="#Education" class="dropdown-link"><span
+                                    class="nav-text">Education</span></a></li>
+                        <li><a href="#Enterpreneurship" class="dropdown-link"><span
+                                    class="nav-text">Enterpreneurship</span></a></li>
+                        <li><a href="#Sustainable Dvelopment" class="dropdown-link"><span
+                                    class="nav-text">Sustainable Dvelopment</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " data-section="Video">
+                        <svg t="1790324375360" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="7906" width="20" height="20">
+                            <path
+                                d="M912 302.3L784 376V224c0-35.3-28.7-64-64-64H128c-35.3 0-64 28.7-64 64v576c0 35.3 28.7 64 64 64h592c35.3 0 64-28.7 64-64V648l128 73.7c21.3 12.3 48-3.1 48-27.6V330c0-24.6-26.7-40-48-27.7zM712 792H136V232h576v560z m176-167l-104-59.8V458.9L888 399v226z"
+                                p-id="7907" fill="#10B981"></path>
+                            <path
+                                d="M208 360h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H208c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                                p-id="7908" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-controls">
+            <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+  
+  
+<div class="protocal">
+    <section class="protocal-header">
+        <img src="../../static/image/wetlab/hero-lab.png" alt="Protocol">
+        <h1>Protocol</h1>
+    </section>
+    <section class="protocal-display">
+
+        <!-- ========== 一级 I. Medium Preparation ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>I. Medium Preparation</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-i-1">
+                    <h2>1. LB liquid/solid medium</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-i-2">
+                    <h2>2. LK kanamycin‑resistant medium</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-i-3">
+                    <h2>3. Basal medium</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-i-1">
+                    <h3>LB liquid/solid medium</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Magnetic stirrer (Thermo Fisher Scientific, USA)</li>
+                        <li>Autoclave sterilizer (Jiangyin Binjiang Medical Equipment Co., Ltd., Jiangyin, China)</li>
+                    </ul>
+                    <p>All microbial culture experiments in this study adopted autoclaved media.</p>
+                    <h5>Reagents</h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reagent</th>
+                                <th>Amount (per 1 L)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Tryptone</td><td>10 g</td></tr>
+                            <tr><td>Yeast extract</td><td>5 g</td></tr>
+                            <tr><td>NaCl</td><td>10 g</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>Procedure</h5>
+                    <ol>
+                        <li>Add the above reagents to a graduated container. Then, add RO water until the total volume reaches 1 L.</li>
+                        <li>Stir on a magnetic stirrer until the solutes are completely dissolved.</li>
+                        <li>Aliquot the liquid into several conical flasks.</li>
+                        <li>Sterilize the medium in an autoclave at 121℃ for 20 minutes at a pressure of 15 psi (1.05kg/cm²).</li>
+                    </ol>
+                    <p><strong>Note:</strong> 15 g/L Agar powder was added for LB solid medium.</p>
+                </div>
+                <div class="protocal-content" id="panel-i-2">
+                    <h3>LK kanamycin‑resistant liquid/solid medium</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Magnetic stirrer (Thermo Fisher Scientific, USA)</li>
+                        <li>Autoclave sterilizer (Jiangyin Binjiang Medical Equipment Co., Ltd., Jiangyin, China)</li>
+                    </ul>
+                    <h5>Reagents</h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reagent</th>
+                                <th>Amount (per 1 L)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Tryptone</td><td>10 g</td></tr>
+                            <tr><td>Yeast extract</td><td>5 g</td></tr>
+                            <tr><td>NaCl</td><td>10 g</td></tr>
+                            <tr><td>Kanamycin</td><td>50 mg</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>Procedure</h5>
+                    <ol>
+                        <li>Prepare LB liquid medium following the protocol above, then autoclave at 121℃ for 20 min and cool it to 50–60 ℃.</li>
+                        <li>Add kanamycin stock solution to the cooled sterile medium to a final concentration of 50 mg/L under aseptic conditions.</li>
+                        <li>Mix gently, then aliquot into tubes or pour into plates, for screening and scale‑up culture of plasmid‑bearing engineered strains.</li>
+                    </ol>
+                    <p><strong>Note:</strong> For solid LK plates, add 15 g/L agar powder before autoclaving.</p>
+                </div>
+                <div class="protocal-content" id="panel-i-3">
+                    <h3>Basal medium</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Magnetic stirrer (Thermo Fisher Scientific, USA)</li>
+                        <li>Autoclave sterilizer (Jiangyin Binjiang Medical Equipment Co., Ltd., Jiangyin, China)</li>
+                    </ul>
+                    <h5>Reagents</h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reagent</th>
+                                <th>Amount (1 L)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>KH₂PO₄</td><td>0.5 g</td></tr>
+                            <tr><td>K₂HPO₄</td><td>0.5 g</td></tr>
+                            <tr><td>MgSO₄</td><td>0.2 g</td></tr>
+                            <tr><td>CaCl₂</td><td>0.1 g</td></tr>
+                            <tr><td>NaCl</td><td>0.2 g</td></tr>
+                            <tr><td>(NH₄)₂SO₄</td><td>1 g</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>Procedure</h5>
+                    <ol>
+                        <li>Add the above reagents to a graduated container. Then, add RO water until the total volume reaches 1 L.</li>
+                        <li>Stir on a magnetic stirrer until the solutes are completely dissolved.</li>
+                        <li>Aliquot the liquid (50 ml/100ml) into conical flasks (250ml/500ml flask).</li>
+                        <li>Sterilize the medium in an autoclave sterilizer at 121℃ for 20 minutes at a pressure of 15 psi (1.05kg/cm²).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========== 一级 II. MolecularBiology Experimental Protocols ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>II. MolecularBiology Experimental Protocols</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-ii-1">
+                    <h2>2.1 Plasmid Extraction</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-ii-2">
+                    <h2>2.2 Recovery of DNA Products</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-ii-3">
+                    <h2>2.3 Construction of Recombinant Vectors</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-ii-4">
+                    <h2>2.4 Site‑Directed Mutagenesis</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-ii-5">
+                    <h2>2.5 Dual‑Site Saturated Mutant Library</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-ii-1">
+                    <h3>2.1 Plasmid Extraction</h3>
+                    <h4>Equipment:</h4>
+                    <ul>
+                        <li>Centrifuge (Eppendorf, Germany)</li>
+                        <li>Vortex mixer (Dragon‑Lab, Beijing, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Thermostatic oven (Hengyi, Shanghai, China)</li>
+                    </ul>
+                    <h4>Reagents (from commercial plasmid extraction kit)</h4>
+                    <p>RS* buffer (containing RNase A)、LB lysis buffer、BD binding buffer、AC buffer、PL* deproteinization buffer、W* wash buffer、Nuclease‑free sterile water / elution buffer</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>Take 3 mL overnight‑grown bacterial culture, centrifuge at 12 000 rpm for 30 s, completely discard supernatant, and collect the cell pellet.</li>
+                        <li>Add 250 μL pre‑chilled RS* buffer containing RNase A. Pipette repeatedly or vortex to fully resuspend cells without clumping, in order to remove RNA impurities.</li>
+                        <li>Add 250 μL LB lysis buffer. Gently invert the tube 6‑8 times and incubate at room temperature for 4 min to achieve thorough cell lysis.</li>
+                        <li>Immediately add 350 μL BD binding buffer. Gently invert the tube 6‑8 times for full mixing, incubate at room temperature for 2 min, centrifuge at 13 000 rpm for 10 min, and carefully collect the supernatant.</li>
+                        <li>Add 100 μL AC buffer to the P3 DNA adsorption column, centrifuge at 13 000 rpm for 1 min, and discard the waste liquid.</li>
+                        <li>Transfer centrifuged supernatant onto the pretreated adsorption column. Centrifuge at 12 000 rpm for 1 min to allow full binding of plasmid DNA to the column membrane, and discard waste liquid.</li>
+                        <li>Add 500 μL PL* deproteinization buffer, centrifuge at 12 000 rpm for 1 min, and discard waste liquid.</li>
+                        <li>Place the P3 DNA adsorption column back into collection tube. Add 600 μL W* wash buffer and centrifuge at 12 000 rpm at room temperature for 30 s; discard waste liquid. Repeat the washing step once to thoroughly remove residual salts and ethanol impurities.</li>
+                        <li>Return P3 DNA adsorption column to collection tube. Centrifuge the empty column at 12 000 rpm for 2 min to remove residual wash buffer. Open the column lid and bake in an oven for 10 min to completely evaporate residual ethanol.</li>
+                        <li>Transfer the adsorption column into a brand‑new sterile 1.5 mL centrifuge tube. Add 30 μL nuclease‑free sterile water or elution buffer dropwise onto the centre of column membrane. Incubate at room temperature for 2 min, then centrifuge at 12 000 rpm for 1 min to elute pure plasmid DNA. Store at −20 °C for subsequent use.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-ii-2">
+                    <h3>2.2 Recovery of DNA Products</h3>
+                    <h4>Equipment:</h4>
+                    <ul>
+                        <li>Centrifuge (Eppendorf, Germany)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Thermostatic oven (Hengyi, Shanghai, China)</li>
+                    </ul>
+                    <h4>Reagents (from commercial DNA purification kit)</h4>
+                    <p>GDP binding buffer、GW wash buffer (supplemented with anhydrous ethanol)、Elution Buffer、Sterile deionized water (dd H₂O)</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>Adjust the volume of DNA sample to be purified to 100 μL with sterile deionized water in a sterile 2 mL centrifuge tube. Add a 5‑fold volume of GDP binding buffer and invert for thorough mixing.</li>
+                        <li>Briefly centrifuge to collect droplets on tube wall. Place FastPure DNA Mini Columns‑G adsorption column into a 2 mL Collection Tube. Transfer 600 μL sample solution onto the adsorption column and centrifuge at 12 000 rpm (13 800 × g) for 30‑60 sec.</li>
+                        <li>Discard flow‑through. Add 300 μL GDP buffer to the adsorption column, incubate at room temperature for 1 min, centrifuge at 12 000 rpm for 60 sec.</li>
+                        <li>Discard flow‑through. Add 700 μL GW buffer supplemented with anhydrous ethanol onto the adsorption column, centrifuge at 12 000 rpm for 60 sec and discard waste liquid. Repeat washing once to completely eliminate salt residues that may interfere with downstream experiments.</li>
+                        <li>Centrifuge empty adsorption column at 12 000 rpm for 2 min. Open lid and bake at low temperature for less than 10 min to fully remove residual ethanol.</li>
+                        <li>Place adsorption column into a sterilized 1.5 mL centrifuge tube. Add 20‑30 μL pre‑warmed (55 °C) elution buffer / dd H₂O onto the centre of column membrane. Incubate at room temperature for 2 min, centrifuge at 12 000 rpm (13 800 × g) for 1 min. Reload the eluate onto the column and centrifuge a second time to improve DNA recovery yield.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-ii-3">
+                    <h3>2.3 Construction of Recombinant Vectors</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Digital display thermostatic water bath (Changzhou Guohua Electric Appliance Co., Ltd., Changzhou, China)</li>
+                    </ul>
+                    <h4>1.Restriction Digestion and Ligation Strategy</h4>
+                    <p><em>Digestion Reaction System (50 μL total)</em></p>
+                    <table>
+                        <thead>
+                            <tr><th>Component</th><th>Volume</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Purified fragment product</td><td>25 μL</td></tr>
+                            <tr><td>Restriction enzyme buffer</td><td>5 μL</td></tr>
+                            <tr><td>Restriction Enzyme 1</td><td>1.5 μL</td></tr>
+                            <tr><td>Restriction Enzyme 2</td><td>1.5 μL</td></tr>
+                            <tr><td>Sterile dd H₂O</td><td>Make up to 50 μL</td></tr>
+                        </tbody>
+                    </table>
+                    <p><em>Ligation Reaction System (5 μL total)</em></p>
+                    <table>
+                        <thead>
+                            <tr><th>Component</th><th>Volume</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Treated insert fragment</td><td>3 μL</td></tr>
+                            <tr><td>Treated vector backbone</td><td>1 μL</td></tr>
+                            <tr><td>Ligation buffer</td><td>0.5 μL</td></tr>
+                            <tr><td>Solution I ligase</td><td>0.5 μL</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>Procedure</h5>
+                    <ol>
+                        <li>Digest the purified target gene insert and empty vector with identical restriction endonucleases according to the digestion system, to generate complementary sticky ends.</li>
+                        <li>Purify the digested insert fragment and vector backbone to remove residual enzymes and impurities.</li>
+                        <li>Prepare the ligation system as shown above, mix gently and incubate the mixture at 22 °C for 2 h for sufficient ligation.</li>
+                        <li>Transform the ligation product into competent cells, followed by plasmid extraction and Sanger sequencing to verify correct recombinant vector construction.</li>
+                    </ol>
+                    <h4>2.Homologous Recombination Strategy</h4>
+                    <p><em>Homologous Recombination Reaction System (5 μL total)</em></p>
+                    <table>
+                        <thead>
+                            <tr><th>Component</th><th>Volume</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>5× CE II Buffer</td><td>1 μL</td></tr>
+                            <tr><td>Exnase II</td><td>1 μL</td></tr>
+                            <tr><td>Linearized insert fragment</td><td>Corresponding volume (molar ratio 2:1)</td></tr>
+                            <tr><td>Linearized vector backbone</td><td>Corresponding volume (molar ratio 2:1)</td></tr>
+                        </tbody>
+                    </table>
+                    <h5>Procedure</h5>
+                    <ol>
+                        <li>Prepare the recombination reaction system according to the above table, and pipette gently to mix the components thoroughly.</li>
+                        <li>Incubate the reaction mixture at 37 °C for 30 min for homologous recombination.</li>
+                        <li>After the reaction, place the tube on ice for a short cooling process. Subsequently, perform bacterial transformation, plasmid extraction and Sanger sequencing to verify the correct construction of recombinant vectors.</li>
+                    </ol>
+                    <p><strong>Note:</strong> All reaction systems were prepared on ice to avoid enzyme inactivation. The molar ratio of insert to vector is critical for recombination efficiency and must be strictly controlled. Verified recombinant vectors were stored at −20 °C for subsequent experiments.</p>
+                </div>
+                <div class="protocal-content" id="panel-ii-4">
+                    <h3>2.4 Site‑Directed Mutagenesis</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>PCR instrument (Bio‑Rad, USA)</li>
+                        <li>Digital display thermostatic water bath (Changzhou Guohua Electric Appliance Co., Ltd., Changzhou, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>Site‑directed mutagenesis primers、PCR enzyme mix、<span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Dpn</span>I endonuclease、Enzyme reaction buffer、Sterile ddH₂O</p>
+                    <p><em><span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Dpn</span>I Template Removal Reaction System (50 μL total)</em></p>
+                    <table>
+                        <thead>
+                            <tr><th>Component</th><th>Volume</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Purified PCR recovery product</td><td>25 μL</td></tr>
+                            <tr><td><span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Dpn</span>I endonuclease</td><td>1 μL</td></tr>
+                            <tr><td>Enzyme reaction buffer</td><td>5 μL</td></tr>
+                            <tr><td>Sterile ddH₂O</td><td>Make up to 50 μL</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>Design site‑directed mutagenesis primers according to the target mutation sites, ensuring that the forward and reverse primers contain at least 20 bp overlapping homologous sequences.</li>
+                        <li>Perform full‑plasmid reverse PCR amplification using sequence‑verified plasmids (pUC57‑Pr‑NahR(E169/C248)‑Psal‑eGFP and pMD18T‑Pnah‑nahA) as templates.</li>
+                        <li>Detect PCR products via agarose gel electrophoresis, recover fragments with correct band size, and purify the mutagenized plasmid products.</li>
+                        <li>Prepare the <span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Dpn</span>I template digestion system on ice following the formulated system. After gentle mixing, incubate the reaction system in a thermostatic water bath at 37 °C for 2 h to fully digest methylated wild‑type template plasmids.</li>
+                        <li>Terminate the reaction and inactivate <span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Dpn</span>I endonuclease by heating the system at 80 °C for 10 min.</li>
+                        <li>Perform DNA purification and recovery on the enzyme‑treated product, and concentrate the final elution volume to 10 μL.</li>
+                        <li>Take 5 μL of the recovered product to transform Escherichia coli DH5α competent cells, and culture to obtain single transformant colonies.</li>
+                        <li>Select monoclonal transformants for Sanger sequencing verification. Plasmids with accurate target mutation sequences were screened and reserved for subsequent experimental analysis.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-ii-5">
+                    <h3>2.5 Construction of Dual‑Site Saturated Mutant Library</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>PCR instrument (Bio‑Rad, USA)</li>
+                        <li>Digital display thermostatic water bath (Changzhou Guohua Electric Appliance Co., Ltd., Changzhou, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Constant temperature incubator (Hengyi, Shanghai, China)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>Mutagenesis primers、Linearized vector primers、PCR enzyme mix、5× CE II Buffer、Exnase II recombinase、DNA purification kit、Competent <span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> DH5α cells、Sterile deionized water</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>Primer design was performed using SnapGene software. Primers 169‑F and 248‑R were designed for site‑saturation mutagenesis of the 169th and 248th amino acid residues of NahR protein. The NNS degenerate codon was applied to replace the original amino acid codons at the two target sites to achieve full‑site saturation mutation.</li>
+                        <li>The plasmid pUC57‑Pr/Psal‑mut‑NahR(E169/C248)‑eGFP was used as the PCR template. The 169‑F primer containing the 169‑site mutation and the 248‑R primer containing the 248‑site mutation were used for amplification to obtain mutant fragments covering the 169–248 double mutation sites of NahR protein.</li>
+                        <li>PCR products were verified by agarose gel electrophoresis. Fragments with correct band size were purified and recovered using a commercial DNA purification kit.</li>
+                        <li>The recovered mutant fragments and linearized vector (amplified with primers Z‑F and Z‑R) were assembled via homologous recombination. The reaction system was prepared with an insert‑to‑vector molar ratio of 2:1, supplemented with 5× CE II Buffer and Exnase II, and incubated at 37 °C for 30 min to complete recombination ligation.</li>
+                        <li>The recombination product was directly transformed into competent Escherichia coli DH5α cells. The transformed plates were incubated overnight at 37 °C in an inverted state.</li>
+                        <li>Statistical analysis showed that approximately 1400 transformants were obtained for the NahR saturation mutant library, which was more than three times the theoretical mutation number of 400, indicating that the library covered all theoretical mutation combinations.</li>
+                        <li>Ten transformants were randomly selected from the library plates under a sterile environment. Monoclonal strains were cultured and plasmids were extracted for Sanger sequencing verification.</li>
+                        <li>Sequencing results demonstrated that 9 out of 10 selected transformants carried different amino acid mutations at both the 169th and 248th sites of NahR protein, confirming high mutation efficiency and successful construction of the saturated mutant library.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========== 一级 III. Strain Preparation and Transformation Experiments ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>III. Strain Preparation and Transformation Experiments</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-iii-1">
+                    <h2>3.1 DH5α Competent Cells Preparation</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-iii-2">
+                    <h2>3.2 Chemical Transformation</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-iii-3">
+                    <h2>3.3 Colony PCR Verification</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-iii-1">
+                    <h3>3.1 Preparation of <span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> DH5α Competent Cells</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Constant temperature incubator (Laiboteri, Tianjin, China)</li>
+                        <li>Constant temperature shaker (Ounuotest, Tianjin, China)</li>
+                        <li>High‑speed refrigerated centrifuge (Dragon‑Lab, Beijing, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Ultra‑low temperature refrigerator (Haier, China)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p><span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> DH5α frozen strain、Sterile LB liquid medium、Sterile 0.1 mol/L CaCl₂ solution、Sterile 70% glycerol</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>Strain revival: Take out the frozen stock of Escherichia coli DH5α from the −80 °C ultra‑low temperature refrigerator. Streak the bacterial strain on a sterile LB solid agar plate using a sterile inoculating loop. Incubate the plate in an inverted state at 37 °C for 12–16 h overnight to obtain single monoclonal colonies.</li>
+                        <li>Seed culture preparation: Pick a well‑grown single colony and inoculate it into 5 mL sterile LB liquid medium. Culture the bacteria at 37 °C with continuous shaking at 200 rpm for 12–16 h to prepare saturated seed culture.</li>
+                        <li>Scale‑up culture: Inoculate 1 mL of the seed culture into 100 mL sterile LB liquid medium at a dilution ratio of 1:100. Incubate at 37 °C and 200 rpm for 2–3 h. Continuously monitor the OD₆₀₀ value, and terminate the culture when the value reaches 0.4–0.6 to obtain bacteria in the early logarithmic phase with high cell competence.</li>
+                        <li>Ice‑bath pretreatment: Quickly transfer the cultured bacterial suspension into pre‑chilled sterile centrifuge tubes, and place the tubes on ice for 30 min to slowly cool the bacterial liquid and inhibit cell metabolism.</li>
+                        <li>Cell harvest: Centrifuge the bacterial suspension at 4 °C and 3700 rpm for 10 min. Discard the supernatant completely and retain the cell pellet at the bottom of the tube. All operations are performed on ice to prevent the loss of cell competence caused by temperature rise.</li>
+                        <li>Cell washing: Add 10 mL of pre‑chilled 0.1 mol/L sterile CaCl₂ solution to the centrifuge tube, and gently resuspend the cell pellet to avoid cell lysis caused by violent shaking. Place the tube on ice for 10 min, then centrifuge at 4 °C and 3700 rpm for 10 min, and discard the supernatant. Repeat the washing operation 2–3 times.</li>
+                        <li>Concentrated resuspension: According to the amount of cell pellet, add 1.6 mL pre‑chilled 0.1 mol/L sterile CaCl₂ solution and 0.4 mL sterile 70% glycerol to fully resuspend the cells. Place the mixture on ice for 5 min to obtain uniform competent cell suspension.</li>
+                        <li>Aliquot and storage: Dispense the prepared competent cell suspension into pre‑chilled sterile centrifuge tubes with 100 μL per tube. The prepared competent cells can be used directly for recombinant product transformation, or stored long‑term in a −80 °C ultra‑low temperature refrigerator for subsequent experiments.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-iii-2">
+                    <h3>3.2 Chemical Transformation of Competent Cells</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Digital display thermostatic water bath (Changzhou Guohua Electric Appliance Co., Ltd., Changzhou, China)</li>
+                        <li>Constant temperature shaker (Tianjin Honour Instrument Co., Ltd., Tianjin, China)</li>
+                        <li>High‑speed centrifuge (Dragon‑Lab, Beijing, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Constant temperature incubator (Labotery, Tianjin, China)</li>
+                        <li>Ultra‑clean workbench (Suzhou Antai Airtech Co., Ltd., Suzhou, China)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p><span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> DH5α competent cells、Homologous recombination products、Sterile LB liquid medium、LK solid agar plate containing kanamycin、75% ethanol</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>Sample preparation: Thaw one aliquot of freshly prepared or −80 °C frozen DH5α competent cells naturally on ice. Avoid repeated kneading of the tube during thawing to prevent cell damage caused by abrupt temperature changes.</li>
+                        <li>Mixing of recombinant product and competent cells: After complete thawing of competent cells, slowly add 5 μL of homologous recombination product into the competent cell suspension. Mix gently with a pipette without harsh blowing and pipetting. Place the mixture on ice for 30 min for steady combination.</li>
+                        <li>Heat‑shock treatment: Vertically place the centrifuge tube into a 42 °C thermostatic water bath and perform accurate heat shock for 45 s to induce transient permeability of cell membrane.</li>
+                        <li>Ice‑bath recovery: Immediately transfer the tube back to ice after heat shock and incubate for 2 min to promote rapid contraction of the cell membrane and stabilize the adsorption of exogenous DNA.</li>
+                        <li>Post‑transformation recovery culture: Add 200 μL of sterile LB liquid medium to the tube and mix gently. Incubate at 37 °C with shaking at 200 rpm for 45 min to restore the metabolic activity of transformed cells.</li>
+                        <li>Plating operation: Centrifuge the recovered bacterial culture at 10 000 rpm for 1 min. In an ultra‑clean workbench, discard partial supernatant and retain 50 μL of liquid to fully resuspend the cell pellet. Evenly spread the bacterial suspension on the kanamycin‑resistant LB (LK) solid plate using a sterile spreader which was pre‑sterilized with 75% ethanol and flame cooling.</li>
+                        <li>Culture incubation: Place the plated medium in an inverted state and incubate at 37 °C for 12–16 h overnight. The cultured plates with uniform and appropriate‑sized single colonies can be stored at 4 °C for subsequent experiments.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-iii-3">
+                    <h3>3.3 Colony PCR Verification</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>PCR instrument, Bio‑Rad, USA</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Ultra‑clean workbench (Suzhou Antai Airtech Co., Ltd., Suzhou, China)</li>
+                        <li>Gel electrophoresis apparatus (Beijing Liuyi Biotechnology Co., Ltd., Beijing, China)</li>
+                        <li>Gel imaging system (Beijing Liuyi Biotechnology Co., Ltd., Beijing, China)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>PCR master mix, identification primers, sterile dd H₂O, TAE buffer, agarose gel, nucleic acid dye, selective LB medium</p>
+                    <p><em>PCR Reaction System (10 μL total)</em></p>
+                    <table>
+                        <thead>
+                            <tr><th>Component</th><th>Volume</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>PCR master mix</td><td>5 μL</td></tr>
+                            <tr><td>Forward primer</td><td>0.5 μL</td></tr>
+                            <tr><td>Reverse primer</td><td>0.5 μL</td></tr>
+                            <tr><td>Bacterial suspension template</td><td>1 μL</td></tr>
+                            <tr><td>Sterile ddH₂O</td><td>Fill up to 10 μL</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>After the transformation of ligation or recombination products into <span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> competent cells, colony PCR was performed to preliminarily verify recombinant colonies carrying target DNA fragments.</li>
+                        <li>In an ultra‑clean workbench, ten single colonies were randomly picked and separately resuspended in 10 μL sterile ddH₂O with clear labeling to serve as PCR templates. A positive colony containing the target fragment and a negative colony without insertion were set as control groups.</li>
+                        <li>Prepare the 10 μL PCR reaction system according to the table above. After fully mixing, place the sample in a PCR instrument and set appropriate thermal cycling parameters for amplification.</li>
+                        <li>The PCR products were detected by agarose gel electrophoresis. Colonies with band sizes consistent with the positive control and without non‑specific bands were regarded as positive recombinants.</li>
+                        <li>Qualified positive colonies were inoculated into corresponding selective liquid medium and cultured for 8–12 h. The bacterial cultures were collected for plasmid extraction and subsequent Sanger sequencing verification.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========== 一级 IV. Screening System for Mutant Strains ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>IV. Screening System for Mutant Strains</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-iv-1">
+                    <h2>Mutant Strains Screening Procedure</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-iv-1">
+                    <h3>Screening System for Mutant Strains</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Ultra‑clean workbench (Suzhou Antai Airtech Co., Ltd., Suzhou, China)</li>
+                        <li>Constant temperature incubator (Labotery, Tianjin, China)</li>
+                        <li>Constant temperature shaker (Tianjin Honour Instrument Co., Ltd., Tianjin, China)</li>
+                        <li>Blue‑light imager (Beijing Liuyi Biotechnology Co., Ltd., Beijing, China)</li>
+                        <li>Microplate reader (Molecular Devices, USA)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>Sterile deionized water、Sterile LB solid medium、Sterile LB liquid medium、Salicylic acid</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>All transformants on the solid agar plate were washed with a suitable volume of sterile water using a sterile spreader to obtain a uniform pooled mutant library cell suspension.</li>
+                        <li>The cell suspension was diluted to an appropriate concentration with sterile water and evenly spread on LB agar plates containing 0.1 mM salicylic acid.</li>
+                        <li>The plated plates were incubated upside down at 37 °C overnight to obtain monoclonal colonies of mutant strains.</li>
+                        <li>Primary screening was performed using a blue‑light imager. Colonies with significantly enhanced fluorescence intensity were preliminarily selected as candidate mutant strains.</li>
+                        <li>The screened candidate colonies were spot‑purified on fresh antibiotic‑free solid medium to eliminate mixed colonies and obtain pure monoclonal strains.</li>
+                        <li>Single colonies obtained from primary screening were picked and inoculated into sterile LB liquid medium supplemented with 1 μM salicylic acid for induced culture. The strains were incubated at 37 °C with shaking at 220 rpm for 10 h.</li>
+                        <li>A microplate reader was used to quantitatively detect the fluorescence intensity of all primary screening candidates for secondary screening. Mutant strains with low background fluorescence signal and high sensing sensitivity were finally selected for subsequent experimental verification.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========== 一级 V. Salicylic Acid Induction and Sensing Performance Assay ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>V. Salicylic Acid Induction and Sensing Performance Assay</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-v-1">
+                    <h2>Induction & Sensing Performance Assay</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-v-1">
+                    <h3>Salicylic Acid Induction and Sensing Performance Assay</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Ultra‑clean workbench (Suzhou Antai Airtech Co., Ltd., Suzhou, China)</li>
+                        <li>Constant temperature shaker (Tianjin Honour Instrument Co., Ltd., Tianjin, China)</li>
+                        <li>Microplate reader (Molecular Devices, USA)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p><span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> DH5α competent cells、Sterile LB liquid medium、LK <</span> DH5α competent cells、Sterile LB liquid medium、LK selective medium、Salicylic acid、DMSO</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>The salicylic acid detecting strains were constructed by transforming the sensing plasmid pUC57‑NahR‑eGFP into <span style='font-family: "Times New Roman", Times, Georgia, serif; font-style: italic'>Escherichia coli</span> DH5α competent cells.</li>
+                        <li>A single positive colony was picked and inoculated into 1 mL sterile LB liquid medium for overnight seed culture at 37 °C for 15 h.</li>
+                        <li>A total of 20 μL overnight seed culture was inoculated into 20 mL LK selective medium, and three independent biological replicates were set for the experiment. The cultures were incubated at 37 °C with shaking at 220 rpm.</li>
+                        <li>When the OD₆₀₀ value of the bacterial culture reached approximately 0.3, salicylic acid inducer was added to the experimental groups. The control group (0 μM salicylic acid) was supplemented with an equal volume of DMSO solvent to eliminate solvent interference.</li>
+                        <li>All bacterial cultures were continuously incubated at 37 °C and 220 rpm for 8 h to fully induce intracellular eGFP fluorescent signal expression.</li>
+                        <li>After induction, the microplate reader was used to detect the fluorescence intensity at excitation wavelength of 488 nm and emission wavelength of 511 nm, as well as the OD₆₀₀ absorbance value of each sample. The relative fluorescence value was calculated as FL/OD₆₀₀ to eliminate the influence of bacterial concentration difference.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========== 一级 VI. Naphthalene Degradation Assay and HPLC Detection Protocol ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>VI. Naphthalene Degradation Assay and HPLC Detection Protocol</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-vi-1">
+                    <h2>6.1 Resting‑Cell Degradation Assay</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-vi-2">
+                    <h2>6.2 HPLC‑Naphthalene Detection</h2>
+                </div>
+                <div class="protocal-title" data-target="panel-vi-3">
+                    <h2>6.3 HPLC‑Salicylic Acid Detection</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-vi-1">
+                    <h3>6.1 Resting‑Cell Preparation and Degradation Assay</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                        <li>Ultra‑clean workbench (Suzhou Antai Airtech Co., Ltd., Suzhou, China)</li>
+                        <li>Constant temperature shaker (Tianjin Honour Instrument Co., Ltd., Tianjin, China)</li>
+                        <li>High‑speed centrifuge (Dragon‑Lab, Beijing, China)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>Degradation‑engineered strain、Sterile LB liquid medium、Corresponding antibiotic、Basal salt medium、Naphthalene</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>A fresh single colony of the degradation‑engineered strain was picked and inoculated into sterile LB liquid medium containing the corresponding antibiotic. The strain was cultured at 37 °C with shaking at 220 rpm until the OD₆₀₀ value reached approximately 2.0.</li>
+                        <li>The bacterial culture was centrifuged to harvest cell pellets. The collected cells were washed twice with fresh basal salt medium to remove residual medium components.</li>
+                        <li>The cleaned cell pellets were resuspended in basal salt medium and adjusted to a final OD₆₀₀ of 4.0 for subsequent resting‑cell degradation assay.</li>
+                        <li>Naphthalene was added into the bacterial suspension to a final concentration of 100 μM. The mixture was incubated at 37 °C with continuous shaking to initiate and perform the naphthalene degradation experiment.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-vi-2">
+                    <h3>6.2 HPLC Detection Conditions for Naphthalene</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>High performance liquid chromatography (Shimadzu, Japan)</li>
+                        <li>Ultrasonic cleaner (Kun Shan Ultrasonic Instruments Co., Ltd., Jiangsu, China)</li>
+                        <li>High‑speed centrifuge (Dragon‑Lab, Beijing, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>HPLC‑grade methanol、Glacial acetic acid、Deionized water、Naphthalene degradation samples</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>High‑performance liquid chromatography (HPLC, Shimadzu, Japan) was applied for the quantitative detection of naphthalene and its metabolic products. The chromatographic detection parameters were set as follows: InertSustain AQ‑C18 chromatographic column (4.6 × 250 mm); mobile phase consisting of 90% HPLC‑grade methanol and 10% deionized water supplemented with 1% glacial acetic acid; flow rate of 0.5 mL/min; detection wavelength of 280 nm; injection volume of 5–20 μL.</li>
+                        <li>Prior to detection, the treated degradation sample was mixed with an equal volume of HPLC‑grade methanol. The mixture was ultrasonicated for 10 min, followed by centrifugation. The clarified supernatant was collected and used for HPLC injection and detection.</li>
+                    </ol>
+                </div>
+                <div class="protocal-content" id="panel-vi-3">
+                    <h3>6.3 HPLC Detection Conditions for Salicylic Acid</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>High performance liquid chromatography (Shimadzu, Japan)</li>
+                        <li>Ultrasonic cleaner (Kun Shan Ultrasonic Instruments Co., Ltd., Jiangsu, China)</li>
+                        <li>High‑speed centrifuge (Dragon‑Lab, Beijing, China)</li>
+                        <li>Pipettor (Eppendorf, Germany)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>HPLC‑grade acetonitrile、Trifluoroacetic acid (TFA)、Deionized water、Salicylic acid test samples</p>
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li>High‑performance liquid chromatography was used for the quantitative determination of salicylic acid. The detection parameters were set as follows: InertSustain AQ‑C18 chromatographic column (4.6 × 250 mm); mobile phase composed of 40% HPLC‑grade acetonitrile and 60% deionized water containing 0.3% trifluoroacetic acid (TFA); flow rate of 0.8 mL/min; detection wavelength of 285 nm; conventional injection volume of 5–20 μL.</li>
+                        <li>Before detection, the sample was mixed with an equal volume of HPLC‑grade acetonitrile, ultrasonicated for 10 min, and centrifuged to collect the supernatant for HPLC injection and quantitative analysis.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========== 一级 VII. ARTP Mutagenesis ========== -->
+        <div class="protocal-group">
+            <div class="protocal-group-heading"><span>VII. ARTP Mutagenesis</span></div>
+            <div class="protocal-buttons">
+                <div class="protocal-title" data-target="panel-vii-1">
+                    <h2>ARTP Mutagenesis Workflow</h2>
+                </div>
+            </div>
+            <div class="protocal-panels">
+                <div class="protocal-content" id="panel-vii-1">
+                    <h3>ARTP Mutagenesis</h3>
+                    <h4>Equipment</h4>
+                    <ul>
+                        <li>ARTP mutagenesis system (Taimu Biological, Wuxi, China)</li>
+                        <li>Constant temperature shaker (Ounuotest, Tianjin, China)</li>
+                        <li>Constant temperature incubator (Labotery, Tianjin, China)</li>
+                    </ul>
+                    <h4>Reagents</h4>
+                    <p>LB medium powder、Kanamycin、50% glycerol、Sterile water、75% ethanol、Experimental strain:MUT2nd(G169T248)、LK medium</p>
+                    <h4>Procedure</h4>
+                    <h5>1. Strain activation and cultivation</h5>
+                    <ol>
+                        <li>Strain activation: The MUT2nd mutant strain preserved at -80 °C was streaked on LK agar plates and incubated upside down at 37 °C for 12–16 h (overnight) to obtain single colonies.</li>
+                        <li>Seed culture: A plump single colony was picked and inoculated into 5 mL liquid LK medium. The culture was shaken at 37 °C and 200 rpm for 2–3 h until the OD₆₀₀ reached 0.4–0.6 to prepare the seed culture.</li>
+                    </ol>
+                    <h5>2. Preparations before ARTP mutagenesis</h5>
+                    <ol>
+                        <li>Sterilize the metal slides for ARTP treatment to guarantee an aseptic experimental environment.</li>
+                        <li>Inside the ultra‑clean workbench, wipe the working surface, surrounding area and inner wall with wrung ethanol cotton swabs. Turn on UV light for 15–30 min for sterilization.</li>
+                    </ol>
+                    <h5>3. ARTP mutagenesis treatment</h5>
+                    <ol>
+                        <li>Sample spreading: 10 μL seed culture was spread evenly onto the surface of a sterilized ARTP metal slide.</li>
+                        <li>Parameter setup
+                            <ul>
+                                <li>a. Follow the standard startup procedure: switch on the main unit, cooling circulator and gas cylinder. Adjust the grey knob of the gas cylinder and tighten the blue knob until the pressure gauge reads 0.15–0.2 MPa.</li>
+                                <li>b. Mutagenesis parameters: gas flow 10 SLM, power 120 W, exposure time 40 s; the 0 s group was set as control.</li>
+                            </ul>
+                        </li>
+                        <li>Mutagenesis run: Place the slide with bacterial suspension at the treatment position of the ARTP instrument, and perform mutagenesis according to the preset duration.</li>
+                        <li>Instrument shutdown: After treatment, shut down following the standard procedure: turn off the gas supply first, then power. Close the grey knob of the gas cylinder; switch off the flowmeter after the gas reading drops to zero, and loosen the blue knob.Wipe the workbench, surrounding area and inner wall with wrung ethanol cotton swabs, then irradiate with UV light for 15–20 min. Switch off the cooling circulator and the main instrument.</li>
+                    </ol>
+                    <h5>4. Post‑mutagenesis sample processing and cultivation</h5>
+                    <ol>
+                        <li>Cell elution: After plasma treatment, immerse the slide into a test tube containing 1 mL sterile water and vortex for 2 min to resuspend bacterial cells.</li>
+                        <li>Inoculate the bacterial suspension into 10 mL LK medium and incubate at 37 °C, 200 rpm for 1.5 h for post‑mutagenesis recovery, to restore cell activity, reduce cell death and facilitate subsequent screening.</li>
+                        <li>Strain preservation: Mix the recovered culture with 50% glycerol at a volume ratio of 1:1, transfer into sterile cryotubes and store at -80 °C.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<!-- 引入外部JS文件 -->
+<script src="../../static/js/protocol.js"></script>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+</body>
+
+</html>
