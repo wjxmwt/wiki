@@ -137,19 +137,6 @@
     text-align: left;
 }
 
-@media (max-width: 960px) {
-    .toc-toggle-btn {
-        display: flex;
-        z-index: 901;
-    }
-    .toc-toggle-btn::after {
-        content: '☰';
-    }
-    .toc-toggle-btn i {
-        display: none;
-    }
-}
-
 @media (max-width: 600px) {
     .dbtl-stage {
         padding-left: 1rem;

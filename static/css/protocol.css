@@ -1,14 +1,14 @@
-.protocal {
+.protocol {
     position: relative;
     display: flex;
     flex-direction: column;
 }
-.protocal img {
+.protocol img {
     display: block;
     will-change: transform, filter, clip-path, opacity;
 }
-.protocal-header {
-    min-height: 60vh;
+.protocol-header {
+    min-height: 100vh;
     width: 100%;
     position: relative;
     display: flex;
@@ -16,34 +16,34 @@
     align-items: center;
     justify-content: center;
 }
-.protocal-header h1 {
+.protocol-header h1 {
     position: absolute;
-    font-size: 3.5rem;
+    font-size: 5.5rem;
     font-weight: 600;
     color: white;
     margin-bottom: 1.5rem;
 }
-.protocal-header img {
+.protocol-header img {
     position: relative;
     width: 90vw;
-    height: 40vh;
+    height: 80vh;
     object-fit: cover;
 }
-.protocal-display {
+.protocol-display {
     position: relative;
     display: block;
     padding: 2rem;
 }
-.protocal-buttons {
+.protocol-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 1rem;
 }
-.protocal-panels {
+.protocol-panels {
     position: relative;
 }
-.protocal-title {
+.protocol-title {
     position: relative;
     font-size: 1rem;
     font-weight: 600;
@@ -53,7 +53,7 @@
     width: 100%;
     border: 1px solid #ccc;
 }
-.protocal-content {
+.protocol-content {
     position: relative;
     font-size: 1.5rem;
     font-weight: 400;
@@ -67,31 +67,31 @@
     transition: all 0.3s ease-in-out;
 }
 /* 展开状态 */
-.protocal-content.open {
+.protocol-content.open {
     max-height: 2000rem;
     opacity: 1;
     padding-bottom: 1rem;
 }
 
 /* 表格基础样式，全宽适配 */
-.protocal-content table{
+.protocol-content table{
     border-collapse: collapse;
     margin: 1rem 0;
     width: 100%;
 }
-.protocal-content table th,
-.protocal-content table td{
+.protocol-content table th,
+.protocol-content table td{
     border: 1px solid #ccc;
     padding: 0.4rem 0.8rem;
 }
-.protocal-content h3,
-.protocal-content h4,
-.protocal-content h5{
+.protocol-content h3,
+.protocol-content h4,
+.protocol-content h5{
     margin-top: 1.2rem;
     margin-bottom: 0.5rem;
 }
-.protocal-content ol,
-.protocal-content ul{
+.protocol-content ol,
+.protocol-content ul{
     padding-left: 1.8rem;
 }
 
@@ -99,14 +99,14 @@
 /* ============================================================
    以下为新增样式：标题加边框卡片化 + 内容排版换成标准版
    不改动上方任何既有规则、不改动 HTML 结构与 JS 交互逻辑，
-   仅通过层叠覆盖 .protocal-title 的边框细节，并为
-   .protocal-content 内部的原生标签（h3/h4/h5/p/ul/ol/table）
+   仅通过层叠覆盖 .protocol-title 的边框细节，并为
+   .protocol-content 内部的原生标签（h3/h4/h5/p/ul/ol/table）
    补充与此前"标准版" Protocol 页一致的视觉样式。
    颜色统一从全站已有的 CSS 变量取值（如已定义则自动跟随全站
    主题色与深色模式），否则回退到与全站一致的青绿色配色。
    ============================================================ */
 
-.protocal {
+.protocol {
     --p-primary: var(--primary, #10B981);
     --p-primary-dark: var(--primary-dark, #059669);
     --p-border: var(--border, #E2E8E4);
@@ -118,13 +118,13 @@
 }
 
 /* ---------- 标题按钮网格 + 内容面板区（独立结构，按钮永不移动） ----------
-   按钮全部放在 .protocal-buttons 自己的网格里，与 .protocal-panels
-   完全分开；点击某个按钮只会在 .protocal-panels 里展开/收起对应的
-   .protocal-content（通过 data-target 与 id 对应），不会影响
-   .protocal-buttons 网格里任何按钮的位置。 ---------- */
+   按钮全部放在 .protocol-buttons 自己的网格里，与 .protocol-panels
+   完全分开；点击某个按钮只会在 .protocol-panels 里展开/收起对应的
+   .protocol-content（通过 data-target 与 id 对应），不会影响
+   .protocol-buttons 网格里任何按钮的位置。 ---------- */
 
 /* ---------- 标题：加边框卡片化 ---------- */
-.protocal-title {
+.protocol-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -138,31 +138,31 @@
     transition: all 0.2s ease;
 }
 
-.protocal-title h2 {
+.protocol-title h2 {
     margin: 0;
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--p-text);
 }
 
-.protocal-title:hover {
+.protocol-title:hover {
     border-color: var(--p-primary);
     background: var(--p-bg-hover);
     transform: translateY(-2px);
 }
 
 /* 展开状态下高亮标题框（JS 会给当前按钮加上 .active） */
-.protocal-title.active {
+.protocol-title.active {
     background: var(--p-primary);
     border-color: var(--p-primary);
 }
 
-.protocal-title.active h2 {
+.protocol-title.active h2 {
     color: #fff;
 }
 
 /* 标题右侧的展开/收起箭头指示（纯CSS伪元素，无需改动HTML） */
-.protocal-title::after {
+.protocol-title::after {
     content: "\25BC";
     flex-shrink: 0;
     font-size: 0.75rem;
@@ -170,37 +170,37 @@
     transition: transform 0.25s ease;
 }
 
-.protocal-title.active::after {
+.protocol-title.active::after {
     color: #fff;
     transform: rotate(180deg);
 }
 
 /* ---------- 内容面板：关闭时完全不占据网格位置，展开时独立成行 ---------- */
-.protocal-content {
+.protocol-content {
     display: none;
     font-size: 0.96rem;
     line-height: 1.75;
     color: var(--p-text-secondary);
 }
 
-.protocal-content.open {
+.protocol-content.open {
     display: block;
     margin-top: 1.5rem;
     background: var(--p-bg-card);
     border: 1px solid var(--p-border);
     border-radius: 14px;
     padding: 1.6rem 1.8rem;
-    animation: protocalContentIn 0.28s ease;
+    animation: protocolContentIn 0.28s ease;
 }
 
-@keyframes protocalContentIn {
+@keyframes protocolContentIn {
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---------- h3：单个 protocol 的名称（如 "2.1 Plasmid Extraction"） ---------- */
 
-.protocal-content h3 {
+.protocol-content h3 {
     position: relative;
     font-size: 1.15rem;
     font-weight: 800;
@@ -211,11 +211,11 @@
     border-bottom: 2px solid var(--p-border);
 }
 
-.protocal-content h3:first-child {
+.protocol-content h3:first-child {
     margin-top: 0.2rem;
 }
 
-.protocal-content h3::before {
+.protocol-content h3::before {
     content: "";
     position: absolute;
     left: 0;
@@ -227,7 +227,7 @@
 }
 
 /* ---------- h4：Equipment / Reagents / Procedure 及子策略标题 ---------- */
-.protocal-content h4 {
+.protocol-content h4 {
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -237,12 +237,12 @@
     border-bottom: 1px dashed var(--p-border);
 }
 
-.protocal-content h3 + h4 {
+.protocol-content h3 + h4 {
     margin-top: 0.4rem;
 }
 
 /* ---------- h5：Procedure 下更细一级的小标题 ---------- */
-.protocal-content h5 {
+.protocol-content h5 {
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--p-primary);
@@ -250,11 +250,11 @@
 }
 
 /* ---------- 段落与强调文字 ---------- */
-.protocal-content p {
+.protocol-content p {
     margin: 0.6rem 0;
 }
 
-.protocal-content p em {
+.protocol-content p em {
     display: inline-block;
     font-style: normal;
     font-weight: 700;
@@ -266,12 +266,12 @@
     margin-bottom: 0.3rem;
 }
 
-.protocal-content p strong {
+.protocol-content p strong {
     color: var(--p-text);
 }
 
 /* Note 提示段落（<p><strong>Note:</strong> ...</p>） */
-.protocal-content p:has(> strong:first-child) {
+.protocol-content p:has(> strong:first-child) {
     background: var(--p-bg-hover);
     border-left: 3px solid var(--p-primary);
     border-radius: 0 10px 10px 0;
@@ -280,24 +280,24 @@
 }
 
 /* ---------- Equipment / Reagents 列表（ul） ---------- */
-.protocal-content ul {
+.protocol-content ul {
     list-style: none;
     padding-left: 0;
     margin: 0.5rem 0 1rem;
 }
 
-.protocal-content ul li {
+.protocol-content ul li {
     position: relative;
     padding: 0.4rem 0 0.4rem 1.2rem;
     border-bottom: 1px solid var(--p-border);
     font-size: 0.9rem;
 }
 
-.protocal-content ul li:last-child {
+.protocol-content ul li:last-child {
     border-bottom: none;
 }
 
-.protocal-content ul li::before {
+.protocol-content ul li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -310,31 +310,31 @@
 
 /* 嵌套在 ol 步骤内部的子列表（如 ARTP "Parameter setup" 下的 a./b.），
    缩进并弱化，与外层编号步骤区分开 */
-.protocal-content ol li ul {
+.protocol-content ol li ul {
     margin: 0.5rem 0 0.3rem;
 }
 
-.protocal-content ol li ul li {
+.protocol-content ol li ul li {
     border-bottom: none;
     padding: 0.25rem 0 0.25rem 1.1rem;
     font-size: 0.87rem;
     color: var(--p-text-muted);
 }
 
-.protocal-content ol li ul li::before {
+.protocol-content ol li ul li::before {
     background: var(--p-text-muted);
 }
 
 /* ---------- Procedure 编号步骤（ol） ---------- */
-.protocal-content ol {
+.protocol-content ol {
     list-style: none;
-    counter-reset: protocal-step;
+    counter-reset: protocol-step;
     padding-left: 0;
     margin: 0.5rem 0 1.2rem;
 }
 
-.protocal-content ol > li {
-    counter-increment: protocal-step;
+.protocol-content ol > li {
+    counter-increment: protocol-step;
     position: relative;
     padding: 0.4rem 0 0.4rem 2.3rem;
     margin-bottom: 0.55rem;
@@ -342,8 +342,8 @@
     line-height: 1.7;
 }
 
-.protocal-content ol > li::before {
-    content: counter(protocal-step);
+.protocol-content ol > li::before {
+    content: counter(protocol-step);
     position: absolute;
     left: 0;
     top: 0.35rem;
@@ -360,46 +360,46 @@
 }
 
 /* ---------- 表格（Reagents / Reaction System） ---------- */
-.protocal-content table {
+.protocol-content table {
     border: 1px solid var(--p-border);
     border-radius: 10px;
     overflow: hidden;
     font-size: 0.88rem;
 }
 
-.protocal-content table th,
-.protocal-content table td {
+.protocol-content table th,
+.protocol-content table td {
     border: none;
     border-bottom: 1px solid var(--p-border);
 }
 
-.protocal-content table th {
+.protocol-content table th {
     background: var(--p-primary);
     color: #fff;
     font-weight: 700;
     text-align: left;
 }
 
-.protocal-content table tr:last-child td {
+.protocol-content table tr:last-child td {
     border-bottom: none;
 }
 
-.protocal-content table tr:nth-child(even) td {
+.protocol-content table tr:nth-child(even) td {
     background: var(--p-bg-hover);
 }
 
 @media (max-width: 700px) {
-    .protocal-title {
+    .protocol-title {
         padding: 0.9rem 1.1rem;
     }
-    .protocal-content.open {
+    .protocol-content.open {
         padding: 1.2rem 1.2rem;
     }
 }
 
 
 /* ============新增一级大章节居中标题样式============ */
-.protocal-group-heading{
+.protocol-group-heading{
     text-align: center;
     margin: 4rem 0 2rem;
     padding:1rem 0;
@@ -408,7 +408,7 @@
     color: var(--p-primary-dark);
     position: relative;
 }
-.protocal-group-heading::before{
+.protocol-group-heading::before{
     content:"";
     position:absolute;
     left:15%;
@@ -418,7 +418,7 @@
     background-color: var(--p-border);
     z-index:1;
 }
-.protocal-group-heading span{
+.protocol-group-heading span{
     position:relative;
     z-index:2;
     background-color: var(--p-bg-card);
@@ -426,20 +426,20 @@
 }
 
 /* 每个一级章节容器间距 */
-.protocal-group{
+.protocol-group{
     margin-bottom: 3rem;
 }
 /* 每个一级内部按钮网格，保持两栏布局 */
-.protocal-group .protocal-buttons{
+.protocol-group .protocol-buttons{
     margin-bottom:0.5rem;
 }
 
 @media (max-width:700px){
-    .protocal-group-heading{
+    .protocol-group-heading{
         font-size:1.35rem;
         margin:2.5rem 0 1.2rem;
     }
-    .protocal-group-heading::before{
+    .protocol-group-heading::before{
         left:5%;
         right:5%;
     }

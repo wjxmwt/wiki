@@ -117,7 +117,7 @@
     transition: transform 0.3s ease;
 }
 
-.toc-parent.expanded .toc-expand-btn i {
+.toc-parent.expanded .toc-expand-btn svg {
     transform: rotate(90deg);
 }
 
@@ -178,56 +178,45 @@
 
 /* ---------- 页面横幅 ---------- */
 /* ---------- 页面横幅 ---------- */
+/* ---------- 页面横幅 ---------- */
 .wetlab-hero {
     position: relative;
-    background: linear-gradient(135deg, #022C22 0%, #064E3B 50%, #022C22 100%);
+    /* 背景图片，替换为你的图片路径 */
+    background-image: url("https://static.igem.wiki/teams/6049/wiki/background.avif");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     border-radius: 20px;
-    padding: 4rem 3.5rem;
+    padding: 3.5rem 3rem;
     margin-bottom: 2.5rem;
     overflow: hidden;
     border: 1px solid rgba(52, 211, 153, 0.15);
     box-shadow: var(--shadow-md), var(--shadow-glow);
     transition: all var(--transition);
 }
-
-.hero-glow-1 {
+/* 图片半透明暗色遮罩，保证白色文字可读，不要删掉 */
+.wetlab-hero::after {
+    content: "";
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(40px);
+    inset: 0;
+    z-index: 1;
 }
-
+.hero-glow-1,
 .hero-glow-2 {
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(30px);
-}
-
-.hero-inner {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3.5rem;
-    align-items: center;
-    position: relative;
     z-index: 2;
 }
-
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 3; /* 内容层级高于遮罩 */
+}
 .hero-content-left {
     display: flex;
     flex-direction: column;
 }
-
 .wetlab-hero-subtitle {
     font-size: 0.85rem;
     font-weight: 700;
@@ -236,38 +225,30 @@
     color: var(--secondary);
     margin-bottom: 0.75rem;
 }
-
 .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.25;
     color: #ffffff !important;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
     letter-spacing: -0.02em;
 }
-
 .hero-accent {
     color: var(--secondary);
     position: relative;
     display: inline-block;
 }
-
+/* 删除长描述段落，hero‑desc 在hero内不再使用 */
 .hero-desc {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: rgba(236, 253, 245, 0.85) !important;
-    margin-bottom: 2rem;
-    max-width: 600px;
+    display: none;
 }
-
 .hero-actions {
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
-
 .hero-btn {
-    padding: 0.85rem 1.6rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 10px;
     font-weight: 600;
     font-size: 0.95rem;
@@ -277,13 +258,11 @@
     align-items: center;
     gap: 0.6rem;
 }
-
 .hero-btn-primary {
     background: var(--primary);
     color: #ffffff !important;
     box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
 }
-
 .hero-btn-primary:hover {
     background: var(--secondary);
     transform: translateY(-2px);
@@ -301,6 +280,59 @@
     transform: translateY(-2px);
     border-color: rgba(255, 255, 255, 0.3);
 }
+
+.hero-content-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-image-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-smooth);
+    width: 100%;
+    max-width: 360px;
+}
+.hero-image-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(52, 211, 153, 0.4);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(52, 211, 153, 0.2);
+}
+.hero-image-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+.hero-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    padding: 1.5rem 1.25rem 1.25rem;
+    color: #ffffff;
+}
+.hero-image-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--accent);
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+.hero-image-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
 
 /* ========================================
    Modeling 页面：萘模型 / 水杨酸模型 切换按钮与面板
@@ -339,64 +371,6 @@
     to { opacity: 1; }
 }
 
-.hero-content-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image-card {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    transition: all var(--transition-smooth);
-    width: 100%;
-    max-width: 380px;
-}
-
-.hero-image-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    border-color: rgba(52, 211, 153, 0.4);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(52, 211, 153, 0.2);
-}
-
-.hero-image-card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    filter: brightness(0.9);
-}
-
-.hero-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-    padding: 1.5rem 1.25rem 1.25rem;
-    color: #ffffff;
-}
-
-.hero-image-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--accent);
-    display: inline-block;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
-}
-
-.hero-image-title {
-    font-weight: 700;
-    font-size: 1.05rem;
-}
-
 /* ---------- 文章主体容器（学术卡片风格） ---------- */
 .wetlab-content {
     background: #ffffff;
@@ -410,20 +384,10 @@
     transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
-/* [data-theme="dark"] .wetlab-content {
-    background: #022C22;
-    border-color: rgba(52, 211, 153, 0.15);
-    color: #A7F3D0;
-} */
-
 .wetlab-content p {
     margin-bottom: 1.6rem;
     text-align: justify;
 }
-
-/* [data-theme="dark"] .wetlab-content p {
-    color: rgba(236, 253, 245, 0.8);
-} */
 
 /* ---------- 首字母下沉 ---------- */
 .drop-cap::first-letter {
@@ -484,10 +448,6 @@
     border-bottom: none !important;
 }
 
-/* [data-theme="dark"] .wetlab-content .section-heading h2 {
-    color: #ECFDF5;
-} */
-
 .section-heading-bar {
     width: 32px;
     height: 4px;
@@ -512,10 +472,6 @@
     position: relative;
     scroll-margin-top: 120px;
 }
-
-/* [data-theme="dark"] .wetlab-content h3 {
-    color: #ECFDF5;
-} */
 
 .wetlab-content h3::before {
     content: '';
@@ -761,6 +717,63 @@
     color: var(--text-muted);
 }
 
+/* 1. 修复 Hero 左右两栏布局比例 */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-image-card {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.hero-image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 2. 新增背景痛点/方案对比卡片网格 */
+.feature-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.feature-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.feature-card.warning-card {
+  border-left: 4px solid #e63946;
+}
+
+.feature-card.solution-card {
+  border-left: 4px solid #2a9d8f;
+}
+
+/* 3. 规范参考文献排版 */
+.references-list {
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.references-list li {
+  margin-bottom: 0.6rem;
+}
+
 /* ---------- 产品定位迭代时间轴 ---------- */
 .positioning-timeline {
     display: flex;
@@ -822,19 +835,6 @@
     margin: 0;
 }
 
-@media (max-width: 900px) {
-    .positioning-timeline {
-        flex-direction: column;
-    }
-    .positioning-step::after {
-        content: "\f063";
-        right: 50%;
-        top: auto;
-        bottom: -1.5rem;
-        transform: translateX(50%);
-    }
-}
-
 /* ---------- 数字统计卡片 ---------- */
 .stat-grid {
     display: grid;
@@ -865,18 +865,6 @@
     color: var(--text-muted);
 }
 
-@media (max-width: 900px) {
-    .stat-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 520px) {
-    .stat-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* ---------- RRI 维度标签 ---------- */
 .rri-tag {
     display: inline-flex;
@@ -896,10 +884,6 @@
 .rri-tag[data-dim="inclusion"] { background: rgba(245, 158, 11, 0.14); color: #B45309; }
 .rri-tag[data-dim="responsiveness"] { background: rgba(16, 185, 129, 0.12); color: var(--primary); }
 
-/* [data-theme="dark"] .rri-tag[data-dim="anticipation"] { color: #93C5FD; }
-[data-theme="dark"] .rri-tag[data-dim="reflexivity"] { color: #D8B4FE; }
-[data-theme="dark"] .rri-tag[data-dim="inclusion"] { color: #FCD34D; }
-[data-theme="dark"] .rri-tag[data-dim="responsiveness"] { color: #6EE7B7; } */
 
 /* ---------- 专家访谈手风琴 ---------- */
 .expert-accordion {
@@ -985,6 +969,36 @@
 .expert-accordion-body-inner h4:first-child {
     margin-top: 0.2rem;
 }
+/* TOC移动端切换按钮（默认隐藏，移动端显示） */
+.toc-toggle-btn {
+    display: none;
+    position: fixed;
+    bottom: 5rem;
+    left: 1.2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    z-index: 500;
+    font-size: 1.1rem;
+    transition: all var(--transition);
+}
+
+.toc-toggle-btn:hover {
+    background: var(--accent);
+    box-shadow: var(--shadow-glow);
+    transform: scale(1.08);
+}
+
+.toc-toggle-btn.active {
+    background: var(--accent);
+}
 
 /* ---------- 返回顶部按钮 ---------- */
 .back-to-top-btn {
@@ -1030,119 +1044,6 @@
 .wetlab-animate.in-view {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* 响应式设计 */
-@media (max-width: 1400px) {
-    .wetlab-outer {
-        padding: 0 5vw;
-    }
-}
-
-@media (max-width: 1100px) {
-    .wetlab-outer {
-        padding: 0 2vw;
-    }
-
-    .wetlab-toc {
-        margin-right: 24px;
-    }
-}
-
-@media (max-width: 960px) {
-    .wetlab-outer {
-        flex-direction: column;
-        padding: 0 1.2rem;
-    }
-
-    /* 移动端侧边栏：固定左侧，默认隐藏 */
-    .wetlab-toc {
-        position: fixed;
-        top: 0;
-        left: -300px;
-        width: 280px;
-        max-width: 80vw;
-        height: 100vh;
-        max-height: 100vh;
-        margin-right: 0;
-        padding: 5rem 1.2rem 2rem;
-        background: var(--bg-card);
-        border: none;
-        border-right: 1px solid var(--border);
-        border-radius: 0;
-        z-index: 900;
-        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: none;
-        overflow-y: auto;
-    }
-
-    .wetlab-toc.open {
-        left: 0;
-        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
-    }
-
-    /* TOC 遮罩层 */
-    .toc-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.35);
-        z-index: 899;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .toc-overlay.active {
-        display: block;
-        opacity: 1;
-    }
-
-    /* TOC 切换按钮 */
-    .toc-toggle-btn {
-        display: flex;
-    }
-
-    .wetlab-hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .wetlab-content h2 {
-        font-size: 1.6rem;
-    }
-}
-
-/* TOC移动端切换按钮（默认隐藏，移动端显示） */
-.toc-toggle-btn {
-    display: none;
-    position: fixed;
-    bottom: 5rem;
-    left: 1.2rem;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-md);
-    z-index: 500;
-    font-size: 1.1rem;
-    transition: all var(--transition);
-}
-
-.toc-toggle-btn:hover {
-    background: var(--accent);
-    box-shadow: var(--shadow-glow);
-    transform: scale(1.08);
-}
-
-.toc-toggle-btn.active {
-    background: var(--accent);
 }
 
 /* ---------- 图片 Lightbox ---------- */
@@ -1217,22 +1118,137 @@
     }
 }
 
+/* 响应式设计 */
+@media (max-width: 1400px) {
+    .wetlab-outer {
+        padding: 0 5vw;
+    }
+}
+
+@media (max-width: 1100px) {
+    .wetlab-outer {
+        padding: 0 2vw;
+    }
+
+    .wetlab-toc {
+        margin-right: 24px;
+    }
+}
+
 @media (max-width: 960px) {
+    .wetlab-outer {
+        flex-direction: column;
+        padding: 0 1.2rem;
+    }
+
+    .wetlab-toc {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        max-height: 100vh;
+        margin-right: 0;
+        padding: 5rem 1.2rem 2rem;
+        background: var(--bg-card);
+        border: none;
+        border-right: 1px solid var(--border);
+        border-radius: 0;
+        z-index: 900;
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: none;
+        overflow-y: auto;
+    }
+
+    .wetlab-toc.open {
+        left: 0;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .toc-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 899;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .toc-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .toc-toggle-btn {
+        display: flex;
+    }
+
+    .wetlab-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .wetlab-content h2 {
+        font-size: 1.6rem;
+    }
+
     .hero-inner {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
+
     .hero-content-right {
-        order: -1; /* Image on top for tablets */
+        order: -1;
     }
+
     .hero-image-card {
         max-width: 100%;
     }
+
     .wetlab-content {
         padding: 3rem 2.5rem;
     }
+
     .section-heading {
         margin-top: 2.5rem;
+    }
+
+    .positioning-timeline {
+        flex-direction: column;
+    }
+
+    .positioning-step::after {
+        content: "\f063";
+        right: 50%;
+        top: auto;
+        bottom: -1.5rem;
+        transform: translateX(50%);
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .positioning-timeline {
+        flex-direction: column;
+    }
+
+    .positioning-step::after {
+        content: "\f063";
+        right: 50%;
+        top: auto;
+        bottom: -1.5rem;
+        transform: translateX(50%);
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1242,15 +1258,19 @@
         border-radius: 14px;
     }
 
+    .feature-card-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero-title {
         font-size: 1.9rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         gap: 0.8rem;
     }
-    
+
     .hero-btn {
         width: 100%;
         justify-content: center;
@@ -1266,71 +1286,25 @@
         padding: 1.2rem;
         border-radius: 12px;
     }
-    
+
     .section-heading {
         gap: 0.8rem;
     }
-    
+
     .section-icon {
         width: 44px;
         height: 44px;
         font-size: 1.15rem;
     }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* 1. 修复 Hero 左右两栏布局比例 */
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 2.5rem;
-  align-items: center;
+@media (max-width: 520px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.hero-image-card {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-}
-
-.hero-image-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-/* 2. 新增背景痛点/方案对比卡片网格 */
-.feature-card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.feature-card {
-  padding: 1.25rem 1.5rem;
-  border-radius: 12px;
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-}
-
-.feature-card.warning-card {
-  border-left: 4px solid #e63946;
-}
-
-.feature-card.solution-card {
-  border-left: 4px solid #2a9d8f;
-}
-
-/* 3. 规范参考文献排版 */
-.references-list {
-  padding-left: 1.2rem;
-  font-size: 0.9rem;
-  color: #6c757d;
-  line-height: 1.6;
-}
-
-.references-list li {
-  margin-bottom: 0.6rem;
-}
