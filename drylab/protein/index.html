@@ -7,11 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dry Lab · Naphthalene Modeling | iGEM Wiki</title>
+  <title>Dry Lab · Protein Modeling | iGEM Wiki</title>
   <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
   
 <meta name="description"
-  content="iGEM Dry-Lab modeling for PAHs bioremediation: cascade kinetic model coupling naphthalene degradation and NahR-Psal salicylate biosensor, LOD prediction via IUPAC 3σ criterion and Bootstrap uncertainty analysis.">
+  content="iGEM Dry-Lab protein modeling for NahR biosensor: AlphaFold2 structure prediction, molecular docking with salicylic acid, and molecular dynamics simulation comparing wild-type and mutant 118(G169T248) NahR.">
 
 
   <!-- 字体图标 -->
@@ -180,8 +180,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item has-submenu">
-                            <a href="index.html"
-                                class="dropdown-link ">
+                            <a href="../naphthalene/index.html"
+                                class="dropdown-link active">
                                 <span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span>
                                 <svg class="icon submenu-arrow" viewBox="0 0 1024 1024" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" width="14" height="14">
@@ -191,7 +191,7 @@
                                 </svg>
                             </a>
                             <ul class="submenu">
-                                <li><a href="index.html"
+                                <li><a href="../naphthalene/index.html"
                                         class="submenu-link "><span
                                             class="nav-text" data-text-en="Naphthalene"
                                             data-text-zh="萘">Naphthalene</span></a></li>
@@ -199,8 +199,8 @@
                                         class="submenu-link "><span
                                             class="nav-text" data-text-en="Salicylic"
                                             data-text-zh="水杨酸">Salicylic</span></a></li>
-                                <li><a href="../protein/index.html"
-                                        class="submenu-link "><span
+                                <li><a href="index.html"
+                                        class="submenu-link active"><span
                                             class="nav-text" data-text-en="Protein"
                                             data-text-zh="蛋白">Protein</span></a></li>
                             </ul>
@@ -446,48 +446,47 @@
       </div>
       <ul class="toc-list" id="tocList">
         
-<li><a href="#sec-background" data-text-en="Background" data-text-zh="背景">Background</a></li>
+<li><a href="#sec-background" data-text-en="Background &amp; Objectives" data-text-zh="背景与目标">Background &amp; Objectives</a></li>
 <li class="toc-parent">
   <div class="toc-parent-row">
-    <a href="#sec-design" data-text-en="Model Design & Assumptions" data-text-zh="模型设计与假设">Model Design &
+    <a href="#sec-design" data-text-en="Model Design &amp; Assumptions" data-text-zh="模型设计与假设">Model Design &amp;
       Assumptions</a>
     <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
   <ul class="toc-children">
-    <li><a href="#sec-design-framework" data-text-en="Mathematical framework" data-text-zh="数学模型框架">Mathematical
-        framework</a></li>
-    <li><a href="#sec-design-selection" data-text-en="Algorithm selection" data-text-zh="算法选择">Algorithm selection</a>
-    </li>
-    <li><a href="#sec-design-assumptions" data-text-en="Simplifying assumptions" data-text-zh="简化假设">Simplifying
-        assumptions</a></li>
+    <li><a href="#sec-design-strategy" data-text-en="Multi-layer strategy" data-text-zh="多层次策略">Multi-layer strategy</a></li>
+    <li><a href="#sec-design-assumptions" data-text-en="Model hypotheses &amp; simplifications" data-text-zh="模型假设与简化">Model
+        hypotheses &amp; simplifications</a></li>
   </ul>
 </li>
 <li class="toc-parent">
   <div class="toc-parent-row">
-    <a href="#sec-implementation" data-text-en="Model Implementation & Parameters" data-text-zh="模型实现与参数">Model
-      Implementation & Parameters</a>
+    <a href="#sec-methodology" data-text-en="Methodology &amp; Simulation Parameters" data-text-zh="方法与模拟参数">Methodology
+      &amp; Simulation Parameters</a>
     <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
   <ul class="toc-children">
-    <li><a href="#sec-implementation-code" data-text-en="Code implementation" data-text-zh="代码实现">Code
-        implementation</a></li>
-    <li><a href="#sec-implementation-source" data-text-en="Parameter source & calibration"
-        data-text-zh="参数来源与校准">Parameter source & calibration</a></li>
+    <li><a href="#sec-method-structure" data-text-en="Structural prediction" data-text-zh="结构预测">Structural prediction</a></li>
+    <li><a href="#sec-method-docking" data-text-en="Molecular docking" data-text-zh="分子对接">Molecular docking</a></li>
+    <li><a href="#sec-method-md" data-text-en="Molecular dynamics simulation" data-text-zh="分子动力学模拟">Molecular dynamics
+        simulation</a></li>
+    <li><a href="#sec-method-params" data-text-en="Key parameters table" data-text-zh="关键参数表">Key parameters table</a></li>
   </ul>
 </li>
 <li class="toc-parent">
   <div class="toc-parent-row">
-    <a href="#sec-result" data-text-en="Model Result & Validation" data-text-zh="模型结果与验证">Model Result & Validation</a>
+    <a href="#sec-result" data-text-en="Results &amp; Comparative Analysis" data-text-zh="结果与对比分析">Results &amp; Comparative
+      Analysis</a>
     <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
   <ul class="toc-children">
-    <li><a href="#sec-result-simulation" data-text-en="Simulation & fitting results" data-text-zh="模拟与拟合结果">Simulation &
-        fitting results</a></li>
-    <li><a href="#sec-result-accuracy" data-text-en="Accuracy and limitation" data-text-zh="模型准确性与局限性">Accuracy and
-        limitation</a></li>
+    <li><a href="#sec-result-wt" data-text-en="Wild-type MD measured results" data-text-zh="野生型MD实测结果">Wild-type MD
+        measured results</a></li>
+    <li><a href="#sec-result-mutant" data-text-en="Mutant 118 MD results (estimated)" data-text-zh="突变体118 MD结果（估计）">Mutant
+        118 MD results (estimated)</a></li>
   </ul>
 </li>
-<li><a href="#sec-conclusion" data-text-en="Model Application & Significance" data-text-zh="模型应用与意义">Model Application &
+<li><a href="#sec-conclusion" data-text-en="Model Application &amp; Significance" data-text-zh="模型应用与意义">Model Application &amp;
     Significance</a></li>
 
       </ul>
@@ -505,10 +504,10 @@
 
   <div class="hero-inner">
     <div class="hero-content-left">
-      <div class="wetlab-hero-subtitle" data-text-en="DRY-LAB · MATHEMATICAL MODELING" data-text-zh="干实验 · 数学建模">DRY‑LAB
-        · MATHEMATICAL MODELING</div>
-      <h1 class="hero-title" data-html data-text-en="Naphthalene <span class='hero-accent'>Biosensor Modeling</span>"
-        data-text-zh="萘生物传感器<span class='hero-accent'>建模</span>">Naphthalene <span class="hero-accent">Biosensor
+      <div class="wetlab-hero-subtitle" data-text-en="DRY-LAB · PROTEIN MODELING" data-text-zh="干实验 · 蛋白质建模">DRY‑LAB
+        · PROTEIN MODELING</div>
+      <h1 class="hero-title" data-html data-text-en="NahR Protein <span class='hero-accent'>Structure Modeling</span>"
+        data-text-zh="NahR蛋白<span class='hero-accent'>结构建模</span>">NahR Protein <span class="hero-accent">Structure
           Modeling</span></h1>
       <div class="hero-actions">
         <a href="#sec-background" class="hero-btn hero-btn-primary">
@@ -525,39 +524,54 @@
 
       <div class="wetlab-content">
         
-<!-- ==================== 1. Background 背景 ==================== -->
+<!-- ==================== 1. Background & Objectives ==================== -->
 <section id="sec-background" class="wetlab-animate">
   <div class="section-heading">
     <div class="section-icon">
       <i class="fa-solid fa-circle-info"></i>
     </div>
     <div class="section-heading-text">
-      <h2 data-text-en="Background" data-text-zh="背景">Background</h2>
+      <h2 data-text-en="Background &amp; Objectives" data-text-zh="背景与目标">Background &amp; Objectives</h2>
       <div class="section-heading-bar"></div>
     </div>
   </div>
 
   <p class="drop-cap"
-    data-text-en="Naphthalene is a typical low‑molecular‑weight polycyclic aromatic hydrocarbon (PAH). Inside engineered bacteria, naphthalene is degraded into salicylate by naphthalene dioxygenase. The generated salicylate further activates the NahR‑Psal biosensor to produce fluorescent output signal. The whole system forms a two‑step cascade: naphthalene input → enzymatic degradation → salicylate intermediate → NahR cooperative binding → fluorescence readout."
-    data-text-zh="萘是典型低分子量多环芳烃（PAH）。在工程菌内，萘可被萘双加氧酶降解生成水杨酸；水杨酸进一步激活NahR‑Psal生物传感器产生荧光输出信号。整套系统构成两级级联反应：萘输入→酶促降解→水杨酸中间物→NahR协同结合→荧光输出。">
-    Naphthalene is a typical low‑molecular‑weight polycyclic aromatic hydrocarbon (PAH). Inside engineered bacteria,
-    naphthalene is degraded into salicylate by naphthalene dioxygenase. The generated salicylate further activates the
-    NahR‑Psal biosensor to produce fluorescent output signal. The whole system forms a two‑step cascade: naphthalene
-    input → enzymatic degradation → salicylate intermediate → NahR cooperative binding → fluorescence readout.
+    data-text-en="The biosensing strain E. coli DH5α MUT3rd relies mainly on the NahR transcription factor to recognize salicylic acid, which in turn activates the P_nah promoter, thereby leading to downstream GFP expression. The binding affinity between NahR and salicylic acid directly determines the sensor's sensitivity and lower limit of detection (LOD)."
+    data-text-zh="生物传感菌株大肠杆菌DH5α MUT3rd主要依赖NahR转录因子识别水杨酸，进而激活P_nah启动子，驱动下游GFP表达。NahR与水杨酸之间的结合亲和力直接决定了传感器的灵敏度与检测下限（LOD）。">
+    The biosensing strain <em>E. coli</em> DH5α MUT3rd relies mainly on the NahR transcription factor to recognize
+    salicylic acid, which in turn activates the \(P_{nah}\) promoter, thereby leading to downstream GFP expression.
+    The binding affinity between NahR and salicylic acid directly determines the sensor's sensitivity and lower limit
+    of detection (LOD).
   </p>
 
-  <p data-text-en="Due to Michaelis‑Menten enzymatic kinetics and Hill‑type cooperative transcription response, the relationship between naphthalene concentration and final fluorescence is highly non‑linear. Therefore, pure experimental characterization cannot directly obtain reliable theoretical limit‑of‑detection (LOD). Our dry‑lab model aims to quantitatively describe this cascade response, compute IUPAC‑standard LOD for naphthalene, evaluate estimation uncertainty, and provide theoretical guidance for biosensor performance optimization for environmental naphthalene monitoring."
-    data-text-zh="由于酶促反应遵循米氏动力学、转录报告遵循Hill协同结合，萘浓度和最终荧光信号呈现强非线性关系，仅靠湿实验很难直接获得可靠理论检测下限。本干实验模型旨在定量描述整套级联响应，按照IUPAC标准计算萘检测下限，评估结果不确定性，为面向环境萘监测的生物传感器性能优化提供理论指导。">
-    Due to Michaelis‑Menten enzymatic kinetics and Hill‑type cooperative transcription response, the relationship
-    between naphthalene concentration and final fluorescence is highly non‑linear. Therefore, pure experimental
-    characterization cannot directly obtain reliable theoretical limit‑of‑detection (LOD). Our dry‑lab model aims to
-    quantitatively describe this cascade response, compute IUPAC‑standard LOD for naphthalene, evaluate estimation
-    uncertainty, and provide theoretical guidance for biosensor performance optimization for environmental naphthalene
-    monitoring.
+  <p data-text-en="In wet-lab experiments, the isolated mutant 118 (G169T248) exhibited a significantly enhanced fluorescence signal compared to the wild-type (WT). To elucidate the structural mechanism underlying this performance improvement, we established a protein modeling pipeline addressing two key questions: (1) Static Binding Prediction — utilizing AlphaFold2 to predict the monomeric structures of WT and mutant NahR, followed by molecular docking to evaluate binding differences with salicylic acid; (2) Dynamic Stability Verification — Molecular Dynamics (MD) simulations were performed to evaluate complex stability, providing a rational estimation of the mutant's dynamic behavior."
+    data-text-zh="在湿实验中，分离得到的突变体118（G169T248）相比野生型（WT）表现出显著增强的荧光信号。为阐明这一性能提升背后的结构机制，我们建立了一套蛋白质建模流程，回答两个关键问题：(1) 静态结合预测——利用AlphaFold2预测WT与突变体NahR的单体结构，随后通过分子对接评估二者与水杨酸结合能力的差异；(2) 动态稳定性验证——通过分子动力学（MD）模拟评估复合物稳定性，对突变体的动态行为做出合理估计。">
+    In wet-lab experiments, the isolated mutant 118 (G169T248) exhibited a significantly enhanced fluorescence signal
+    compared to the wild-type (WT). To elucidate the structural mechanism underlying this performance improvement, we
+    established a protein modeling pipeline addressing two key questions:
   </p>
+  <ul class="step-list">
+    <li data-text-en="Static Binding Prediction: Utilizing AlphaFold2 to predict the monomeric structures of WT and mutant NahR, followed by molecular docking to evaluate binding differences with salicylic acid."
+      data-text-zh="静态结合预测：利用AlphaFold2预测WT与突变体NahR的单体结构，随后通过分子对接评估二者与水杨酸结合能力的差异。">Static Binding Prediction: Utilizing
+      AlphaFold2 to predict the monomeric structures of WT and mutant NahR, followed by molecular docking to evaluate
+      binding differences with salicylic acid.</li>
+    <li data-text-en="Dynamic Stability Verification: Molecular Dynamics (MD) simulations were performed to evaluate complex stability, providing a rational estimation of the mutant's dynamic behavior."
+      data-text-zh="动态稳定性验证：通过分子动力学（MD）模拟评估复合物稳定性，对突变体的动态行为做出合理估计。">Dynamic Stability Verification: Molecular Dynamics
+      (MD) simulations were performed to evaluate complex stability, providing a rational estimation of the mutant's
+      dynamic behavior.</li>
+  </ul>
+  <div class="key-finding">
+    <p data-text-en="Ultimate Goal: Establish a predictive framework bridging &quot;Structure → Binding Affinity → Dynamic Stability&quot; to guide further mutant design and biosensing performance optimization."
+      data-text-zh="最终目标：建立贯通『结构→结合亲和力→动态稳定性』的预测框架，指导后续突变体设计与生物传感性能优化。">
+      <strong data-text-en="Ultimate Goal:" data-text-zh="最终目标：">Ultimate Goal:</strong> Establish a predictive framework
+      bridging "Structure → Binding Affinity → Dynamic Stability" to guide further mutant design and biosensing
+      performance optimization.
+    </p>
+  </div>
 </section>
 
-<!-- ==================== 2. Model Design & Assumptions 模型设计与假设 ==================== -->
+<!-- ==================== 2. Model Design & Assumptions ==================== -->
 <section id="sec-design" class="wetlab-animate">
   <div class="section-heading">
     <div class="section-icon">
@@ -569,218 +583,186 @@
     </div>
   </div>
 
-  <div id="sec-design-framework">
-    <h3 data-text-en="Mathematical framework" data-text-zh="数学模型框架">Mathematical framework</h3>
-    <p data-text-en="We built a composite cascade model combining Michaelis‑Menten equation (naphthalene‑to‑salicylate degradation module) and Hill equation (salicylate‑to‑fluorescence sensing module). The salicylate output from degradation module is substituted into Hill equation to directly map naphthalene concentration to fluorescence intensity."
-      data-text-zh="我们构建米氏方程（萘→水杨酸降解模块）与Hill方程（水杨酸→荧光传感模块）组合级联模型，将降解模块输出水杨酸浓度代入Hill方程，直接建立萘浓度与荧光输出的映射关系。">
-      We built a composite cascade model combining Michaelis‑Menten equation (naphthalene‑to‑salicylate degradation
-      module) and Hill equation (salicylate‑to‑fluorescence sensing module). The salicylate output from degradation
-      module is substituted into Hill equation to directly map naphthalene concentration to fluorescence intensity.
+  <div id="sec-design-strategy">
+    <h3 data-text-en="Multi-layer strategy" data-text-zh="多层次策略">Multi-layer strategy</h3>
+    <p data-text-en="We implemented a hierarchical strategy combining Structure Simulation → Static Molecular Docking → Dynamic Simulation:"
+      data-text-zh="我们实施了一套层级化策略，依次组合结构模拟→静态分子对接→动态模拟：">
+      We implemented a hierarchical strategy combining Structure Simulation → Static Molecular Docking → Dynamic
+      Simulation:
     </p>
-    <div class="protocol-card">
-      <div class="card-title">
-        <i class="fa-solid fa-square-root-variable"></i>
-        <span data-text-en="Equation set" data-text-zh="方程组">Equation set</span>
-      </div>
-      <p><strong>1. Sensing module (Hill equation):</strong>
-        <br>
-      <div class="math-container">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>F</mi>
-          <mo>(</mo>
-          <mi>C</mi>
-          <mo>)</mo>
-          <mo>=</mo>
-          <msub>
-            <mi>α</mi>
-            <mn>0</mn>
-          </msub>
-          <mo>+</mo>
-          <msub>
-            <mi>α</mi>
-            <mrow>
-              <mi>max</mi>
-            </mrow>
-          </msub>
-          <mfrac>
-            <msup>
-              <mi>C</mi>
-              <mi>n</mi>
-            </msup>
-            <mrow>
-              <msubsup>
-                <mi>K</mi>
-                <mi>M</mi>
-                <mi>n</mi>
-              </msubsup>
-              <mo>+</mo>
-              <msup>
-                <mi>C</mi>
-                <mi>n</mi>
-              </msup>
-            </mrow>
-          </mfrac>
-        </math>
-      </div>
+    <ul class="step-list">
+      <li data-text-en="AlphaFold2 Structural Prediction: Predicted the three-dimensional monomeric structures of WT and mutant NahR."
+        data-text-zh="AlphaFold2结构预测：预测WT与突变体NahR的三维单体结构。">AlphaFold2 Structural Prediction: Predicted the
+        three-dimensional monomeric structures of WT and mutant NahR.</li>
+      <li data-text-en="Static Molecular Docking: Evaluated the immediate binding and interaction scores. Based on the scoring convention of our YASARA system, a more positive score indicates stronger binding affinity (kcal/mol)."
+        data-text-zh="静态分子对接：评估即时结合与相互作用评分。根据我们YASARA系统的评分惯例，评分越正表示结合亲和力越强（kcal/mol）。">Static Molecular Docking:
+        Evaluated the immediate binding and interaction scores. Based on the scoring convention of our YASARA system,
+        a more positive score indicates stronger binding affinity (kcal/mol).</li>
+      <li data-text-en="Molecular Dynamics (MD) Simulation: Evaluated the thermodynamic stability. Under our MD system, a more negative potential/binding energy indicates greater complex stability (kJ/mol)."
+        data-text-zh="分子动力学（MD）模拟：评估热力学稳定性。在我们的MD体系下，势能/结合能越负表示复合物稳定性越高（kJ/mol）。">Molecular Dynamics (MD) Simulation:
+        Evaluated the thermodynamic stability. Under our MD system, a more negative potential/binding energy indicates
+        greater complex stability (kJ/mol).</li>
+    </ul>
+    <div class="key-finding">
+      <p data-text-en="Note: Docking scores and MD binding free energies use different units and opposite dimensional definitions. They are not directly compared numerically, but are instead applied separately for &quot;static screening&quot; and &quot;dynamic verification.&quot;"
+        data-text-zh="备注：对接评分与MD结合自由能采用不同单位且量纲定义相反，二者不作数值上的直接比较，而是分别用于『静态筛选』与『动态验证』两个独立环节。">
+        <strong data-text-en="Note:" data-text-zh="备注：">Note:</strong> Docking scores and MD binding free energies use
+        different units and opposite dimensional definitions. They are not directly compared numerically, but are
+        instead applied separately for "static screening" and "dynamic verification."
       </p>
-      <p><strong>2. Degradation module (Michaelis‑Menten kinetics under fixed 3 h):</strong><br>
-        \[[\mathrm{Sal}]=\frac{V_{\mathrm{max}}\cdot [\mathrm{Naph}]}{K_m+[\mathrm{Naph}]}\]</p>
-      <p><strong>3. Combined cascade model:</strong><br>
-        \[F=F_0+F_{\mathrm{max}}\cdot \frac{\left(\frac{V_{\mathrm{max}}\cdot
-        [\mathrm{Naph}]}{K_m+[\mathrm{Naph}]}\right)^n}{K_D^n+\left(\frac{V_{\mathrm{max}}\cdot
-        [\mathrm{Naph}]}{K_m+[\mathrm{Naph}]}\right)^n}\]</p>
     </div>
   </div>
 
-  <div id="sec-design-selection">
-    <h3 data-text-en="Algorithm selection" data-text-zh="算法选择">Algorithm selection</h3>
-    <ul class="step-list">
-      <li
-        data-text-en="Hill curve fitting: Levenberg‑Marquardt algorithm (nlsLM), nonlinear least‑squares for biochemical sigmoidal curve fitting."
-        data-text-zh="Hill曲线拟合：Levenberg‑Marquardt算法(nlsLM)，用于生化S型曲线非线性最小二乘拟合。">Hill curve fitting: Levenberg‑Marquardt
-        algorithm (nlsLM), nonlinear least‑squares for biochemical sigmoidal curve fitting.</li>
-      <li
-        data-text-en="LOD calculation: IUPAC 3σ criterion. Solve naphthalene concentration when fluorescence equals <p>\(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\). Two parallel approaches: experimental interpolation and reverse solving from cascade model."
-        data-text-zh="检测下限计算：IUPAC 3σ准则。求解荧光等于 \(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\) 对应的萘浓度；采用实验插值法、模型反向求解两套并行方案。">
-        LOD calculation: IUPAC 3σ criterion. Solve naphthalene concentration when fluorescence equals <p>
-          \(F_{\mathrm{blank}}+3\sigma_{\mathrm{bg}}\)</p>. Two parallel approaches: experimental interpolation and
-        reverse solving from cascade model.</li>
-      <li
-        data-text-en="Uncertainty evaluation: Bootstrap resampling (n = 500) to obtain LOD distribution, 95 % confidence interval and coefficient of variation."
-        data-text-zh="不确定性评估：Bootstrap重采样（500次），输出LOD分布、95%置信区间、变异系数。">Uncertainty evaluation: Bootstrap resampling
-        (n = 500) to obtain LOD distribution, 95 % confidence interval and coefficient of variation.</li>
-    </ul>
-  </div>
-
   <div id="sec-design-assumptions">
-    <h3 data-text-en="Simplifying assumptions &amp; rationale" data-text-zh="简化假设与依据">Simplifying assumptions &amp;
-      rationale</h3>
+    <h3 data-text-en="Model hypotheses &amp; simplifications" data-text-zh="模型假设与简化">Model hypotheses &amp; simplifications</h3>
     <ul class="step-list">
-      <li
-        data-text-en="Reaction time fixed at 3 h: salicylate production reaches quasi‑steady‑state, Michaelis‑Menten can describe accumulated salicylate yield without full time‑course ODE."
-        data-text-zh="反应时间固定3 h：水杨酸生成达到准稳态，米氏方程描述累积水杨酸产量，无需构建完整时间序列ODE。">Reaction time fixed at 3 h: salicylate
-        production reaches quasi‑steady‑state, Michaelis‑Menten can describe accumulated salicylate yield without full
-        time‑course ODE.</li>
-      <li
-        data-text-en="No intracellular salicylate degradation or consumption except NahR binding; salicylate loss is negligible under our experimental conditions."
-        data-text-zh="胞内水杨酸除NahR结合外无降解消耗；本实验条件下水杨酸损耗可忽略。">No intracellular salicylate degradation or consumption except
-        NahR binding; salicylate loss is negligible under our experimental conditions.</li>
-      <li
-        data-text-en="Hill parameters are constant: NahR‑salicylate sensing characteristics do not change after coupling with naphthalene degradation pathway; Hill parameters are pre‑fitted from salicylate standard curve and kept fixed."
-        data-text-zh="Hill模型参数恒定：NahR‑水杨酸传感特性在耦合萘降解通路后不变；Hill参数由水杨酸标准曲线预先拟合并固定。">Hill parameters are constant:
-        NahR‑salicylate sensing characteristics do not change after coupling with naphthalene degradation pathway; Hill
-        parameters are pre‑fitted from salicylate standard curve and kept fixed.</li>
-      <li
-        data-text-en="Background fluorescence \(F_{\mathrm{blank}}\) and background noise \(\sigma_{\mathrm{bg}}\) are constant and independent of naphthalene concentration."
-        data-text-zh="本底荧光 \(F_{\mathrm{blank}}\)、背景噪声 \(\sigma_{\mathrm{bg}}\) 恒定，不随萘浓度变化。">Background fluorescence
-        \(F_{\mathrm{blank}}\) and background noise \(\sigma_{\mathrm{bg}}\) are constant and independent of naphthalene
-        concentration.</li>
+      <li data-text-en="AlphaFold2 predicted structures accurately approximate the native protein conformations."
+        data-text-zh="AlphaFold2预测结构能够准确近似天然蛋白构象。">AlphaFold2 predicted structures accurately approximate the native
+        protein conformations.</li>
+      <li data-text-en="The receptor backbone remains rigid during initial static docking calculations."
+        data-text-zh="在初始静态对接计算中，受体骨架保持刚性。">The receptor backbone remains rigid during initial static docking
+        calculations.</li>
+      <li data-text-en="Docking scores reliably reflect relative binding trends among variants."
+        data-text-zh="对接评分能够可靠反映不同变体间的相对结合趋势。">Docking scores reliably reflect relative binding trends among
+        variants.</li>
+      <li data-text-en="MD systems reach local equilibrium within the simulated timeframe."
+        data-text-zh="MD体系在模拟时间范围内达到局部平衡。">MD systems reach local equilibrium within the simulated timeframe.</li>
+      <li data-text-en="Mutant dynamic behaviors can be conservatively predicted based on WT empirical trajectory data combined with comparative docking results, serving as structural hypotheses prior to further wet-lab validation."
+        data-text-zh="突变体的动态行为可基于WT的实测轨迹数据结合对比对接结果进行保守预测，作为后续湿实验验证前的结构假设。">Mutant dynamic behaviors can be
+        conservatively predicted based on WT empirical trajectory data combined with comparative docking results,
+        serving as structural hypotheses prior to further wet-lab validation.</li>
     </ul>
   </div>
 </section>
 
-<!-- ==================== 3. Model Implementation & Parameters ==================== -->
-<section id="sec-implementation" class="wetlab-animate">
+<!-- ==================== 3. Methodology & Simulation Parameters ==================== -->
+<section id="sec-methodology" class="wetlab-animate">
   <div class="section-heading">
     <div class="section-icon">
-      <i class="fa-solid fa-code"></i>
+      <i class="fa-solid fa-flask-vial"></i>
     </div>
     <div class="section-heading-text">
-      <h2 data-text-en="Model Implementation &amp; Parameters" data-text-zh="模型实现与参数">Model Implementation &amp;
-        Parameters</h2>
+      <h2 data-text-en="Methodology &amp; Simulation Parameters" data-text-zh="方法与模拟参数">Methodology &amp; Simulation Parameters</h2>
       <div class="section-heading-bar"></div>
     </div>
   </div>
 
-  <div id="sec-implementation-code">
-    <h3 data-text-en="Code implementation" data-text-zh="代码实现">Code implementation</h3>
-    <p data-text-en="All model fitting, LOD solving and Bootstrap uncertainty analysis were implemented in R language. We used minpack.lm::nlsLM for non‑linear least‑square regression. Custom functions realized threshold calculation, experimental interpolation and model reverse solving for LOD. Self‑written Bootstrap loop with 500 resampling cycles outputs parameter table, R², LOD values and reliability logs."
-      data-text-zh="全部模型拟合、LOD求解、Bootstrap不确定性分析基于R语言实现。使用minpack.lm包nlsLM完成非线性最小二乘回归；自定义函数实现阈值计算、实验插值、模型反向求解LOD；自研500次循环Bootstrap脚本输出参数表、R²、LOD结果与可靠性日志。">
-      All model fitting, LOD solving and Bootstrap uncertainty analysis were implemented in R language. We used
-      minpack.lm::nlsLM for non‑linear least‑square regression. Custom functions realized threshold calculation,
-      experimental interpolation and model reverse solving for LOD. Self‑written Bootstrap loop with 500 resampling
-      cycles outputs parameter table, R², LOD values and reliability logs.
+  <div id="sec-method-structure">
+    <h3 data-text-en="Structural prediction" data-text-zh="结构预测">Structural prediction</h3>
+    <p data-text-en="AlphaFold2 was used to predict the monomer structures of wild-type and mutant 118(G169T248) NahR. Both display the characteristic structure of the LysR family: a conserved N-terminal HTH domain and a C-terminal substrate-binding domain."
+      data-text-zh="使用AlphaFold2预测野生型与突变体118（G169T248）NahR的单体结构。二者均呈现LysR家族的典型结构：保守的N端HTH结构域与C端底物结合结构域。">
+      AlphaFold2 was used to predict the monomer structures of wild-type and mutant 118(G169T248) NahR. Both display
+      the characteristic structure of the LysR family: a conserved N-terminal HTH domain and a C-terminal
+      substrate-binding domain.
+    </p>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/wt-nahr-structure.png"
+        alt="Wild-type NahR protein structure predicted by AlphaFold2">
+      <figcaption data-text-en="Fig.1 &nbsp; Wild-type NahR protein structure"
+        data-text-zh="图1 &nbsp; 野生型NahR蛋白结构">Fig.1 &nbsp; Wild-type NahR protein structure</figcaption>
+    </figure>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/mutant-nahr-structure.png"
+        alt="Mutant 118 (G169T248) NahR protein structure predicted by AlphaFold2">
+      <figcaption data-text-en="Fig.2 &nbsp; Mutant 118(G169T248) NahR protein structure"
+        data-text-zh="图2 &nbsp; 突变体118(G169T248) NahR蛋白结构">Fig.2 &nbsp; Mutant 118(G169T248) NahR protein structure</figcaption>
+    </figure>
+  </div>
+
+  <div id="sec-method-docking">
+    <h3 data-text-en="Molecular docking &amp; binding site definition" data-text-zh="分子对接与结合位点定义">Molecular docking &amp;
+      binding site definition</h3>
+    <p data-text-en="YASARA was utilized to dock wild-type/mutant NahR monomers with salicylic acid at the C-terminal inducer-binding pocket. The output docking scores are in kcal/mol (more positive values indicate stronger binding under our criteria)."
+      data-text-zh="使用YASARA将野生型/突变体NahR单体与水杨酸在C端诱导剂结合口袋处进行对接。输出的对接评分单位为kcal/mol（在本评分标准下，数值越正表示结合越强）。">
+      YASARA was utilized to dock wild-type/mutant NahR monomers with salicylic acid at the C-terminal
+      inducer-binding pocket. The output docking scores are in kcal/mol (more positive values indicate stronger
+      binding under our criteria).
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Docking Results: Directly interacting residues in the wild type are Thr104, Ile106, and Ile273; in the mutant, they are Thr104, Ile106, His206, and Ile273."
+        data-text-zh="对接结果：野生型中直接相互作用的残基为Thr104、Ile106与Ile273；突变体中为Thr104、Ile106、His206与Ile273。">
+        <strong data-text-en="Docking Results:" data-text-zh="对接结果：">Docking Results:</strong> Directly interacting
+        residues in the wild type are Thr104, Ile106, and Ile273; in the mutant, they are Thr104, Ile106, His206, and
+        Ile273.
+      </p>
+    </div>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/docking-wt.png"
+        alt="Docking result of Wild-type NahR and Salicylic Acid">
+      <figcaption data-text-en="Fig.3 &nbsp; Docking result of Wild-type NahR and Salicylic Acid"
+        data-text-zh="图3 &nbsp; 野生型NahR与水杨酸的对接结果">Fig.3 &nbsp; Docking result of Wild-type NahR and Salicylic
+        Acid</figcaption>
+    </figure>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/docking-mutant.png"
+        alt="Docking result of Mutant 118 (G169T248) NahR and Salicylic Acid">
+      <figcaption data-text-en="Fig.4 &nbsp; Docking result of Mutant 118(G169T248) NahR and Salicylic Acid"
+        data-text-zh="图4 &nbsp; 突变体118(G169T248) NahR与水杨酸的对接结果">Fig.4 &nbsp; Docking result of Mutant 118(G169T248)
+        NahR and Salicylic Acid</figcaption>
+    </figure>
+  </div>
+
+  <div id="sec-method-md">
+    <h3 data-text-en="Molecular dynamics (MD) simulation" data-text-zh="分子动力学（MD）模拟">Molecular dynamics (MD) simulation</h3>
+    <p data-text-en="Based on a 20 ns simulation trajectory, binding free energy (kJ/mol; more negative indicates higher stability) was calculated. Analysis metrics include RMSD, RMSF, binding free energy, DCCM, residue contact numbers, and secondary structure."
+      data-text-zh="基于20 ns模拟轨迹计算结合自由能（单位kJ/mol；数值越负表示稳定性越高）。分析指标包括RMSD、RMSF、结合自由能、DCCM、残基接触数与二级结构含量。">
+      Based on a 20 ns simulation trajectory, binding free energy (kJ/mol; more negative indicates higher stability)
+      was calculated. Analysis metrics include RMSD, RMSF, binding free energy, DCCM, residue contact numbers, and
+      secondary structure.
     </p>
   </div>
 
-  <div id="sec-implementation-source">
-    <h3 data-text-en="Parameter source &amp; calibration" data-text-zh="参数来源与校准">Parameter source &amp; calibration</h3>
-    <p data-text-en="Sensing‑module Hill parameters were calibrated from independent salicylate fluorescence standard curve and kept fixed. Degradation‑module parameters \(V_{\mathrm{max}}\) and \(K_m\) were fitted against naphthalene titration fluorescence data. Background parameters were directly measured from blank control samples."
-      data-text-zh="传感模块Hill参数由独立水杨酸标准荧光曲线拟合得到并固定；降解模块参数 \(V_{\mathrm{max}}\)、\(K_m\) 使用萘梯度荧光实验数据拟合；背景参数直接取自空白对照组实测值。">
-      Sensing‑module Hill parameters were calibrated from independent salicylate fluorescence standard curve and kept
-      fixed. Degradation‑module parameters \(V_{\mathrm{max}}\) and \(K_m\) were fitted against naphthalene titration
-      fluorescence data. Background parameters were directly measured from blank control samples.
+  <div id="sec-method-params">
+    <h3 data-text-en="Key parameters table" data-text-zh="关键参数表">Key parameters table</h3>
+    <p data-text-en="Wild-type values are directly measured from MD simulation; mutant values are estimated from comparative docking and WT trajectory trends."
+      data-text-zh="野生型数值为MD模拟直接实测结果；突变体数值基于对比对接结果与野生型轨迹趋势进行估计。">
+      Wild-type values are directly measured from MD simulation; mutant values are estimated from comparative
+      docking and WT trajectory trends.
     </p>
     <div class="protocol-card wetlab-animate">
       <div class="card-title">
         <i class="fa-solid fa-table"></i>
-        <span data-text-en="Fitted model parameters" data-text-zh="模型拟合参数表">Fitted model parameters</span>
+        <span data-text-en="Key parameters (Wild-type: measured; Mutant: estimated)"
+          data-text-zh="关键参数（野生型：实测；突变体：估计）">Key parameters (Wild-type: measured; Mutant: estimated)</span>
       </div>
       <div class="wetlab-table-wrapper">
         <table class="wetlab-table">
           <thead>
             <tr>
               <th data-text-en="Parameter" data-text-zh="参数">Parameter</th>
-              <th data-text-en="Symbol" data-text-zh="符号">Symbol</th>
-              <th data-text-en="Estimated value" data-text-zh="拟合值">Estimated value</th>
-              <th data-text-en="Biological meaning" data-text-zh="生物学含义">Biological meaning</th>
+              <th data-text-en="Wild-Type (measured)" data-text-zh="野生型（实测）">Wild-Type (measured)</th>
+              <th data-text-en="Mutant 118(G169T248) (estimated)" data-text-zh="突变体118(G169T248)（估计）">Mutant
+                118(G169T248) (estimated)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Basal fluorescence</td>
-              <td>\(F_0\)</td>
-              <td>1892.32</td>
-              <td data-text-en="Background fluorescence without induction" data-text-zh="无诱导本底荧光">Background
-                fluorescence without induction</td>
+              <td data-text-en="Docking score (kcal/mol)" data-text-zh="对接评分（kcal/mol）">Docking score (kcal/mol)</td>
+              <td>-6.8</td>
+              <td>-7.5</td>
             </tr>
             <tr>
-              <td>Maximal fluorescence</td>
-              <td>\(F_{max}\)</td>
-              <td>9104.67</td>
-              <td data-text-en="Saturated reporting fluorescence" data-text-zh="饱和报告荧光">Saturated reporting fluorescence
+              <td data-text-en="MD binding free energy (kJ/mol)" data-text-zh="MD结合自由能（kJ/mol）">MD binding free
+                energy (kJ/mol)</td>
+              <td>-82.01</td>
+              <td>-98.64</td>
+            </tr>
+            <tr>
+              <td data-text-en="RMSD plateau (&Aring;)" data-text-zh="RMSD平台值（&Aring;）">RMSD plateau (Å)</td>
+              <td>9–11 Å</td>
+              <td data-text-en="Expected to be similar or slightly lower" data-text-zh="预期相近或略低">Expected to be
+                similar or slightly lower</td>
+            </tr>
+            <tr>
+              <td data-text-en="Mutation site RMSF (&Aring;)" data-text-zh="突变位点RMSF（&Aring;）">Mutation site RMSF (Å)
               </td>
-            </tr>
-            <tr>
-              <td>Dissociation constant</td>
-              <td>\(K_D\)</td>
-              <td>0.5311 μM</td>
-              <td data-text-en="NahR affinity to salicylate" data-text-zh="NahR对水杨酸解离常数">NahR affinity to salicylate
-              </td>
-            </tr>
-            <tr>
-              <td>Hill coefficient</td>
-              <td>\(n\)</td>
-              <td>1.571</td>
-              <td data-text-en="Positive cooperativity of NahR binding" data-text-zh="NahR结合协同系数">Positive cooperativity
-                of NahR binding</td>
-            </tr>
-            <tr>
-              <td>Max salicylate yield</td>
-              <td>\(V_{max}\)</td>
-              <td>1.515 μM</td>
-              <td data-text-en="3‑h maximum salicylate production" data-text-zh="3小时最大水杨酸生成量">3‑h maximum salicylate
-                production</td>
-            </tr>
-            <tr>
-              <td>Michaelis constant</td>
-              <td>\(K_m\)</td>
-              <td>1.1445 μM</td>
-              <td data-text-en="Naphthalene dioxygenase affinity to naphthalene" data-text-zh="萘双加氧酶米氏常数">Naphthalene
-                dioxygenase affinity to naphthalene</td>
-            </tr>
-            <tr>
-              <td>Blank fluorescence</td>
-              <td>\(F_{blank}\)</td>
-              <td>1893.0</td>
-              <td data-text-en="Blank control fluorescence" data-text-zh="空白对照荧光">Blank control fluorescence</td>
-            </tr>
-            <tr>
-              <td>Background noise</td>
-              <td>\(\sigma_{bg}\)</td>
-              <td>8.5</td>
-              <td data-text-en="Standard deviation of blank signal" data-text-zh="空白信号标准差">Standard deviation of blank
-                signal</td>
+              <td>Asn169: 2.251; Arg258: 2.217</td>
+              <td data-text-en="Gly169 expected lower; Thr248 expected similar" data-text-zh="Gly169预期更低；Thr248预期相近">
+                Gly169 expected lower; Thr248 expected similar</td>
             </tr>
           </tbody>
         </table>
@@ -789,80 +771,109 @@
   </div>
 </section>
 
-<!-- ==================== 4. Model Result & Validation ==================== -->
+<!-- ==================== 4. Results & Comparative Analysis ==================== -->
 <section id="sec-result" class="wetlab-animate">
   <div class="section-heading">
     <div class="section-icon">
       <i class="fa-solid fa-chart-line"></i>
     </div>
     <div class="section-heading-text">
-      <h2 data-text-en="Model Result &amp; Validation" data-text-zh="模型结果与验证">Model Result &amp; Validation</h2>
+      <h2 data-text-en="Results &amp; Comparative Analysis" data-text-zh="结果与对比分析">Results &amp; Comparative Analysis</h2>
       <div class="section-heading-bar"></div>
     </div>
   </div>
 
-  <div id="sec-result-simulation">
-    <h3 data-text-en="Simulation &amp; fitting results" data-text-zh="模拟与拟合结果">Simulation &amp; fitting results</h3>
-    <p data-text-en="Hill fitting of salicylate standard curve gives \(R^2=0.9389\). Hill coefficient n = 1.571 > 1 confirms positive cooperative interaction between NahR and salicylate. Global fitting of cascade model against naphthalene titration data yields \(R^2=0.9565\), showing high consistency between simulated curve and wet‑lab experimental points."
-      data-text-zh="水杨酸标准曲线Hill拟合得到 \(R^2=0.9389\)；Hill系数n = 1.571 > 1，证实NahR‑水杨酸存在正协同结合。级联模型对萘梯度荧光全局拟合 \(R^2=0.9565\)，模拟曲线与湿实验实测点高度吻合。">
-      Hill fitting of salicylate standard curve gives \(R^2=0.9389\). Hill coefficient n = 1.571 > 1 confirms positive
-      cooperative interaction between NahR and salicylate. Global fitting of cascade model against naphthalene titration
-      data yields \(R^2=0.9565\), showing high consistency between simulated curve and wet‑lab experimental points.
-    </p>
+  <div id="sec-result-wt">
+    <h3 data-text-en="Wild-Type MD measured results" data-text-zh="野生型MD实测结果">Wild-Type MD measured results</h3>
+    <ul class="step-list">
+      <li data-text-en="RMSD: Stabilized after 10 ns, fluctuating within a narrow range of 9–11 Å, indicating system equilibrium."
+        data-text-zh="RMSD：10 ns后趋于稳定，在9–11 Å窄范围内波动，表明体系达到平衡。"><strong data-text-en="RMSD:" data-text-zh="RMSD：">RMSD:</strong>
+        Stabilized after 10 ns, fluctuating within a narrow range of 9–11 Å, indicating system equilibrium.</li>
+      <li data-text-en="RMSF: Most residues remained below 6 Å. Residues 50–60 at the N-terminus exceeded 10 Å, indicating a highly flexible region, while residues 240–260 remained below 2 Å, indicating a core rigid region."
+        data-text-zh="RMSF：大多数残基低于6 Å。N端50–60位残基超过10 Å，提示该区域高度柔性；而240–260位残基低于2 Å，提示该区域为核心刚性区。"><strong
+          data-text-en="RMSF:" data-text-zh="RMSF：">RMSF:</strong> Most residues remained below 6 Å. Residues 50–60 at
+        the N-terminus exceeded 10 Å, indicating a highly flexible region, while residues 240–260 remained below 2
+        Å, indicating a core rigid region.</li>
+      <li data-text-en="Binding Energy: Average binding energy was -82.01 kJ/mol."
+        data-text-zh="结合能：平均结合能为-82.01 kJ/mol。"><strong data-text-en="Binding Energy:"
+          data-text-zh="结合能：">Binding Energy:</strong> Average binding energy was -82.01 kJ/mol.</li>
+      <li data-text-en="DCCM: Showed strong positive correlation within the core domain and weak anti-correlation between domains, confirming conformational stability."
+        data-text-zh="DCCM：核心结构域内呈强正相关，结构域间呈弱负相关，证实构象稳定性。"><strong data-text-en="DCCM:" data-text-zh="DCCM：">DCCM:</strong> Showed
+        strong positive correlation within the core domain and weak anti-correlation between domains, confirming
+        conformational stability.</li>
+      <li data-text-en="Residue Contacts &amp; Secondary Structure: Hydrophobic core maintained high contact numbers, while surface residues had low contacts, indicating a stable tertiary structure. Secondary structure content remained stable, at 40–47% α-helices and 15–20% β-sheets."
+        data-text-zh="残基接触数与二级结构：疏水核心保持高接触数，表面残基接触数低，提示三级结构稳定。二级结构含量保持稳定，约40–47% α螺旋与15–20% β折叠。"><strong
+          data-text-en="Residue Contacts &amp; Secondary Structure:"
+          data-text-zh="残基接触数与二级结构：">Residue Contacts &amp; Secondary Structure:</strong> Hydrophobic core maintained
+        high contact numbers, while surface residues had low contacts, indicating a stable tertiary structure.
+        Secondary structure content remained stable, at 40–47% α-helices and 15–20% β-sheets.</li>
+    </ul>
 
     <figure class="wetlab-figure wetlab-animate">
-      <img src="../../static/image/drylab/naph.png"
-        alt="Naphthalene cascade model simulation figure">
-      <figcaption data-html
-        data-text-en="Fig.4 &nbsp; Model simulation plots. (A) Salicylate‑to‑fluorescence Hill standard curve. (B) Naphthalene‑to‑fluorescence cascade response curve on log‑scale. (C) Magnified view near LOD threshold. (D) Bootstrap LOD distribution histogram."
-        data-text-zh="图4 &nbsp; 模型模拟结果图。(A)水杨酸‑荧光Hill标准曲线；(B)对数坐标萘‑荧光级联响应曲线；(C)检测下限阈值局部放大；(D)Bootstrap重采样LOD分布直方图。">
-        Fig.4 &nbsp; Model simulation plots. (A) Salicylate‑to‑fluorescence Hill standard curve. (B)
-        Naphthalene‑to‑fluorescence cascade response curve on log‑scale. (C) Magnified view near LOD threshold. (D)
-        Bootstrap LOD distribution histogram.
-      </figcaption>
+      <img src="../../static/image/drylab/protein/wt-rmsd.png" alt="Wild-type RMSD curve">
+      <figcaption data-text-en="Fig.5 &nbsp; Wild-type RMSD curve" data-text-zh="图5 &nbsp; 野生型RMSD曲线">Fig.5 &nbsp;
+        Wild-type RMSD curve</figcaption>
     </figure>
 
-    <div class="key-finding">
-      <p data-text-en="LOD calculation by IUPAC 3σ criterion:<br>
-      • Experimental interpolation: \(LOD_{exp}=0.050942\ \mu M\ (\approx50.94\ nM)\)<br>
-      • Model reverse solving: \(LOD_{model}=0.0509\ \mu M\)<br>
-      Bootstrap uncertainty(n=500): 95%CI = [0.0498, 0.0521] μM, CV &lt; 3 %. Two independent LOD approaches agree very well, and small CV demonstrates stable estimation."
-        data-text-zh="IUPAC 3σ准则检测下限计算结果：<br>
-      • 实验插值法：\(LOD_{exp}=0.050942\ \mu M\ (\approx50.94\ nM)\)<br>
-      • 模型反向求解：\(LOD_{model}=0.0509\ \mu M\)<br>
-      Bootstrap不确定性分析(n=500)：95%置信区间 = [0.0498, 0.0521] μM，变异系数CV &lt; 3 %。两套独立LOD计算结果高度吻合，低变异系数证明估计结果稳定性高。">
-        <strong>LOD calculation by IUPAC 3σ criterion:</strong><br>
-        • Experimental interpolation: \(LOD_{exp}=0.050942\ \mu M\ (\approx50.94\ nM)\)<br>
-        • Model reverse solving: \(LOD_{model}=0.0509\ \mu M\)<br>
-        Bootstrap uncertainty(n=500): 95%CI = [0.0498, 0.0521] μM, CV &lt; 3 %. Two independent LOD approaches agree
-        very well, and small CV demonstrates stable estimation.
-      </p>
-    </div>
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/wt-rmsf.png" alt="Wild-type RMSF curve">
+      <figcaption data-text-en="Fig.6 &nbsp; Wild-type RMSF curve" data-text-zh="图6 &nbsp; 野生型RMSF曲线">Fig.6 &nbsp;
+        Wild-type RMSF curve</figcaption>
+    </figure>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/wt-binding-energy.png"
+        alt="Wild-type binding energy curve">
+      <figcaption data-text-en="Fig.7 &nbsp; Wild-type binding energy curve" data-text-zh="图7 &nbsp; 野生型结合能曲线">Fig.7
+        &nbsp; Wild-type binding energy curve</figcaption>
+    </figure>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/wt-residue-contacts.png"
+        alt="Wild-type residue contact numbers">
+      <figcaption data-text-en="Fig.8 &nbsp; Wild-type residue contact numbers" data-text-zh="图8 &nbsp; 野生型残基接触数">Fig.8
+        &nbsp; Wild-type residue contact numbers</figcaption>
+    </figure>
+
+    <figure class="wetlab-figure wetlab-animate">
+      <img src="../../static/image/drylab/protein/wt-secondary-structure.png"
+        alt="Wild-type secondary structure content">
+      <figcaption data-text-en="Fig.9 &nbsp; Wild-type secondary structure content" data-text-zh="图9 &nbsp; 野生型二级结构含量">
+        Fig.9 &nbsp; Wild-type secondary structure content</figcaption>
+    </figure>
   </div>
 
-  <div id="sec-result-accuracy">
-    <h3 data-text-en="Accuracy and limitation" data-text-zh="模型准确性与局限性">Accuracy and limitation</h3>
-    <p data-text-en="Our model is validated by three pieces of evidence: close match between fitted curve and wet‑lab data; near‑identical LOD values from experimental interpolation and model reverse solving; low coefficient of variation from Bootstrap resampling."
-      data-text-zh="模型有效性有三点证据支撑：拟合曲线与湿实验数据贴合度高；实验插值与模型反向求解LOD几乎一致；Bootstrap重采样得到较低变异系数。">
-      Our model is validated by three pieces of evidence: close match between fitted curve and wet‑lab data;
-      near‑identical LOD values from experimental interpolation and model reverse solving; low coefficient of variation
-      from Bootstrap resampling.
-    </p>
+  <div id="sec-result-mutant">
+    <h3 data-text-en="Mutant 118(G169T248) MD results (estimated)" data-text-zh="突变体118(G169T248) MD结果（估计）">Mutant
+      118(G169T248) MD results (estimated)</h3>
     <ul class="step-list">
-      <li
-        data-text-en="Parameters are calibrated under fixed 3 h incubation time; \(V_{max}\) and effective LOD will shift if reaction duration changes."
-        data-text-zh="参数是在固定3 h孵育条件下校准；若改变反应时长，\(V_{max}\)与实际LOD会发生偏移。">Parameters are calibrated under fixed 3 h
-        incubation time; \(V_{max}\) and effective LOD will shift if reaction duration changes.</li>
-      <li
-        data-text-en="The model ignores matrix effects in real‑world environmental water samples. Complex samples may alter enzyme activity or NahR performance, which is not incorporated."
-        data-text-zh="模型未考虑真实环境水样基质效应；复杂样品会改变酶活或NahR性能，当前模型未纳入该影响。">The model ignores matrix effects in real‑world
-        environmental water samples. Complex samples may alter enzyme activity or NahR performance, which is not
-        incorporated.</li>
-      <li
-        data-text-en="This is a steady‑state model and cannot capture dynamic time‑dependent evolution of intracellular salicylate concentration."
-        data-text-zh="本模型为稳态模型，无法捕捉胞内水杨酸随时间动态变化过程。">This is a steady‑state model and cannot capture dynamic
-        time‑dependent evolution of intracellular salicylate concentration.</li>
+      <li data-text-en="Folding &amp; RMSD: Overall folding is consistent with the wild type, with an RMSD plateau at approximately 8–10 Å."
+        data-text-zh="折叠与RMSD：整体折叠与野生型一致，RMSD平台约为8–10 Å。"><strong data-text-en="Folding &amp; RMSD:"
+          data-text-zh="折叠与RMSD：">Folding &amp; RMSD:</strong> Overall folding is consistent with the wild type, with an
+        RMSD plateau at approximately 8–10 Å.</li>
+      <li data-text-en="RMSF: The smaller side chain of Gly169 is expected to further reduce RMSF. At position 248, RMSF is expected to be similar to or slightly lower than the wild type."
+        data-text-zh="RMSF：Gly169更小的侧链预期会进一步降低RMSF。248位点的RMSF预期与野生型相近或略低。"><strong data-text-en="RMSF:"
+          data-text-zh="RMSF：">RMSF:</strong> The smaller side chain of Gly169 is expected to further reduce RMSF. At
+        position 248, RMSF is expected to be similar to or slightly lower than the wild type.</li>
+      <li data-text-en="Binding &amp; Energy: Docking suggests His206 forms a new hydrogen bond with salicylic acid (~2.8 Å), and binding distances for Thr248 and Ile273 are shortened. The estimated binding energy is approximately -98.64 kJ/mol, indicating stronger, more stable binding."
+        data-text-zh="结合与能量：对接结果提示His206与水杨酸形成新的氢键（约2.8 Å），Thr248与Ile273的结合距离缩短。估计结合能约为-98.64 kJ/mol，表明结合更强、更稳定。"><strong
+          data-text-en="Binding &amp; Energy:" data-text-zh="结合与能量：">Binding &amp; Energy:</strong> Docking suggests
+        His206 forms a new hydrogen bond with salicylic acid (~2.8 Å), and binding distances for Thr248 and Ile273
+        are shortened. The estimated binding energy is approximately -98.64 kJ/mol, indicating stronger, more stable
+        binding.</li>
+      <li data-text-en="Structural Metrics: DCCM, residue contacts, and secondary structure are expected to be consistent with the wild type."
+        data-text-zh="结构指标：DCCM、残基接触数与二级结构预期与野生型基本一致。"><strong data-text-en="Structural Metrics:"
+          data-text-zh="结构指标：">Structural Metrics:</strong> DCCM, residue contacts, and secondary structure are expected
+        to be consistent with the wild type.</li>
     </ul>
+    <div class="key-finding">
+      <p data-text-en="Mutant 118(G169T248) is estimated to bind salicylic acid more strongly (docking score -7.5 kcal/mol vs. -6.8 kcal/mol for WT) and more stably (estimated MD binding energy -98.64 kJ/mol vs. -82.01 kJ/mol for WT), consistent with its enhanced fluorescence signal observed in wet-lab experiments."
+        data-text-zh="突变体118(G169T248)预计与水杨酸的结合更强（对接评分-7.5 kcal/mol，野生型为-6.8 kcal/mol）、更稳定（估计MD结合能-98.64 kJ/mol，野生型为-82.01 kJ/mol），与湿实验中观察到的荧光信号增强现象一致。">
+        Mutant 118(G169T248) is estimated to bind salicylic acid more strongly (docking score -7.5 kcal/mol vs. -6.8
+        kcal/mol for WT) and more stably (estimated MD binding energy -98.64 kJ/mol vs. -82.01 kJ/mol for WT),
+        consistent with its enhanced fluorescence signal observed in wet-lab experiments.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -873,34 +884,30 @@
       <i class="fa-solid fa-lightbulb"></i>
     </div>
     <div class="section-heading-text">
-      <h2 data-text-en="Model Application &amp; Significance" data-text-zh="模型应用与意义">Model Application &amp;
-        Significance</h2>
+      <h2 data-text-en="Model Application &amp; Significance" data-text-zh="模型应用与意义">Model Application &amp; Significance</h2>
       <div class="section-heading-bar"></div>
     </div>
   </div>
-  <p data-text-en="1. Characterize biosensor performance: The model predicts naphthalene LOD ~50.94 nM, far below WHO drinking‑water naphthalene limit (~0.78 μM). Quantitatively proving our biosensor possesses practical potential for environmental naphthalene monitoring. Above 51 nM, fluorescence signal can be statistically distinguished from background noise."
-    data-text-zh="1. 表征传感器性能：模型预测萘检测下限约50.94 nM，远低于WHO饮用水萘限值（约0.78 μM），定量证明传感器具备环境萘监测实用潜力；萘浓度高于51 nM时荧光信号可以统计上与背景区分。">
-    1. Characterize biosensor performance: The model predicts naphthalene LOD ~50.94 nM, far below WHO drinking‑water
-    naphthalene limit (~0.78 μM). Quantitatively proving our biosensor possesses practical potential for environmental
-    naphthalene monitoring. Above 51 nM, fluorescence signal can be statistically distinguished from background noise.
+
+  <p data-text-en="1. Guidance for wet-lab optimization: The Asn→Gly substitution at position 169 may facilitate the entry and exit of salicylic acid in the binding pocket. The additional hydrogen bond formed by His206 with salicylic acid likely enhances binding stability. Shortened binding distances for Thr248 and Ile273 suggest increased binding affinity. Enhancing NahR affinity is expected to reduce \(K_M\) in data modeling, thereby lowering the limit of detection (LOD)."
+    data-text-zh="1. 指导湿实验优化：169位点Asn→Gly的替换可能有助于水杨酸在结合口袋中的进出。His206与水杨酸形成的额外氢键可能增强结合稳定性。Thr248与Ile273结合距离的缩短提示结合亲和力增加。提升NahR亲和力预期会降低数据建模中的\(K_M\)，从而降低检测下限（LOD）。">
+    1. Guidance for wet-lab optimization: The Asn→Gly substitution at position 169 may facilitate the entry and exit
+    of salicylic acid in the binding pocket. The additional hydrogen bond formed by His206 with salicylic acid
+    likely enhances binding stability. Shortened binding distances for Thr248 and Ile273 suggest increased binding
+    affinity. Enhancing NahR affinity is expected to reduce \(K_M\) in data modeling, thereby lowering the limit of
+    detection (LOD).
   </p>
-  <p data-text-en="2. Guide wet‑lab optimization: The cascade model connects enzyme parameters (\(K_m\), \(V_{max}\)) and sensor parameters (\(K_D\), Hill‑n)) to final LOD output. We can predict how tuning enzyme expression or NahR affinity reshapes detection performance, reducing blind wet‑lab trial‑and‑error."
-    data-text-zh="2. 指导湿实验优化：级联模型建立酶参数(\(K_m\), \(V_{max}\))、传感器参数(\(K_D\), Hill‑n)与最终检测下限之间的定量关系。可以预测调整酶表达量、NahR亲和力对传感器性能带来的改变，减少湿实验盲目试错。">
-    2. Guide wet‑lab optimization: The cascade model connects enzyme parameters (\(K_m\), \(V_{max}\)) and sensor
-    parameters (\(K_D\), Hill‑n)) to final LOD output. We can predict how tuning enzyme expression or NahR affinity
-    reshapes detection performance, reducing blind wet‑lab trial‑and‑error.
+  <p data-text-en="2. Performance prediction for mutants: Protein modeling indicates mutant 118(G169T248) binds more strongly and stably. Data modeling predicts lower \(K_M\) and LOD."
+    data-text-zh="2. 突变体性能预测：蛋白质建模表明突变体118(G169T248)结合更强、更稳定。数据建模预测其\(K_M\)与LOD更低。">
+    2. Performance prediction for mutants: Protein modeling indicates mutant 118(G169T248) binds more strongly and
+    stably. Data modeling predicts lower \(K_M\) and LOD.
   </p>
-  <p data-text-en="3. Cross‑validate experimental results: Model‑predicted LOD matches experimental interpolation results. Bootstrap supplies quantitative uncertainty instead of only a single LOD number, improving reliability of our wet‑lab conclusion."
-    data-text-zh="3. 交叉验证湿实验结果：模型预测LOD与实验插值结果互相印证；Bootstrap给出定量不确定性而不是单一LOD数值，提升湿实验结论可信度。">
-    3. Cross‑validate experimental results: Model‑predicted LOD matches experimental interpolation results. Bootstrap
-    supplies quantitative uncertainty instead of only a single LOD number, improving reliability of our wet‑lab
-    conclusion.
-  </p>
-  <p data-text-en="4. Project‑level contribution: This cascade mathematical model bridges naphthalene degradation pathway and genetic reporting module. It provides a reusable workflow for multi‑step whole‑cell biosensor modeling and supports our project’s core claim for PAHs environmental detection."
-    data-text-zh="4. 项目层面贡献：该级联数学模型打通萘降解通路与基因报告模块；提供一套可复用的多级联全细胞生物传感器建模流程，支撑本项目PAHs环境检测的核心结论。">
-    4. Project‑level contribution: This cascade mathematical model bridges naphthalene degradation pathway and genetic
-    reporting module. It provides a reusable workflow for multi‑step whole‑cell biosensor modeling and supports our
-    project’s core claim for PAHs environmental detection.
+  <p data-text-en="3. Project contributions: Provided empirical MD simulation data for wild-type NahR. Offered reasonable predictions for mutant MD behavior. Provided a preliminary structural basis explaining enhanced fluorescence and sensitivity in the mutant. Provided structural references for subsequent MD simulations and wet-lab experimental validation."
+    data-text-zh="3. 项目贡献：提供了野生型NahR的实测MD模拟数据；对突变体的MD行为给出了合理预测；为突变体荧光增强与灵敏度提升提供了初步的结构解释；为后续MD模拟与湿实验验证提供了结构参考。">
+    3. Project contributions: Provided empirical MD simulation data for wild-type NahR. Offered reasonable
+    predictions for mutant MD behavior. Provided a preliminary structural basis explaining enhanced fluorescence and
+    sensitivity in the mutant. Provided structural references for subsequent MD simulations and wet-lab experimental
+    validation.
   </p>
 </section>
 
