@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Human Practice · Sustainable Development | iGEM Wiki</title>
+  <link rel="icon" type="image/png" href="../../static/image/logo-icon.png">
+  
+<meta name="description"
+  content="How the NapRemSen PAHs biosensor project advances the UN Sustainable Development Goals: SDG 3 (Good Health), SDG 6 (Clean Water), SDG 15 (Life on Land), and SDG 17 (Partnerships for the Goals).">
+
+
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap">
+
+  <!-- TeX 数学公式渲染 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$','$']],
+        displayMath: [['\\[', '\\]'], ['$$','$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="../../static/css/style.css?v=1.0.12">
+
+  
+<link rel="stylesheet" href="../../static/css/wetlab.css?v=1.0.2">
+
+</head>
+
+<body class="body-main" data-theme="dark" data-lang="en" data-is-subpage="1" >
+
+  
+  <script>
+    window.__HOME_URL = "../../";
+    window.__IS_SUBPAGE = document.body.dataset.isSubpage === '1';
+  </script>
+
+  <script>
+    (function() {
+      // 避免 FOUC：在页面首绘前，立刻读取并应用用户的暗色模式/中文语言设置
+      const savedTheme = sessionStorage.getItem('portfolio-theme') || 'dark';
+      const savedLang = sessionStorage.getItem('portfolio-lang') || 'en';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      // 移动端子页面内容加载平滑渐显：防止语言/主题转换闪烁
+      if (window.__IS_SUBPAGE) {
+        document.body.classList.add('page-loading');
+      }
+    })();
+  </script>
+
+  
+  
+
+  
+  <header class="main-header" id="header">
+    <nav class="nav-container">
+        <div class="nav-brand">
+            <a href="../../index.html">
+                <img src="https://static.igem.wiki/teams/6049/wiki/menu/logo.avif" alt="logo" class="logo logo-full" />
+                <img src="https://static.igem.wiki/teams/6049/wiki/menu/logo-icon.avif" alt="logo-icon"
+                    class="logo logo-icon" />
+            </a>
+        </div>
+        <div class="menu-container">
+            <ul class="nav-menu" id="navMenu">
+                <!-- Project 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Project">
+                        <svg t="1790326463262" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="16813" width="20" height="20">
+                            <path
+                                d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8zM472 472h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8zM664 544h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8z"
+                                p-id="16814" fill="#10B981"></path>
+                            <path
+                                d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-40 728H184V184h656v656z"
+                                p-id="16815" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Project" data-text-zh="项目">Project</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="16"
+                            height="16">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../project/description/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Description"
+                                    data-text-zh="项目描述">Description</span></a></li>
+                        <li><a href="../../project/design/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Design" data-text-zh="设计">Design</span></a></li>
+                        <li><a href="#Contribution" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Contribution" data-text-zh="贡献说明">Contribution</span></a></li>
+                    </ul>
+                </li>
+                <!-- Wet Lab 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link "
+                        data-section="Wet-Lab">
+                        <svg t="1790324893305" class="icon" viewBox="0 0 1025 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="13953" width="20" height="20">
+                            <path
+                                d="M661.840006 119.424c-15.136-15.104-35.2-23.424-56.576-23.424s-41.44 8.32-56.64 23.456l-45.12 45.184c-15.136 15.104-23.488 35.2-23.488 56.608 0 15.072 4.128 29.504 11.872 42.016l-434.464 174.048c-29.056 12.768-49.888 38.976-55.744 70.048-5.92 31.264 4 63.328 26.688 85.984l407.04 402.56c17.536 17.536 40.832 27.488 65.44 28.064 0.576 0.032 1.92 0.032 2.496 0.032 6.464 0 13.024-0.672 19.52-1.984 31.808-6.592 57.856-28.576 69.664-58.496l170.944-428.032c12.864 8.48 28 13.024 43.744 13.024 21.44 0 41.504-8.352 56.576-23.456l45.024-45.056c15.264-15.168 23.616-35.296 23.616-56.736s-8.384-41.6-23.424-56.576l-247.168-247.264zM533.104006 939.744c-3.968 10.016-12.704 17.408-23.264 19.584-2.432 0.512-4.896 0.704-7.328 0.672-8.128-0.192-15.968-3.456-21.824-9.344l-407.296-402.816c-7.488-7.456-10.784-18.144-8.8-28.576 1.952-10.368 8.928-19.136 18.624-23.36l198.944-79.68c134.048 44.576 268.128 1.632 402.24 144.704l-151.296 378.816zM863.760006 434.56l-45.248 45.216c-6.24 6.272-16.384 6.272-22.624 0l-56.576-56.544-45.824 114.848 3.808-9.696c-96.32-96.16-194.208-108.288-282.528-119.136-28.384-3.488-55.904-7.136-82.944-12.96l271.712-108.832-54.88-54.88c-6.24-6.24-6.24-16.384 0-22.624l45.248-45.28c6.24-6.24 16.384-6.24 22.624 0l247.2 247.264c6.336 6.24 6.336 16.384 0.032 22.624zM528.016006 672c44.096 0 80-35.872 80-80s-35.872-80-80-80c-44.128 0-80 35.872-80 80s35.904 80 80 80zM528.016006 544c26.496 0 48 21.504 48 48s-21.504 48-48 48c-26.528 0-48-21.504-48-48s21.472-48 48-48zM944.016006 0c-44.128 0-80 35.872-80 80s35.872 80 80 80 80-35.872 80-80-35.872-80-80-80zM944.016006 128c-26.496 0-48-21.504-48-48s21.504-48 48-48 48 21.504 48 48-21.504 48-48 48zM256.016006 544c0 35.296 28.704 64 64 64s64-28.704 64-64-28.704-64-64-64-64 28.704-64 64zM320.016006 512c17.664 0 32 14.304 32 32s-14.336 32-32 32-32-14.304-32-32 14.336-32 32-32zM384.016006 736c0-17.664 14.336-32 32-32s32 14.336 32 32c0 17.664-14.336 32-32 32s-32-14.336-32-32zM896.016006 256c0-17.664 14.336-32 32-32s32 14.336 32 32c0 17.664-14.336 32-32 32s-32-14.336-32-32z"
+                                fill="#10B981" p-id="13954"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Wet-Lab" data-text-zh="湿实验">Wet Lab</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="16"
+                            height="16">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../wetlab/engineering/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Engineering"
+                                    data-text-zh="工程设计">Engineering</span></a></li>
+                        <li><a href="../../wetlab/results/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Result" data-text-zh="实验结果">Result</span></a></li>
+                        <li><a href="../../wetlab/protocol/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Protocol" data-text-zh="实验方法">Protocol</span></a>
+                        </li>
+                        <li><a href="../../wetlab/parts/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Parts" data-text-zh="实验部件">Parts</span></a></li>
+                        <li><a href="../../wetlab/notebook/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Notebook" data-text-zh="实验记录">Notebook</span></a>
+                        </li>
+                        <li><a href="../../wetlab/safety/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Safety" data-text-zh="安全说明">Safety</span></a></li>
+                    </ul>
+                </li>
+
+                <!-- Dry Lab 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link "
+                        data-section="Dry-Lab">
+                        <svg t="1790325454549" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="15581" id="mx_n_1790325454550" width="20"
+                            height="20">
+                            <path
+                                d="M733.333333 436.746667V247.52a5.333333 5.333333 0 0 0-2.773333-4.693333l-216.053333-117.333334a5.333333 5.333333 0 0 0-5.013334 0L293.333333 242.826667a5.333333 5.333333 0 0 0-2.773333 4.693333v189.226667a5.333333 5.333333 0 0 1-2.773333 4.64L109.44 538.133333a5.333333 5.333333 0 0 0-2.773333 4.693334v233.653333a5.333333 5.333333 0 0 0 2.773333 4.693333l216.053333 117.333334a5.333333 5.333333 0 0 0 5.013334 0l178.986666-97.013334a5.333333 5.333333 0 0 1 5.013334 0L693.333333 898.293333a5.333333 5.333333 0 0 0 5.013334 0l216.053333-117.333333a5.333333 5.333333 0 0 0 2.773333-4.693333v-233.44a5.333333 5.333333 0 0 0-2.773333-4.693334L736 441.386667a5.333333 5.333333 0 0 1-2.666667-4.64z m-77.333333 4.64l-98.72 53.333333a5.333333 5.333333 0 0 1-7.84-4.693333V393.333333a5.333333 5.333333 0 0 1 2.773333-4.693333l98.72-53.333333a5.333333 5.333333 0 0 1 7.84 4.64v96.8a5.333333 5.333333 0 0 1-2.773333 4.64zM514.506667 210.666667l96 52.053333a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053334a5.333333 5.333333 0 0 1-5.013334 0L413.44 272a5.333333 5.333333 0 0 1 0-9.333333l96-52.053334a5.333333 5.333333 0 0 1 5.066667 0.053334zM229.333333 558.026667l96-52.053334a5.333333 5.333333 0 0 1 5.013334 0l96 52.053334a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053333a5.333333 5.333333 0 0 1-5.013334 0l-96-52.053333a5.333333 5.333333 0 0 1 0-9.333333z m138.666667 125.92l98.72-53.333334a5.333333 5.333333 0 0 1 7.84 4.64v96.96a5.333333 5.333333 0 0 1-2.773333 4.64L373.333333 790.24a5.333333 5.333333 0 0 1-7.84-4.693333v-96.906667a5.333333 5.333333 0 0 1 2.506667-4.693333z m229.333333-125.92l96-52.053334a5.333333 5.333333 0 0 1 5.013334 0l96 52.053334a5.333333 5.333333 0 0 1 0 9.333333l-96 52.053333a5.333333 5.333333 0 0 1-5.013334 0l-96-52.053333a5.333333 5.333333 0 0 1 0-9.333333z m242.453334 178.666666l-98.72 53.333334a5.333333 5.333333 0 0 1-7.84-4.693334v-96.693333a5.333333 5.333333 0 0 1 2.773333-4.693333l98.72-53.333334a5.333333 5.333333 0 0 1 7.84 4.64v96.96a5.333333 5.333333 0 0 1-2.666667 4.48z"
+                                p-id="15582" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Dry-Lab" data-text-zh="干实验">Dry Lab</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="16"
+                            height="16">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item has-submenu">
+                            <a href="../../drylab/naphthalene/index.html"
+                                class="dropdown-link ">
+                                <span class="nav-text" data-text-en="Modeling" data-text-zh="建模">Modeling</span>
+                                <svg class="icon submenu-arrow" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                                    <path
+                                        d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="../../drylab/naphthalene/index.html"
+                                        class="submenu-link "><span
+                                            class="nav-text" data-text-en="Naphthalene"
+                                            data-text-zh="萘">Naphthalene</span></a></li>
+                                <li><a href="../../drylab/salicylic-acid/index.html"
+                                        class="submenu-link "><span
+                                            class="nav-text" data-text-en="Salicylic"
+                                            data-text-zh="水杨酸">Salicylic</span></a></li>
+                                <li><a href="../../drylab/protein/index.html"
+                                        class="submenu-link "><span
+                                            class="nav-text" data-text-en="Protein"
+                                            data-text-zh="蛋白">Protein</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#Software" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Software" data-text-zh="软件实现">Software</span></a></li>
+                        <li><a href="#Hardware" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Hardware" data-text-zh="硬件实现">Hardware</span></a></li>
+                    </ul>
+                </li>
+                <!-- Team 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link " data-section="Team">
+                        <svg t="1790324819500" class="icon" viewBox="0 0 1030 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="11139" width="20" height="20">
+                            <path
+                                d="M512 722.216625m-33.531486 0a33.531486 33.531486 0 1 0 67.062972 0 33.531486 33.531486 0 1 0-67.062972 0Z"
+                                fill="#10B981" p-id="11140"></path>
+                            <path
+                                d="M512 838.287154m-33.531486 0a33.531486 33.531486 0 1 0 67.062972 0 33.531486 33.531486 0 1 0-67.062972 0Z"
+                                fill="#10B981" p-id="11141"></path>
+                            <path
+                                d="M515.869018 188.292191c-112.201511 0-203.768262 91.566751-203.768262 205.057935 0 73.511335 38.690176 137.994962 96.72544 174.105793-137.994962 49.007557-242.458438 189.581864-242.458438 344.34257 0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c0-159.919395 130.256927-299.20403 283.72796-312.100756 5.15869 0 7.738035-1.289673 12.896725-1.289673s7.738035 0 11.607053-1.289672c107.042821-3.869018 193.450882-94.146096 193.450882-203.768262 0-113.491184-91.566751-205.057935-203.768262-205.057935z m0 358.528968H509.420655c-81.24937-3.869018-145.732997-70.93199-145.732998-153.471033 0-85.118388 68.352645-153.471033 152.181361-153.471033s152.18136 68.352645 152.18136 153.471033c0 83.828715-68.352645 153.471033-152.18136 153.471033z"
+                                fill="#10B981" p-id="11142"></path>
+                            <path
+                                d="M220.534005 469.440806c10.31738 0 19.345088-6.448363 24.503778-16.765743 5.15869-12.896725-1.289673-28.372796-14.186398-33.531486-50.297229-20.634761-83.828715-68.352645-83.828715-123.808564 0-73.511335 59.324937-132.836272 131.5466-132.836272 30.952141 0 60.61461 10.31738 83.828715 30.952141 10.31738 9.027708 27.083123 7.738035 36.110831-3.869018 9.027708-10.31738 7.738035-27.083123-3.869018-36.110831-32.241814-27.083123-74.801008-42.559194-117.360201-42.559194-100.594458 0-183.133501 82.539043-183.133501 184.423174 0 76.09068 45.138539 143.153652 116.070529 171.526448 3.869018 1.289673 6.448363 2.579345 10.31738 2.579345z"
+                                fill="#10B981" p-id="11143"></path>
+                            <path
+                                d="M709.319899 651.284635c-10.31738 10.31738-10.31738 25.793451 0 36.110831 67.062972 68.352645 100.594458 143.153652 100.594459 223.11335 0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.79345-25.793451c0-94.146096-38.690176-181.843829-116.070529-259.224181-10.31738-10.31738-25.793451-10.31738-36.110831 0z"
+                                fill="#10B981" p-id="11144"></path>
+                            <path
+                                d="M98.015113 527.476071C36.110831 595.828715 0 684.816121 0 773.803526c0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c0-76.09068 30.952141-152.18136 83.828715-211.506297 9.027708-10.31738 9.027708-27.083123-1.289672-36.110831-10.31738-10.31738-27.083123-9.027708-36.110832 1.289673z"
+                                fill="#10B981" p-id="11145"></path>
+                            <path
+                                d="M853.763224 451.38539c51.586902-33.531486 83.828715-90.277078 83.828716-154.760705 0-101.884131-82.539043-184.423174-184.423174-184.423174-45.138539 0-87.697733 16.765743-121.229219 46.428212-10.31738 9.027708-11.607053 25.793451-2.579345 36.110831 9.027708 10.31738 25.793451 11.607053 36.110831 2.579345 24.503778-20.634761 55.455919-33.531486 87.697733-33.531486 73.511335 0 132.836272 59.324937 132.836272 132.836272 0 56.745592-36.110831 107.042821-88.987406 126.387909-10.31738 2.579345-24.503778 5.15869-28.372796 16.765744-5.15869 12.896725 1.289673 27.083123 14.186398 32.241813C895.032746 521.027708 973.702771 639.677582 973.702771 760.906801c0 14.186398 11.607053 25.793451 25.793451 25.793451s25.793451-11.607053 25.793451-25.793451c-1.289673-123.808564-69.642317-242.458438-171.526449-309.521411z"
+                                fill="#10B981" p-id="11146"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Team" data-text-zh="团队介绍">Team</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="16"
+                            height="16">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../team/members/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text" data-text-en="Members" data-text-zh="团队成员">Members</span></a></li>
+                        <li><a href="#Attribution" class="dropdown-link"><span class="nav-text"
+                                    data-text-en="Attribution" data-text-zh="贡献说明">Attribtribution</span></a></li>
+                    </ul>
+                </li>
+
+                <!-- Engagement 下拉菜单 -->
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link active"
+                        data-section="Engagement">
+                        <svg t="1790324756815" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="10047" width="20" height="20">
+                            <path
+                                d="M772.032 192a59.968 59.968 0 0 1 59.968 60.032v519.936a59.968 59.968 0 0 1-60.032 60.032H252.032A59.968 59.968 0 0 1 192 771.968V252.032C192 218.88 218.88 192 252.032 192h519.936z m0 60.032H251.968v519.936h54.208V446.336c0-11.84 6.144-22.784 16.192-29.056l182.848-80a34.304 34.304 0 0 1 52.48 29.056v405.632h88.512V551.296L588.992 531.2v-63.552l101.632 35.712c9.728 6.4 15.616 17.152 15.616 28.8v239.936h65.728V251.968zM497.664 406.08l-131.456 57.472v308.48h131.456V616.384l-91.52 37.76V589.312l91.52-37.76v-41.536l-91.52 38.912V483.84l91.52-38.912v-38.784z"
+                                p-id="10048" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text">Engagement</span>
+                        <svg t="1790323296971" class="icon fa-chevron-down" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="6802" id="mx_n_1790323296973" width="16"
+                            height="16">
+                            <path
+                                d="M512.032002 720.045003a47.938996 47.938996 0 0 1-30.017876-10.496656l-400.025002-320.020001a48.003 48.003 0 1 1 59.971749-74.948685L512.032002 610.598162l370.007125-296.018501a48.003 48.003 0 1 1 59.971749 74.948685l-400.025002 320.020001A47.938996 47.938996 0 0 1 512.032002 720.045003z"
+                                fill="#10B981" p-id="6803"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li style="width:15vw;"><a href="../ihp/index.html"
+                                class="dropdown-link "><span
+                                    class="nav-text">IHP</span></a></li>
+                        <li><a href="#Education" class="dropdown-link"><span
+                                    class="nav-text">Education</span></a></li>
+                        <li><a href="#Enterpreneurship" class="dropdown-link"><span
+                                    class="nav-text">Enterpreneurship</span></a></li>
+                        <li><a href="index.html" class="dropdown-link "><span
+                                    class="nav-text">Sustainable Dvelopment</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link "
+                        data-section="Video">
+                        <svg t="1790324375360" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="7906" width="20" height="20">
+                            <path
+                                d="M912 302.3L784 376V224c0-35.3-28.7-64-64-64H128c-35.3 0-64 28.7-64 64v576c0 35.3 28.7 64 64 64h592c35.3 0 64-28.7 64-64V648l128 73.7c21.3 12.3 48-3.1 48-27.6V330c0-24.6-26.7-40-48-27.7zM712 792H136V232h576v560z m176-167l-104-59.8V458.9L888 399v226z"
+                                p-id="7907" fill="#10B981"></path>
+                            <path
+                                d="M208 360h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H208c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                                p-id="7908" fill="#10B981"></path>
+                        </svg>
+                        <span class="nav-text" data-text-en="Video" data-text-zh="视频">Video</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-controls">
+            <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<style>
+    /* ============================================================
+       二级下拉菜单（Modeling 下的 Naphthalene / Salicylic / Protein）
+       如果你们已有的 nav.css 里已经封装了通用的二级菜单样式，
+       这一段可以删掉，直接把下面 class 命名对齐过去即可；
+       这里先给一套自包含、不依赖其它文件的样式，保证开箱可用。
+       ============================================================ */
+    .dropdown-item.has-submenu {
+        position: relative;
+    }
+
+    .dropdown-item.has-submenu > .dropdown-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .submenu-arrow {
+        flex-shrink: 0;
+        transform: rotate(-90deg);
+        color: inherit;
+        opacity: 0.7;
+    }
+
+    .submenu {
+        list-style: none;
+        margin: 0;
+        padding: 0.4rem 0;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 180px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-6px);
+        transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+        z-index: 1000;
+    }
+
+    /* 桌面端：鼠标悬停在 Modeling 上时展开右侧二级菜单 */
+    .dropdown-item.has-submenu:hover > .submenu,
+    .dropdown-item.has-submenu.submenu-open > .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .submenu-link {
+        display: block;
+        padding: 0.6rem 1.1rem;
+        white-space: nowrap;
+        color: var(--text-primary, #1F2937);
+        text-decoration: none;
+        font-size: 0.92rem;
+        transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .submenu-link:hover,
+    .submenu-link.active {
+        background: rgba(16, 185, 129, 0.08);
+        color: #10B981;
+    }
+
+    /* 移动端（窄屏）：二级菜单改为紧贴在 Modeling 下方展开，而不是右侧飞出 */
+    @media (max-width: 960px) {
+        .submenu {
+            position: static;
+            min-width: 0;
+            box-shadow: none;
+            border: none;
+            padding-left: 1rem;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+        }
+
+        .dropdown-item.has-submenu.submenu-open > .submenu {
+            max-height: 400px;
+        }
+
+        .submenu-arrow {
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-item.has-submenu.submenu-open > .dropdown-link .submenu-arrow {
+            transform: rotate(180deg);
+        }
+    }
+</style>
+
+<script>
+    // 移动端点击 Modeling 展开/收起二级菜单；桌面端仍然是 CSS :hover 飞出，不受此脚本影响
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.dropdown-item.has-submenu > .dropdown-link').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                if (window.matchMedia('(max-width: 960px)').matches) {
+                    e.preventDefault();
+                    this.closest('.dropdown-item.has-submenu').classList.toggle('submenu-open');
+                }
+            });
+        });
+    });
+</script>
+
+  
+  
+<main class="wetlab-page" id="wetlab-page-top">
+  <div class="wetlab-outer">
+
+    <!-- 移动端 TOC 切换按钮 & 遮罩 -->
+    <button class="toc-toggle-btn" id="tocToggleBtn" title="Toggle Table of Contents"
+      aria-label="Toggle Table of Contents">
+      <i class="fa-solid fa-list"></i>
+    </button>
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <!-- 侧边栏目录 -->
+    <aside class="wetlab-toc" id="wetlab-toc">
+      <div class="toc-title">
+        <span data-text-en="Table of Contents" data-text-zh="目录">Table of Contents</span>
+      </div>
+      <ul class="toc-list" id="tocList">
+        
+<li class="toc-parent">
+    <div class="toc-parent-row">
+        <a href="#sec-overview" data-text-en="Overview" data-text-zh="概述">Overview</a>
+        <button class="toc-expand-btn" aria-label="展开"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <ul class="toc-children">
+        <li><a href="#sec-overview-what" data-text-en="What is sustainable development?" data-text-zh="什么是可持续发展？">What is sustainable development?</a></li>
+        <li><a href="#sec-overview-relation" data-text-en="How our project relates" data-text-zh="与本项目的关系">How our project relates</a></li>
+    </ul>
+</li>
+<li><a href="#sec-sdg3" data-text-en="SDG 3 · Good Health" data-text-zh="SDG 3 · 良好健康与福祉">SDG 3 · Good Health</a></li>
+<li><a href="#sec-sdg6" data-text-en="SDG 6 · Clean Water" data-text-zh="SDG 6 · 清洁饮水和卫生设施">SDG 6 · Clean Water</a></li>
+<li><a href="#sec-sdg15" data-text-en="SDG 15 · Life on Land" data-text-zh="SDG 15 · 陆地生物">SDG 15 · Life on Land</a></li>
+<li><a href="#sec-sdg17" data-text-en="SDG 17 · Partnerships" data-text-zh="SDG 17 · 促进目标实现的伙伴关系">SDG 17 · Partnerships</a></li>
+<li><a href="#sec-references" data-text-en="References" data-text-zh="参考文献">References</a></li>
+
+      </ul>
+    </aside>
+
+    <!-- 主文章 -->
+    <article class="wetlab-main">
+
+      <!-- 页面横幅 -->
+      
+<section class="wetlab-hero wetlab-animate" id="sec-hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content-left">
+      <div class="wetlab-hero-subtitle" data-text-en="HUMAN PRACTICE · SUSTAINABLE DEVELOPMENT" data-text-zh="人文实践 · 可持续发展">HUMAN PRACTICE · SUSTAINABLE DEVELOPMENT</div>
+      <h1 class="hero-title" data-html
+        data-text-en="Sustainable <span class='hero-accent'>Development</span>"
+        data-text-zh="可持续<span class='hero-accent'>发展</span>">
+        Sustainable <span class="hero-accent">Development</span>
+      </h1>
+      <div class="hero-actions">
+        <a href="#sec-overview" class="hero-btn hero-btn-primary">
+          <span data-text-en="Overview" data-text-zh="概述">Overview</span> <i class="fa-solid fa-arrow-down"></i>
+        </a>
+        <a href="#sec-sdg3" class="hero-btn hero-btn-secondary">
+          <span data-text-en="SDG Highlights" data-text-zh="SDG亮点">SDG Highlights</span> <i class="fa-solid fa-earth-asia"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="wetlab-content">
+        
+<!-- ==================== 1. Overview ==================== -->
+<section id="sec-overview" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-earth-asia"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="Overview" data-text-zh="概述">Overview</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p data-text-en="If people do not let down the green mountains, the green mountains will surely not let down the people."
+       data-text-zh="绿水青山就是金山银山；人不负青山，青山定不负人。">
+      "If people do not let down the green mountains, the green mountains will surely not let down the people."
+    </p>
+    <cite data-text-en="— Xi Jinping, on ecological civilization" data-text-zh="——习近平，关于生态文明建设的论述">— Xi Jinping, on ecological civilization</cite>
+  </div>
+
+  <div id="sec-overview-what">
+    <h3 data-text-en="What is sustainable development?" data-text-zh="什么是可持续发展？">What is sustainable development?</h3>
+    <p class="drop-cap" data-text-en="Sustainable development is defined as development that 'meets the needs of the present generation without compromising the ability of future generations to meet their own needs' (UN Brundtland Commission, 1987). It is not a single environmental issue, but rather a systemic framework encompassing three dimensions: environmental health, economic viability, and social equity."
+       data-text-zh="可持续发展被定义为『既满足当代人的需要，又不损害后代人满足其需要之能力』的发展（联合国布伦特兰委员会，1987年）。它并非单一的环境议题，而是一个涵盖环境健康、经济可行性与社会公平三个维度的系统性框架。">
+      Sustainable development is defined as development that "meets the needs of the present generation without
+      compromising the ability of future generations to meet their own needs" (UN Brundtland Commission, 1987). It
+      is not a single environmental issue, but rather a systemic framework encompassing three dimensions:
+      environmental health, economic viability, and social equity.
+    </p>
+    <p data-text-en="In 2015, the 193 member states of the United Nations adopted the 2030 Agenda for Sustainable Development, establishing 17 Sustainable Development Goals (SDGs) that set a common global agenda for action in areas such as poverty reduction, health, education, clean energy, environmental protection, and responsible consumption and production. These 17 goals are interconnected and indivisible — progress in one area often depends on coordinated advances in others."
+       data-text-zh="2015年，联合国193个会员国通过了《2030年可持续发展议程》，确立了17项可持续发展目标（SDGs），为减贫、健康、教育、清洁能源、环境保护以及负责任的消费与生产等领域设定了共同的全球行动议程。这17项目标相互关联、不可分割——某一领域的进展往往依赖于其他领域的协同推进。">
+      In 2015, the 193 member states of the United Nations adopted the 2030 Agenda for Sustainable Development,
+      establishing 17 Sustainable Development Goals (SDGs) that set a common global agenda for action in areas such
+      as poverty reduction, health, education, clean energy, environmental protection, and responsible consumption
+      and production. These 17 goals are interconnected and indivisible — progress in one area often depends on
+      coordinated advances in others.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-card-number">17</div>
+        <div class="stat-card-label" data-text-en="Sustainable Development Goals" data-text-zh="项可持续发展目标">Sustainable Development Goals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-number">193</div>
+        <div class="stat-card-label" data-text-en="UN member states" data-text-zh="联合国会员国">UN member states</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-number">2015</div>
+        <div class="stat-card-label" data-text-en="Year the 2030 Agenda was adopted" data-text-zh="《2030年议程》通过年份">Year the 2030 Agenda was adopted</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-number">4</div>
+        <div class="stat-card-label" data-text-en="SDGs this project directly advances" data-text-zh="本项目直接推动的SDG数量">SDGs this project directly advances</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-overview-relation">
+    <h3 data-text-en="How is our project related to it?" data-text-zh="与本项目的关系">How is our project related to it?</h3>
+    <p data-text-en="Polycyclic aromatic hydrocarbons (PAHs) are a class of emerging pollutants widely generated in industrial production and everyday life — from coking plant wastewater to barbecue-stall fumes, from automobile exhaust to cigarette smoke. These pollutants persist in water bodies, soils, and the atmosphere, exhibiting carcinogenic, teratogenic, and mutagenic effects — so-called 'three-cause' toxicity — which has led many countries to classify them as priority controlled pollutants; China's 'Action Plan for the Control of Emerging Pollutants' also designates these substances as key targets for regulation."
+       data-text-zh="多环芳烃（PAHs）是广泛产生于工业生产与日常生活中的一类新污染物——从焦化厂废水到烧烤摊油烟，从机动车尾气到香烟烟雾。这些污染物持久存在于水体、土壤与大气中，具有致癌、致畸、致突变效应——即所谓的『三致』毒性，已被多国列为优先管控污染物；中国的《新污染物治理行动方案》也将这类物质列为重点监管对象。">
+      Polycyclic aromatic hydrocarbons (PAHs) are a class of emerging pollutants widely generated in industrial
+      production and everyday life — from coking plant wastewater to barbecue-stall fumes, from automobile exhaust
+      to cigarette smoke. These pollutants persist in water bodies, soils, and the atmosphere, exhibiting
+      carcinogenic, teratogenic, and mutagenic effects — so-called "three-cause" toxicity — which has led many
+      countries to classify them as priority controlled pollutants; China's "Action Plan for the Control of Emerging
+      Pollutants" also designates these substances as key targets for regulation.
+    </p>
+    <p data-text-en="However, the current state of governance is far from optimistic. Existing regulatory approaches rely heavily on laboratory-based chromatography-mass spectrometry, which is costly and time-consuming; handheld rapid-testing devices can only provide vague qualitative results, with data lacking legal validity, thereby perpetuating the longstanding dilemma of 'having standards but struggling to enforce them.' Meanwhile, PAH sources have long permeated everyday life — barbecue stalls, congested roadways, coal-fired heating — implying that effective management cannot depend solely on a handful of large laboratories. Instead, it calls for a more streamlined, widely accessible response system."
+       data-text-zh="然而，目前的治理现状远不乐观。现行监管方式高度依赖实验室色谱‑质谱分析，成本高、耗时长；手持式快速检测设备只能给出模糊的定性结果，数据不具备法律效力，长期陷入『有标准、难执行』的困境。与此同时，PAHs的污染源早已渗透进日常生活——烧烤摊、拥堵道路、燃煤取暖——这意味着有效治理不能仅依赖少数大型实验室，而是需要一套更精简、更易普及的响应体系。">
+      However, the current state of governance is far from optimistic. Existing regulatory approaches rely heavily
+      on laboratory-based chromatography-mass spectrometry, which is costly and time-consuming; handheld
+      rapid-testing devices can only provide vague qualitative results, with data lacking legal validity, thereby
+      perpetuating the longstanding dilemma of "having standards but struggling to enforce them." Meanwhile, PAH
+      sources have long permeated everyday life — barbecue stalls, congested roadways, coal-fired heating — implying
+      that effective management cannot depend solely on a handful of large laboratories. Instead, it calls for a
+      more streamlined, widely accessible response system.
+    </p>
+    <div class="key-finding">
+      <p data-text-en="Our response: a dual-strain time-difference sequential strategy. Samples are first incubated with the degrading bacteria; within 1–2 hours, naphthalene is degraded into salicylic acid. The reaction mixture is then transferred to a sensor-bacterial assay tube for incubation, and within about 30 minutes, whether the naphthalene concentration has fallen below the remediation standard is determined by checking whether fluorescence intensity has reached a preset threshold."
+         data-text-zh="我们的回应：双菌时间差序贯策略。样品先与降解菌混合孵育，1–2小时内萘被降解为水杨酸；随后反应混合液转移至传感菌检测管中孵育，约30分钟内，通过检查荧光强度是否达到预设阈值，即可判断萘浓度是否已降至修复标准以下。">
+        <strong data-text-en="Our response:" data-text-zh="我们的回应：">Our response:</strong> a dual-strain time-difference sequential
+        strategy. Samples are first incubated with the degrading bacteria; within 1–2 hours, naphthalene is degraded
+        into salicylic acid. The reaction mixture is then transferred to a sensor-bacterial assay tube for
+        incubation, and within about 30 minutes, whether the naphthalene concentration has fallen below the
+        remediation standard is determined by checking whether fluorescence intensity has reached a preset
+        threshold.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 2. SDG 3 — Good Health ==================== -->
+<section id="sec-sdg3" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-heart-pulse"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="SDG 3 &mdash; Good Health" data-text-zh="SDG 3 &mdash; 良好健康与福祉">SDG 3 &mdash; Good Health</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <h3 data-text-en="What did we do?" data-text-zh="我们做了什么？">What did we do?</h3>
+  <p data-text-en="The sources of polycyclic aromatic hydrocarbons are far more extensive than commonly believed. In addition to industrial sources such as coking plants and fuel depots, everyday activities — including cooking fumes from barbecue stalls, vehicle exhaust, cigarette smoke, and household coal-based heating — also continuously generate PAHs. This means that the risk of PAHs exposure is not limited to industrial workers — it has already permeated the everyday breathing and diet of ordinary people."
+     data-text-zh="多环芳烃的来源远比人们通常认为的更为广泛。除了焦化厂、燃料库等工业来源外，烧烤摊油烟、机动车尾气、香烟烟雾以及家庭燃煤取暖等日常活动也在持续产生PAHs。这意味着PAHs暴露的风险并不局限于产业工人——它早已渗透进普通人的日常呼吸与饮食之中。">
+    The sources of polycyclic aromatic hydrocarbons are far more extensive than commonly believed. In addition to
+    industrial sources such as coking plants and fuel depots, everyday activities — including cooking fumes from
+    barbecue stalls, vehicle exhaust, cigarette smoke, and household coal-based heating — also continuously generate
+    PAHs. This means that the risk of PAHs exposure is not limited to industrial workers — it has already permeated
+    the everyday breathing and diet of ordinary people.
+  </p>
+  <p data-text-en="Polycyclic aromatic hydrocarbons, including benzo[a]pyrene and other multi-component mixtures, have been classified by the International Agency for Research on Cancer (IARC) as Group 1 or Group 2B carcinogens. Workers at coking plants, fuel storage facilities, and chemical factories are chronically exposed to PAHs, while nearby communities are also affected through contaminated water and air."
+     data-text-zh="多环芳烃，包括苯并[a]芘等多组分混合物，已被国际癌症研究机构（IARC）列为1类或2B类致癌物。焦化厂、燃料储存设施与化工厂的工人长期暴露于PAHs之中，周边社区也通过受污染的水体与空气受到影响。">
+    Polycyclic aromatic hydrocarbons, including benzo[a]pyrene and other multi-component mixtures, have been
+    classified by the International Agency for Research on Cancer (IARC) as Group 1 or Group 2B carcinogens. Workers
+    at coking plants, fuel storage facilities, and chemical factories are chronically exposed to PAHs, while nearby
+    communities are also affected through contaminated water and air.
+  </p>
+  <p data-text-en="Our approach safeguards health through two pathways:" data-text-zh="我们的方案通过两条路径保障健康：">
+    Our approach safeguards health through two pathways:
+  </p>
+  <ul class="step-list">
+    <li data-text-en="Monitoring and Early Warning: Fluorescent signals are visible to the naked eye, eliminating the need for expensive equipment. Workers or regulatory personnel can readily determine whether PAH concentrations exceed permissible limits and promptly initiate emergency measures such as ventilation, use of protective gear, and process adjustments. In everyday settings like barbecue stalls and residential areas, frontline inspectors can also use this tool to rapidly assess PAH exposure levels in public spaces, addressing the current gap in rapid screening methods for PAHs from domestic sources."
+        data-text-zh="监测与预警：荧光信号肉眼可见，无需昂贵设备。工人或监管人员可以方便地判断PAHs浓度是否超标，并及时启动通风、佩戴防护装备、调整工艺等应急措施。在烧烤摊、居民区等日常场景中，一线检查人员也可借助该工具快速评估公共空间的PAHs暴露水平，弥补目前针对生活源PAHs快速筛查方法的空缺。"><strong
+          data-text-en="Monitoring and Early Warning:" data-text-zh="监测与预警：">Monitoring and Early Warning:</strong> Fluorescent
+      signals are visible to the naked eye, eliminating the need for expensive equipment. Workers or regulatory
+      personnel can readily determine whether PAH concentrations exceed permissible limits and promptly initiate
+      emergency measures such as ventilation, use of protective gear, and process adjustments. In everyday settings
+      like barbecue stalls and residential areas, frontline inspectors can also use this tool to rapidly assess PAH
+      exposure levels in public spaces, addressing the current gap in rapid screening methods for PAHs from
+      domestic sources.</li>
+    <li data-text-en="Source-level reduction: Degrading microorganisms convert naphthalene into harmless end products, offering the potential to lower the pollution load at its source and thereby mitigate the risk of chronic exposure in downstream drinking water sources and agricultural soils. China's Action Plan for the Control of Emerging Pollutants explicitly calls for prioritized management of persistent organic pollutants. In local practice, the Yangzhou Chemical Industrial Park in Jiangsu Province has reduced occupational exposure risks from toxic chemicals at the source by redesigning its material-handling systems and implementing multi-stage purification and recycling — demonstrating the feasibility of the 'source-level exposure reduction' approach in real-world industrial settings. It should be noted that degradation formulations, as long-term reserve products, are currently not being promoted due to restrictions under policies governing the environmental release of engineered microorganisms; at present, commercial efforts are focused on diagnostic test kits."
+        data-text-zh="源头减排：降解微生物将萘转化为无害终产物，有望从源头降低污染负荷，从而缓解下游饮用水源与农业土壤中慢性暴露的风险。中国的《新污染物治理行动方案》明确要求优先管控持久性有机污染物。在本地实践中，江苏省扬州化工产业园通过重新设计物料处理系统、实施多级净化与循环利用，从源头降低了有毒化学品的职业暴露风险——证明了『源头减排』方案在真实工业场景中的可行性。需要说明的是，降解制剂作为长期储备产品，目前因工程微生物环境释放相关政策的限制而暂未推广；现阶段商业化重点聚焦于检测试剂盒。"><strong
+          data-text-en="Source-level reduction:" data-text-zh="源头减排：">Source-level reduction:</strong> Degrading
+      microorganisms convert naphthalene into harmless end products, offering the potential to lower the pollution
+      load at its source and thereby mitigate the risk of chronic exposure in downstream drinking water sources and
+      agricultural soils. China's Action Plan for the Control of Emerging Pollutants explicitly calls for
+      prioritized management of persistent organic pollutants. In local practice, the Yangzhou Chemical Industrial
+      Park in Jiangsu Province has reduced occupational exposure risks from toxic chemicals at the source by
+      redesigning its material-handling systems and implementing multi-stage purification and recycling —
+      demonstrating the feasibility of the "source-level exposure reduction" approach in real-world industrial
+      settings. It should be noted that degradation formulations, as long-term reserve products, are currently not
+      being promoted due to restrictions under policies governing the environmental release of engineered
+      microorganisms; at present, commercial efforts are focused on diagnostic test kits.</li>
+  </ul>
+  <div class="key-finding">
+    <p data-text-en="SDG 3's goal is to 'ensure healthy lives and promote well-being for all at all ages.' We believe that prevention is the most effective safeguard for health and well-being — and the prerequisite for prevention is the ability to transform invisible pollutants into visible data, quickly and at a sufficiently low cost."
+       data-text-zh="SDG 3的目标是『确保健康的生活方式，促进各年龄段所有人的福祉』。我们相信，预防是对健康与福祉最有效的保障——而预防的前提，是能够快速且以足够低的成本，将无形的污染物转化为可见的数据。">
+      <strong data-text-en="SDG 3's goal" data-text-zh="SDG 3的目标">SDG 3's goal</strong> is to "ensure healthy lives and
+      promote well-being for all at all ages." We believe that prevention is the most effective safeguard for
+      health and well-being — and the prerequisite for prevention is the ability to transform invisible pollutants
+      into visible data, quickly and at a sufficiently low cost.
+    </p>
+  </div>
+
+  <h3 data-text-en="Feedback from stakeholders" data-text-zh="利益相关方反馈">Feedback from stakeholders</h3>
+  <div class="pull-quote">
+    <p data-text-en="The current 'basic parameters plus characteristic indicators' monitoring approach keeps overall costs stubbornly high, placing an especially heavy burden on small and micro enterprises. If we had a low-cost, portable biosensor capable of rapidly scanning multiple sampling points on-site and pinpointing suspected pollution areas, subsequent laboratory analyses would be far more targeted. This would be the most direct avenue for reducing costs and improving efficiency."
+       data-text-zh="目前『基础参数加特征指标』的监测方式使整体成本居高不下，对中小微企业的负担尤为沉重。如果有一款低成本、便携式的生物传感器，能够现场快速扫描多个采样点、锁定疑似污染区域，后续的实验室分析就会更有针对性——这将是降低成本、提升效率最直接的途径。">
+      "The current 'basic parameters plus characteristic indicators' monitoring approach keeps overall costs
+      stubbornly high, placing an especially heavy burden on small and micro enterprises. If we had a low-cost,
+      portable biosensor capable of rapidly scanning multiple sampling points on-site and pinpointing suspected
+      pollution areas, subsequent laboratory analyses would be far more targeted. This would be the most direct
+      avenue for reducing costs and improving efficiency."
+    </p>
+    <cite data-text-en="— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan" data-text-zh="——李琪琪，武汉市黄陂区生态环境局">— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan</cite>
+  </div>
+  <p data-text-en="This further reinforces our commitment to make testing affordable and accessible enough so that even small businesses and resource-limited regions can conduct routine PAHs screening, thereby reducing occupational exposure and community health risks."
+     data-text-zh="这进一步坚定了我们的目标：让检测足够便宜、足够易得，使中小企业与资源有限地区也能开展常态化的PAHs筛查，从而降低职业暴露与社区健康风险。">
+    This further reinforces our commitment to make testing affordable and accessible enough so that even small
+    businesses and resource-limited regions can conduct routine PAHs screening, thereby reducing occupational
+    exposure and community health risks.
+  </p>
+</section>
+
+<!-- ==================== 3. SDG 6 — Clean Water ==================== -->
+<section id="sec-sdg6" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-droplet"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="SDG 6 &mdash; Clean Water" data-text-zh="SDG 6 &mdash; 清洁饮水和卫生设施">SDG 6 &mdash; Clean Water</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <h3 data-text-en="What did we do?" data-text-zh="我们做了什么？">What did we do?</h3>
+  <p data-text-en="Polycyclic aromatic hydrocarbons (PAHs) are a class of persistent organic pollutants frequently detected in wastewater from coking plants, gasworks, and chemical industrial parks. A review article on PAH remediation published on ScienceDirect highlights that one of the key bottlenecks in current PAH management is the transition from 'advocacy' to 'practical implementation' — particularly in areas such as bioavailability assessment, standardized monitoring protocols, and low-carbon accounting for remediation technologies, where systematic solutions remain lacking [1]. To address this challenge, we selected naphthalene, a two-ring compound, as a model pollutant and developed a two-strain system with sequential operation: the first step involves incubation of degrading bacteria (converting naphthalene to salicylic acid within 1–2 hours), followed by the second step, in which sensing bacteria detect the target compound, yielding a fluorescent signal in about 30 minutes."
+     data-text-zh="多环芳烃（PAHs）是一类持久性有机污染物，常见于焦化厂、煤气厂与化工产业园的废水中。ScienceDirect上一篇关于PAHs修复的综述指出，当前PAHs治理的关键瓶颈之一在于从『倡导』到『实际落地』的转化——尤其是在生物有效性评估、标准化监测规程与修复技术低碳核算等方面，系统性解决方案仍然匮乏[1]。为应对这一挑战，我们选择了双环化合物萘作为模式污染物，开发了一套按序操作的双菌系统：第一步由降解菌孵育（1–2小时内将萘转化为水杨酸），第二步由传感菌检测目标化合物，约30分钟内产生荧光信号。">
+    Polycyclic aromatic hydrocarbons (PAHs) are a class of persistent organic pollutants frequently detected in
+    wastewater from coking plants, gasworks, and chemical industrial parks. A review article on PAH remediation
+    published on ScienceDirect highlights that one of the key bottlenecks in current PAH management is the
+    transition from "advocacy" to "practical implementation" — particularly in areas such as bioavailability
+    assessment, standardized monitoring protocols, and low-carbon accounting for remediation technologies, where
+    systematic solutions remain lacking [1]. To address this challenge, we selected naphthalene, a two-ring
+    compound, as a model pollutant and developed a two-strain system with sequential operation: the first step
+    involves incubation of degrading bacteria (converting naphthalene to salicylic acid within 1–2 hours), followed
+    by the second step, in which sensing bacteria detect the target compound, yielding a fluorescent signal in
+    about 30 minutes.
+  </p>
+  <p data-text-en="Stepwise operation for detection and degradation: We employ a two-strain, time-differential sequential strategy. In the first step, the sample is incubated with degrading bacteria for 1–2 hours, allowing naphthalene to be converted into salicylic acid by the naphthalene-hydroxylating enzyme in the degraders. In the second step, the reaction mixture is transferred to a sensing-bacterial assay tube and incubated for 30 minutes; the salicylic acid-responsive regulatory sequence carried by the sensor strain is activated, driving the expression of a fluorescent protein. Fluorescence intensity is directly proportional to salicylic acid concentration, enabling rapid, on-site compliance assessment of PAHs. It should be noted that the complete mineralization pathway of the degrading bacteria — naphthalene → salicylic acid → gentisic acid → TCA cycle → CO₂ and H₂O — is currently being developed as a long-term reserve technology. Due to restrictions imposed by policies governing the environmental release of engineered microorganisms, this capability is not being commercialized at this time and will be advanced only after a clear regulatory pathway has been established."
+     data-text-zh="检测与降解的分步操作：我们采用双菌、时间差序贯策略。第一步，样品与降解菌孵育1–2小时，萘在降解菌的萘羟化酶作用下转化为水杨酸；第二步，反应混合液转移至传感菌检测管中孵育30分钟，传感菌株携带的水杨酸响应调控序列被激活，驱动荧光蛋白表达。荧光强度与水杨酸浓度成正比，可实现对PAHs的快速现场合规性评估。需要说明的是，降解菌的完整矿化路径——萘→水杨酸→龙胆酸→TCA循环→CO₂与H₂O——目前作为长期储备技术在研发中；受工程微生物环境释放相关政策的限制，该能力现阶段并未商业化，将在明确的监管路径建立后再行推进。">
+    Stepwise operation for detection and degradation: We employ a two-strain, time-differential sequential
+    strategy. In the first step, the sample is incubated with degrading bacteria for 1–2 hours, allowing
+    naphthalene to be converted into salicylic acid by the naphthalene-hydroxylating enzyme in the degraders. In
+    the second step, the reaction mixture is transferred to a sensing-bacterial assay tube and incubated for 30
+    minutes; the salicylic acid-responsive regulatory sequence carried by the sensor strain is activated, driving
+    the expression of a fluorescent protein. Fluorescence intensity is directly proportional to salicylic acid
+    concentration, enabling rapid, on-site compliance assessment of PAHs. It should be noted that the complete
+    mineralization pathway of the degrading bacteria — naphthalene → salicylic acid → gentisic acid → TCA cycle →
+    CO₂ and H₂O — is currently being developed as a long-term reserve technology. Due to restrictions imposed by
+    policies governing the environmental release of engineered microorganisms, this capability is not being
+    commercialized at this time and will be advanced only after a clear regulatory pathway has been established.
+  </p>
+  <div class="key-finding">
+    <p data-text-en="Preliminary tests indicate that, throughout the entire process, this kit can generate test results within 2–3 hours, with the cost of a single test kept between several dozen and one hundred RMB — significantly reduced compared to traditional GC-MS/HPLC methods."
+       data-text-zh="初步测试表明，整个流程中该试剂盒可在2–3小时内产生检测结果，单次检测成本控制在数十至一百元人民币之间——相较传统GC‑MS/HPLC方法大幅降低。">
+      Preliminary tests indicate that, throughout the entire process, this kit can generate test results within 2–3
+      hours, with the cost of a single test kept between several dozen and one hundred RMB — significantly reduced
+      compared to traditional GC-MS/HPLC methods.
+    </p>
+  </div>
+  <p data-text-en="As SDG 6 calls for — 'Ensure availability and sustainable management of water and sanitation for all' — we believe that making detection technologies affordable and accessible is, in itself, an essential component of sustainable water resource management."
+     data-text-zh="正如SDG 6所呼吁的——『确保所有人都能获得水和环境卫生并对其进行可持续管理』——我们相信，让检测技术变得可负担、可获得，本身就是可持续水资源管理的重要组成部分。">
+    As SDG 6 calls for — "Ensure availability and sustainable management of water and sanitation for all" — we
+    believe that making detection technologies affordable and accessible is, in itself, an essential component of
+    sustainable water resource management.
+  </p>
+
+  <h3 data-text-en="Feedback from stakeholders" data-text-zh="利益相关方反馈">Feedback from stakeholders</h3>
+  <div class="pull-quote">
+    <p data-text-en="At present, quantitative testing is largely conducted by third-party laboratories using gas chromatography or liquid chromatography, and the entire process — from sample collection to report generation — can be quite time-consuming. For small and micro enterprises, this poses a particularly heavy cost burden."
+       data-text-zh="目前的定量检测大多由第三方实验室通过气相或液相色谱完成，从采样到出具报告的整个流程相当耗时，对中小微企业而言是一笔沉重的成本负担。">
+      "At present, quantitative testing is largely conducted by third-party laboratories using gas chromatography or
+      liquid chromatography, and the entire process — from sample collection to report generation — can be quite
+      time-consuming. For small and micro enterprises, this poses a particularly heavy cost burden."
+    </p>
+    <cite data-text-en="— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan" data-text-zh="——李琪琪，武汉市黄陂区生态环境局">— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan</cite>
+  </div>
+  <p data-text-en="She also pointed out that existing PID/FID handheld detectors are 'fast, but not accurate enough' — usable, but without legal force at the law-enforcement level."
+     data-text-zh="她还指出，现有的PID/FID手持检测仪『快是快，但不够准』——能用，但在执法层面不具备法律效力。">
+    She also pointed out that existing PID/FID handheld detectors are "fast, but not accurate enough" — usable, but
+    without legal force at the law-enforcement level.
+  </p>
+  <p data-text-en="This feedback directly defined our design objective: to develop a low-cost, portable biosensor to serve as a laboratory 'outpost' — by employing high-coverage, low-cost primary screening, we can allocate our limited testing resources precisely to where they are most needed. And our engineered bacteria's unique characteristic — the stepwise synergistic action of two strains — means that pollution reduction is initiated even during the screening process, an added value that conventional rapid-testing devices simply cannot offer."
+     data-text-zh="这一反馈直接定义了我们的设计目标：开发一款低成本、便携式的生物传感器，作为实验室的『前哨站』——通过高覆盖率、低成本的初筛，将有限的检测资源精准投放到最需要的地方。而我们工程菌独特的『双菌分步协同』特性，意味着污染削减在筛查过程中就已经启动——这是常规快速检测设备所无法提供的附加价值。">
+    This feedback directly defined our design objective: to develop a low-cost, portable biosensor to serve as a
+    laboratory "outpost" — by employing high-coverage, low-cost primary screening, we can allocate our limited
+    testing resources precisely to where they are most needed. And our engineered bacteria's unique characteristic
+    — the stepwise synergistic action of two strains — means that pollution reduction is initiated even during the
+    screening process, an added value that conventional rapid-testing devices simply cannot offer.
+  </p>
+</section>
+
+<!-- ==================== 4. SDG 15 — Terrestrial Ecosystems ==================== -->
+<section id="sec-sdg15" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-seedling"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="SDG 15 &mdash; Life on Land" data-text-zh="SDG 15 &mdash; 陆地生物">SDG 15 &mdash; Life on Land</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <h3 data-text-en="What did we do?" data-text-zh="我们做了什么？">What did we do?</h3>
+  <p data-text-en="Polycyclic aromatic hydrocarbon pollution can also enter soils through leaks, irrigation with wastewater, and atmospheric deposition, reducing microbial diversity, inhibiting seed germination, disrupting nutrient cycling, and ultimately leading to land degradation and biodiversity loss."
+     data-text-zh="多环芳烃污染也可通过泄漏、污水灌溉与大气沉降进入土壤，降低微生物多样性、抑制种子萌发、扰乱养分循环，最终导致土地退化与生物多样性丧失。">
+    Polycyclic aromatic hydrocarbon pollution can also enter soils through leaks, irrigation with wastewater, and
+    atmospheric deposition, reducing microbial diversity, inhibiting seed germination, disrupting nutrient cycling,
+    and ultimately leading to land degradation and biodiversity loss.
+  </p>
+  <p data-text-en="Our engineered microbial strains are naturally suited for in-situ soil bioremediation:"
+     data-text-zh="我们的工程菌株天然适合用于原位土壤生物修复：">
+    Our engineered microbial strains are naturally suited for in-situ soil bioremediation:
+  </p>
+  <ul class="step-list">
+    <li data-text-en="Rapid preliminary screening: Whole-cell biosensors can be directly applied to soil leachate or groundwater samples, eliminating the need for complex sample pretreatment. Within 2–3 hours, preliminary screening results for pollution levels can be obtained, helping to quickly assess the level of pollution."
+        data-text-zh="快速初筛：全细胞生物传感器可直接应用于土壤浸出液或地下水样品，无需复杂的样品前处理。2–3小时内即可获得污染水平的初步筛查结果，帮助快速评估污染程度。"><strong
+          data-text-en="Rapid preliminary screening:" data-text-zh="快速初筛：">Rapid preliminary screening:</strong> Whole-cell
+      biosensors can be directly applied to soil leachate or groundwater samples, eliminating the need for complex
+      sample pretreatment. Within 2–3 hours, preliminary screening results for pollution levels can be obtained,
+      helping to quickly assess the level of pollution.</li>
+    <li data-text-en="Synchronous signal generation for detection: During the assay, naphthalene in the sample is converted into salicylic acid by naphthalene-hydroxylating enzymes in the degrading bacteria, and this salicylic acid simultaneously serves as the detection signal molecule for the sensor strain. We place particular emphasis on comprehensive pathway metabolite analysis (GC-MS) to validate the complete metabolic route — from naphthalene through salicylic acid to gentisic acid and ultimately to the TCA cycle — ensuring that no toxic intermediates accumulate; this represents a critical safety threshold we rigorously uphold. It should be noted that degradation formulations based on this engineered strain are currently held as a long-term reserve and, due to regulatory constraints on the environmental release of genetically modified organisms, are not being marketed at this time. They will be made available as commercial products once compliant pathways have been clearly established."
+        data-text-zh="检测信号的同步产生：检测过程中，样品中的萘经降解菌的萘羟化酶转化为水杨酸，这一水杨酸同时也是传感菌株的检测信号分子。我们特别重视完整的通路代谢物分析（GC‑MS），以验证从萘经水杨酸到龙胆酸、最终进入TCA循环的完整代谢路线，确保没有毒性中间体累积——这是我们严格坚守的关键安全底线。需要说明的是，基于该工程菌株的降解制剂目前作为长期储备保留，受转基因生物环境释放相关监管限制，现阶段并未上市，将在合规路径明确建立后作为商业化产品推出。"><strong
+          data-text-en="Synchronous signal generation for detection:"
+          data-text-zh="检测信号的同步产生：">Synchronous signal generation for detection:</strong> During the assay, naphthalene in
+      the sample is converted into salicylic acid by naphthalene-hydroxylating enzymes in the degrading bacteria,
+      and this salicylic acid simultaneously serves as the detection signal molecule for the sensor strain. We
+      place particular emphasis on comprehensive pathway metabolite analysis (GC-MS) to validate the complete
+      metabolic route — from naphthalene through salicylic acid to gentisic acid and ultimately to the TCA cycle —
+      ensuring that no toxic intermediates accumulate; this represents a critical safety threshold we rigorously
+      uphold. It should be noted that degradation formulations based on this engineered strain are currently held
+      as a long-term reserve and, due to regulatory constraints on the environmental release of genetically
+      modified organisms, are not being marketed at this time. They will be made available as commercial products
+      once compliant pathways have been clearly established.</li>
+    <li data-text-en="Biosafety containment: Biosafety is a prerequisite for soil applications. We employ immobilized microspheres or kit-based containment systems to ensure that engineered microorganisms do not proliferate or spread in the environment; at the same time, we design auxotrophic strains that undergo programmed cell death once removed from laboratory conditions, thereby eliminating the risks of horizontal gene transfer and ecological invasion."
+        data-text-zh="生物安全封闭：生物安全是土壤应用的前提。我们采用固定化微球或试剂盒式的封闭系统，确保工程微生物不会在环境中增殖或扩散；同时设计营养缺陷型菌株，使其一旦离开实验室条件即发生程序性死亡，从而消除水平基因转移与生态入侵的风险。"><strong
+          data-text-en="Biosafety containment:" data-text-zh="生物安全封闭：">Biosafety containment:</strong> Biosafety is a
+      prerequisite for soil applications. We employ immobilized microspheres or kit-based containment systems to
+      ensure that engineered microorganisms do not proliferate or spread in the environment; at the same time, we
+      design auxotrophic strains that undergo programmed cell death once removed from laboratory conditions,
+      thereby eliminating the risks of horizontal gene transfer and ecological invasion.</li>
+  </ul>
+
+  <h3 data-text-en="Feedback from stakeholders" data-text-zh="利益相关方反馈">Feedback from stakeholders</h3>
+  <div class="pull-quote">
+    <p data-text-en="Many teams track only the parent compound. However, the degradation of polycyclic aromatic hydrocarbons can stall at intermediate products, which sometimes exhibit greater toxicity and mobility. Comprehensive pathway validation is essential."
+       data-text-zh="很多团队只追踪母体化合物，但多环芳烃的降解可能停滞在中间产物阶段，而这些中间产物有时毒性与迁移性更强。完整的通路验证是必不可少的。">
+      "Many teams track only the parent compound. However, the degradation of polycyclic aromatic hydrocarbons can
+      stall at intermediate products, which sometimes exhibit greater toxicity and mobility. Comprehensive pathway
+      validation is essential."
+    </p>
+    <cite data-text-en="— Professor Xinli Xing, China University of Geosciences (Wuhan)" data-text-zh="——邢新丽教授，中国地质大学（武汉）">— Professor Xinli Xing, China University of Geosciences (Wuhan)</cite>
+  </div>
+  <p data-text-en="Professor Xing also pointed out that naphthalene is widely distributed in the natural environment and exhibits complex environmental behavior, yet existing conventional risk assessment frameworks pay relatively little attention to low-ring PAHs. This precisely demonstrates that establishing a comprehensive detection and degradation technology platform, with naphthalene as the breakthrough point, is essential for filling a weak link in the PAHs governance chain, and is of critical preliminary significance. Guided by this principle, we will conduct a comprehensive metabolite-profile analysis to confirm the complete mineralization of naphthalene into carbon dioxide and water, ensuring that, building on our success with naphthalene, our approach can be extended — using the same technical rationale — to other PAH contaminants, thereby truly remediating soils without causing secondary harm."
+     data-text-zh="邢教授还指出，萘在自然环境中分布广泛，环境行为复杂，但现有常规风险评估框架对低环数PAHs的关注相对不足。这恰恰说明，以萘为突破口建立完整的检测‑降解技术平台，对于填补PAHs治理链条中的薄弱环节具有重要的先导意义。以此为指导，我们将开展全面的代谢物图谱分析，确认萘完全矿化为二氧化碳与水，确保在萘取得成功的基础上，能够以相同的技术思路推广至其他PAHs污染物，真正实现不产生二次危害的土壤修复。">
+    Professor Xing also pointed out that naphthalene is widely distributed in the natural environment and exhibits
+    complex environmental behavior, yet existing conventional risk assessment frameworks pay relatively little
+    attention to low-ring PAHs. This precisely demonstrates that establishing a comprehensive detection and
+    degradation technology platform, with naphthalene as the breakthrough point, is essential for filling a weak
+    link in the PAHs governance chain, and is of critical preliminary significance. Guided by this principle, we
+    will conduct a comprehensive metabolite-profile analysis to confirm the complete mineralization of naphthalene
+    into carbon dioxide and water, ensuring that, building on our success with naphthalene, our approach can be
+    extended — using the same technical rationale — to other PAH contaminants, thereby truly remediating soils
+    without causing secondary harm.
+  </p>
+  <div class="pull-quote">
+    <p data-text-en="Whole-cell biosensors involve living engineered microorganisms. In field or industrial settings, the microbial cells must be contained within a closed system — for example, developed into a kit or immobilized microspheres — to avoid environmental release. Do we need to apply for an environmental release permit? Do we need to inform the public? These are not merely technical issues; they also concern trust."
+       data-text-zh="全细胞生物传感器涉及活的工程微生物。在现场或工业场景中，菌体细胞必须封闭在一个密闭系统内——例如制成试剂盒或固定化微球——以避免环境释放。我们是否需要申请环境释放许可？是否需要告知公众？这些不仅是技术问题，也关乎信任。">
+      "Whole-cell biosensors involve living engineered microorganisms. In field or industrial settings, the
+      microbial cells must be contained within a closed system — for example, developed into a kit or immobilized
+      microspheres — to avoid environmental release. Do we need to apply for an environmental release permit? Do
+      we need to inform the public? These are not merely technical issues; they also concern trust."
+    </p>
+    <cite data-text-en="— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan" data-text-zh="——李琪琪，武汉市黄陂区生态环境局">— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan</cite>
+  </div>
+  <p data-text-en="This makes biosafety and closed-loop systems an uncompromising design priority for our project."
+     data-text-zh="这使得生物安全与闭环系统成为本项目不可妥协的设计优先级。">
+    This makes biosafety and closed-loop systems an uncompromising design priority for our project.
+  </p>
+</section>
+
+<!-- ==================== 5. SDG 17 — Partnerships for the Goals ==================== -->
+<section id="sec-sdg17" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-handshake"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="SDG 17 &mdash; Partnerships for the Goals" data-text-zh="SDG 17 &mdash; 促进目标实现的伙伴关系">SDG 17 &mdash; Partnerships for the Goals</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <h3 data-text-en="What did we do?" data-text-zh="我们做了什么？">What did we do?</h3>
+  <p data-text-en="No single team can solve environmental pollution on its own. From the very beginning of its design, our project has proactively established a cross-sectoral collaboration network, bringing together academia, regulatory agencies, industry, community organizations, and the iGEM community."
+     data-text-zh="没有任何一个团队能够独自解决环境污染问题。从设计之初，本项目就主动建立了跨部门协作网络，汇聚了学术界、监管机构、产业界、社区组织以及iGEM社区。">
+    No single team can solve environmental pollution on its own. From the very beginning of its design, our project
+    has proactively established a cross-sectoral collaboration network, bringing together academia, regulatory
+    agencies, industry, community organizations, and the iGEM community.
+  </p>
+  <ul class="step-list">
+    <li data-text-en="Academia: Professor Xinli Xing of China University of Geosciences (Wuhan) provided expert guidance on the environmental behavior of PAHs, field sampling design, validation of degradation pathways, and gaps in the policy framework, directly helping us define a comprehensive technical roadmap and safety standards for the entire process — from detection to complete mineralization — of naphthalene."
+        data-text-zh="学术界：中国地质大学（武汉）邢新丽教授就PAHs的环境行为、现场采样设计、降解通路验证以及政策框架的空缺提供了专业指导，直接帮助我们明确了从萘的检测到完全矿化全流程的技术路线与安全标准。"><strong
+          data-text-en="Academia:" data-text-zh="学术界：">Academia:</strong> Professor Xinli Xing of China University of
+      Geosciences (Wuhan) provided expert guidance on the environmental behavior of PAHs, field sampling design,
+      validation of degradation pathways, and gaps in the policy framework, directly helping us define a
+      comprehensive technical roadmap and safety standards for the entire process — from detection to complete
+      mineralization — of naphthalene.</li>
+    <li data-text-en="Regulatory agencies: Li Qiqi of the Huangpi District Branch, Wuhan Municipal Ecology and Environment Bureau, highlighted the real pain points of oversight — high costs, lengthy timelines, and the lack of legally recognized rapid-testing tools — and proposed a tiered regulatory approach of 'on-site rapid testing plus laboratory confirmation.' She also emphasized that successful implementation must overcome three critical hurdles: accuracy, method validation, and biosafety."
+        data-text-zh="监管机构：武汉市生态环境局黄陂区分局的李琪琪指出了监管的真实痛点——成本高、周期长，且缺乏具有法律效力的快速检测工具，并提出了『现场快检+实验室确证』的分级监管思路。她还强调，技术要真正落地，必须跨过准确性、方法验证与生物安全三道关卡。"><strong
+          data-text-en="Regulatory agencies:" data-text-zh="监管机构：">Regulatory agencies:</strong> Li Qiqi of the Huangpi
+      District Branch, Wuhan Municipal Ecology and Environment Bureau, highlighted the real pain points of oversight
+      — high costs, lengthy timelines, and the lack of legally recognized rapid-testing tools — and proposed a
+      tiered regulatory approach of "on-site rapid testing plus laboratory confirmation." She also emphasized that
+      successful implementation must overcome three critical hurdles: accuracy, method validation, and biosafety.</li>
+    <li data-text-en="Community: In Chenzhou, Hunan Province, Director Wu Xianglian of the He Xiaoqing Action Center provided field observations of river PAHs pollution, making the need for low-cost, easy-to-use tools in grassroots river-monitoring efforts both tangible and pressing."
+        data-text-zh="社区：在湖南省郴州市，河小青行动中心的吴湘莲主任提供了河流PAHs污染的现场观察，使基层巡河工作中对低成本、易用工具的需求变得具体而迫切。"><strong
+          data-text-en="Community:" data-text-zh="社区：">Community:</strong> In Chenzhou, Hunan Province, Director Wu
+      Xianglian of the He Xiaoqing Action Center provided field observations of river PAHs pollution, making the
+      need for low-cost, easy-to-use tools in grassroots river-monitoring efforts both tangible and pressing.</li>
+    <li data-text-en="Industry (engineering): Engineers from Wuhan Zhongke Shuicheng offered recommendations on practical operational constraints — such as scale-up cultivation of engineered microorganisms, selection of immobilization materials, and field-transport conditions — helping us anticipate in advance the real-world challenges that may arise when transitioning from the laboratory to field applications."
+        data-text-zh="产业界（工程层面）：武汉中科水城的工程师就实际操作限制提出了建议——包括工程微生物的扩大培养、固定化材料的选择以及现场运输条件——帮助我们提前预判从实验室走向现场应用可能遇到的真实挑战。"><strong
+          data-text-en="Industry (engineering):" data-text-zh="产业界（工程层面）：">Industry (engineering):</strong> Engineers
+      from Wuhan Zhongke Shuicheng offered recommendations on practical operational constraints — such as scale-up
+      cultivation of engineered microorganisms, selection of immobilization materials, and field-transport
+      conditions — helping us anticipate in advance the real-world challenges that may arise when transitioning
+      from the laboratory to field applications.</li>
+    <li data-text-en="Industry (commercialization): Director Han of Yuangou Bio (Wuhan) Co., Ltd. cautioned us from a commercialization perspective: there is a significant gap between academic thinking and industrial thinking, one defined by 'cost' and 'compliance.' His feedback prompted us to abandon the complex 'three-in-one' design and return to the product's core — separating the detection and degradation functions and focusing on threshold-based determination of 'compliant/non-compliant.' Under existing regulatory constraints, we were able to launch a compliant testing product while preserving long-term commercial potential for degradation formulations."
+        data-text-zh="产业界（商业化层面）：源构生物（武汉）有限公司的韩总从商业化角度提醒我们：学术思维与产业思维之间存在由『成本』与『合规』定义的显著差距。他的反馈促使我们放弃复杂的『三合一』设计，回归产品核心——将检测与降解功能分离，聚焦于『达标/不达标』的阈值判断。在现行监管约束下，我们得以推出一款合规的检测产品，同时为降解制剂保留了长期的商业化潜力。"><strong
+          data-text-en="Industry (commercialization):" data-text-zh="产业界（商业化层面）：">Industry
+        (commercialization):</strong> Director Han of Yuangou Bio (Wuhan) Co., Ltd. cautioned us from a
+      commercialization perspective: there is a significant gap between academic thinking and industrial thinking,
+      one defined by "cost" and "compliance." His feedback prompted us to abandon the complex "three-in-one" design
+      and return to the product's core — separating the detection and degradation functions and focusing on
+      threshold-based determination of "compliant/non-compliant." Under existing regulatory constraints, we were
+      able to launch a compliant testing product while preserving long-term commercial potential for degradation
+      formulations.</li>
+    <li data-text-en="iGEM community: We also collaborated with other iGEM teams through experience sharing — collaborative iteration within the iGEM community enhances the robustness of each project."
+        data-text-zh="iGEM社区：我们还与其他iGEM团队开展了经验分享——通过iGEM社区内的协作迭代，提升了各自项目的稳健性。"><strong
+          data-text-en="iGEM community:" data-text-zh="iGEM社区：">iGEM community:</strong> We also collaborated with other
+      iGEM teams through experience sharing — collaborative iteration within the iGEM community enhances the
+      robustness of each project.</li>
+  </ul>
+
+  <h3 data-text-en="Feedback from stakeholders" data-text-zh="利益相关方反馈">Feedback from stakeholders</h3>
+  <p data-text-en="Our dialogue with multiple stakeholders has conveyed a consistent message:"
+     data-text-zh="我们与多方利益相关者的对话传递出一个一致的信息：">
+    Our dialogue with multiple stakeholders has conveyed a consistent message:
+  </p>
+  <div class="pull-quote">
+    <p data-text-en="Studying the migration of pollutants requires analyzing key parameters such as the octanol-water partition coefficient, the organic phase-atmosphere partition coefficient, and Henry's law constant — there is no universal, one-size-fits-all rule. Field sampling must account for land-use type, seasonal temperature, and soil organic matter content."
+       data-text-zh="研究污染物的迁移需要分析辛醇‑水分配系数、有机相‑大气分配系数与亨利常数等关键参数——没有放之四海而皆准的通用规则。现场采样必须考虑土地利用类型、季节温度与土壤有机质含量。">
+      "Studying the migration of pollutants requires analyzing key parameters such as the octanol-water partition
+      coefficient, the organic phase-atmosphere partition coefficient, and Henry's law constant — there is no
+      universal, one-size-fits-all rule. Field sampling must account for land-use type, seasonal temperature, and
+      soil organic matter content."
+    </p>
+    <cite data-text-en="— Professor Xinli Xing, China University of Geosciences (Wuhan)" data-text-zh="——邢新丽教授，中国地质大学（武汉）">— Professor Xinli Xing, China University of Geosciences (Wuhan)</cite>
+  </div>
+  <p data-text-en="This directly informed our sampling design and experimental validation plan."
+     data-text-zh="这直接指导了我们的采样设计与实验验证方案。">
+    This directly informed our sampling design and experimental validation plan.
+  </p>
+  <div class="pull-quote">
+    <p data-text-en="For a biosensor to be adopted by regulators, it must clear three hurdles: first, accuracy — its performance must be on par with standard methods; second, method validation — only then will the data carry legal weight; and third, biosafety — requiring a closed-system design. These are not optional; they are prerequisites."
+       data-text-zh="一款生物传感器要被监管部门采纳，必须跨过三道关卡：第一，准确性——性能须与标准方法相当；第二，方法验证——唯有如此数据才具备法律效力；第三，生物安全——须具备闭环系统设计。这些不是可选项，而是前提条件。">
+      "For a biosensor to be adopted by regulators, it must clear three hurdles: first, accuracy — its performance
+      must be on par with standard methods; second, method validation — only then will the data carry legal
+      weight; and third, biosafety — requiring a closed-system design. These are not optional; they are
+      prerequisites."
+    </p>
+    <cite data-text-en="— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan" data-text-zh="——李琪琪，武汉市黄陂区生态环境局">— Li Qiqi, Huangpi District Bureau of Ecology and Environment, Wuhan</cite>
+  </div>
+  <p data-text-en="This provides us with a clear technical roadmap: in the short term, develop an on-site screening tool for identifying soil contamination risks, and in the long term, achieve high accuracy and secure method validation."
+     data-text-zh="这为我们提供了清晰的技术路线图：短期内开发用于识别土壤污染风险的现场筛查工具，长期则致力于实现高准确性并完成方法验证。">
+    This provides us with a clear technical roadmap: in the short term, develop an on-site screening tool for
+    identifying soil contamination risks, and in the long term, achieve high accuracy and secure method validation.
+  </p>
+  <div class="pull-quote">
+    <p data-text-en="No matter how advanced the technology, it's meaningless if it stays confined to the lab. You need to understand who will use it, who will oversee it, and who will be affected. Involve everyone as early as possible."
+       data-text-zh="无论技术多么先进，如果只停留在实验室里就毫无意义。你需要了解谁会使用它、谁会监管它、谁会受到影响。尽早让所有相关方参与进来。">
+      "No matter how advanced the technology, it's meaningless if it stays confined to the lab. You need to
+      understand who will use it, who will oversee it, and who will be affected. Involve everyone as early as
+      possible."
+    </p>
+    <cite data-text-en="— Representative of a local environmental NGO" data-text-zh="——某地方环保NGO代表">— Representative of a local environmental NGO</cite>
+  </div>
+  <p data-text-en="These insights have shaped our project from the very outset, rather than being tacked on afterward. Our approach will be designed to be scientifically sound, regulatorily viable, ecologically safe, and socially acceptable."
+     data-text-zh="这些洞见从一开始就塑造了我们的项目，而非事后补充。我们的方案将致力于做到科学可靠、监管可行、生态安全、社会可接受。">
+    These insights have shaped our project from the very outset, rather than being tacked on afterward. Our
+    approach will be designed to be scientifically sound, regulatorily viable, ecologically safe, and socially
+    acceptable.
+  </p>
+</section>
+
+<!-- ==================== 6. References ==================== -->
+<section id="sec-references" class="wetlab-animate">
+  <div class="section-heading">
+    <div class="section-icon">
+      <i class="fa-solid fa-book"></i>
+    </div>
+    <div class="section-heading-text">
+      <h2 data-text-en="References" data-text-zh="参考文献">References</h2>
+      <div class="section-heading-bar"></div>
+    </div>
+  </div>
+
+  <ul class="references-list">
+    <li>Mekontchou Yemele O, Zhao Z, Nkoh J N, et al. A systematic review of polycyclic aromatic hydrocarbon pollution: A combined bibliometric and mechanistic analysis of research trend toward an environmentally friendly solution [J]. Science of the Total Environment, 2024, 926: 171577. DOI: 10.1016/j.scitotenv.2024.171577.</li>
+  </ul>
+</section>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<!-- 返回顶部 -->
+<button class="back-to-top-btn" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+  
+  <script src="../../static/anime.min.js"></script>
+  <script type="module" src="../../static/js/base.js?v=1.0.8"></script>
+  
+  
+<script src="../../static/js/wetlab.js?v=1.0.2"></script>
+
+</body>
+
+</html>
