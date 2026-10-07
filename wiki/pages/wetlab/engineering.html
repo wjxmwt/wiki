@@ -1,59 +1,24 @@
-{% extends 'templates/layouts/wetlab-document.html' %}
+{% extends 'templates/base.html' %}
 {% block title %}Wet Lab · Engineering{% endblock %}
-{% block toc %}
-<li class="document-toc-level-2"><a href="#section-1">Overview</a></li>
-<li class="document-toc-level-2"><a href="#section-5">Hierarchical DBTL Iterative Engineering Design</a></li>
-<li class="document-toc-level-2"><a href="#section-7">Module 1: Construction and Optimization of the Salicylic Acid
-    Sensing Pathway</a></li>
-<li class="document-toc-level-3"><a href="#section-9">Cycle 1: Construction of the NahR/Psal Salicylic Acid
-    Biosensor</a></li>
-<li class="document-toc-level-3"><a href="#section-27">Cycle 2: Modification of Pr and Psal Promoter Regions</a></li>
-<li class="document-toc-level-3"><a href="#section-43">Cycle 3: Construction of NahR Dual-Site Saturated Mutant Library
-    for Improved Substrate-Binding Affinity</a></li>
-<li class="document-toc-level-3"><a href="#section-58">Cycle 4: ARTP-Mediated Chassis Adaptive Evolution to Break
-    Chassis-Derived Performance Limits</a></li>
-<li class="document-toc-level-2"><a href="#section-73">Module 2: Naphthalene Degradation System</a></li>
-<li class="document-toc-level-3"><a href="#section-75">Cycle 5: Construction of the Upper Aerobic Naphthalene
-    Degradation Pathway</a></li>
-<li class="document-toc-level-3"><a href="#section-92">Cycle 6: Promoter Replacement for the Degradation Pathway</a>
-</li>
-<li class="document-toc-level-3"><a href="#section-109">Cycle 7: Investigating the Influence of Strain Background on
-    Degradation Efficiency</a></li>
-<li class="document-toc-level-3"><a href="#section-123">Cycle 8: Exploring Culture-Medium Effects on Degradation
-    Efficiency</a></li>
-<li class="document-toc-level-3"><a href="#section-138">Cycle 9: Optimization of Naphthalene-Detection Operating
-    Conditions Based on the Salicylic-Acid Biosensor</a></li>
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/engineering.css', v='20261007-3') }}">
 {% endblock %}
-{% block hero %}
-<section class="wetlab-hero" id="sec-hero">
-  <div class="hero-glow-1" aria-hidden="true"></div>
-  <div class="hero-glow-2" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-content-left">
-      <div class="wetlab-hero-subtitle" data-text-en="WET LAB · DBTL CYCLES" data-text-zh="湿实验 · 工程">WET LAB ·
-        ENGINEERING</div>
-      <h1 class="hero-title" data-text-en="DBTL CYCLES" data-text-zh="工程迭代">DBTL CYCLES</h1>
-      <div class="hero-actions">
-        <a href="#section-7" class="hero-btn hero-btn-primary"><span data-text-en="Sensing Design"
-            data-text-zh="传感系统设计">Sensing Design</span> <i class="fa-solid fa-dna" aria-hidden="true"></i></a>
-        <a href="#section-73" class="hero-btn hero-btn-secondary"><span data-text-en="Degradation Design"
-            data-text-zh="降解系统设计">Degradation Design</span> <i class="fa-solid fa-flask" aria-hidden="true"></i></a>
-      </div>
+{% block content %}
+<div class="engineering-page" id="engineering-top">
+  <header class="engineering-hero" aria-labelledby="engineering-title">
+    <img class="engineering-hero-photo" src="{{ url_for('static', filename='image/engineering/lab-hero.webp', v='20261007-1') }}" alt="" width="2000" height="1500" fetchpriority="high">
+    <div class="engineering-hero-copy">
+      <p class="engineering-eyebrow" data-text-en="WET LAB / ENGINEERING" data-text-zh="湿实验 / 工程迭代">WET LAB / ENGINEERING</p>
+      <h1 id="engineering-title" data-text-en="Engineering" data-text-zh="工程迭代">Engineering</h1>
+      <p class="engineering-hero-caption" data-text-en="Design. Build. Test. Learn." data-text-zh="设计 · 构建 · 测试 · 学习">Design. Build. Test. Learn.</p>
     </div>
-  </div>
-</section>
-{% endblock %}
-{% block article %}
-<div class="document-body" lang="en">
-  <section class="document-section" id="section-1">
-    <div class="section-heading">
-      <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></div>
-      <div class="section-heading-text">
-        <h2>Overview</h2>
-        <div class="section-heading-bar"></div>
-      </div>
-    </div>
-    <p class="">Naphthalene, a typical polycyclic aromatic hydrocarbon pollutant, features long residual period, high
+    <a class="engineering-hero-link" href="#section-1"><span data-text-en="Explore our iterations" data-text-zh="探索工程迭代">Explore our iterations</span><span aria-hidden="true">↓</span></a>
+  </header>
+  <div class="engineering-container">
+    <section class="engineering-overview" id="section-1" aria-labelledby="engineering-overview-title">
+      <div class="engineering-section-label"><span class="engineering-eyebrow" data-text-en="THE APPROACH" data-text-zh="工程思路">THE APPROACH</span><h2 id="engineering-overview-title" data-text-en="Overview" data-text-zh="概述">Overview</h2></div>
+      <div class="engineering-prose" lang="en">
+<p class="">Naphthalene, a typical polycyclic aromatic hydrocarbon pollutant, features long residual period, high
       toxicity and strong environmental concealment. Conventional instrumental detection is time-consuming and costly
       and cannot perform in-situ real-time monitoring, while chemical degradation approaches tend to cause secondary
       pollution. To address these bottlenecks, our team constructed a coupled detection-degradation system for
@@ -66,26 +31,36 @@
       portable pollutant detection-remediation system was established. Supporting detection kits and a web-based
       analytical platform were also developed, realizing full-scale engineering implementation from molecular design to
       practical environmental application.</p>
-  </section>
-  <section class="document-section" id="section-5">
-    <div class="section-heading">
-      <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></div>
-      <div class="section-heading-text">
-        <h2><strong>Hierarchical DBTL Iterative Engineering Design</strong></h2>
-        <div class="section-heading-bar"></div>
+</div>
+    </section>
+    <section class="engineering-workspace" id="section-5" aria-labelledby="engineering-workspace-title">
+      <div class="engineering-workspace-heading">
+        <div><p class="engineering-eyebrow" data-text-en="OUR ENGINEERING JOURNEY" data-text-zh="我们的工程迭代历程">OUR ENGINEERING JOURNEY</p><h2 id="engineering-workspace-title" data-text-en="Hierarchical DBTL Iterative Engineering Design" data-text-zh="分层 DBTL 迭代工程设计">Hierarchical DBTL Iterative Engineering Design</h2></div>
+        <p class="engineering-count" data-text-en="2 modules · 9 cycles" data-text-zh="2 个模块 · 9 轮迭代">2 modules · 9 cycles</p>
       </div>
-    </div>
-  </section>
-  <section class="document-section" id="section-7">
-    <div class="section-heading">
-      <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-dna"></i></div>
-      <div class="section-heading-text">
-        <h2><strong>Module 1: Construction and Optimization of the Salicylic Acid Sensing Pathway</strong></h2>
-        <div class="section-heading-bar"></div>
-      </div>
-    </div>
-    <h3 id="section-9"><strong>Cycle 1: Construction of the NahR/Psal Salicylic Acid Biosensor</strong></h3>
-    <div class="dbtl-stage stage-design">
+      <div class="engineering-deck" data-engineering-deck>
+<section class="engineering-card" id="section-7" data-module="0" aria-labelledby="module-title-01">
+        <header class="engineering-card-header">
+          <div class="engineering-module-label"><span class="" data-text-en="MODULE 01" data-text-zh="模块 01">MODULE 01</span><span class="engineering-module-rule" aria-hidden="true"></span><span class="" data-text-en="Sensing" data-text-zh="传感模块">Sensing</span></div>
+          <h2 id="module-title-01" data-text-en="Construction and Optimization of the Salicylic Acid Sensing Pathway" data-text-zh="水杨酸传感通路的构建与优化">Construction and Optimization of the Salicylic Acid Sensing Pathway</h2>
+        </header>
+        <div class="engineering-card-body">
+          <nav class="engineering-cycles" aria-label="Module 01 cycles">
+            <p class="engineering-eyebrow"><span class="" data-text-en="ITERATIONS" data-text-zh="迭代轮次">ITERATIONS</span></p>
+            <div class="engineering-cycle-list">
+<a class="engineering-cycle-link" href="#section-9" data-cycle-link="1"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 01" data-text-zh="第 01 轮">Cycle 01</span></span><span class="engineering-cycle-name" data-text-en="Sensing pathway" data-text-zh="传感通路构建">Sensing pathway</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-27" data-cycle-link="2"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 02" data-text-zh="第 02 轮">Cycle 02</span></span><span class="engineering-cycle-name" data-text-en="Promoter regions" data-text-zh="启动子区域改造">Promoter regions</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-43" data-cycle-link="3"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 03" data-text-zh="第 03 轮">Cycle 03</span></span><span class="engineering-cycle-name" data-text-en="NahR mutagenesis" data-text-zh="NahR 饱和突变">NahR mutagenesis</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-58" data-cycle-link="4"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 04" data-text-zh="第 04 轮">Cycle 04</span></span><span class="engineering-cycle-name" data-text-en="Chassis evolution" data-text-zh="底盘适应性进化">Chassis evolution</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+</div></nav><div class="engineering-cycle-content">
+<section class="engineering-cycle" id="section-9" data-cycle="1" aria-labelledby="cycle-title-1"><h3 id="cycle-title-1"><strong>Cycle 1: Construction of the NahR/Psal Salicylic Acid Biosensor</strong></h3>
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-1-tab-0" aria-controls="cycle-1-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-1-tab-1" aria-controls="cycle-1-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-1-tab-2" aria-controls="cycle-1-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-1-tab-3" aria-controls="cycle-1-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-1-stage-0" data-stage="0" lang="en">
       <h4 id="section-10"><strong>Design</strong></h4>
       <p class="">Literature investigations revealed that previous studies reconstructed a salicylic acid biosensor in
         <em>E. coli</em> DH5α using the NahR/Psal system derived from the NAH7 plasmid of Pseudomonas putida G7, with
@@ -93,7 +68,8 @@
         by 1 mM salicylic acid, the mutant N169E/R248C exhibited low basal activity and high inducible activity.
         Accordingly, we referenced this work to reconstruct the salicylic acid biosensing system, which uses salicylic
         acid — an intermediate metabolite of naphthalene degradation — as the signal molecule to achieve indirect
-        quantitative detection of naphthalene.</p>
+        quantitative detection of naphthalene.
+      </p>
       <p class="">In the initial design, the pUC57 vector was used to assemble the Pr-NahR-Psal-eGFP fluorescent sensing
         system. NahR is transcribed under the constitutive promoter Pr, and Pr and Psal are oriented divergently. In the
         presence of the inducer salicylic acid, the NahR protein binds salicylic acid and triggers transcription
@@ -106,11 +82,11 @@
         verifying the basal function of the wild-type circuit and identifying its core performance shortcomings to set
         engineering benchmarks for subsequent iterative optimization.</p>
       <figure class="wetlab-figure"><img loading="lazy"
-          src="{{ url_for('static', filename='image/wetlab/documents/engineering/figure-01.png', v='20260916') }}"
+          src="https://static.igem.wiki/teams/6049/wiki/wetlab/engineering/figure-01.avif"
           alt="Figure 2: Vector for SA Sensing Pathway"></figure>
       <p class="figure-caption">Figure 2: Vector for SA Sensing Pathway</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-1-stage-1" data-stage="1" lang="en">
       <h4 id="section-18"><strong>Build</strong></h4>
       <p class="">The Pr-NahR-Psal gene fragment was chemically synthesized by Sangon Biotech, fused with eGFP and
         assembled into the pUC57 vector to yield the original sensing plasmid pUC57-Pr-NahR-Psal-eGFP. The control
@@ -119,7 +95,7 @@
         XL10-gold, DH10B and Top10 to generate multiple initial engineered sensing strains for subsequent host screening
         and performance calibration.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-1-stage-2" data-stage="2" lang="en">
       <h4 id="section-21"><strong>Test</strong></h4>
       <p class="">Gradient salicylic acid treatments were set with unified detection parameters and culture conditions
         to verify the functional specificity of the sensing circuit, compare circuit compatibility across different host
@@ -127,7 +103,7 @@
         performance of the wild-type circuit, and collect complete baseline engineering data for identifying intrinsic
         defects and optimization potential.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-1-stage-3" data-stage="3" lang="en">
       <h4 id="section-24"><strong>Learn</strong></h4>
       <p class="">This round successfully achieved heterologous expression of the sensing circuit and validated the
         functional specificity of NahR. DH5α was identified as the best-suited basal chassis, and the standardized
@@ -138,8 +114,15 @@
         modification of core conserved promoter regions to improve circuit expression efficiency at the transcriptional
         level.</p>
     </div>
-    <h3 id="section-27"><strong>Cycle 2: Modification of Pr and Psal Promoter Regions</strong></h3>
-    <div class="dbtl-stage stage-design">
+</section>
+<section class="engineering-cycle" id="section-27" data-cycle="2" aria-labelledby="cycle-title-2"><h3 id="cycle-title-2"><strong>Cycle 2: Modification of Pr and Psal Promoter Regions</strong></h3>
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-2-tab-0" aria-controls="cycle-2-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-2-tab-1" aria-controls="cycle-2-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-2-tab-2" aria-controls="cycle-2-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-2-tab-3" aria-controls="cycle-2-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-2-stage-0" data-stage="0" lang="en">
       <h4 id="section-28"><strong>Design</strong></h4>
       <p class="">Baseline experiments demonstrated that the core conserved sequences of native Pr and Psal promoters
         show poor compatibility with the <em>E.coli</em> transcription machinery and weak RNA polymerase binding,
@@ -156,11 +139,11 @@
         noise and enhance specific signal output, breaking the performance limitations of the original system at the
         transcriptional layer.</p>
       <figure class="wetlab-figure"><img loading="lazy"
-          src="{{ url_for('static', filename='image/wetlab/documents/engineering/figure-02.png', v='20260916') }}"
+          src="https://static.igem.wiki/teams/6049/wiki/wetlab/engineering/figure-02.avif"
           alt="Figure 3 Schematic for sequence modification of Pr and Psal promoters"></figure>
       <p class="figure-caption">Figure 3 Schematic for sequence modification of Pr and Psal promoters</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-2-stage-1" data-stage="1" lang="en">
       <h4 id="section-34"><strong>Build</strong></h4>
       <p class="">Site-directed mutagenesis primers were designed based on the wild-type sensing vector. Whole-plasmid
         PCR was performed to introduce key-region mutations into both Pr and Psal. The <em>Dpn</em>I digestion system
@@ -169,14 +152,14 @@
         verified by DNA sequencing to guarantee precise mutation sites and absence of random mismatches, ensuring
         accuracy and reproducibility of element engineering.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-2-stage-2" data-stage="2" lang="en">
       <h4 id="section-37"><strong>Test</strong></h4>
       <p class="">Gradient salicylic-acid induction assays were performed under standardized experimental conditions.
         Fluorescent-response differences between wild-type and MUT<sup>1st</sup> mutant strains were compared to
         evaluate the engineering benefits of promoter modification, assess sensitivity improvement from transcriptional
         tuning, and identify the optimization ceiling and remaining deficiencies of this round.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-2-stage-3" data-stage="3" lang="en">
       <h4 id="section-40"><strong>Learn</strong></h4>
       <p class="">Promoter engineering effectively improved transcriptional compatibility of the exogenous circuit and
         removed transcriptional-level expression bottlenecks, markedly enhancing low-concentration response capacity.
@@ -186,9 +169,16 @@
         therefore focused on engineering the NahR regulatory protein via saturated mutagenesis to screen high-affinity
         variants.</p>
     </div>
-    <h3 id="section-43"><strong>Cycle 3: Construction of NahR Dual</strong><strong>-</strong><strong>Site Saturated
+</section>
+<section class="engineering-cycle" id="section-43" data-cycle="3" aria-labelledby="cycle-title-3"><h3 id="cycle-title-3"><strong>Cycle 3: Construction of NahR Dual</strong><strong>-</strong><strong>Site Saturated
         Mutant Library for Improved Substrate</strong><strong>-</strong><strong>Binding Affinity</strong></h3>
-    <div class="dbtl-stage stage-design">
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-3-tab-0" aria-controls="cycle-3-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-3-tab-1" aria-controls="cycle-3-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-3-tab-2" aria-controls="cycle-3-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-3-tab-3" aria-controls="cycle-3-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-3-stage-0" data-stage="0" lang="en">
       <h4 id="section-44"><strong>Design</strong></h4>
       <p class="">Transcription factors (TFs) are core functional components of whole-cell microbial biosensors. They
         contain a ligand-binding domain and a DNA-binding domain that mediate ligand recognition and target-DNA binding,
@@ -209,7 +199,7 @@
         expected to greatly increase NahR-salicylic-acid binding affinity and fundamentally improve sensing sensitivity.
       </p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-3-stage-1" data-stage="1" lang="en">
       <h4 id="section-49"><strong>Build</strong></h4>
       <p class="">Whole-plasmid PCR with saturated-mutagenesis primers was carried out using the MUT<sup>1st</sup>
         promoter-mutated plasmid as template to build the NahR(E169/C248) dual-site mutant library. After template
@@ -217,7 +207,7 @@
         ensuring full coverage of mutation combinations. Random colonies were sequenced to validate library quality in
         terms of coverage and diversity for high-performance strain screening.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-3-stage-2" data-stage="2" lang="en">
       <h4 id="section-52"><strong>Test</strong></h4>
       <p class="">A two-tier high-throughput screening workflow (plate-based primary screening + liquid-culture
         secondary screening) was established. Primary screening on solid plates with low-concentration inducer picked
@@ -225,7 +215,7 @@
         ultra-low salicylic-acid concentrations. Mutants were compared for signal specificity, background noise and
         response sensitivity, yielding the optimal protein-mutant engineered strain MUT<sup>2nd</sup>.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-3-stage-3" data-stage="3" lang="en">
       <h4 id="section-55"><strong>Learn</strong> </h4>
       <p class="">Saturated mutagenesis successfully identified high-affinity NahR variants, resolving weak
         protein-substrate binding at the molecular-structure level and substantially improving trace-signal recognition.
@@ -235,9 +225,16 @@
         element-optimization benefits. Consequently, atmospheric-room-temperature plasma (ARTP)-mediated genome-wide
         adaptive evolution was adopted to globally enhance chassis performance.</p>
     </div>
-    <h3 id="section-58"><strong>Cycle 4: ARTP</strong><strong>-</strong><strong>Mediated Chassis Adaptive Evolution to
+</section>
+<section class="engineering-cycle" id="section-58" data-cycle="4" aria-labelledby="cycle-title-4"><h3 id="cycle-title-4"><strong>Cycle 4: ARTP</strong><strong>-</strong><strong>Mediated Chassis Adaptive Evolution to
         Break Chassis</strong><strong>-</strong><strong>Derived Performance Limits</strong></h3>
-    <div class="dbtl-stage stage-design">
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-4-tab-0" aria-controls="cycle-4-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-4-tab-1" aria-controls="cycle-4-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-4-tab-2" aria-controls="cycle-4-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-4-tab-3" aria-controls="cycle-4-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-4-stage-0" data-stage="0" lang="en">
       <h4 id="section-60"><strong>Design</strong></h4>
       <p class="">Following rational optimization of promoters and proteins, the exogenous sensing circuit reached its
         element-level optimization ceiling. Intrinsic physiological properties of the chassis became the sole bottleneck
@@ -248,7 +245,7 @@
         stability, eliminate chassis-dependent background suppression, fully unlock the sensing capacity of optimized
         elements, and push system sensitivity to its limit.</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-4-stage-1" data-stage="1" lang="en">
       <h4 id="section-63"><strong>Build</strong></h4>
       <p class="">The superior MUT<sup>2nd</sup> strain was cultured to logarithmic phase. Standardized bacterial
         suspensions were subjected to ARTP mutagenesis with strictly controlled power, gas flow and treatment duration
@@ -257,13 +254,13 @@
         and liquid-culture secondary screening delivered the best-performing evolved chassis strain MUT<sup>3rd</sup>.
       </p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-4-stage-2" data-stage="2" lang="en">
       <h4 id="section-66"><strong>Test</strong></h4>
       <p class="">Under standardized conditions, trace-salicylic-acid response of the evolved MUT<sup>3rd</sup> was
         compared with the pre-evolution element-optimized strain to quantify sensitivity gains from chassis evolution
         and characterize the ultimate sensing performance of the evolved chassis.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-4-stage-3" data-stage="3" lang="en">
       <h4 id="section-69"><strong>Learn</strong></h4>
       <p class="">ARTP-driven chassis evolution removed intracellular environmental constraints and completed full-layer
         optimization (from discrete genetic elements to whole-cell chassis) of the sensing module. The ultra-sensitive
@@ -271,17 +268,39 @@
         module was complete, laying the foundation for degradation-system optimization; this best-performing sensing
         strain would be reused for degradation-system integration.</p>
     </div>
-  </section>
-  <section class="document-section" id="section-73">
-    <div class="section-heading">
-      <div class="section-icon" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
-      <div class="section-heading-text">
-        <h2><strong>Module 2: Naphthalene Degradation System</strong></h2>
-        <div class="section-heading-bar"></div>
-      </div>
-    </div>
-    <h3 id="section-75"><strong>Cycle 5: Construction of the Upper Aerobic Naphthalene Degradation Pathway</strong></h3>
-    <div class="dbtl-stage stage-design">
+</section>
+</div></div>
+        <footer class="engineering-card-footer">
+          <p class="engineering-card-status" aria-live="polite" aria-atomic="true"></p>
+          <div class="engineering-card-actions">
+            <button type="button" class="engineering-action engineering-action-next" data-next-module><span data-text-en="Switch module" data-text-zh="切换模块">Switch module</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h15m-4-4 4 4-4 4M20 17H5m4-4-4 4 4 4"/></svg></button>
+            <button type="button" class="engineering-action" data-toggle-layout><span data-layout-label data-text-en="Show both" data-text-zh="同时展示">Show both</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="7" rx="1"/><rect x="4" y="14" width="16" height="7" rx="1"/></svg></button>
+          </div>
+        </footer>
+      </section>
+<section class="engineering-card" id="section-73" data-module="1" aria-labelledby="module-title-02">
+        <header class="engineering-card-header">
+          <div class="engineering-module-label"><span class="" data-text-en="MODULE 02" data-text-zh="模块 02">MODULE 02</span><span class="engineering-module-rule" aria-hidden="true"></span><span class="" data-text-en="Degradation" data-text-zh="降解模块">Degradation</span></div>
+          <h2 id="module-title-02" data-text-en="Naphthalene Degradation System" data-text-zh="萘降解系统">Naphthalene Degradation System</h2>
+        </header>
+        <div class="engineering-card-body">
+          <nav class="engineering-cycles" aria-label="Module 02 cycles">
+            <p class="engineering-eyebrow"><span class="" data-text-en="ITERATIONS" data-text-zh="迭代轮次">ITERATIONS</span></p>
+            <div class="engineering-cycle-list">
+<a class="engineering-cycle-link" href="#section-75" data-cycle-link="5"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 05" data-text-zh="第 05 轮">Cycle 05</span></span><span class="engineering-cycle-name" data-text-en="Degradation pathway" data-text-zh="降解通路构建">Degradation pathway</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-92" data-cycle-link="6"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 06" data-text-zh="第 06 轮">Cycle 06</span></span><span class="engineering-cycle-name" data-text-en="Promoter replacement" data-text-zh="启动子替换">Promoter replacement</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-109" data-cycle-link="7"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 07" data-text-zh="第 07 轮">Cycle 07</span></span><span class="engineering-cycle-name" data-text-en="Strain background" data-text-zh="菌株背景比较">Strain background</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-123" data-cycle-link="8"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 08" data-text-zh="第 08 轮">Cycle 08</span></span><span class="engineering-cycle-name" data-text-en="Culture medium" data-text-zh="培养基优化">Culture medium</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+<a class="engineering-cycle-link" href="#section-138" data-cycle-link="9"><span class="engineering-cycle-number"><span class="" data-text-en="Cycle 09" data-text-zh="第 09 轮">Cycle 09</span></span><span class="engineering-cycle-name" data-text-en="Operating conditions" data-text-zh="检测条件优化">Operating conditions</span><span class="engineering-cycle-arrow" aria-hidden="true">↗</span></a>
+</div></nav><div class="engineering-cycle-content">
+<section class="engineering-cycle" id="section-75" data-cycle="5" aria-labelledby="cycle-title-5"><h3 id="cycle-title-5"><strong>Cycle 5: Construction of the Upper Aerobic Naphthalene Degradation Pathway</strong></h3>
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-5-tab-0" aria-controls="cycle-5-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-5-tab-1" aria-controls="cycle-5-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-5-tab-2" aria-controls="cycle-5-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-5-tab-3" aria-controls="cycle-5-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-5-stage-0" data-stage="0" lang="en">
       <h4 id="section-76"><strong>Design</strong></h4>
       <p class="">The sensing module had been fully optimized for ultra-sensitive salicylic-acid detection. To realize
         complete naphthalene detection, an upstream aerobic naphthalene-degradation pathway must be assembled to convert
@@ -293,7 +312,7 @@
         verify heterologous activity of the naphthalene-degradation pathway and provide engineering support for
         quantitative detection by the whole system.</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-5-stage-1" data-stage="1" lang="en">
       <h4 id="section-79"><strong>Build</strong></h4>
       <p class="">The nahABCDEF gene cluster was codon-optimized for<em> E. coli</em> to remove rare codons and
         facilitate heterologous expression. The complete degradation gene cluster was assembled downstream of the
@@ -304,11 +323,11 @@
         standards and defined chromatographic parameters for quantitative measurement of naphthalene and its
         metabolites.</p>
       <figure class="wetlab-figure"><img loading="lazy"
-          src="{{ url_for('static', filename='image/wetlab/documents/engineering/figure-03.png', v='20260916') }}"
+          src="https://static.igem.wiki/teams/6049/wiki/wetlab/engineering/figure-03.avif"
           alt="Figure 4: Vector Construct for the Degradation Pathway"></figure>
       <p class="figure-caption">Figure 4: Vector Construct for the Degradation Pathway</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-5-stage-2" data-stage="2" lang="en">
       <h4 id="section-85"><strong>Test</strong></h4>
       <p class="">Co-transformed strains were subjected to antibiotic selection and plasmid validation to assess the
         stability of dual-plasmid maintenance. To rigorously verify heterologous functionality of the aerobic
@@ -317,15 +336,17 @@
         control. Resting-cell assays were performed under unified experimental conditions with 100 μM naphthalene
         substrate. After defined incubation periods, samples were analyzed by the established HPLC workflow to
         qualitatively detect residual naphthalene and salicylic-acid production, so as to judge whether the
-        reconstructed degradation pathway catalyzes naphthalene biotransformation.</p>
+        reconstructed degradation pathway catalyzes naphthalene biotransformation.
+      </p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-5-stage-3" data-stage="3" lang="en">
       <h4 id="section-88"><strong>Learn</strong></h4>
       <p class="">This round successfully reconstructed the naphthalene-degradation pathway and HPLC experiments
         confirmed its biological activity, proving that the exogenous nah pathway can catalyze naphthalene conversion in
         <em>E. coli</em>. However, a critical engineering obstacle emerged: the ultra-sensitive evolved chassis
         MUT<sup>3rd</sup> exhibited plasmid incompatibility and could not stably replicate and express two plasmids with
-        distinct backbones, making the single-strain integration strategy infeasible.</p>
+        distinct backbones, making the single-strain integration strategy infeasible.
+      </p>
       <p class="">To circumvent chassis limitations while retaining ultra-high sensing sensitivity and high degradation
         capacity, an innovative engineering strategy was adopted: abandoning the single-cell design in favor of a
         co-culture coupled system consisting of separate degradation-engineered bacteria and sensing-engineered
@@ -338,8 +359,15 @@
         (promoter, host, culture conditions and detection operating conditions) would be performed on this optimal
         mixing ratio to establish a stable, efficient and quantifiable naphthalene detection-degradation system.</p>
     </div>
-    <h3 id="section-92"><strong>Cycle 6: Promoter Replacement for the Degradation Pathway</strong></h3>
-    <div class="dbtl-stage stage-design">
+</section>
+<section class="engineering-cycle" id="section-92" data-cycle="6" aria-labelledby="cycle-title-6"><h3 id="cycle-title-6"><strong>Cycle 6: Promoter Replacement for the Degradation Pathway</strong></h3>
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-6-tab-0" aria-controls="cycle-6-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-6-tab-1" aria-controls="cycle-6-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-6-tab-2" aria-controls="cycle-6-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-6-tab-3" aria-controls="cycle-6-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-6-stage-0" data-stage="0" lang="en">
       <h4 id="section-93">Design</h4>
       <p class="">Cycle 5 demonstrated that the native Pnah promoter drives expression of the naphthalene-degradation
         pathway, yet this naturally-derived promoter shows weak transcriptional strength and poor stability in <em>E.
@@ -354,13 +382,13 @@
       <p class="figure-caption">Figure 5 Replacement with constitutive promoters of different strengths (strength
         decreases from P100 to P113)</p>
       <figure class="wetlab-figure"><img loading="lazy"
-          src="{{ url_for('static', filename='image/wetlab/documents/engineering/figure-04.png', v='20260916') }}"
+          src="https://static.igem.wiki/teams/6049/wiki/wetlab/engineering/figure-04.avif"
           alt="Figure 5: Substitution of constitutive promoters of different strengths (Promoter strength decreases sequentially from 100 to 113)">
       </figure>
       <p class="figure-caption">Figure 5: Substitution of constitutive promoters of different strengths (Promoter
         strength decreases sequentially from 100 to 113)</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-6-stage-1" data-stage="1" lang="en">
       <h4 id="section-100"><strong>Build</strong></h4>
       <p class="">Seamless cloning was used to substitute the original Pnah promoter on the degradation plasmid with
         each of the five constitutive promoters. Recombinant vectors were sequenced to confirm accurate promoter
@@ -368,14 +396,14 @@
         degradation plasmids was transformed into basal DH5α to build a library of degradation-engineered strains for
         parallel screening.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-6-stage-2" data-stage="2" lang="en">
       <h4 id="section-103"><strong>Test</strong></h4>
       <p class="">Strains carrying different promoter variants were cultured in parallel under identical media and
         naphthalene-substrate concentrations. Degradation-conversion performance driven by each promoter was compared
         via unified detection assays to evaluate expression activity and operational stability and select the optimal
         degradation-pathway promoter.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-6-stage-3" data-stage="3" lang="en">
       <h4 id="section-106"><strong>Learn </strong></h4>
       <p class="">Promoter engineering accomplished transcriptional optimization of the degradation pathway and
         identified the optimal constitutive promoter compatible with E. coli, resolving the drawbacks of weak activity
@@ -384,9 +412,16 @@
         also strongly influences overall degradation-pathway performance. The next iteration therefore screened host
         strains to further improve compatibility of the degradation chassis.</p>
     </div>
-    <h3 id="section-109"><strong>Cycle 7: Investigating the Influence of Strain Background on Degradation
+</section>
+<section class="engineering-cycle" id="section-109" data-cycle="7" aria-labelledby="cycle-title-7"><h3 id="cycle-title-7"><strong>Cycle 7: Investigating the Influence of Strain Background on Degradation
         Efficiency</strong></h3>
-    <div class="dbtl-stage stage-design">
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-7-tab-0" aria-controls="cycle-7-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-7-tab-1" aria-controls="cycle-7-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-7-tab-2" aria-controls="cycle-7-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-7-tab-3" aria-controls="cycle-7-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-7-stage-0" data-stage="0" lang="en">
       <h4 id="section-110"><strong>Design</strong></h4>
       <p class="">Expression efficiency of exogenous pathways heavily depends on the host’s intracellular metabolic
         environment, protein-folding machinery and stress tolerance. With the optimal degradation promoter fixed,
@@ -397,20 +432,20 @@
         was compared under fully standardized experimental setups to pinpoint the best degradation chassis for stable
         downstream work.</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-7-stage-1" data-stage="1" lang="en">
       <h4 id="section-114"><strong>Build</strong></h4>
       <p class="">The optimized degradation plasmid with best-performing promoter was transformed into DH5α, XL-10 Gold,
         MG1655, BL21(DE3), GM272 and other host strains to generate parallel degradation-engineered strains sharing
         identical plasmids but differing genetic backgrounds. Antibiotic selection and colony PCR validated strain
         construction consistency.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-7-stage-2" data-stage="2" lang="en">
       <h4 id="section-117"><strong>Test</strong></h4>
       <p class="">Inoculum density, incubation temperature, duration and naphthalene substrate concentration were
         strictly unified. Parallel degradation experiments assessed naphthalene-conversion capacity and system stability
         across host backgrounds to evaluate pathway-host compatibility.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-7-stage-3" data-stage="3" lang="en">
       <h4 id="section-120"><strong>Learn</strong></h4>
       <p class="">Host screening highlighted the substantial impact of genetic background on naphthalene-degradation
         efficiency and yielded the host chassis with highest conversion efficiency and system stability for the
@@ -419,9 +454,16 @@
         co-factor concentrations. Further work systematically optimized media and cultivation parameters to maximize
         degradation performance.</p>
     </div>
-    <h3 id="section-123"><strong>Cycle 8: Exploring Culture</strong><strong>-</strong><strong>Medium Effects on
+</section>
+<section class="engineering-cycle" id="section-123" data-cycle="8" aria-labelledby="cycle-title-8"><h3 id="cycle-title-8"><strong>Cycle 8: Exploring Culture</strong><strong>-</strong><strong>Medium Effects on
         Degradation Efficiency</strong></h3>
-    <div class="dbtl-stage stage-design">
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-8-tab-0" aria-controls="cycle-8-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-8-tab-1" aria-controls="cycle-8-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-8-tab-2" aria-controls="cycle-8-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-8-tab-3" aria-controls="cycle-8-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-8-stage-0" data-stage="0" lang="en">
       <h4 id="section-124">Design</h4>
       <p class="">Naphthalene dioxygenase (<em>n</em><em>ahA</em>), the rate-limiting enzyme of the
         naphthalene-degradation pathway, is an oxidase containing a [2Fe-2S] metal cluster. Its catalytic activity and
@@ -443,7 +485,7 @@
         optimal medium, time-gradient experiments were conducted to characterize the minimum incubation time required
         for efficient naphthalene conversion.</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-8-stage-1" data-stage="1" lang="en">
       <h4 id="section-128"><strong>Build</strong></h4>
       <p class="">Modified LB media with varied metal-ion supplements, exogenous carbon sources and nitrogen-source
         ratios were prepared to establish parallel experimental groups. The best degradation-engineered strain was
@@ -452,7 +494,7 @@
         experimental system. After identifying the optimal medium formulation, time-gradient assays were set up to
         determine the minimum incubation period supporting efficient naphthalene transformation.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-8-stage-2" data-stage="2" lang="en">
       <h4 id="section-131"><strong>Test</strong></h4>
       <p class="">Parallel degradation incubations were run under unified experimental conditions. Fluorescent-signal
         readouts were compared across media groups to assess medium-component effects on degradation efficiency and
@@ -461,7 +503,7 @@
         characterized how degradation duration influences naphthalene conversion and signal accumulation, defining the
         minimal incubation time for efficient and stable naphthalene biotransformation.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-8-stage-3" data-stage="3" lang="en">
       <h4 id="section-134"><strong>Learn </strong></h4>
       <p class="">Systematic medium optimization confirmed that Fe²⁺ is the key functional co-factor modulating NahA
         rate-limiting-enzyme activity. Consistent with protein-structural features, NahA carries a specific [2Fe-2S]
@@ -474,9 +516,16 @@
         environment and reaction duration for the degradation module were fully optimized, delivering maximal
         degradation performance and stable signal input for subsequent fine-tuning of sensing operating conditions.</p>
     </div>
-    <h3 id="section-138"><strong>Cycle 9: Optimization of Naphthalene</strong><strong>-</strong><strong>Detection
+</section>
+<section class="engineering-cycle" id="section-138" data-cycle="9" aria-labelledby="cycle-title-9"><h3 id="cycle-title-9"><strong>Cycle 9: Optimization of Naphthalene</strong><strong>-</strong><strong>Detection
         Operating Conditions Based on the Salicylic</strong><strong>-</strong><strong>Acid Biosensor</strong></h3>
-    <div class="dbtl-stage stage-design">
+<div class="engineering-stages" data-stage-controls><button type="button" class="engineering-stage-arrow" data-stage-direction="-1" aria-label="Previous stage">‹</button><div class="engineering-stage-tabs" role="tablist" aria-label="DBTL stages">
+<button type="button" role="tab" id="cycle-9-tab-0" aria-controls="cycle-9-stage-0" data-stage-index="0"><span class="" data-text-en="Design" data-text-zh="设计">Design</span></button>
+<button type="button" role="tab" id="cycle-9-tab-1" aria-controls="cycle-9-stage-1" data-stage-index="1"><span class="" data-text-en="Build" data-text-zh="构建">Build</span></button>
+<button type="button" role="tab" id="cycle-9-tab-2" aria-controls="cycle-9-stage-2" data-stage-index="2"><span class="" data-text-en="Test" data-text-zh="测试">Test</span></button>
+<button type="button" role="tab" id="cycle-9-tab-3" aria-controls="cycle-9-stage-3" data-stage-index="3"><span class="" data-text-en="Learn" data-text-zh="学习">Learn</span></button>
+</div><button type="button" class="engineering-stage-arrow" data-stage-direction="1" aria-label="Next stage">›</button></div>
+<div class="dbtl-stage stage-design engineering-prose" id="cycle-9-stage-0" data-stage="0" lang="en">
       <h4 id="section-139">Design</h4>
       <p class="">With the optimal co-culture mixing ratio established, the initial cell density (OD₆₀₀) of sensing
         bacteria governs detection precision, signal-response threshold and linear fluorescent-output range. Excessively
@@ -489,19 +538,19 @@
         and detection stability were explored to identify optimal operating cell-density parameters and close the full
         engineering loop for the whole system.</p>
     </div>
-    <div class="dbtl-stage stage-build">
+    <div class="dbtl-stage stage-build engineering-prose" id="cycle-9-stage-1" data-stage="1" lang="en">
       <h4 id="section-143"><strong>Build</strong></h4>
       <p class="">The optimal degradation-engineered strain and MUT3rd ultra-sensitive sensing strain were mixed at
         fixed ratio, while sensing-bacterium suspensions of graded OD₆₀₀ were prepared to construct multiple parallel
         co-culture detection systems. All variables except cell density were strictly kept identical.</p>
     </div>
-    <div class="dbtl-stage stage-test">
+    <div class="dbtl-stage stage-test engineering-prose" id="cycle-9-stage-2" data-stage="2" lang="en">
       <h4 id="section-146"><strong>Test</strong></h4>
       <p class="">Naphthalene-substrate gradients and incubation conditions were unified across groups.
         Sensing-detection experiments characterized differences in response sensitivity, linear-fit quality and system
         stability over varied cell densities to select the optimal operating cell density for sensing.</p>
     </div>
-    <div class="dbtl-stage stage-learn">
+    <div class="dbtl-stage stage-learn engineering-prose" id="cycle-9-stage-3" data-stage="3" lang="en">
       <h4 id="section-149"><strong>Learn</strong></h4>
       <p class="">This round determined the optimal inoculation density of sensing bacteria suited for the co-culture
         system and resolved signal distortion and sensitivity fluctuations caused by inappropriate cell density. After
@@ -515,6 +564,21 @@
         robust, logically rigorous and practically deployable synthetic-biology system for in-situ naphthalene detection
         and biodegradation was constructed.</p>
     </div>
-  </section>
+</section>
+</div></div>
+        <footer class="engineering-card-footer">
+          <p class="engineering-card-status" aria-live="polite" aria-atomic="true"></p>
+          <div class="engineering-card-actions">
+            <button type="button" class="engineering-action engineering-action-next" data-next-module><span data-text-en="Switch module" data-text-zh="切换模块">Switch module</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h15m-4-4 4 4-4 4M20 17H5m4-4-4 4 4 4"/></svg></button>
+            <button type="button" class="engineering-action" data-toggle-layout><span data-layout-label data-text-en="Show both" data-text-zh="同时展示">Show both</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="7" rx="1"/><rect x="4" y="14" width="16" height="7" rx="1"/></svg></button>
+          </div>
+        </footer>
+      </section>
 </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/engineering.js', v='20261007-2') }}"></script>
 {% endblock %}
